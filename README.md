@@ -1,1 +1,2 @@
-# dinografia-v2
+# dinografia
+ herramienta interactiva para niños con disgrafia 

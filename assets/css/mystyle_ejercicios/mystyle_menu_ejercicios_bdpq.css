@@ -1,0 +1,90 @@
+/* body {
+    background: url('../../../../almacenamiento/img/letra-b/bambu-fondo.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+} */
+.body-bambu {
+    background: url('../../../almacenamiento/img/letra-b/bambu-fondo.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.body-desierto {
+    background: url('../../../almacenamiento/img/letra-d/desierto-fondo.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.body-playa {
+    background: url('../../../almacenamiento/img/letra-p/playa_fondo2.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.body-quetzal{
+    background: url('../../../almacenamiento/img/letra-q/bosque_quetzal.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.mt-15 {
+    margin-top: 15%;
+}
+
+/* Estilo para la barra de navegación fija */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+/* Estilo para la barra de navegación */
+.navbar {
+    padding: 0.5rem 1rem; /* Ajusta el relleno superior e inferior y los márgenes horizontalmente */
+}
+
+/* Estilo para el logo (navbar-brand) */
+.navbar-brand img {
+    max-height: 40px; /* Ajusta la altura máxima del logo */
+}
+
+/* Estilo para los elementos de navegación (navbar-nav) */
+.navbar-nav .nav-link {
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem; /* Ajusta el relleno de los enlaces de navegación */
+    font-size: 20px; /* Ajusta el tamaño de fuente de los enlaces de navegación */
+}
+
+/* Estilo para el contenido que sigue la barra de navegación */
+.nav-padding {
+    padding-top: 80px;
+    /* Ajusta esto según la altura de tu barra de navegación */
+}
+
+.navbar-color {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5608368347338936) 9%, rgba(16, 169, 219, 1) 100%);
+    border-radius: 10%"
+
+}
+/* Estilos de los botones para realizar transición */
+.enlargable {
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+.btn-transicion:hover .enlargable {
+    transform: scale(1.8); /* Escala la imagen al 140% */
+}
+
+.indicaciones {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0A2363 !important;
+    text-align: center;
+    /* background-color: #bce2f1a2; */
+
+    /* Color de texto azul por defecto */
+}

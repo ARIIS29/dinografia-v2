@@ -1,0 +1,303 @@
+.body-bambu {
+    background: url('../../../../almacenamiento/img/letra-b/bambu-fondo.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.body-desierto {
+    background: url('../../../../almacenamiento/img/letra-d/desierto-fondo.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.body-playa {
+    background: url('../../../../almacenamiento/img/letra-p/playa_fondo2.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.body-quetzal{
+    background: url('../../../../almacenamiento/img/letra-q/bosque_quetzal.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+/* Estilo para la barra de navegación fija */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    padding: 0.5rem 1rem;
+    /* Ajusta el relleno superior e inferior y los márgenes horizontalmente */
+}
+
+/* Estilo para el logo (navbar-brand) */
+.navbar-brand img {
+    max-height: 40px;
+    /* Ajusta la altura máxima del logo */
+}
+
+/* Estilo para los elementos de navegación (navbar-nav) */
+.navbar-nav .nav-link {
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    /* Ajusta el relleno de los enlaces de navegación */
+    font-size: 20px;
+    /* Ajusta el tamaño de fuente de los enlaces de navegación */
+}
+
+.navbar-color {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5608368347338936) 9%, rgba(16, 169, 219, 1) 100%);
+    border-radius: 10%"
+
+}
+
+.body-color {
+    background: rgb(67, 99, 57);
+    background: linear-gradient(0deg, rgba(67, 99, 57, 1) 20%, rgba(92, 126, 79, 1) 43%, rgba(133, 179, 117, 1) 72%);
+}
+
+/* Estilo por defecto para los enlaces del menú */
+.navbar-nav .nav-link {
+    color: #0A2363 !important;
+    /* Color de texto azul */
+}
+
+/* Estilo para los enlaces cuando se hace hover */
+.navbar-nav .nav-link:hover {
+    color: white !important;
+    /* Color de texto blanco al hacer hover */
+}
+
+.navbar-nav .nav-link.active {
+    color: white !important;
+    background: #0A2363 !important;
+}
+
+.mt-8 {
+    margin-top: 8%;
+}
+
+.mt-10 {
+    margin-top: 10%;
+}
+
+.mt-25 {
+    margin-top: 25%;
+}
+
+.text-azul {
+    font-family: sans-serif;
+    font-size: 25px;
+    color: #0A2363 !important;
+    /* Color de texto azul por defecto */
+}
+
+.enlargable {
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.enlargable:hover {
+    transform: scale(1.5);
+}
+
+#contenedorJuego {
+    display: none;
+}
+
+/* button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+} */
+.areaJuegoObjetos {
+    display: grid;
+    grid-gap: 20px;
+    margin-top: 20px;
+    /* width: 90%; */
+    /* max-width: 600px; */
+    /* align-items: center; */
+}
+
+.emoji {
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(188, 226, 241);
+    color: #0A2363;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.emoji:hover {
+    background-color: skyblue;
+    transform: scale(1.1);
+}
+
+.emoji.correcto {
+    background-color: #2ecc71;
+    animation: correctFlash 0.5s;
+}
+
+.emoji.incorrecto {
+    background-color: #e74c3c;
+    animation: incorrectFlash 0.5s;
+}
+
+@keyframes correctFlash {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes incorrectFlash {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#mensaje {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    margin-top: 2%;
+}
+.correcto {
+    color: white  !important;
+    font-weight: bold;
+    background-color: #2bbe23e5;
+    text-align: center;
+}
+
+.incorrecto {
+    color: white  !important;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.584);
+}
+
+#objetivoEmoji {
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0A2363  !important;
+    background-color: #bce2f1a2;
+}
+
+.instrucciones {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    color: #0A2363 !important;
+    text-align: justify;
+    /* Color de texto azul por defecto */
+}
+
+h1 {
+    color: #0A2363 ;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+#siguienteNivel {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3498db;
+}
+
+#objetoRecolectado {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-weight: bold;
+}
+/* Estilos generales para los botones */
+button {
+    font-size: 18px;  /* Aumenta el tamaño de la fuente */
+    padding: 15px 30px;  /* Aumenta el padding para hacerlo más grande */
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Centra los íconos y texto */
+}
+
+button i {
+    font-size: 24px;  /* Aumenta el tamaño de los íconos */
+}
+
+/* Botón "Saltar" */
+.saltar {
+    background-color: #ffc107;
+    color: white;
+    /* Amarillo */
+}
+
+.saltar:hover {
+    background-color: #e0a800;
+    color: white;
+    /* Amarillo más oscuro al pasar el ratón */
+}
+
+/* Botón "Finalizar" */
+.finalizar {
+    color: white;
+    background-color: #dc3545;
+    /* Rojo */
+}
+
+.finalizar:hover {
+    background-color: #c82333;
+    color: white;
+    /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Botón "Reiniciar" */
+.reiniciar {
+    background-color: #007bff;
+    color: white;
+    /* Azul */
+}
+
+.reiniciar:hover {
+    background-color: #0069d9;
+    color: white;
+    /* Azul más oscuro al pasar el ratón */
+}
+
+.color-fondo
+{
+    background-color: #cceee288;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}

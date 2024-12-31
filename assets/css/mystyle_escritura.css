@@ -1,0 +1,155 @@
+
+body{
+    background: url('../../almacenamiento/img/laberinto-fondo.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.card-body{
+    background: rgb(255,255,255); background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(16,169,219,1) 100%);
+}
+.form-step {
+    display: none;
+}
+.form-step-active {
+    display: block;
+}
+
+/* Estilo para la barra de navegación fija */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+/* Estilo para la barra de navegación */
+.navbar {
+    padding: 0.5rem 1rem; /* Ajusta el relleno superior e inferior y los márgenes horizontalmente */
+}
+
+/* Estilo para el logo (navbar-brand) */
+.navbar-brand img {
+    max-height: 40px; /* Ajusta la altura máxima del logo */
+}
+
+/* Estilo para los elementos de navegación (navbar-nav) */
+.navbar-nav .nav-link {
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem; /* Ajusta el relleno de los enlaces de navegación */
+    font-size: 20px; /* Ajusta el tamaño de fuente de los enlaces de navegación */
+}
+
+/* Estilo para el contenido que sigue la barra de navegación */
+.nav-padding {
+    padding-top: 80px;
+    /* Ajusta esto según la altura de tu barra de navegación */
+}
+
+#dinografia {
+    overflow-x: hidden;
+}
+
+.navbar-color {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5608368347338936) 9%, rgba(16, 169, 219, 1) 100%);
+    border-radius: 10%"
+
+}
+p{
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    
+}
+.text-azul {
+    color: #0A2363!important; /* Color de texto azul por defecto */
+}
+#progressbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0;
+    counter-reset: step;
+}
+
+#progressbar li {
+    list-style-type: none;
+    width: 10%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+/* estilos para numeros */
+#progressbar li::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+}
+
+#progressbar li::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: -50%;
+    top: 15px;
+    z-index: -1;
+}
+
+#progressbar li:first-child::after {
+    content: none;
+}
+
+#progressbar li.active::before, #progressbar li.active::after {
+    background: #007bff;
+    color: white;
+}
+
+.mt-15 {
+    margin-top: 15%;
+}
+/* Estilos para los botones siguiente y regresar */
+
+.btn img {
+    width: 100%; /* Ajusta el tamaño de la imagen */
+    max-width: 140px; /* Tamaño máximo para las imágenes */
+    height: auto;
+}
+
+/* Estilo para eliminar el padding y border de los botones */
+.btn {
+    padding: 0;
+    border: none;
+    background: none;
+}
+/* Estilo de los botenes lecciones y ejercicios  */
+.enlargable {
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+.btn-lecciones:hover .enlargable {
+    transform: scale(1.4); /* Escala la imagen al 140% */
+}
+.btn-ejercicios:hover .enlargable {
+    transform: scale(1.4); /* Escala la imagen al 140% */
+}
+.indicaciones {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0A2363 !important;
+    text-align: center;
+    /* background-color: #bce2f1a2; */
+
+    /* Color de texto azul por defecto */
+}

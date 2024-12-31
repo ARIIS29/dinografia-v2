@@ -1,0 +1,74 @@
+body {
+    background: url('../../almacenamiento/img/paisaje.jpg') no-repeat;
+    width: 100%;
+    
+}
+ /* Estilo para la barra de navegación fija */
+ .fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    padding: 0.5rem 1rem; /* Ajusta el relleno superior e inferior y los márgenes horizontalmente */
+}
+
+/* Estilo para el logo (navbar-brand) */
+.navbar-brand img {
+    max-height: 40px; /* Ajusta la altura máxima del logo */
+}
+
+/* Estilo para los elementos de navegación (navbar-nav) */
+.navbar-nav .nav-link {
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem; /* Ajusta el relleno de los enlaces de navegación */
+    font-size: 20px; /* Ajusta el tamaño de fuente de los enlaces de navegación */
+}
+
+/* Estilo para el contenido que sigue la barra de navegación */
+.nav-padding {
+    padding-top: 80px;
+    /* Ajusta esto según la altura de tu barra de navegación */
+}
+.navbar-color {
+    background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(62,197,241,0.5664390756302521) 100%);
+}
+.mt-6{
+    margin-top: 10%;
+}
+.mt-10 {
+    margin-top: 15%;
+}
+.mt-30 {
+    margin-top: 30%;
+}
+
+.registro-color{
+    background: rgb(255,255,255); background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(16,169,219,1) 100%); border-radius: 10%;
+}
+
+/* Estilo por defecto para los enlaces del menú */
+.text-azul {
+    color: #0A2363!important; /* Color de texto azul por defecto */
+}
+
+/* Estilo para los enlaces cuando se hace hover */
+.text-blanco-hover:hover {
+    color: white!important; /* Color de texto blanco al pasar el mouse */
+}
+/* Estilo para el enlace de Registro */
+.bg-azul{
+    background: #0A2363!important;
+}
+.text-blanco{
+    color: white!important;
+}
+.exito-message{
+    font-size: arial;
+    background-color: rgb(52, 183, 50);
+}
