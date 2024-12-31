@@ -8,7 +8,7 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-css/bootstrap.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_login.css') ?>">
-    <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dino-lapiz.png') ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dinografia/dinografia-dino-lapiz.png') ?>" type="image/x-icon">
     <style>
         /* Estilo para la barra de navegación fija */
         .fixed-top {
@@ -31,7 +31,7 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <a class="" href="<?php echo base_url('#dinografia')?>"><img
-                        src="<?php echo base_url('almacenamiento/img/dinografia-log2.svg')?>" alt=""
+                        src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-log2.svg')?>" alt=""
                         class="img-fluid"></a>
                 <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

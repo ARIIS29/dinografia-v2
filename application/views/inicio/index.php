@@ -1,7 +1,7 @@
 <section class="d-flex justify-content-center align-items-center" id="dinografia">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <img src="<?php echo base_url('almacenamiento/img/dinografia-banner.jpg')?>" alt="" class="img-fluid">
+            <img src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-banner.png')?>" alt="" class="img-fluid">
         </div>
     </div>
 </section>
@@ -9,14 +9,14 @@
 <section class="container" id="disgrafia">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <img src="<?php echo base_url('almacenamiento/img/disgrafia.png') ?>" alt="" class="img-fluid" width="100%">
+            <img src="<?php echo base_url('almacenamiento/img/dinografia/disgrafia.png') ?>" alt="" class="img-fluid" width="100%">
         </div>
     </div>
 </section>
 <section class="container" id="aplicacion">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <img src="<?php echo base_url('almacenamiento/img/tablero-madera.png') ?>" alt="" class="img-fluid">
+            <img src="<?php echo base_url('almacenamiento/img/dinografia/tablero-madera.png') ?>" alt="" class="img-fluid">
         </div>
     </div>
 </section>

@@ -11,14 +11,14 @@
     <link href='https://fonts.googleapis.com/css?family=Cedarville Cursive' rel='stylesheet'>
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle.css') ?>">
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dino-lapiz.png') ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dinografia/dinografia-dino-lapiz.png') ?>" type="image/x-icon">
 </head>
 
 <body class="body-color">
     <section>
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-                <a class="" href="#dinografia"><img src="<?php echo base_url('almacenamiento/img/dinografia-log2.svg')?>" alt="" class="img-fluid"></a>
+                <a class="" href="#dinografia"><img src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-log2.svg')?>" alt="" class="img-fluid"></a>
                 <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,9 +43,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url('login')?>" tabindex="-1">Iniciar
                                     Sesión</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('Escritura')?>" tabindex="-1">Escritura</a>
                             </li>
                         </ul>
                     </form>

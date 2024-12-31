@@ -1,6 +1,7 @@
 body {
-    background: url('../../almacenamiento/img/paisaje.jpg') no-repeat;
-    width: 100%;
+    background: url('../../almacenamiento/img/dinografia/fondo-registro-login.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
     
 }
 /* Estilo para la barra de navegación fija */
@@ -39,7 +40,7 @@ body {
 background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(62,197,241,0.5664390756302521) 100%);
 }
 .login-color{
-    background: rgb(255,255,255); background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(16,169,219,1) 100%); border-radius: 10%;
+    background: rgb(255,255,255); background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(74, 197, 238, 0.945) 100%); border-radius: 10%;
 }
 .texto-menu{
     /* font-family: 'Cedarville Cursive'; */
@@ -49,9 +50,20 @@ background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(
 }
 /* Estilo por defecto para los enlaces del menú */
 .text-azul {
-    color: #0A2363!important; /* Color de texto azul por defecto */
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: #0A2363 !important;
+    /* Color de texto azul por defecto */
 }
 
+.text-azul-caja {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #0A2363 !important;
+    font-weight: bold;
+    /* Color de texto azul por defecto */
+}
 /* Estilo para los enlaces cuando se hace hover */
 .text-blanco-hover:hover {
     color: white!important; /* Color de texto blanco al pasar el mouse */
