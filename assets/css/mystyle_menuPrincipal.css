@@ -1,5 +1,5 @@
 body {
-    background: url('../../almacenamiento/img/laberinto-fondo.png') no-repeat center fixed;
+    background: url('../../almacenamiento/img/dinografia/fondo-registro-login.png') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
 
@@ -62,6 +62,21 @@ body {
     transform: scale(1.4);
     /* Escala la imagen al 140% */
 }
+
+/* Animación de hablar */
+.hablando {
+    animation: hablar 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes hablar {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
 
 
 .floating-buttons {
