@@ -17,9 +17,10 @@
                         <li id="step10"><strong>I</strong></li>
                         <li id="step11"><strong>J</strong></li>
                         <li id="step12"><strong>FIN</strong></li>
+                        <li id="step13"><strong>Rutas del Trazo</strong></li>
                     </ul>
                     <!-- Form Steps -->
-                    <div class="card">
+                    <div class="card mt-1">
                         <div class="card-body">
                             <form id="wizardForm">
                                 <div class="form-step form-step-active text-center">
@@ -29,7 +30,6 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <h3 class="text-center">¡Bienvenido a la Guía del Dino Explorador!</h3>
-                                            <br>
                                             <p>Esta guía está diseñada para ayudarte a mejorar tu escritura y sentirte más cómodo mientras trabajas. Antes de empezar cualquier ejercicio, sigue estas recomendaciones importantes para escribir mejor. </p>
                                         </div>
                                     </div>
@@ -47,7 +47,6 @@
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <div>
                                                 <h3 class="text-center">Siéntate correctamente: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
-                                                <br>
                                                 <p>Apoya tu espalda en el respaldo de la silla.</p>
                                             </div>
                                         </div>
@@ -67,11 +66,11 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <h3 class="text-center">Mantén una distancia adecuada: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
-                                            <br>
                                             <p>No acerques mucho tu cabeza a la hoja.</p>
                                         </div>
                                     </div>
-                                    <div class="col-12 text-center">
+
+                                    <div class="col-lg-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
                                         <button type="button" class="btn btn-next btn-success">Siguiente</button>
                                     </div>
@@ -84,7 +83,6 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <h3 class="text-center">Ajusta tu posición: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
-                                            <br>
                                             <p>Acerca la silla a la mesa para estar cómodo.</p>
                                         </div>
                                     </div>
@@ -101,7 +99,6 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <h3 class="text-center">Alínea tu silla: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
-                                            <br>
                                             <p>Coloca el respaldo alineado con la mesa.</p>
                                         </div>
                                     </div>
@@ -118,7 +115,6 @@
                                         </div>
                                         <div class="col-md-6  col-sm-12 texto_instrucciones">
                                             <h3 class="text-center">Evita mover el papel: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="" class="img-fluid" width="15%"></h3>
-                                            <br>
                                             <p>Mantén el papel fijo para que los renglones no salgan torcidos.</p>
                                         </div>
                                     </div>
@@ -135,7 +131,6 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <h3 class="text-center">Posición de los dedos: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
-                                            <br>
                                             <p>No pongas los dedos muy separados de la punta del lápiz.</p>
                                         </div>
                                     </div>
@@ -168,8 +163,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <h3 class="text-center">Sujeta el lápiz correctamente: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
-                                                <br>
-                                                <p>Coloca los dedos sobre el lápiz a una distancia de 2 a 3 centímetros de la hoja.</p>
+                                            <p>Coloca los dedos sobre el lápiz a una distancia de 2 a 3 centímetros de la hoja.</p>
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">
@@ -185,7 +179,6 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <h3 class="text-center">Si escribes con la mano derecha: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
-                                            <br>
                                             <p> Inclina el papel ligeramente hacia la izquierda.</p>
                                         </div>
                                     </div>
@@ -201,9 +194,8 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoJ.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Si escribes con la mano izquierda: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
-                                                <br>
-                                                <p>Inclina el papel ligeramente hacia la derecha. </p>
+                                            <h3 class="text-center">Si escribes con la mano izquierda: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <p>Inclina el papel ligeramente hacia la derecha. </p>
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">
@@ -218,10 +210,32 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/recomendaciones-dino.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">¡Llego el momento de continuar con la aventura!</h3>
+                                            <h3 class="text-center">¡Haz llegado al fin de la guía!</h3>
+                                            <br>
+                                            <p> Recuerda que una buena postura es la base para una escritura clara y ordenada. <br>
+                                                ¡Sigue estas recomendaciones del Dino Explorador y prepárate para grandes aventuras en el mundo de la escritura!</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="button" class="btn btn-prev btn-primary">Anterior</button>
+                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                    </div>
+                                </div>
 
-                                            <p>Ahora que conoces lo necesario, ¡es hora de seguir explorando y enfrentarte a nuevos desafíos! <br>
-                                            Recuerda que una buena postura es la base para una escritura clara y ordenada. ¡Sigue estas recomendaciones del Dino Explorador y prepárate para grandes aventuras en el mundo de la escritura!</p>
+                                <!-- RUTAS DEL TRAZO -->
+                                <div class="form-step text-center">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-6 col-md-6 mt-5">
+                                            <a href="<?php echo base_url('Rutas_del_trazo') ?>">
+                                                <img src="<?php echo base_url('almacenamiento/img/escritura/btn-rutas-del-trazo.png') ?>" alt="Boton Rutas del trazo" class="img-fluid boton-aventuras-animacion" width="40%">
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 texto_instrucciones">
+                                            <h3 class="text-center">¡Llego el momento de continuar con la aventura!</h3>
+                                            <p>
+                                                Ahora que conoces lo necesario, ¡es hora de seguir explorando y enfrentarte a nuevos desafíos! <br>
+                                                Da clic en el boton <b>"Rutas del Trazo"</b> para seguir explorando.
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">
@@ -236,7 +250,7 @@
             </div>
 
         </div>
-
+        <br>
     </div>
 
 </section>

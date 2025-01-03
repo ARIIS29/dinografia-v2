@@ -18,7 +18,7 @@
                 </p>
                 <div class="text-center">
                     <a href="<?php echo base_url('Guia_dino_explorador') ?>">
-                        <img src="<?php echo base_url('almacenamiento/img/botones/guia_del_explorador.png') ?>" alt="Guia del explorador" class="img-fluid animated-button" width="20%">
+                        <img src="<?php echo base_url('almacenamiento/img/botones/guia_del_explorador.png') ?>" alt="Guia del explorador" class="img-fluid boton-aventuras-animacion" width="20%">
                     </a>
                 </div>
             </div>
