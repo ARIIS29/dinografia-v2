@@ -17,7 +17,7 @@
                         <li id="step10"><strong>I</strong></li>
                         <li id="step11"><strong>J</strong></li>
                         <li id="step12"><strong>FIN</strong></li>
-                        <li id="step13"><strong>Rutas del Trazo</strong></li>
+                        <li id="step13"><strong>Aventuras del Trazo</strong></li>
                     </ul>
                     <!-- Form Steps -->
                     <div class="card mt-1">
@@ -222,19 +222,19 @@
                                     </div>
                                 </div>
 
-                                <!-- RUTAS DEL TRAZO -->
+                                <!-- Aventuras DEL TRAZO -->
                                 <div class="form-step text-center">
                                     <div class="row justify-content-center">
                                         <div class="col-lg-6 col-md-6 mt-5">
-                                            <a href="<?php echo base_url('Rutas_del_trazo') ?>">
-                                                <img src="<?php echo base_url('almacenamiento/img/escritura/btn-rutas-del-trazo.png') ?>" alt="Boton Rutas del trazo" class="img-fluid boton-aventuras-animacion" width="40%">
+                                            <a href="<?php echo base_url('Aventuras_del_trazo') ?>">
+                                                <img src="<?php echo base_url('almacenamiento/img/botones/btn-aventuras_del_trazo.png') ?>" alt="Boton Aventuras del trazo" class="img-fluid boton-animacion-pulso" width="40%">
                                             </a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <h3 class="text-center">¡Llego el momento de continuar con la aventura!</h3>
                                             <p>
                                                 Ahora que conoces lo necesario, ¡es hora de seguir explorando y enfrentarte a nuevos desafíos! <br>
-                                                Da clic en el boton <b>"Rutas del Trazo"</b> para seguir explorando.
+                                                Da clic en el botón <b>"Aventuras del Trazo"</b> para seguir explorando.
                                             </p>
                                         </div>
                                     </div>
@@ -252,7 +252,6 @@
         </div>
         <br>
     </div>
-
 </section>
 
 <script>
