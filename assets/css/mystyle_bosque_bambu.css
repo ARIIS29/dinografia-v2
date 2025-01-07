@@ -1,0 +1,5 @@
+body{
+    background: url('../../almacenamiento/img/bosque_bambu/fondo_bosque_bambu.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
