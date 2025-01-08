@@ -18,7 +18,7 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-3 col-md-3">
-                    <a class="nav-link" href="<?php echo base_url('MenuPrincipal') ?>"><img src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-log2.svg') ?>" alt="" class="img-fluid"></a>
+                    <a class="nav-link" href="<?php echo base_url('Dinografia') ?>"><img src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-log2.svg') ?>" alt="" class="img-fluid"></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center">
                     <img src="<?php echo base_url('almacenamiento/img/titulos/guia_dino_explorador.png') ?>" alt="Dinografía" class="img-fluid" width="100%">

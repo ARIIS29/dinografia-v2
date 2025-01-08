@@ -61,7 +61,7 @@ class Login extends CI_Controller
 				null
 			);
  
-			redirect('menuPrincipal');
+			redirect('dinografia');
         }
 	}
 

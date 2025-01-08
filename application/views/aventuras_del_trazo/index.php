@@ -4,7 +4,7 @@
             <!-- Imagen -->
             <img src="<?php echo base_url('almacenamiento/img/botones/btn-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="6%">
             <!-- Texto -->
-            <p class=" texto_indicaciones mb-0">Haz click en uno de los botones y únete a la emocionante aventura del trazo.</p>
+            <p class=" texto_indicaciones mb-0">Haz click en uno de los botones y exploremos juntos grandes aventuras.</p>
         </div>
         <div class="row justify-content-center text-center">
             <!-- Botón 1 -->

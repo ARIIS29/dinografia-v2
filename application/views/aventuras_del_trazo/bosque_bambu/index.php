@@ -1,18 +1,26 @@
-<section class="d-flex mt-10" id="menuPrincipal">
+<section class="d-flex mt-9" id="menuPrincipal">
     <div class="container-fluid">
         <div class="row mt-2 justify-content-center">
             <div class="col-lg-8 col-md-8 btn-transicion contenedor-instrucciones text-center">
-                <div class="text-parrafo">
-                    
+                <div class="col-lg-12 col-md-12">
                     <h1 class="text-center mt-3"><img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="8%"> ¡Bienvenido explorador!</h1><br>
-                    <p class="ms-4 me-4">
-                        En el mágico bosque de bambú, vamos a emprender una emocionante aventura para descubrir la letra <b>b</b>. A lo largo de este viaje, descubriremos los secretos de esta fantástica letra y aprenderemos a dominarla a través de aventuras que nos ayudaran a identificarla con facilidad. <br>
-                        Únete a la exploración y sé parte de esta increíble aventura dando clic en el botón <b>"Exploración de la letra b"</b>. <br>
-                        ¡Vamos a descubrir lo que el bosque de bambú tiene reservado para ti!
-                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 text-parrafo">
+                        <p class="ms-4 me-4">
+                            En el mágico bosque de bambú, vamos a emprender una emocionante aventura para descubrir la letra <b>b</b>. A lo largo de este viaje, descubriremos los secretos de esta fantástica letra y aprenderemos a dominarla a través de aventuras que nos ayudaran a identificarla con facilidad. <br>Vamos a descubrir lo que el bosque de bambú tiene reservado para ti. ¡Únete a la exploración! y sé parte de esta increíble aventura dando clic en el botón <b>"Exploración de la letra b"</b>.
+                        </p>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <a href="<?php echo base_url('letras//bosque_bambu/explorando_letrab') ?>">
+                            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-explorando_la_letrab.png') ?>" alt="Guia del explorador" class="img-fluid boton-animacion-pulso mt-5" width="60%">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+        <br>
     </div>
 </section>
 
