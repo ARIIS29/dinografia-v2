@@ -3,3 +3,8 @@ body{
     -webkit-background-size: cover;
     background-size: cover;
 }
+.body-explorando-letrab{
+    background: url('../../almacenamiento/img/bosque_bambu/fondo2_bosque_bambu.png') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}

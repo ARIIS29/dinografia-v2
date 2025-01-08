@@ -29,9 +29,9 @@
                 <iframe id="youtubeVideo" width="700" height="400" class="embed-responsive-item" src="https://www.youtube.com/embed/v6QPxN7_Ojs?autoplay=0&rel=0" allow="autoplay; encrypted-media" allowfullscreen>
                 </iframe>
             </div>
-            <div class="col-lg-3 col-md-3 text-center">
-                <a href="<?php echo base_url('letras//bosque_bambu/explorando_letrab') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-la-aventura-continua.png') ?>" alt="Guia del explorador" class="img-fluid boton-animacion-pulso mt-5" width="50%">
+            <div class="col-lg-3 col-md-3 text-center mt-10">
+                <a href="<?php echo base_url('letras//bosque_bambu/leccion_letrab') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-la-aventura-continua.png') ?>" alt="Guia del explorador" class="img-fluid boton-animacion-pulso" width="50%">
                 </a>
             </div>
         </div>

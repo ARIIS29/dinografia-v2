@@ -14,7 +14,7 @@
 </head>
 
 
-<body>
+<body class="body-explorando-letrab">
 <section>
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">

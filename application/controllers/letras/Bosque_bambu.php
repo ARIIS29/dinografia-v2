@@ -22,4 +22,10 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('aventuras_del_trazo/bosque_bambu/explorando_letrab.php');
 		$this->load->view('layout/footer');
 	}
+	public function leccion_letrab()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_leccion_letrab');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/leccion_letrab.php');
+		$this->load->view('layout/footer');
+	}
 }
