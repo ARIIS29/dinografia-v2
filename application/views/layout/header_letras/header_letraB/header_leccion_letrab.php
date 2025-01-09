@@ -19,10 +19,10 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-3 col-md-3">
-                    <a class="nav-link" href="<?php echo base_url('letras/bosque_bambu') ?>"><img src="<?php echo base_url('almacenamiento/img/botones/btn-regresar.png') ?>" alt="Botón regresar" class="img-fluid enlargable" width="25%"></a>
+                    <a class="nav-link" href="<?php echo base_url('letras/bosque_bambu/explorando_letrab') ?>"><img src="<?php echo base_url('almacenamiento/img/botones/btn-regresar.png') ?>" alt="Botón regresar" class="img-fluid enlargable" width="25%"></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center">
-                    <img src="<?php echo base_url('almacenamiento/img/titulos/explorando_letrab.png') ?>" alt="Dinografía" class="img-fluid" width="90%">
+                    <img src="<?php echo base_url('almacenamiento/img/titulos/trazando_la_letrab.png') ?>" alt="Dinografía" class="img-fluid" width="90%">
                 </div>
                 <div class="col-lg-3 col-md-3 justify-aling-center">
                     <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn btn-danger float-end">Cerrar sesion</a>

@@ -281,6 +281,7 @@ h1 {
     /* Altura fija igual a la de la imagen de fondo */
 }
 
+
 /* Estilos para los botones */
 @keyframes parpadeo {
 
@@ -296,7 +297,6 @@ h1 {
 
 .boton-parpadeo {
     animation: parpadeo 0.5s linear;
-    font-weight: bold;
 }
 
 @keyframes pulsoLapiz {
@@ -316,34 +316,63 @@ h1 {
     }
 }
 
+.btn-color-desact {
+    background: conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8a2be2, #ff0000);
+    color: white !important;
+}
+
+#botonColor.btn-color-inactive {
+    background: conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8a2be2, #ff0000);
+    color: white !important;
+    font-weight: bold;
+}
+
+#botonColor.btn-color-inactive:hover {
+    color: #0A2363 !important;
+}
+
+.btn-lapiz-desact {
+    background-color: #6BAFED;
+    color: #0A2363 !important;
+}
+
+#lapiz.btn-lapiz-inactive {
+    background-color: #6BAFED;
+    color: #0A2363 !important;
+    animation: pulsoLapiz 1.5s infinite;
+}
+
+#lapiz.btn-lapiz-inactive:hover {
+    background-color: #9ecffd;
+    font-weight: bold;
+}
+
+#lapiz.btn-lapiz-active {
+    background-color: #6BAFED;
+    color: #0A2363 !important;
+    animation: none;
+}
+
+.btn-limpiar-desact {
+    background-color: rgb(248, 62, 62);
+    color: #0A2363 !important;
+}
+
 #limpiar.btn-limpiar-inactive {
     background-color: rgb(248, 62, 62);
     color: #0A2363 !important;
 
 }
 
-#lapiz.btn-lapiz-inactive {
-    background-color: grey;
-    color: white;
-    font-weight: bold;
-    animation: pulsoLapiz 1.5s infinite;
-}
-
-#lapiz.btn-lapiz-active {
-    background-color: #ffd700;;
+#limpiar.btn-limpiar-inactive:hover {
+    background-color: rgb(243, 88, 88);
     color: #0A2363 !important;
-    animation: none;
+    font-weight: bold;
 }
 
-@keyframes glow {
-    0% { box-shadow: 0 0 5px #ffd700; }
-    50% { box-shadow: 0 0 20px #ffd700; }
-    100% { box-shadow: 0 0 5px #ffd700; }
-  }
-
-#guardar.btn-guardar-active {
-    background-color: grey;
-    color: white;
+.btn-guardar-desact {
+    background-color: orange;
+    color: #0A2363 !important;
 }
 
 #guardar.btn-guardar-inactive {
@@ -351,6 +380,28 @@ h1 {
     color: #0A2363 !important;
     animation: glow 1.5s infinite;
 }
+
+#guardar.btn-guardar-inactive:hover {
+    background-color: rgb(248, 188, 78);
+    font-weight: bold;
+
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #ffd700;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #ffd700;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #ffd700;
+    }
+}
+
+
 
 /* Estilos para el video */
 video {
