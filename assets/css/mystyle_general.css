@@ -344,7 +344,6 @@ h1 {
 
 #lapiz.btn-lapiz-inactive:hover {
     background-color: #9ecffd;
-    font-weight: bold;
 }
 
 #lapiz.btn-lapiz-active {
@@ -352,7 +351,9 @@ h1 {
     color: #0A2363 !important;
     animation: none;
 }
-
+.cursor-lapiz {
+    cursor: pointer;
+}
 .btn-limpiar-desact {
     background-color: rgb(248, 62, 62);
     color: #0A2363 !important;
@@ -367,7 +368,6 @@ h1 {
 #limpiar.btn-limpiar-inactive:hover {
     background-color: rgb(243, 88, 88);
     color: #0A2363 !important;
-    font-weight: bold;
 }
 
 .btn-guardar-desact {
@@ -378,12 +378,11 @@ h1 {
 #guardar.btn-guardar-inactive {
     background-color: orange;
     color: #0A2363 !important;
-    animation: glow 1.5s infinite;
+    /* animation: glow 1.5s infinite; */
 }
 
 #guardar.btn-guardar-inactive:hover {
     background-color: rgb(248, 188, 78);
-    font-weight: bold;
 
 }
 

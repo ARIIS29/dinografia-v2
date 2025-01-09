@@ -53,15 +53,9 @@
     <div class="container">
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <!-- Imagen -->
-            <img src="<?php echo base_url('almacenamiento/img/botones/btn-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="6%">
+            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="4%">
             <!-- Texto -->
             <p class="texto_indicaciones mb-0">¡Traza la letra <b>b</b> en la pizarra!</p>
-        </div>
-
-        <!-- Imagen que solo se muestra en dispositivos medianos y grandes -->
-        <div class="col-lg-6 col-md-6 d-none d-sm-block">
-            <!-- Muestra una imagen desde el almacenamiento -->
-            <img src="<?php echo base_url('almacenamiento/img/letra-b/msjb1.png') ?>" alt="" class="img-fluid" width="70%">
         </div>
         <div class="row">
             <!-- Columna para el video -->
@@ -205,8 +199,17 @@
 
         botonLapiz.addEventListener('click', () => {
             usarLapiz = !usarLapiz; // Alterna el uso del lápiz
+            actualizarCursor();
             actualizarBotonLapiz();
         });
+
+        function actualizarCursor() {
+            if (usarLapiz) {
+                canvas.classList.add('cursor-lapiz'); // Aplica el estilo de cursor de lápiz
+            } else {
+                canvas.classList.remove('cursor-lapiz'); // Restaura el cursor por defecto
+            }
+        }
 
         // Añadir evento al botón de guardar
         botonGuardar.addEventListener('click', () => {
@@ -233,7 +236,7 @@
                 const formData = new FormData();
                 formData.append('imagen', imagenBase64);
 
-                fetch(baseUrl + 'leccionb/guardarImagen', {
+                fetch(baseUrl + 'letras/bosque_bambu/guardarImagen', {
                         method: 'POST',
                         body: formData // Enviando el FormData
                     })
@@ -257,26 +260,61 @@
             };
         });
 
-        // Función para mostrar el mensaje de éxito
         function mostrarMensajeExito() {
+            // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = '¡Captura guardada con éxito en la galería B!';
             mensaje.style.color = 'green';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
-            mensaje.style.top = '150px'; // Posición en la pantalla
-            mensaje.style.right = '150px';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
             mensaje.style.backgroundColor = '#DFF2BF';
             mensaje.style.border = '1px solid #4CAF50';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir trazando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el lienzo
+                trazoRealizado = false; // Restablecer trazo
+                botonGuardar.style.display = "none"; // Ocultar el botón de guardar
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('menu_principal'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
             document.body.appendChild(mensaje);
 
-            // Eliminar el mensaje después de 3 segundos
+            // Eliminar el mensaje después de 5 segundos si no se ha hecho clic
             setTimeout(() => {
                 mensaje.remove();
-            }, 3000);
+            }, 5000); // Se elimina después de 5 segundos si no se hace clic
         }
+
 
         // Función para actualizar la apariencia del botón de guardar
         function actualizarBotonGuardar() {
@@ -332,9 +370,11 @@
             if (usarLapiz) {
                 botonLapiz.classList.remove('btn-lapiz-inactive');
                 botonLapiz.classList.add('btn-lapiz-active');
+                canvas.classList.add('cursor-lapiz');
             } else {
                 botonLapiz.classList.remove('btn-lapiz-active');
                 botonLapiz.classList.add('btn-lapiz-inactive');
+                canvas.classList.remove('cursor-lapiz');
             }
         }
     });
