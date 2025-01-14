@@ -6,20 +6,14 @@ body{
 
 }
 .card-body{
-    background: rgb(255,255,255); background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(16,169,219,1) 100%);
+   
+    background: linear-gradient(0deg, rgba(172, 240, 135, 0.521) 9%, rgb(144, 216, 240) 100%);
 }
 .form-step {
     display: none;
 }
 .form-step-active {
     display: block;
-}
-
-.navbar-color {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5608368347338936) 9%, rgba(16, 169, 219, 1) 100%);
-    border-radius: 10%"
-
 }
 
 #progressbar {
@@ -75,3 +69,16 @@ h3{
     font-weight: bold;
 }
 
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }

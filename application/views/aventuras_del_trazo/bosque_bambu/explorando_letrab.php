@@ -30,7 +30,7 @@
                 </iframe>
             </div>
             <div class="col-lg-3 col-md-3 text-center mt-10">
-                <a href="<?php echo base_url('letras//bosque_bambu/leccion_letrab') ?>">
+                <a href="<?php echo base_url('letras//bosque_bambu/la_aventura_continua_letrab') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-la-aventura-continua.png') ?>" alt="Guia del explorador" class="img-fluid boton-animacion-pulso" width="50%">
                 </a>
             </div>

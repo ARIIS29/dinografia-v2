@@ -29,8 +29,8 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/recomendaciones-dino.png') ?>" alt="Dino explorador escritura" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">¡Bienvenido a la Guía del Dino Explorador!</h3>
-                                            <p>Esta guía está diseñada para ayudarte a mejorar tu escritura y sentirte más cómodo mientras trabajas. Antes de empezar cualquier ejercicio, sigue estas recomendaciones importantes para escribir mejor. </p>
+                                            <h2 class="text-center">¡Hola Explorador!</h2>
+                                            <p>¡Bienvenido a la Guía del Dino! Esta guía ha sido creada especialmente para ayudarte a mejorar tu escritura y sentirte más seguro y cómodo mientras practicas. Antes de comenzar con las actividades, sigue estas recomendaciones clave que te ayudarán a escribir aún mejor. </p>
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">
@@ -46,8 +46,9 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
                                             <div>
-                                                <h3 class="text-center">Siéntate correctamente: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                                <h2 class="text-center">Siéntate correctamente: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                                 <p>Apoya tu espalda en el respaldo de la silla.</p>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +66,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoB.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Mantén una distancia adecuada: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Mantén una distancia adecuada: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                             <p>No acerques mucho tu cabeza a la hoja.</p>
                                         </div>
                                     </div>
@@ -82,7 +83,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoC.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Ajusta tu posición: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Ajusta tu posición: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                             <p>Acerca la silla a la mesa para estar cómodo.</p>
                                         </div>
                                     </div>
@@ -98,7 +99,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoD.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Alínea tu silla: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Alínea tu silla: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                             <p>Coloca el respaldo alineado con la mesa.</p>
                                         </div>
                                     </div>
@@ -114,7 +115,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoE.png') ?>" alt="Dino con lupa" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-md-6  col-sm-12 texto_instrucciones">
-                                            <h3 class="text-center">Evita mover el papel: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Evita mover el papel: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="" class="img-fluid" width="15%"></h2>
                                             <p>Mantén el papel fijo para que los renglones no salgan torcidos.</p>
                                         </div>
                                     </div>
@@ -130,7 +131,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoF.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Posición de los dedos: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Posición de los dedos: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                             <p>No pongas los dedos muy separados de la punta del lápiz.</p>
                                         </div>
                                     </div>
@@ -146,7 +147,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoG.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Evita la fatiga: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Evita la fatiga: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                             <p>No acerques demasiado los dedos a la punta del lápiz, para que puedas ver lo que escribes sin cansarte.</p>
                                         </div>
                                     </div>
@@ -162,7 +163,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoH.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Sujeta el lápiz correctamente: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Sujeta el lápiz correctamente: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                             <p>Coloca los dedos sobre el lápiz a una distancia de 2 a 3 centímetros de la hoja.</p>
                                         </div>
                                     </div>
@@ -178,7 +179,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoI.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Si escribes con la mano derecha: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Si escribes con la mano derecha: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                             <p> Inclina el papel ligeramente hacia la izquierda.</p>
                                         </div>
                                     </div>
@@ -194,7 +195,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/incisoJ.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">Si escribes con la mano izquierda: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h3>
+                                            <h2 class="text-center">Si escribes con la mano izquierda: <img src="<?php echo base_url('almacenamiento/img/escritura/icono-dino.png') ?>" alt="Dino con lupa" class="img-fluid" width="15%"></h2>
                                             <p>Inclina el papel ligeramente hacia la derecha. </p>
                                         </div>
                                     </div>
@@ -210,7 +211,7 @@
                                             <img src="<?php echo base_url('almacenamiento/img/escritura/recomendaciones-dino.png') ?>" alt="" class="img-fluid" width="50%">
                                         </div>
                                         <div class="col-lg-6 col-md-6 texto_instrucciones">
-                                            <h3 class="text-center">¡Haz llegado al fin de la guía!</h3>
+                                            <h2 class="text-center">¡Haz llegado al fin de la guía!</h2>
                                             <br>
                                             <p> Recuerda que una buena postura es la base para una escritura clara y ordenada. <br>
                                                 ¡Sigue estas recomendaciones del Dino Explorador y prepárate para grandes aventuras en el mundo de la escritura!</p>
@@ -226,7 +227,7 @@
                                 <div class="form-step text-center">
                                     <div class="row justify-content-center">
                                         <div class="col-lg-7 col-md-7 texto_instrucciones mt-2">
-                                            <h3 class="text-center">¡Llego el momento de continuar con la aventura!</h3>
+                                            <h2 class="text-center">¡Llego el momento de continuar con la aventura!</h2>
                                             <p>
                                                 Ahora que conoces lo necesario, ¡es hora de seguir explorando y enfrentarte a nuevos desafíos! <br>
                                                 Da clic en el botón <b>"Aventuras del Trazo"</b> para seguir explorando.

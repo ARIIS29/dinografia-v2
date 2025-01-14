@@ -10,21 +10,6 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_login.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_general.css') ?>">
     <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dinografia/dinografia-dino-lapiz.png') ?>" type="image/x-icon">
-    <style>
-        /* Estilo para la barra de navegación fija */
-        .fixed-top {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030;
-        }
-
-        /* Estilo para el contenido que sigue la barra de navegación */
-        .nav-padding {
-            padding-top: 80px;
-            /* Ajusta esto según la altura de tu barra de navegación */
-        }
-    </style>
 </head>
 
 <body>
@@ -41,7 +26,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="d-flex ms-auto">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 texto-menu">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                                 <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('#disgrafia')?>">Disgrafía</a>
                             </li>

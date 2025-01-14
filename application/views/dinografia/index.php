@@ -3,9 +3,9 @@
         <div class="row mt-2 justify-content-center">
             <div class="col-lg-8 col-md-8 btn-transicion contenedor-instrucciones text-center">
                 <div class="col-lg-12 col-md-12">
-                    <h1 class="text-center mt-3">
+                    <h2 class="text-center mt-3">
                         <img src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-dino-lapiz.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" id="dino" width="8%">¡Hola, bienvenido a Dinografía!
-                    </h1><br>
+                    </h2><br>
                     <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/bienvenido-dinografia.mp3') ?>" preload="auto"></audio>
                 </div>
                 <div class="row">

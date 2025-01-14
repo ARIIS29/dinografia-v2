@@ -2,41 +2,58 @@ body {
     background: url('../../almacenamiento/img/dinografia/fondo-registro-login.png') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
-    
+
 }
-.login-color{
-    background: rgb(255,255,255); background: linear-gradient(0deg, rgba(255,255,255,0.5608368347338936) 9%, rgba(74, 197, 238, 0.945) 100%); border-radius: 10%;
+
+.login-color {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5608368347338936) 9%, rgba(74, 197, 238, 0.945) 100%);
+    border-radius: 10%;
 }
-.texto-menu{
+
+.texto-menu {
     /* font-family: 'Cedarville Cursive'; */
-    font-family: sans-serif;
-    font-size: 140%;
+    font-family: 'Century Gothic', sans-serif;
     font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    /* Ajusta el relleno de los enlaces de navegación */
+    font-size: 25px;
 }
+/* Estilo para los enlaces cuando se hace hover */
+.text-blanco-hover:hover {
+    color: white !important;
+    padding: 0.5rem 0.75rem;
+    /* Ajusta el relleno de los enlaces de navegación */
+    font-size: 25px;
+    /* Color de texto blanco al pasar el mouse */
+}
+
 /* Estilo por defecto para los enlaces del menú */
 .text-azul {
-    font-family: sans-serif;
-    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 25px;
+    font-weight: bold;
     color: #0A2363 !important;
-    /* Color de texto azul por defecto */
 }
 
 .text-azul-caja {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 20px;
     color: #0A2363 !important;
     font-weight: bold;
     /* Color de texto azul por defecto */
 }
-/* Estilo para los enlaces cuando se hace hover */
-.text-blanco-hover:hover {
-    color: white!important; /* Color de texto blanco al pasar el mouse */
-}
+
+
+
 /* Estilo para el enlace de Registro */
-.bg-azul{
-    background: #0A2363!important;
+.bg-azul {
+    background: #0A2363 !important;
 }
-.text-blanco{
-    color: white!important;
+
+.text-blanco {
+    color: white !important;
+    padding: 0.5rem 0.75rem;
+    /* Ajusta el relleno de los enlaces de navegación */
+    font-size: 25px;
 }

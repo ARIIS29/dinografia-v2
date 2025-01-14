@@ -34,7 +34,7 @@
 
 /* Estilo para los elementos de navegación (navbar-nav) */
 .navbar-nav .nav-link {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-weight: bold;
     padding: 0.5rem 0.75rem;
     /* Ajusta el relleno de los enlaces de navegación */
@@ -70,19 +70,8 @@
     font-size: 16px;
 }
 
-.btn-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.btn-close:hover {
-    background-color: darkred;
+.tipografia {
+    font-family: 'Century Gothic', sans-serif;
 }
 
 .mt-8 {
@@ -101,12 +90,29 @@
     margin-top: 15%;
 }
 
-h1 {
+h2 {
     color: #0A2363 !important;
+    font-family: 'Century Gothic', sans-serif;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Century+Gothic&display=swap'); /* Incluye la fuente si no está instalada */
+
+.titulo-h1-azul {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 3rem;
+    color: #0A2363;
+    text-shadow: 
+        0 0 10px #00BFFF,   /* Brillo azul claro */
+        2px 2px 0 #1E90FF,  /* Sombra inferior azul */
+        -2px -2px 0 #1E90FF; /* Sombra superior azul */
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
 }
 
 .texto-dino-habla {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 15px;
     color: #0A2363 !important;
     font-weight: bold;
@@ -114,21 +120,21 @@ h1 {
 }
 
 .texto-modal {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 15px;
     text-align: justify;
     color: #0A2363 !important;
 }
 
 .texto_instrucciones {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 20px;
     text-align: justify;
     color: #0A2363 !important;
 }
 
 .texto_indicaciones {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 22px;
     font-weight: bold;
     text-align: center;
@@ -136,7 +142,7 @@ h1 {
 }
 
 .text-parrafo {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 20px;
     color: #0A2363 !important;
     text-align: justify;
@@ -146,7 +152,7 @@ h1 {
 
 .contenedor-instrucciones {
     background: rgb(163, 218, 151);
-    background: linear-gradient(0deg, rgba(172, 240, 135, 0.537) 9%, rgba(144, 216, 240, 0.945) 100%);
+    background: linear-gradient(0deg, rgba(172, 240, 135, 0.854) 9%, rgb(144, 216, 240) 100%);
     border-radius: 2%;
 }
 

@@ -26,11 +26,11 @@
 
 /* Estilo para los elementos de navegación (navbar-nav) */
 .navbar-nav .nav-link {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-weight: bold;
     padding: 0.5rem 0.75rem;
     /* Ajusta el relleno de los enlaces de navegación */
-    font-size: 20px;
+    font-size: 25px;
     /* Ajusta el tamaño de fuente de los enlaces de navegación */
 }
 

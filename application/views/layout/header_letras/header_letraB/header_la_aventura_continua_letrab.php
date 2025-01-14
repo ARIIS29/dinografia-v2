@@ -4,32 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía del Dino Explorador</title>
+    <title>La Aventura Continua - Letra b </title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-css/bootstrap.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_guia_dino_explorador.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_bosque_bambu.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_general.css') ?>">
     <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dinografia/dinografia-dino-lapiz.png') ?>" type="image/x-icon">
 </head>
 
 
 <body>
-    <section>
+<section>
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-3 col-md-3">
-                    <a class="nav-link" href="<?php echo base_url('Dinografia') ?>"><img src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-log2.svg') ?>" alt="" class="img-fluid"></a>
+                    <a class="nav-link" href="<?php echo base_url('Aventuras_del_trazo') ?>"><img src="<?php echo base_url('almacenamiento/img/botones/btn-regresar.png') ?>" alt="Botón regresar" class="img-fluid enlargable" width="25%"></a>
                 </div>
-                <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz">
-                    <h1 class="titulo-h1-azul">GUÍA DEL DINO</h1>
+                <div class="col-lg-6 col-md-6 justify-aling-center text-center">
+                    <img src="<?php echo base_url('almacenamiento/img/titulos/la_aventura_continua_b.png') ?>" alt="Dinografía" class="img-fluid" width="90%">
                 </div>
-                <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn btn-danger float-end">Cerrar sesión</a>
+                <div class="col-lg-3 col-md-3 justify-aling-center">
+                    <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn btn-danger float-end">Cerrar sesion</a>
                 </div>
-
 
             </div>
         </nav>
     </section>
-
-    

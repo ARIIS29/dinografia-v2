@@ -19,11 +19,11 @@
                 <div class="col-lg-3 col-md-3">
                     <a class="nav-link" href="<?php echo base_url('Dinografia') ?>"><img src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-log2.svg') ?>" alt="" class="img-fluid"></a>
                 </div>
-                <div class="col-lg-6 col-md-6 justify-aling-center text-center">
-                    <img src="<?php echo base_url('almacenamiento/img/titulos/dinografia.png') ?>" alt="Dinografía" class="img-fluid" width="60%">
+                <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz">
+                    <h1 class="titulo-h1-azul">DINOGRAFÍA</h1>
                 </div>
-                <div class="col-lg-3 col-md-3 justify-aling-center">
-                    <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn btn-danger float-end">Cerrar sesion</a>
+                <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
+                    <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn btn-danger float-end">Cerrar sesión</a>
                 </div>
 
             </div>
