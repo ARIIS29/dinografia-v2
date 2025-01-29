@@ -17,21 +17,21 @@ body {
     font-weight: bold;
     padding: 0.5rem 0.75rem;
     /* Ajusta el relleno de los enlaces de navegación */
-    font-size: 25px;
+    font-size: 20px;
 }
 /* Estilo para los enlaces cuando se hace hover */
 .text-blanco-hover:hover {
     color: white !important;
     padding: 0.5rem 0.75rem;
     /* Ajusta el relleno de los enlaces de navegación */
-    font-size: 25px;
+    font-size: 20px;
     /* Color de texto blanco al pasar el mouse */
 }
 
 /* Estilo por defecto para los enlaces del menú */
 .text-azul {
     font-family: 'Century Gothic', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     color: #0A2363 !important;
 }
@@ -55,5 +55,5 @@ body {
     color: white !important;
     padding: 0.5rem 0.75rem;
     /* Ajusta el relleno de los enlaces de navegación */
-    font-size: 25px;
+    font-size: 20px;
 }

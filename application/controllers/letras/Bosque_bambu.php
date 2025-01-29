@@ -39,6 +39,19 @@ class Bosque_bambu extends CI_Controller
 		}
 	}
 
+	public function trazando_aventuras_b()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_trazando_aventuras_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/trazando_aventuras_b.php');
+		$this->load->view('layout/footer');
+	}
+	public function letrab()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_letrab');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/letrab.php');
+		$this->load->view('layout/footer');
+	}
+
 	public function guardarImagen()
 	{
 		if ($this->input->post('imagen')) {
@@ -98,17 +111,12 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('aventuras_del_trazo/bosque_bambu/explorando_letrab.php');
 		$this->load->view('layout/footer');
 	}
-	public function leccion_letrab()
-	{
-		$this->load->view('layout/header_letras/header_letraB/header_leccion_letrab');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/leccion_letrab.php');
-		$this->load->view('layout/footer');
-	}
+
+	
 	public function la_aventura_continua_letrab()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_la_aventura_continua_letrab');
 		$this->load->view('aventuras_del_trazo/bosque_bambu/la_aventura_continua_letrab.php');
 		$this->load->view('layout/footer');
 	}
-
 }

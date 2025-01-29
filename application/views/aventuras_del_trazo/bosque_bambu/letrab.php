@@ -8,9 +8,9 @@
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body texto-modal-bambu">
                 <p>
-                    En esta aventura aprenderemos a trazar la letra B. En unos momentos verás un video que te enseñará cómo hacerlo. ¡Ajusta el volumen para escucharme y seguir mis indicaciones mientras trazas en la pizarra! <br>
+                    En esta aventura aprenderemos a trazar la letra "b". En unos momentos verás un video que te enseñará cómo hacerlo. ¡Ajusta el volumen para escucharme y seguir mis indicaciones mientras trazas en la pizarra! <br>
                     <b>Es importante dar clic en los siguientes botones para hacer uso de la pizarra. Si deseas hacer lo siguiente:</b>
                 <ul>
 
@@ -55,9 +55,9 @@
             <!-- Imagen -->
             <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="4%">
             <!-- Texto -->
-            <p class="texto_indicaciones mb-0">¡Traza la letra <b>b</b> en la pizarra!</p>
+            <p class="texto_indicaciones_bambu mb-0">¡Traza la letra <b>b</b> en la pizarra!</p>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <!-- Columna para el video -->
             <div class="col-lg-6 col-md-6 col-12">
                 <!-- Elemento de video con controles -->
@@ -77,7 +77,7 @@
                     <i class="fas fa-palette"></i>
                 </button>
                 <!-- Input de color oculto -->
-                <input type="color" id="color" value="#0A2363" style="display: none;" title="Cambiar color del lápiz">
+                <input type="color" id="color" value="#007300" style="display: none;" title="Cambiar color del lápiz">
                 <!-- Botón para usar el lápiz -->
                 <button id="lapiz" type="button" class="btn btn-lapiz-inactive" title="Usar lapiz para dibujar"><i class="fas fa-pencil-alt"></i> Usar Lápiz</button>
                 <!-- Botón para limpiar el canvas -->
@@ -104,7 +104,7 @@
         const fondo = document.getElementById('fondo-letra'); // Imagen de fondo
         const botonColor = document.getElementById('botonColor'); // Botón de color
         const inputColor = document.getElementById('color'); // Input de color oculto
-        const grosorFijo = 20;
+        const grosorFijo = 15;
         botonGuardar.style.display = "none";
         const video = document.getElementById('video');
         const modal = new bootstrap.Modal(document.getElementById('modalInstrucciones'));
@@ -189,6 +189,7 @@
                 mostrarBotonGuardar();
             }
         });
+
         botonLimpiar.addEventListener('click', () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia todo el canvas
             trazoRealizado = false; // Indica que el canvas está vacío
@@ -196,20 +197,10 @@
             actualizarBotonLimpiar();
         });
 
-
         botonLapiz.addEventListener('click', () => {
             usarLapiz = !usarLapiz; // Alterna el uso del lápiz
-            actualizarCursor();
             actualizarBotonLapiz();
         });
-
-        function actualizarCursor() {
-            if (usarLapiz) {
-                canvas.classList.add('cursor-lapiz'); // Aplica el estilo de cursor de lápiz
-            } else {
-                canvas.classList.remove('cursor-lapiz'); // Restaura el cursor por defecto
-            }
-        }
 
         // Añadir evento al botón de guardar
         botonGuardar.addEventListener('click', () => {
@@ -370,12 +361,13 @@
             if (usarLapiz) {
                 botonLapiz.classList.remove('btn-lapiz-inactive');
                 botonLapiz.classList.add('btn-lapiz-active');
-                canvas.classList.add('cursor-lapiz');
+                // canvas.classList.add('cursor-lapiz');
             } else {
                 botonLapiz.classList.remove('btn-lapiz-active');
                 botonLapiz.classList.add('btn-lapiz-inactive');
-                canvas.classList.remove('cursor-lapiz');
+                // canvas.classList.remove('cursor-lapiz');
             }
         }
+
     });
 </script>

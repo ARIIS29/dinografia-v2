@@ -8,3 +8,89 @@ body{
     -webkit-background-size: cover;
     background-size: cover;
 }
+
+.mod-color {
+    background: #f6fcf9;
+    color: #214524 !important;
+    
+ 
+}
+.modal-header{
+    background-color: #00984f !important;
+    color: white !important;
+
+}
+.modal-footer{
+    background-color: #00984f !important;
+}
+
+/* .titulo-h1-bambu {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 3rem;
+    color: #00984f;
+    text-shadow: 
+        0 0 10px white, 
+        2.2px 2.2px 0 white,
+        -2.2px -2.2px 0 white; 
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+} */
+.titulo-h1-bambu {
+    font-size: 48px;
+    font-weight: bold;
+    color: #00b050;
+    /* Color del relleno */
+    -webkit-text-stroke: 2px  #007300 !important;
+    /* Grosor y color del borde */
+    text-align: center;
+
+}
+
+.texto_indicaciones_bambu {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: #214524 !important;
+}
+.texto-modal-bambu {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    font-weight: 500; 
+    color: #214524 !important;
+}
+
+.boton-regresar-bambu {
+    background-color: #0bb362; 
+    border: 2px solid white; /* Verde claro */
+    border-radius: 20px; /* Bordes redondeados */
+    color: #00984F; /* Texto blanco */
+    font-family: 'Century Gothic', sans-serif; /* Fuente amigable */
+    font-size: 16px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre ícono y texto */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s; /* Transiciones */
+  }
+  
+  .boton-regresar-bambu:hover {
+    background-color: #00984F; 
+    transform: scale(1.2); 
+  }
+  
+  .boton-regresar-bambu:active {
+    transform: scale(0.95); /* Efecto de clic */
+  }
+  
+  .boton-regresar-bambu i {
+    font-size: 20px; /* Tamaño del ícono */
+    color: white; /* Color del ícono */
+    pointer-events: none; 
+  }

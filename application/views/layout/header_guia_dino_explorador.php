@@ -24,7 +24,7 @@
                     <h1 class="titulo-h1-azul">GUÍA DEL DINO</h1>
                 </div>
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn btn-danger float-end">Cerrar sesión</a>
+                    <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn boton-cerrar-sesion float-end">Cerrar sesión</a>
                 </div>
 
 

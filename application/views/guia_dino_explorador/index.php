@@ -226,14 +226,14 @@
                                 <!-- Aventuras DEL TRAZO -->
                                 <div class="form-step text-center">
                                     <div class="row justify-content-center">
-                                        <div class="col-lg-7 col-md-7 texto_instrucciones mt-2">
+                                        <div class="col-lg-6 col-md-6 texto_instrucciones mt-2">
                                             <h2 class="text-center">¡Llego el momento de continuar con la aventura!</h2>
                                             <p>
                                                 Ahora que conoces lo necesario, ¡es hora de seguir explorando y enfrentarte a nuevos desafíos! <br>
                                                 Da clic en el botón <b>"Aventuras del Trazo"</b> para seguir explorando.
                                             </p>
                                         </div>
-                                        <div class="col-lg-5 col-md-5 mt-5">
+                                        <div class="col-lg-6 col-md-6 mt-5">
                                             <a href="<?php echo base_url('Aventuras_del_trazo') ?>">
                                                 <img src="<?php echo base_url('almacenamiento/img/botones/btn-aventuras_del_trazo.png') ?>" alt="Boton Aventuras del trazo" class="img-fluid boton-animacion-pulso" width="40%">
                                             </a>

@@ -6,8 +6,8 @@ body{
 
 }
 .card-body{
-   
-    background: linear-gradient(0deg, rgba(172, 240, 135, 0.521) 9%, rgb(144, 216, 240) 100%);
+    background: #003366f5;
+    /* background: linear-gradient(0deg, rgba(172, 240, 135, 0.854) 9%, rgb(144, 216, 240) 100%); */
 }
 .form-step {
     display: none;
@@ -22,6 +22,8 @@ body{
     margin-bottom: 20px;
     padding: 0;
     counter-reset: step;
+    color: #0A2363;
+    font-family: 'Century Gothic', sans-serif;
 }
 
 #progressbar li {
@@ -62,7 +64,7 @@ body{
 }
 
 #progressbar li.active::before, #progressbar li.active::after {
-    background: #007bff;
+    background: #003366f5;
     color: white;
 }
 h3{

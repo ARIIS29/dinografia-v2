@@ -32,19 +32,27 @@
             <!-- Imagen -->
             <img src="<?php echo base_url('almacenamiento/img/botones/btn-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="6%">
             <!-- Texto -->
-            <p class="texto_indicaciones_bambu mb-0">Haz clic en uno de los botones y exploremos juntos grandes aventuras.</p>
+            <p class="texto_indicaciones_bambu mb-0">Haz clic en uno de los botones y tracemos aventuras con la letra b</p>
         </div>
         <div class="row justify-content-center text-center">
-            <!-- Botón 1 -->
+            <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">
+                <a href="<?php echo base_url('letras/bosque_bambu/letrab') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-la_ruta_del_trazo.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                </a>
+            </div>
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">
                 <a href="<?php echo base_url('letras/bosque_bambu/trazando_aventuras_b') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-la_ruta_del_trazo.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
                 </a>
             </div>
-            <!-- Botón 2 -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">
-            <a href="<?php echo base_url('ejercicios/ejercicios_letra_p/index') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-explorando_la_letrab.png') ?>" alt="" class="mx-5 img-fluid animated-button2" >
+                <a href="<?php echo base_url('letras/bosque_bambu/trazando_aventuras_b') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-la_ruta_del_trazo.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">
+                <a href="<?php echo base_url('letras/bosque_bambu/trazando_aventuras_b') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-la_ruta_del_trazo.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
                 </a>
             </div>
 
