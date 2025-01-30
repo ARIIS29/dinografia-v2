@@ -105,6 +105,13 @@ class Bosque_bambu extends CI_Controller
 		}
 	}
 
+	public function trazos_en_arena_b()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_trazos_en_arena_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/trazos_en_arena_b.php');
+		$this->load->view('layout/footer');
+	}
+
 	public function explorando_letrab()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_explorando_letrab');
@@ -113,10 +120,5 @@ class Bosque_bambu extends CI_Controller
 	}
 
 	
-	public function la_aventura_continua_letrab()
-	{
-		$this->load->view('layout/header_letras/header_letraB/header_la_aventura_continua_letrab');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/la_aventura_continua_letrab.php');
-		$this->load->view('layout/footer');
-	}
+	
 }

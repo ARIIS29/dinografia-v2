@@ -254,8 +254,8 @@
         function mostrarMensajeExito() {
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
-            mensaje.textContent = '¡Captura guardada con éxito en la galería B!';
-            mensaje.style.color = 'green';
+            mensaje.innerHTML = '¡Increíble trabajo, explorador!<br>Tu trazo se ha guardado con éxito en la galería B.<br>¡Sigue explorando!';
+            mensaje.style.color = '#214524';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
