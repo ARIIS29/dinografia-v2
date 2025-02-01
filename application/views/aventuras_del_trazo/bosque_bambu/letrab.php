@@ -55,7 +55,7 @@
             <!-- Imagen -->
             <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="4%">
             <!-- Texto -->
-            <p class="texto_indicaciones_bambu mb-0">¡Traza la letra <b>b</b> en la pizarra!</p>
+            <p class="texto_indicaciones_bambu mb-0">¡Da clic en el botón del lápiz, sigue las instrucciones del Dino y traza la letra "b" en la pizarra! </p>
         </div>
         <div class="row mt-3">
             <!-- Columna para el video -->
@@ -68,7 +68,7 @@
             <!-- Columna para la imagen de fondo y el canvas -->
             <div class="col-lg-6 col-md-6 col-12" style="position: relative;">
                 <!-- Imagen de fondo -->
-                <img id="fondo-letra" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letra-b.gif'); ?>" alt="Background Image" style="display: block;" class="img-fluid">
+                <img id="fondo-letra" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letra-b.png'); ?>" alt="Background Image" style="display: block;" class="img-fluid">
                 <!-- Canvas para dibujar -->
                 <canvas id="canvas"></canvas>
                 <br>
@@ -361,11 +361,11 @@
             if (usarLapiz) {
                 botonLapiz.classList.remove('btn-lapiz-inactive');
                 botonLapiz.classList.add('btn-lapiz-active');
-                // canvas.classList.add('cursor-lapiz');
+                canvas.classList.add('cursor-lapiz');
             } else {
                 botonLapiz.classList.remove('btn-lapiz-active');
                 botonLapiz.classList.add('btn-lapiz-inactive');
-                // canvas.classList.remove('cursor-lapiz');
+                canvas.classList.remove('cursor-lapiz');
             }
         }
 

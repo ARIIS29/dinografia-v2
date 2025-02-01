@@ -6,7 +6,7 @@ body{
 
 }
 .card-body{
-    background: #003366f5;
+    background: #228B22;
     /* background: linear-gradient(0deg, rgba(172, 240, 135, 0.854) 9%, rgb(144, 216, 240) 100%); */
 }
 .form-step {
@@ -16,6 +16,15 @@ body{
     display: block;
 }
 
+.btn-verde{
+    background-color: #7cc409;
+    color: white;
+}
+.btn-verde:hover{
+    background-color: #6fb104;
+    color: white;
+
+}
 #progressbar {
     display: flex;
     justify-content: space-between;
@@ -64,7 +73,7 @@ body{
 }
 
 #progressbar li.active::before, #progressbar li.active::after {
-    background: #003366f5;
+    background: #228B22;
     color: white;
 }
 h3{

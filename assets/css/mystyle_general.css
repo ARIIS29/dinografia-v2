@@ -508,9 +508,9 @@ h2 {
     animation: none;
 }
 
-/* .cursor-lapiz {
+.cursor-lapiz {
     cursor: pointer;
-} */
+}
 
 .btn-limpiar-desact {
     background-color: rgb(248, 62, 62);
@@ -543,6 +543,15 @@ h2 {
     background-color: rgb(240, 160, 12);
     
 }
+
+#toggleLetraB.btn-toggle-active {
+    background-color: rgb(117, 237, 36);
+    color: white;
+}
+#toggleLetraB.btn-toggle-active:hover {
+    background-color: rgb(98, 217, 19);
+}
+
 
 @keyframes glow {
     0% {
@@ -579,3 +588,36 @@ video {
 }
 
 /* Aqui terminan los estilos de trazos en la arena de las letras b, d, p y q */
+
+/* ===================================================================================== */
+
+/* Inicio de estilos para la seccion de grafismo b, d, p yq  */
+#fondo-letrab {
+    margin-left: 19%;
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    z-index: -1;
+    /* Asegura que esté detrás del lienzo */
+}
+
+#canvas-grafismo {
+    position: relative;
+    z-index: 1;
+    /* Asegura que el lienzo esté delante de la imagen de fondo */
+    width: 800px;
+    height: 400px;
+}
+
+#entradaImagen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    /* Asegura que esté visible encima del canvas */
+    opacity: 0.8;
+    /* Opcional: haz que el selector de archivo sea semitransparente */
+}
+
+/* Fin de estilos para la seccion de grafismo b, d, p yq  */

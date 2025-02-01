@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
 
                                 </div>
@@ -55,7 +55,7 @@
 
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
 
                                 </div>
@@ -73,7 +73,7 @@
 
                                     <div class="col-lg-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- C -->
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- D -->
@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- E -->
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-amarillo">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- F -->
@@ -137,7 +137,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- G -->
@@ -153,7 +153,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- H -->
@@ -169,7 +169,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- I -->
@@ -185,7 +185,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- J -->
@@ -201,7 +201,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- fin -->
@@ -219,7 +219,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-success">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
 

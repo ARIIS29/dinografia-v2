@@ -10,27 +10,14 @@
             </div>
             <div class="modal-body texto-modal-bambu">
                 <p>
-                    En esta misión exploraremos la letra ‘b’. Usa tu dedo o lápiz digital para trazar círculos, líneas o incluso formar la letra ‘b’ a tu manera. <br> ¡Esta es tu arena mágica! Experimenta, crea y diviértete realizando todos los trazos que quieras.
+                    En esta misión exploraremos la letra ‘b’. Usa tu dedo o lápiz digital para formar la letra ‘b’ a tu manera. <br> ¡Esta es tu arena mágica! Experimenta, crea y diviértete realizando todos los trazos que quieras.
                 <ul>
-
-                    <li>Dibujar en la pizarra, da clic en el botón
-                        <button class="btn-lapiz-desact" title="Usar lapiz para dibujar" disabled>
-                            <i class="fas fa-pencil-alt"></i> Usar Lápiz
-                        </button>
-
-                    </li>
-                    <li>Cambiar el color del lápiz, da clic en el siguiente botón
-                        <button class="btn-color-desact" title="Cambiar color del lápiz" disabled>
-                            <i class="fas fa-palette"></i>
-                        </button>
-
-                    </li>
-                    <li>Borrar todo para realizar un nuevo trazo, da clic en el botón
+                    <li>Para borrar todo y realizar un nuevo trazo, da clic en el botón
                         <button class="btn-limpiar-desact" title="Limpiar toda la pizarra" disabled>
-                            <i class="fas fa-trash-alt"></i> Limpiar Pizarra
+                            <i class="fas fa-trash-alt"></i> Limpiar Arena
                         </button>
                     </li>
-                    <li>Para guardar tus trazos en la Galería Letra B, da clic en el botón
+                    <li>Para guardar tus trazos en la Galería de Trazos en la Arena da clic en el botón
                         <button class="btn-guardar-desact" title="Guardar mi trazo" disabled>
                             <i class="fas fa-camera"></i> Guardar Trazo
                         </button> Si no lo haces, tus trazos no se guardarán.
@@ -48,24 +35,26 @@
         </div>
     </div>
 </div>
+
 <section class="mt-8">
-    <div class="container">
+    <div class="container text-center">
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
-            <!-- Imagen -->
             <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="4%">
-            <!-- Texto -->
-            <p class="texto_indicaciones_bambu mb-0">¡Traza la letra <b>b</b> en la pizarra!</p>
+            <p class="texto_indicaciones_bambu mb-0">Usa tu dedo para trazar la letra "b" en la arena. ¡Diviértete practicando!</p>
         </div>
-        <div class="row mt-3">
-            <div class="col-lg-6 col-md-6 col-12">
-                <canvas id="lienzo" width="600" height="350"></canvas>
-                <button id="botonLimpiar" class="btn btn-limpiar-inactive" title="Limpiar arena"><i class="fas fa-trash-alt"></i></button>
-                <button id="guardar" class="btn btn-guardar-inactive" title="Guardar el trazo del lienzo"><i class="fas fa-camera"></i></button>
+
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-12 text-center">
+                <button id="limpiar" class="btn btn-limpiar-inactive" title="Limpiar toda la arena"><i class="fas fa-trash-alt"></i> Limpiar Arena</button>
+                <button id="guardar" class="btn btn-guardar-inactive" title="Guardar mi trazo"><i class="fas fa-camera"></i> Guardar Trazo</button>
+                <button id="toggleLetraB" class="btn btn-toggle-active" title="Mostrar/ocultar Letra B"><i class="fas fa-image"></i> Mostrar/ocultar Letra B</button>
+                <canvas id="lienzo" width="700" height="350"></canvas>
             </div>
-
+            <div class="col-lg-4 col-md-4 d-flex align-items-center">
+                <img id="letraBImg" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letrab-img.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="display: none;" width="80%">
+            </div>
         </div>
 
-    </div>
     </div>
 </section>
 
@@ -78,6 +67,20 @@
 
         // Mostrar el modal al cargar la página
         modal.show();
+        const imgLetraB = document.getElementById('letraBImg');
+        const btnToggleLetraB = document.getElementById('toggleLetraB');
+
+        // Ocultar la imagen por defecto
+        imgLetraB.style.display = 'none';
+
+        // Evento para mostrar/ocultar la imagen al hacer clic en el botón
+        btnToggleLetraB.addEventListener('click', () => {
+            if (imgLetraB.style.display === 'none') {
+                imgLetraB.style.display = 'block';
+            } else {
+                imgLetraB.style.display = 'none';
+            }
+        });
 
         const lienzo = document.getElementById("lienzo");
         const contexto = lienzo.getContext("2d");
@@ -130,9 +133,9 @@
         }
 
         // Botón para borrar el lienzo
-        botonLimpiar.addEventListener('click', () => {
+        limpiar.addEventListener('click', () => {
             contexto.clearRect(0, 0, lienzo.width, lienzo.height); // Limpia todo el canvas
-            actualizarBotonLimpiar();
+            actualizarlimpiar();
         });
 
         botonGuardar.addEventListener('click', () => {
@@ -155,7 +158,7 @@
             const imagenBase64 = canvasTemporal.toDataURL("image/jpeg");
 
             // Enviar la imagen al servidor usando AJAX
-            fetch('trazos_arena/guardarImagen', {
+           fetch(baseUrl + 'letras/bosque_bambu/guardarImagenTrazosArenaB', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -209,14 +212,14 @@
         }
 
         // Función para actualizar la apariencia del botón de limpiar
-        function actualizarBotonLimpiar() {
-            botonLimpiar.classList.toggle('btn-limpiar-active');
+        function actualizarlimpiar() {
+            limpiar.classList.toggle('btn-limpiar-active');
             // Agregar la clase de parpadeo
-            botonLimpiar.classList.add('boton-parpadeo');
+            limpiar.classList.add('boton-parpadeo');
 
             // Remover la clase de parpadeo después de 0.5 segundos (duración del parpadeo)
             setTimeout(function() {
-                botonLimpiar.classList.remove('boton-parpadeo');
+                limpiar.classList.remove('boton-parpadeo');
             }, 500); // Tiempo en milisegundos
         }
 
