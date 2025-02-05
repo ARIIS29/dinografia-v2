@@ -36,7 +36,6 @@
         <div class="row">
             <div class="col-lg-10">
                 <canvas id="canvas-grafismo"></canvas>
-
             </div>
             <div id="imagenContainer" class="col-lg-2">
                 <div class="row">
@@ -214,11 +213,117 @@
 
 
 
+        // botonGuardar.addEventListener('click', () => {
+        //     const enlace = document.createElement('a');
+        //     enlace.href = canvas.toDataURL('image/png');
+        //     enlace.download = 'dibujo.png';
+        //     enlace.click();
+        // });
+
         botonGuardar.addEventListener('click', () => {
-            const enlace = document.createElement('a');
-            enlace.href = canvas.toDataURL('image/png');
-            enlace.download = 'dibujo.png';
-            enlace.click();
+
+            const baseUrl = '<?php echo base_url(); ?>';
+
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+
+            tempCanvas.width = canvas.width;
+            tempCanvas.height = canvas.height;
+
+            tempCtx.drawImage(canvas, 0, 0);
+            
+            // Convierte la imagen a Base64
+            const imagenBase64 = tempCanvas.toDataURL('image/png');
+
+            // Crear un FormData para enviar la imagen correctamente
+            const formData = new FormData();
+            formData.append('imagen', imagenBase64);
+
+            fetch(baseUrl + 'letras/bosque_bambu/guardarImagenGrafismoB', {
+                    method: 'POST',
+                    body: formData // Enviando el FormData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        console.log('Imagen guardada con éxito:', data);
+                        mostrarMensajeExito(); // Mostrar mensaje de éxito
+                        actualizarBotonGuardar(); // Actualiza el estado del botón
+                    } else {
+                        console.error('Error:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al guardar la imagen:', error);
+                });
         });
+
+        function mostrarMensajeExito() {
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.innerHTML = '¡Increíble trabajo, explorador!<br>Tu trazo se ha guardado con éxito en la galería B.<br>¡Sigue explorando!';
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#DFF2BF';
+            mensaje.style.border = '1px solid #4CAF50';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir trazando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el lienzo
+                trazoRealizado = false; // Restablecer trazo
+                botonGuardar.style.display = "none"; // Ocultar el botón de guardar
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('menu_principal'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
+
+            // Eliminar el mensaje después de 5 segundos si no se ha hecho clic
+            setTimeout(() => {
+                mensaje.remove();
+            }, 5000); // Se elimina después de 5 segundos si no se hace clic
+        }
+
+
+        // Función para actualizar la apariencia del botón de guardar
+        function actualizarBotonGuardar() {
+            botonGuardar.classList.toggle('btn-guardar-active');
+            // Agregar la clase de parpadeo
+            botonGuardar.classList.add('boton-parpadeo');
+
+            // Remover la clase de parpadeo después de 0.5 segundos (duración del parpadeo)
+            setTimeout(function() {
+                botonGuardar.classList.remove('boton-parpadeo');
+            }, 500); // Tiempo en milisegundos
+        }
     });
 </script>

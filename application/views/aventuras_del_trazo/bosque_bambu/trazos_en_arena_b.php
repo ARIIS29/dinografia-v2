@@ -139,6 +139,7 @@
         });
 
         botonGuardar.addEventListener('click', () => {
+            const baseUrl = '<?php echo base_url(); ?>';
             // Crear un canvas temporal para agregar el fondo
             const canvasTemporal = document.createElement("canvas");
             const contextoTemporal = canvasTemporal.getContext("2d");
@@ -156,22 +157,18 @@
 
             // Obtener la imagen en formato base64 del canvas temporal
             const imagenBase64 = canvasTemporal.toDataURL("image/jpeg");
-
+            const formData = new FormData();
+            formData.append('imagen', imagenBase64);
             // Enviar la imagen al servidor usando AJAX
-           fetch(baseUrl + 'letras/bosque_bambu/guardarImagenTrazosArenaB', {
+            fetch(baseUrl + 'letras/bosque_bambu/guardarImagenTrazosArena', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        imagen: imagenBase64
-                    })
+                    body: formData // Enviando el FormData
                 })
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 'success') {
                         mostrarMensajeExito(); // Mostrar mensaje de éxito
-                        actualizarBotonGuardar(); // Actualiza el estado del botón
+                        // actualizarBotonGuardar(); // Actualiza el estado del botón
 
                     } else {
                         console.error(data.message); // Mostrar mensaje de error en la consola
@@ -197,18 +194,6 @@
             setTimeout(() => {
                 mensaje.remove();
             }, 3000);
-        }
-
-        // Función para actualizar la apariencia del botón de guardar
-        function actualizarBotonGuardar() {
-            botonGuardar.classList.toggle('btn-guardar-active');
-            // Agregar la clase de parpadeo
-            botonGuardar.classList.add('boton-parpadeo');
-
-            // Remover la clase de parpadeo después de 0.5 segundos (duración del parpadeo)
-            setTimeout(function() {
-                botonGuardar.classList.remove('boton-parpadeo');
-            }, 500); // Tiempo en milisegundos
         }
 
         // Función para actualizar la apariencia del botón de limpiar

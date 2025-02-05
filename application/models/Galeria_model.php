@@ -81,18 +81,18 @@ class Galeria_model extends CI_Model
         }
     }
 
-    public function guardarImagen($nombreArchivo, $identificador_1)
-    {
-        // Ejemplo de cómo guardar la información de la imagen en la base de datos
-        $data = [
-            'identificador' => $identificador_1,
-            'identificador_usuario' => $this->session->userdata('identificador'),
-            'url_imagen' => $nombreArchivo,
-            'fecha_registro' => date("Y-m-d H:i:s")
-        ];
+    // public function guardarImagen($nombreArchivo, $identificador_1)
+    // {
+    //      Ejemplo de cómo guardar la información de la imagen en la base de datos
+    //     $data = [
+    //         'identificador' => $identificador_1,
+    //         'identificador_usuario' => $this->session->userdata('identificador'),
+    //         'url_imagen' => $nombreArchivo,
+    //         'fecha_registro' => date("Y-m-d H:i:s")
+    //     ];
 
-        $this->db->insert('galeria', $data); // Cambia 'imagenes' por el nombre real de tu tabla
-    }
+    //     $this->db->insert('galeria', $data); 
+    // }
 
     public function insertar_evaluacion($data, $imagen_identificador)
     {

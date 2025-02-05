@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="button" class="btn btn-prev btn-primary">Anterior</button>
-                                        <button type="button" class="btn btn-next btn-amarillo">Siguiente</button>
+                                        <button type="button" class="btn btn-next btn-verde">Siguiente</button>
                                     </div>
                                 </div>
                                 <!-- F -->
