@@ -244,5 +244,19 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 	
+	public function descubriendo_mensajes_secretos_b()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_descubriendo_mensajes_secretos_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/descubriendo_mensajes_secretos_b');
+		$this->load->view('layout/footer');
+	}
+
+	public function explorador_hojas_b()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_explorador_hojas_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/explorador_hojas_b');
+		$this->load->view('layout/footer');
+	}
+	
 	
 }
