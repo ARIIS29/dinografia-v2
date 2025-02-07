@@ -428,16 +428,6 @@ h2 {
     /* Asegura que esté detrás del lienzo */
 }
 
-#canvas {
-    position: relative;
-    z-index: 1;
-    /* Asegura que el lienzo esté delante de la imagen de fondo */
-    width: 100%;
-    height: 300px;
-    /* Altura fija igual a la de la imagen de fondo */
-}
-
-
 /* Estilos para los botones */
 @keyframes parpadeo {
 

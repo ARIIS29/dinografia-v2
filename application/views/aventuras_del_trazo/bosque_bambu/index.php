@@ -43,7 +43,7 @@
             </div>
             <!-- Botón 2 -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">
-            <a href="<?php echo base_url('ejercicios/ejercicios_letra_p/index') ?>">
+            <a href="<?php echo base_url('letras/bosque_bambu//explora_y_descubre_b') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-explorando_la_letrab.png') ?>" alt="" class="mx-5 img-fluid animated-button2" >
                 </a>
             </div>

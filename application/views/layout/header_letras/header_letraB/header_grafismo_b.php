@@ -22,7 +22,7 @@
                     <a href="<?php echo site_url('letras/bosque_bambu/trazando_aventuras_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center">
-                    <h1 class="titulo-h1-bambu">GRAFISMO - B</h1>
+                    <h1 class="titulo-h1-bambu">GRAFISMO</h1>
                 </div>
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
                     <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn boton-cerrar-sesion float-end">Cerrar sesión</a>

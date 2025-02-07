@@ -50,6 +50,16 @@
     </div>
 </div>
 <section class="mt-8">
+    <style>
+        #canvas {
+            position: relative;
+            z-index: 1;
+            /* Asegura que el lienzo esté delante de la imagen de fondo */
+            width: 100%;
+            height: 300px;
+            /* Altura fija igual a la de la imagen de fondo */
+        }
+    </style>
     <div class="container">
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <!-- Imagen -->

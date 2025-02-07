@@ -38,7 +38,7 @@ body{
     font-weight: bold;
 } */
 .titulo-h1-bambu {
-    font-size: 48px;
+    font-size: 45px;
     font-weight: bold;
     color: #00b050;
     /* Color del relleno */
@@ -94,3 +94,6 @@ body{
     color: white; /* Color del ícono */
     pointer-events: none; 
   }
+
+  
+ 
