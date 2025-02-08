@@ -264,6 +264,20 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('aventuras_del_trazo/bosque_bambu/encontrando_objetos_b');
 		$this->load->view('layout/footer');
 	}
+
+	public function dino_dice_b()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_dino_dice_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/dino_dice_b');
+		$this->load->view('layout/footer');
+	}
+
+	public function memorama_b()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_memorama_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/memorama_b');
+		$this->load->view('layout/footer');
+	}
 	
 	
 }
