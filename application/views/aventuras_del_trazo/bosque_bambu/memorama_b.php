@@ -43,24 +43,23 @@
                 <div class="col-lg-12 col-md-12 col-12 text-center">
                     <button id="play-btn">Play</button>
                 </div>
-
             </div>
-
             <div class="col-lg-12 col-md-12 col-12 justify-content-center" id="contenedorJuego">
                 <canvas id="confettiCanvas"></canvas>
-                <div class="col-12 text-center" id="objetivoEmoji"></div>
-                <div class="justify-content-center areaJuego" id="areaJuego"></div>
-                <div class="d-flex justify-content-center mt-4">
-                    <button id="pasarNivelBtn" class="btn saltar me-2" title="Saltar elemento">
+                <h1>Pares Ocultos: Emoji y Palabra</h1>
+                <div class="areaJuegoMemorama" id="areaJuegoMemorama"></div>
+                <div id="resultado"></div>
+                <div id="movimientosRestantes"></div>
+                <div class="d-flex justify-content-center">
+                    <!-- <button id="pasarNivelBtn" class="btn saltar me-2" title="Saltar elemento">
                         <i class="fas fa-arrow-right"></i>
-                    </button>
+                    </button> -->
                     <button id="reiniciarJuegoBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
                         <i class="fas fa-redo"></i>
                     </button>
-
-                    <button id="finalizarJuegoBtn" class="btn finalizar me-2" title="Finalizar Juego">
+                    <!-- <button id="finalizarJuegoBtn" class="btn finalizar me-2" title="Finalizar Juego">
                         <i class="fas fa-times"></i>
-                    </button>
+                    </button> -->
                 </div>
                 <div>
                     <p id="mensaje"></p>
@@ -70,115 +69,78 @@
 
         </div>
 </section>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-
         const playBtn = document.getElementById('play-btn');
-
         const areaJuego = document.getElementById('areaJuego');
         const contenedorJuego = document.getElementById('contenedorJuego');
+        const areaJuegoMemorama = document.getElementById('areaJuegoMemorama');
         const mensaje = document.getElementById('mensaje');
-        const temporizadorElemento = document.getElementById('temporizador');
         const resultado = document.getElementById('resultado');
         const movimientosRestantes = document.getElementById('movimientosRestantes');
-
-        document.getElementById('pasarNivelBtn').addEventListener('click', pasarNivel);
-        document.getElementById('finalizarJuegoBtn').addEventListener('click', finalizarJuego);
-        document.getElementById('reiniciarJuegoBtn').addEventListener('click', reiniciarJuego);
-
-
-        function mostrarConfeti() {
-            const canvas = document.getElementById("confettiCanvas");
-            const ctx = canvas.getContext("2d");
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const colores = ["#ff6347", "#32cd32", "#4682b4", "#f4d03f", "#ff7f50"];
-            const particulas = Array.from({
-                length: 200
-            }, () => ({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 5 + 2,
-                color: colores[Math.floor(Math.random() * colores.length)],
-                vx: Math.random() * 2 - 1,
-                vy: Math.random() * 2 + 1
-            }));
-
-            function animar() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particulas.forEach(p => {
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.y = p.y > canvas.height ? 0 : p.y;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color;
-                    ctx.fill();
-                });
-                requestAnimationFrame(animar);
-            }
-
-            animar();
-
-            // Detener confeti después de 5 segundos
-            setTimeout(() => (canvas.style.display = "none"), 2000);
-        }
-
+        const temporizadorElemento = document.getElementById('temporizador');
 
         playBtn.addEventListener('click', function() {
-            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
-            console.log("Juego mostrado"); // Agrega esta línea para depurar
-            document.getElementById('areaJuego').style.display = 'none';
-            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+            console.log('Clic en el botón de inicio');
+            playBtn.style.display = 'none'; // Ocultar el botón
+            areaJuego.style.display = 'none'; // Ocultar el área del botón
+            contenedorJuego.style.display = 'block'; // Mostrar el juego
+            // Iniciar el juego por primera vez
             iniciarJuego();
             iniciarTemporizador();
         });
 
+        // document.getElementById('pasarNivelBtn').addEventListener('click', pasarNivel);
+        // document.getElementById('finalizarJuegoBtn').addEventListener('click', finalizarJuego);
+        document.getElementById('reiniciarJuegoBtn').addEventListener('click', reiniciarJuego);
+
+        // Arreglo de parejas base: Emoji y palabra
         const parejasBase = [{
-                emoji: '🐱',
-                palabra: 'gato'
+                emoji: '🫏',
+                palabra: 'burro'
             },
             {
-                emoji: '🐶',
-                palabra: 'perro'
+                emoji: '🦓',
+                palabra: 'cebra'
             },
             {
-                emoji: '🐷',
-                palabra: 'cerdo'
+                emoji: '🦬',
+                palabra: 'bisonte'
             },
             {
-                emoji: '🐯',
-                palabra: 'tigre'
+                emoji: '🐺',
+                palabra: 'lobo'
             },
             {
-                emoji: '🐵',
-                palabra: 'mono'
+                emoji: '🐎',
+                palabra: 'caballo'
             },
             {
-                emoji: '🐰',
-                palabra: 'conejo'
+                emoji: '🦉',
+                palabra: 'búho'
             },
             {
-                emoji: '🦁',
-                palabra: 'león'
+                emoji: '🐋',
+                palabra: 'ballena'
             },
             {
-                emoji: '🐔',
-                palabra: 'gallina'
+                emoji: '🐝',
+                palabra: 'abeja'
             },
             {
-                emoji: '🐘',
-                palabra: 'elefante'
+                emoji: '🐑',
+                palabra: 'borrego'
             },
             {
-                emoji: '🦄',
-                palabra: 'unicornio'
+                emoji: '🐂',
+                palabra: 'búfalo'
             }
         ];
 
         let tarjetasVolteadas = [];
         let paresEncontrados = 0;
+        let paresTotalesEncontrados = 0;
         let totalPares = 0;
         let parejas = [];
         let nivel = 0;
@@ -206,96 +168,59 @@
             }
             return arreglo;
         }
+        let movimientosSobrantes = 0; // Movimientos sobrantes de cada nivel
 
-        // Función para ajustar el tamaño de la cuadrícula según el nivel
-        function ajustarCuadrícula() {
-            switch (nivel) {
-                case 1:
-                    areaJuego.style.gridTemplateColumns = 'repeat(2, 100px)';
-                    areaJuego.style.gridTemplateRows = 'repeat(2, 100px)';
-                    break;
-                case 2:
-                    areaJuego.style.gridTemplateColumns = 'repeat(2, 100px)';
-                    areaJuego.style.gridTemplateRows = 'repeat(3, 100px)';
-                    break;
-                case 3:
-                    areaJuego.style.gridTemplateColumns = 'repeat(4, 100px)';
-                    areaJuego.style.gridTemplateRows = 'repeat(2, 100px)';
-                    break;
-                case 4:
-                    areaJuego.style.gridTemplateColumns = 'repeat(4, 100px)';
-                    areaJuego.style.gridTemplateRows = 'repeat(3, 100px)';
-                    break;
-                case 5:
-                    areaJuego.style.gridTemplateColumns = 'repeat(4, 100px)';
-                    areaJuego.style.gridTemplateRows = 'repeat(4, 100px)';
-                    break;
-                default:
-                    areaJuego.style.gridTemplateColumns = 'repeat(4, 100px)';
-                    areaJuego.style.gridTemplateRows = 'repeat(4, 100px)';
-            }
-        }
-
-
-
-        let movimientosSobrantes = 0; // Variable para guardar los movimientos sobrantes
-
-        // Función para iniciar el juego
         function iniciarJuego() {
             nivel++;
-            if (nivel > 5) {
-                // nivel = 5; // Limitar a 5 niveles
+            if (nivel > 3) {
+                nivel = 3;
             }
 
             // Ajustar las parejas según el nivel
-            parejas = parejasBase.slice(0, nivel * 2); // Cada nivel añade más pares
+            parejas = parejasBase.slice(0, nivel * 2);
             totalPares = parejas.length;
 
-            // Mostrar el mensaje de nivel
-            mensaje.textContent = `Nivel ${nivel}`;
-
-            areaJuego.innerHTML = '';
+            areaJuegoMemorama.innerHTML = '';
             resultado.textContent = '';
             tarjetasVolteadas = [];
             paresEncontrados = 0;
 
-            // Solo sumar los movimientos sobrantes del nivel anterior, no el total
+            // Ajustar los movimientos según el nivel
             switch (nivel) {
                 case 1:
                     movimientos = 4;
                     break;
                 case 2:
-                    movimientos = 8 + movimientosSobrantes;
-                    console.log('moviNi2', movimientos);
+                    movimientos = 8;
                     break;
                 case 3:
                     movimientos = 12;
                     break;
-                case 4:
-                    movimientos = 16;
-                    break;
-                case 5:
-                    movimientos = 20;
-                    break;
                 default:
-                    movimientos = 4; // Por defecto en caso de un error
+                    movimientos = 4;
             }
-
-            // Sumar los movimientos sobrantes de la ronda anterior
-            movimientos += movimientosSobrantes;
-            console.log('movimientos', movimientos);
-            console.log('movSobra', movimientosSobrantes);
-
-            // Actualizar los movimientos restantes
-            movimientosRestantes.textContent = `Movimientos restantes: ${movimientos}`;
-
-            // Guardar los movimientos sobrantes para el siguiente nivel
-            movimientosSobrantes = movimientos; // Guardamos los movimientos sobrantes del nivel actual
+            movimientosRestantes.textContent = `${movimientos}`;
+            movimientosSobrantes += movimientosRestantes;
+            console.log("movimientos sobr", movimientosSobrantes);
+            console.log("movimientos res", movimientosRestantes);
 
             // Ajustar la cuadrícula del tablero según el nivel
-            ajustarCuadrícula();
+            switch (nivel) {
+                case 1:
+                    areaJuegoMemorama.style.gridTemplateColumns = 'repeat(2, 100px)';
+                    areaJuegoMemorama.style.gridTemplateRows = 'repeat(2, 100px)';
+                    break;
+                case 2:
+                    areaJuegoMemorama.style.gridTemplateColumns = 'repeat(4, 100px)';
+                    areaJuegoMemorama.style.gridTemplateRows = 'repeat(2, 100px)';
+                    break;
+                case 3:
+                    areaJuegoMemorama.style.gridTemplateColumns = 'repeat(4, 100px)';
+                    areaJuegoMemorama.style.gridTemplateRows = 'repeat(3, 100px)';
+                    break;
+            }
 
-            // Crear el arreglo de tarjetas mezclado (emoji y palabra)
+            // Crear el arreglo de tarjetas mezclado
             const tarjetas = [];
             parejas.forEach(par => {
                 tarjetas.push(par.emoji, par.palabra);
@@ -310,12 +235,12 @@
                 tarjetaDiv.setAttribute('data-valor', tarjeta);
                 tarjetaDiv.addEventListener('click', () => voltearTarjeta(tarjetaDiv));
 
-                areaJuego.appendChild(tarjetaDiv);
+                areaJuegoMemorama.appendChild(tarjetaDiv);
             });
-
-            // Mostrar las tarjetas durante 4 segundos
+            resultado.textContent = `${paresTotalesEncontrados}`;
             mostrarTarjetasPor4Segundos();
         }
+
 
 
         // Función para mostrar las tarjetas durante 4 segundos
@@ -346,7 +271,7 @@
 
             if (tarjetasVolteadas.length === 2) {
                 movimientos--; // Disminuir el contador de movimientos
-                movimientosRestantes.textContent = `Movimientos restantes: ${movimientos}`;
+                movimientosRestantes.textContent = `${movimientos}`;
                 verificarEmparejamiento();
             }
         }
@@ -357,11 +282,16 @@
             const primeraValor = primeraTarjeta.getAttribute('data-valor');
             const segundaValor = segundaTarjeta.getAttribute('data-valor');
 
-            // Verificar si las tarjetas volteadas son un emoji y su palabra correspondiente
+            // Verificar si las tarjetas forman una pareja válida
             if (parejas.some(par => (primeraValor === par.emoji && segundaValor === par.palabra) || (primeraValor === par.palabra && segundaValor === par.emoji))) {
-                paresEncontrados++;
-                resultado.textContent = `Pares encontrados: ${paresEncontrados}`;
+
                 mensaje.textContent = '¡Correcto! Emparejaste las cartas.';
+                paresEncontrados++;
+                paresTotalesEncontrados++;
+                // Cambiar el color de fondo a verde
+                primeraTarjeta.style.backgroundColor = 'green';
+                segundaTarjeta.style.backgroundColor = 'green';
+
                 if (paresEncontrados === totalPares) {
                     mensaje.textContent = `¡Felicidades! Completaste el nivel ${nivel}.`;
                     resultado.textContent = '';
@@ -369,6 +299,8 @@
                         iniciarJuego(); // Iniciar el siguiente nivel después de un breve retraso
                     }, 2000);
                 }
+
+                resultado.textContent = `${paresTotalesEncontrados}`;
             } else {
                 mensaje.textContent = '¡Intenta de nuevo!';
                 setTimeout(() => {
@@ -383,6 +315,7 @@
             tarjetasVolteadas = [];
         }
 
+
         function reiniciarJuego() {
             tarjetasVolteadas = [];
             paresEncontrados = 0;
@@ -393,7 +326,6 @@
         }
 
 
-        // Iniciar el juego por primera vez
 
 
     });
