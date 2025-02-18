@@ -26,43 +26,46 @@ class Login extends CI_Controller
 	public function autenticacion()
 	{
 		// Reglas de validación de formularios
-        $this->form_validation->set_rules('usuario', 'Usuario', 'required');
-        $this->form_validation->set_rules('contrasenia', 'contrasenia', 'required');
+		$this->form_validation->set_rules('usuario', 'Usuario', 'required');
+		$this->form_validation->set_rules('contrasenia', 'contrasenia', 'required');
 
-        if ($this->form_validation->run() == FALSE) {
-            // Si la validación falla, recargar la vista del formulario
+
+
+		if ($this->form_validation->run() == FALSE) {
+			// Si la validación falla, recargar la vista del formulario
 			echo "entra if 1";
-            $this->load->view('login/index');
-
-        } else {
-            // Capturar los datos del formulario
-            // $password = do_hash($contrasenia, 'md5'); // Cifrar la contraseña ingresada por el usuario
+			$this->load->view('login/index');
+		} else {
+			// Capturar los datos del formulario
+			// $password = do_hash($contrasenia, 'md5'); // Cifrar la contraseña ingresada por el usuario
 
 			$usuario_row = $this->usuarios_model->obtener_usuario($this->input->post('usuario'))->row();
 
-			if (!$usuario_row) 
-			{
-				redirect('login');
+			if (!$usuario_row) {
+				$this->session->set_flashdata('error1', 'Usuario incorrecto. Inténtalo de nuevo.');
+				redirect('login'); // Redirige al formulario de inicio de sesión
 			}
 
 			$this->session->set_flashdata('usuario', $this->input->post('usuario'));
 
 			if (!password_verify($this->input->post('contrasenia'), $usuario_row->contrasenia)) {
-				redirect('login');
+				// Contraseña incorrecta
+				$this->session->set_flashdata('error2', 'Contraseña incorrecta. Inténtalo de nuevo.');
+				redirect('login'); // Redirige al formulario de inicio de sesión
 			}
 
 			$this->_preparar_datos_sesion(
 				$usuario_row->usuario,
 				$usuario_row->correo_tutor,
 				$usuario_row->identificador,
-				
-			
+
+
 				//$relacion_usuario_rol_row->rol_id
 				null
 			);
- 
+
 			redirect('dinografia');
-        }
+		}
 	}
 
 	public function cerrar_sesion()

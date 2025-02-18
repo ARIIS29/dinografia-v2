@@ -17,31 +17,27 @@
     <section>
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-                <a class="" href="<?php echo base_url('#dinografia')?>"><img
-                        src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-log2.svg')?>" alt=""
-                        class="img-fluid"></a>
-                <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <a class="" href="<?php echo base_url('#dinografia') ?>"><img src="<?php echo base_url('almacenamiento/img/dinografia/dinografia-log2.svg') ?>" alt="" class="img-fluid"></a>
+                <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="d-flex ms-auto">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('#disgrafia')?>">Disgrafía</a>
+                                <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('#disgrafia') ?>">Disgrafía</a>
                             </li>
                             <!-- <li class="nav-item">
-                                <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('#modulos')?>">Módulos</a>
+                                <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('#modulos') ?>">Módulos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('#mapa')?>">Mapa</a>
+                                <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('#mapa') ?>">Mapa</a>
                             </li> -->
                             <li class="nav-item bg-azul">
                                 <a class="nav-link text-blanco" href="#" tabindex="-1">Registrar</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('login')?>" tabindex="-1">Iniciar
+                                <a class="nav-link text-azul text-blanco-hover" href="<?php echo base_url('login') ?>" tabindex="-1">Iniciar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -51,5 +47,4 @@
         </nav>
     </section>
 
-
-   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

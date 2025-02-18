@@ -26,7 +26,8 @@ class Usuarios_model extends CI_Model
         return $query;
     }
 
-    public function login($usuario, $contrasenia) {
+    public function login($usuario, $contrasenia)
+    {
         // Aquí debes escribir la lógica para verificar las credenciales del usuario en la base de datos
         $this->db->where('usuario', $usuario);
         $this->db->where('contrasenia', md5($contrasenia)); // Suponiendo que las contraseñas están encriptadas con MD5
@@ -38,4 +39,12 @@ class Usuarios_model extends CI_Model
             return false;
         }
     }
+
+    public function existe_usuario($username)
+    {
+        $this->db->where('usuario', $username);
+        $query = $this->db->get('usuarios'); // Cambia 'usuarios' por el nombre de tu tabla.
+        return $query->num_rows() > 0;
+    }
+    
 }

@@ -1,15 +1,14 @@
 <section class="container d-flex justify-content-center align-items-center vh-100 mt-5">
     <div class="row d-flex justify-content-center">
         <div class="col-lg-8 login-color">
+            <?php if ($this->session->flashdata('usuario_existente')) : ?>
+                <div class="error-message">
+                    <?php echo $this->session->flashdata('usuario_existente'); ?>
+                </div>
+            <?php endif; ?>
             <?php if ($this->session->flashdata('error')) : ?>
                 <div class="error-message">
                     <?php echo $this->session->flashdata('error'); ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($this->session->flashdata('registro_exitoso')) : ?>
-                <div class="exito-message">
-                    <?php echo $this->session->flashdata('registro_exitoso'); ?>
                 </div>
             <?php endif; ?>
             <div class="text-center">

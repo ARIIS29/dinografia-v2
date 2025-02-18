@@ -19,6 +19,7 @@ body {
     /* Ajusta el relleno de los enlaces de navegación */
     font-size: 20px;
 }
+
 /* Estilo para los enlaces cuando se hace hover */
 .text-blanco-hover:hover {
     color: white !important;
@@ -56,4 +57,29 @@ body {
     padding: 0.5rem 0.75rem;
     /* Ajusta el relleno de los enlaces de navegación */
     font-size: 20px;
+}
+
+.error-message {
+    color: white;
+    background-color: #e93d3d;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2%;
+    margin-top: 5%;
+}
+
+.exito-message {
+    color: white;
+    background-color: #28a745;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2%;
+    margin-top: 5%;
+}
+
+.error-message-login{
+    color: rgb(252, 8, 8);
+    font-size: 16px;
 }
