@@ -1,5 +1,7 @@
 <section class="d-flex mt-9" id="menuPrincipal">
     <div class="container-fluid">
+        <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
+        </div>
         <div class="row mt-2 justify-content-center">
             <div class="col-lg-8 col-md-8 btn-transicion contenedor-instrucciones text-center">
                 <div class="col-lg-12 col-md-12">
@@ -18,9 +20,14 @@
                         </p>
 
                     </div>
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-4 col-md-4 d-none  d-sm-block">
                         <a href="<?php echo base_url('Guia_dino_explorador') ?>">
                             <img src="<?php echo base_url('almacenamiento/img/botones/guia_del_explorador.png') ?>" alt="Guia del explorador" class="img-fluid boton-animacion-pulso mt-5" width="60%">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 d-block d-sm-none">
+                        <a href="<?php echo base_url('Guia_dino_explorador') ?>">
+                            <img src="<?php echo base_url('almacenamiento/img/botones/guia_del_explorador.png') ?>" alt="Guia del explorador" class="img-fluid boton-animacion-pulso mt-5" width="50%">
                         </a>
                     </div>
                 </div>

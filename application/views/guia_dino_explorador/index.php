@@ -1,24 +1,29 @@
 <section class="d-flex justify-content-center align-items-center">
     <div class="container mt-10">
         <div class="row">
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
+                <h1 class="titulo-h1-azul-movil">GUÍA DEL DINO</h1>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-6">
                 <div id="formWizard">
                     <!-- Barra de Progreso -->
-                    <ul id="progressbar" class="text-center">
-                        <li class="active" id="step1"><strong>INICIO</strong></li>
-                        <li id="step2"><strong>A</strong></li>
-                        <li id="step3"><strong>B</strong></li>
-                        <li id="step4"><strong>C</strong></li>
-                        <li id="step5"><strong>D</strong></li>
-                        <li id="step6"><strong>E</strong></li>
-                        <li id="step7"><strong>F</strong></li>
-                        <li id="step8"><strong>G</strong></li>
-                        <li id="step9"><strong>H</strong></li>
-                        <li id="step10"><strong>I</strong></li>
-                        <li id="step11"><strong>J</strong></li>
-                        <li id="step12"><strong>FIN</strong></li>
-                        <li id="step13"><strong>Aventuras del Trazo</strong></li>
-                    </ul>
+                    <div class="col-lg-12 col-md-12 d-none d-sm-block">
+                        <ul id="progressbar" class="text-center">
+                            <li class="active" id="step1"><strong>INICIO</strong></li>
+                            <li id="step2"><strong>A</strong></li>
+                            <li id="step3"><strong>B</strong></li>
+                            <li id="step4"><strong>C</strong></li>
+                            <li id="step5"><strong>D</strong></li>
+                            <li id="step6"><strong>E</strong></li>
+                            <li id="step7"><strong>F</strong></li>
+                            <li id="step8"><strong>G</strong></li>
+                            <li id="step9"><strong>H</strong></li>
+                            <li id="step10"><strong>I</strong></li>
+                            <li id="step11"><strong>J</strong></li>
+                            <li id="step12"><strong>FIN</strong></li>
+                            <li id="step13"><strong>Aventuras del Trazo</strong></li>
+                        </ul>
+                    </div>
                     <!-- Form Steps -->
                     <div class="card mt-1">
                         <div class="card-body">
