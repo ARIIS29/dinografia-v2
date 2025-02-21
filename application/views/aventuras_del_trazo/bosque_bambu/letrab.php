@@ -4,13 +4,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="videoModalLabel">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="8%"><b>¡Bienvenido Explorador!</b>
+                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="8%"><b>¡Hola Explorador!</b>
+                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audio_traza_letrab.mp3') ?>" preload="auto"></audio>
+
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
             </div>
             <div class="modal-body texto-modal-bambu">
                 <p>
-                    En esta aventura aprenderemos a trazar la letra "b". En unos momentos verás un video que te enseñará cómo hacerlo. ¡Ajusta el volumen para escucharme y seguir mis indicaciones mientras trazas en la pizarra! <br>
+                    En esta aventura aprenderemos a trazar la letra "b". En unos momentos verás un video que te enseñará cómo hacerlo. ¡Sigue mis indicaciones mientras trazas en la pizarra! <br>
                     <b>Es importante dar clic en los siguientes botones para hacer uso de la pizarra. Si deseas hacer lo siguiente:</b>
                 <ul>
 
@@ -20,7 +22,7 @@
                         </button>
 
                     </li>
-                    <li>Cambiar el color del lápiz, da clic en el siguiente botón
+                    <li>Cambiar el color del lápiz, da clic en el botón
                         <button class="btn-color-desact" title="Cambiar color del lápiz" disabled>
                             <i class="fas fa-palette"></i>
                         </button>
@@ -34,22 +36,22 @@
                     <li>Para guardar tus trazos en la Galería Letra B, da clic en el botón
                         <button class="btn-guardar-desact" title="Guardar mi trazo" disabled>
                             <i class="fas fa-camera"></i> Guardar Trazo
-                        </button> Si no lo haces, tus trazos no se guardarán.
+                        </button> <br>Si no lo haces, tus trazos no se guardarán.
 
                     </li>
                 </ul>
-                ¡Haz tantos trazos como quieras! Guarda los que más te gusten.
-                Cierra esta ventana y ¡Vamos, a trazar y aprender! ¡Lo harás genial!
+                ¡Haz tantos trazos como quieras! <br> Guarda los que más te gusten.
+                ¡Vamos a trazar y aprender! ¡Lo harás genial!
                 </p>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
-<section class="mt-8">
+<section class="d-flex justify-content-center align-items-center mt-8">
     <style>
         #canvas {
             position: relative;
@@ -61,11 +63,15 @@
         }
     </style>
     <div class="container">
+        <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
+            <h1 class="titulo-h1-bambu-movil">LETRA - B</h1>
+        </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <!-- Imagen -->
-            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="4%">
+            <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
             <!-- Texto -->
-            <p class="texto_indicaciones_bambu mb-0">¡Da clic en el botón del lápiz, sigue las instrucciones del Dino y traza la letra "b" en la pizarra! </p>
+            <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
+            <p class="texto_indicaciones_bambu mb-0">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "b" en la pizarra! </p>
         </div>
         <div class="row mt-3">
             <!-- Columna para el video -->
@@ -81,6 +87,7 @@
                 <img id="fondo-letra" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letra-b.png'); ?>" alt="Background Image" style="display: block;" class="img-fluid">
                 <!-- Canvas para dibujar -->
                 <canvas id="canvas"></canvas>
+                <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
                 <br>
                 <!-- Selector de color -->
                 <button id="botonColor" class="btn btn-color-inactive" title="Seleccionar color del lápiz">
@@ -108,6 +115,8 @@
         let dibujando = false; // Variable para rastrear si se está dibujando
         let usarLapiz = false; // Variable para rastrear si se está usando el lápiz
         let trazoRealizado = false;
+        let estrellas = 0;
+        const contadorEstrellas = document.getElementById('contadorEstrellas');
         const botonLimpiar = document.getElementById('limpiar'); // Botón de limpiar canvas
         const botonLapiz = document.getElementById('lapiz'); // Botón del lápiz
         const botonGuardar = document.getElementById('guardar'); // Botón de guardar el dibujo
@@ -117,15 +126,60 @@
         const grosorFijo = 15;
         botonGuardar.style.display = "none";
         const video = document.getElementById('video');
+        const dinoModal = document.getElementById('dinoModal');
+        const dinoModalAudio = document.getElementById('dinoModalAudio');
         const modal = new bootstrap.Modal(document.getElementById('modalInstrucciones'));
+        const audioEstrellas = document.getElementById('audioEstrellas');
+
+        // Elementos de la imagen con audio fuera del modal
+        const dinoIndicaciones = document.getElementById('dinoIndicaciones');
+        const dinoIndicacionesAudio = document.getElementById('dinoIndicacionesAudio');
+
 
         // Mostrar el modal al cargar la página
         modal.show();
 
-        // Reproducir el video automáticamente después de cerrar el modal
-        $('#modalInstrucciones').on('hidden.bs.modal', function() {
-            video.play(); // Reproduce el video
+        // Iniciar animación y audio cuando el modal se abre
+        document.getElementById('modalInstrucciones').addEventListener('shown.bs.modal', function() {
+            dinoModal.classList.add('dino-hablando');
+            dinoModalAudio.play().catch(error => console.log("Error al reproducir el audio:", error));
         });
+
+        // Detener animación cuando termine el audio
+        dinoModalAudio.addEventListener('ended', function() {
+            dinoModal.classList.remove('dino-hablando');
+        });
+
+        // Manejo del clic en Dino dentro del modal para repetir el audio
+        dinoModal.addEventListener('click', function() {
+            if (dinoModalAudio.paused) {
+                dinoModal.classList.add('dino-hablando');
+                dinoModalAudio.play().catch(error => console.log("Error al reproducir el audio:", error));
+            } else {
+                dinoModal.classList.remove('dino-hablando');
+                dinoModalAudio.pause();
+                dinoModalAudio.currentTime = 0;
+            }
+        });
+
+        // Detener el audio y la animación cuando se cierra el modal
+        document.getElementById('modalInstrucciones').addEventListener('hidden.bs.modal', function() {
+            dinoModalAudio.pause();
+            dinoModalAudio.currentTime = 0;
+            dinoModal.classList.remove('dino-hablando');
+            video.play(); // Reproducir el video automáticamente
+        });
+
+        // Manejo del clic en la nueva imagen para reproducir su audio
+        dinoIndicaciones.addEventListener('click', function() {
+            if (dinoIndicacionesAudio.paused) {
+                dinoIndicacionesAudio.play().catch(error => console.log("Error al reproducir el audio:", error));
+            } else {
+                dinoIndicacionesAudio.pause();
+                dinoIndicacionesAudio.currentTime = 0;
+            }
+        });
+
         // Al hacer clic en el botón de color, simular el clic en el input de color
         botonColor.addEventListener('click', () => {
             inputColor.click(); // Simula el clic en el input de color
@@ -216,7 +270,9 @@
         botonGuardar.addEventListener('click', () => {
             const imagenFondo = new Image();
             imagenFondo.src = fondo.src;
+            estrellas += 25;
 
+            console.log("Estrellas ", estrellas);
             imagenFondo.onload = () => {
                 const baseUrl = '<?php echo base_url(); ?>';
 
@@ -264,7 +320,10 @@
         function mostrarMensajeExito() {
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
-            mensaje.innerHTML = '¡Increíble trabajo, explorador!<br>Tu trazo se ha guardado con éxito en la galería B.<br>¡Sigue explorando!';
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `¡Increíble trabajo, explorador!<br>
+            Tu trazo se ha guardado con éxito en la galería B.<br>
+            ¡Sigue explorando! <br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas. 🌟`;
             mensaje.style.color = '#214524';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
@@ -276,6 +335,9 @@
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
 
             // Agregar los botones para seguir o no trazando
             const botones = document.createElement('div');
@@ -310,10 +372,7 @@
             // Añadir el mensaje al body
             document.body.appendChild(mensaje);
 
-            // Eliminar el mensaje después de 5 segundos si no se ha hecho clic
-            setTimeout(() => {
-                mensaje.remove();
-            }, 5000); // Se elimina después de 5 segundos si no se hace clic
+
         }
 
 
