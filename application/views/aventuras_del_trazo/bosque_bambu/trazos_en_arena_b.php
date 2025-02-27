@@ -265,7 +265,7 @@
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `¡Increíble trabajo, explorador!<br>
-            Tu trazo se ha guardado con éxito en la galería B.<br>
+            Tu trazo se ha guardado con éxito en la Galería Trazos en la Arena.<br>
             ¡Sigue explorando! <br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas 🌟`;
             mensaje.style.color = '#214524';
             mensaje.style.fontWeight = 'bold';
