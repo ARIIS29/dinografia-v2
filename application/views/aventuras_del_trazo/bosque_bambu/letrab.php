@@ -72,6 +72,10 @@
             <!-- Texto -->
             <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
             <p class="texto_indicaciones_bambu mb-0">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "b" en la pizarra! </p>
+            <div class="col-1 d-none d-sm-block">
+            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriab.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+            </div>
+
         </div>
         <div class="row mt-3">
             <!-- Columna para el video -->
@@ -87,7 +91,7 @@
                 <img id="fondo-letra" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letra-b.png'); ?>" alt="Background Image" style="display: block;" class="img-fluid">
                 <!-- Canvas para dibujar -->
                 <canvas id="canvas"></canvas>
-                <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
+                <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
                 <br>
                 <!-- Selector de color -->
                 <button id="botonColor" class="btn btn-color-inactive" title="Seleccionar color del lápiz">
@@ -130,6 +134,7 @@
         const dinoModalAudio = document.getElementById('dinoModalAudio');
         const modal = new bootstrap.Modal(document.getElementById('modalInstrucciones'));
         const audioEstrellas = document.getElementById('audioEstrellas');
+
 
         // Elementos de la imagen con audio fuera del modal
         const dinoIndicaciones = document.getElementById('dinoIndicaciones');
@@ -271,7 +276,7 @@
             const imagenFondo = new Image();
             imagenFondo.src = fondo.src;
             estrellas += 25;
-
+            contadorEstrellas.textContent = estrellas;
             console.log("Estrellas ", estrellas);
             imagenFondo.onload = () => {
                 const baseUrl = '<?php echo base_url(); ?>';
@@ -323,15 +328,15 @@
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `¡Increíble trabajo, explorador!<br>
             Tu trazo se ha guardado con éxito en la galería B.<br>
-            ¡Sigue explorando! <br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas. 🌟`;
+            ¡Sigue explorando! <br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas 🌟`;
             mensaje.style.color = '#214524';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#DFF2BF';
-            mensaje.style.border = '1px solid #4CAF50';
+            mensaje.style.backgroundColor = '#ffffff';
+            mensaje.style.border = '5px solid #00984f';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
@@ -361,7 +366,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('menu_principal'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje

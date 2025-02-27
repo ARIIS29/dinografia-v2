@@ -120,33 +120,3 @@ body {
     pointer-events: none;
 }
 
-
-.contenedor-estrellas {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    /* Para que no interfiera con los clics */
-    overflow: hidden;
-    top: 0;
-    left: 0;
-}
-
-.estrella {
-    position: absolute;
-    font-size: 30px;
-    opacity: 1;
-    animation: subirEstrella 1.5s ease-out forwards;
-}
-
-@keyframes subirEstrella {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-}
