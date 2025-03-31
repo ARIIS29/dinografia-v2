@@ -68,7 +68,7 @@
             <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
             <p class="texto_indicaciones_bambu mb-0">Usa tu dedo para trazar la letra "b" en la arena. ¡Diviértete practicando!</p>
             <div class="col-1 d-none d-sm-block">
-                <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriat.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+                <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriag.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
             </div>
             <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
         </div>

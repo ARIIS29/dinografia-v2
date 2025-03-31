@@ -37,7 +37,7 @@
         <div class="row justify-content-center text-center">
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
                 <a href="<?php echo base_url('letras/bosque_bambu/descubriendo_palabras_b') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-la_ruta_del_trazo.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/descubriendo_palabras-btn.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
                 </a>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
