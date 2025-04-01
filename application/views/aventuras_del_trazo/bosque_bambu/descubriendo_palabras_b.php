@@ -1,13 +1,50 @@
 <section class="mt-10">
     <div class="container-fluid d-flex justify-content-center" style="position: relative;">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo instrucciones" id="areaJuego">
+            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_bambu" id="areaJuego">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h2 class="titulo-h2">¡Hola Explorador!</h2> <br>
+                    <p>
+                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
+                        <b> Instrucciones del juego</b> <br>
+                        Observa la imagen y descubre la palabra correcta que que comienza con la letra "b". Arrastra las letras a los contenedores para descubrir la palabra correcta. <br>
+                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            ¿Cómo jugar?
+                        </button> <br>
+                    </p>
 
-                <div class="col-lg-12 col-md-12 col-12 text-center">
+                    <!-- Modal -->
+                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="videoModalLabel">Instrucciones del juego</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Contenedor del video -->
+                                    <video id="videoElement" width="100%" controls>
+                                        <!-- Ruta al archivo de video -->
+                                        <source src="<?php echo base_url('almacenamiento/img/instrucciones/descubriendo_palabras.mp4'); ?>" type="video/mp4">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <button id="play-btn">Play</button>
-
+                    <p>
+                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        Haz clic en el botón de Iniciar para comenzar a jugar.
+                    <div class="col-lg-12 col-md-12 col-12 centrar-boton">
+                        <button class="btn-play" id="play-btn">INICIAR</button>
+                    </div>
+                    </p>
                 </div>
+
             </div>
             <div class="col-lg-12 col-md-12 col-12 text-center" id="contenedorJuego">
                 <!-- <?php echo $this->session->userdata('identificador'); ?> -->
@@ -42,7 +79,16 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+
         const playBtn = document.getElementById('play-btn');
+        document.getElementById('play-btn').addEventListener('click', function() {
+            // Mostrar el encabezado del juego
+            document.getElementById('header-juego').classList.remove('d-none');
+
+            // Ocultar el encabezado inicial
+            document.getElementById('header-inicial').classList.add('d-none');
+        });
+
         const palabras = [{
                 palabra: "bambú",
                 emoji: "<?php echo base_url('almacenamiento/img/bosque_bambu/bambu_img.png'); ?>"
@@ -285,7 +331,7 @@
                     casilla.classList.remove("error");
                 }
             });
-    
+
 
             // Manejar el caso cuando no hay errores
             if (!errores) {
@@ -535,7 +581,7 @@
             startTimer();
             // Inicia el cronómetro
         });
-    
+
 
     });
 </script>

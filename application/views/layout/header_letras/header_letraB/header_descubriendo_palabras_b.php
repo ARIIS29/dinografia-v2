@@ -16,14 +16,43 @@
 </head>
 
 <body class="body-explorando-letrab">
-    <section>
+    <section id="header-inicial">
+        <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
+            <div class="container-fluid">
+
+                <a href="<?php echo site_url('letras/bosque_bambu/explora_y_descubre_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
+
+                <div class="col-lg-12 col-md-12 justify-content-center">
+                    <h1 class="titulo-h1-bambu me-5">DESCUBRIENDO PALABRAS</h1>
+                </div>
+                <!-- <div class="col-lg-3 col-md-3 d-flex justify-items-center ">
+                    <div class="col-lg-4 col-md-4 d-flex align-items-center">
+                        <img src="<?php echo base_url('almacenamiento/img/dinografia/reloj.png') ?>" alt="" class="img-fluid" width="40%">
+                        <span class="text-azul" id="timer">00:00</span>
+                    </div>
+                    <div class="col-lg-4 col-md-4 d-flex align-items-center">
+                        <img src="<?php echo base_url('almacenamiento/img/dinografia/movimientos.png') ?>" alt="" class="img-fluid ms-4" width="40%">
+                        <span class="text-azul" id="contadorVidas">3</span>
+                    </div>
+                    <div class="col-lg-4 col-md-4 d-flex align-items-center">
+                        <img src="<?php echo base_url('almacenamiento/img/dinografia/estrella.png') ?>" alt="" class="img-fluid ms-1" width="40%">
+                        <span class="text-azul" id="contadorEstrellas">0</span>
+                    </div>
+
+                </div> -->
+
+            </div>
+        </nav>
+    </section>
+
+    <section id="header-juego" class="d-none">
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
                     <a href="<?php echo site_url('letras/bosque_bambu/explora_y_descubre_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center">
-                    <h1 class="titulo-h1-bambu">DESCUBRIENDO PALABRAS</h1>
+                    <h1 class="titulo-h1-bambu">DESCU</h1>
                 </div>
                 <div class="col-lg-3 col-md-3 d-flex justify-items-center ">
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">
