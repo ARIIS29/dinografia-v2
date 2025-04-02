@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_bambu" id="areaJuego">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <h2 class="titulo-h2">¡Hola Explorador!</h2> <br>
                     <p>
+                        ¡Es hora de comenzar la aventura! <br>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
                         <b> Instrucciones del juego</b> <br>
                         Observa la imagen y descubre la palabra correcta que que comienza con la letra "b". Arrastra las letras a los contenedores para descubrir la palabra correcta. <br>
@@ -38,16 +38,30 @@
 
                     <p>
                         ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
-                        Haz clic en el botón de Iniciar para comenzar a jugar.
-                    <div class="col-lg-12 col-md-12 col-12 centrar-boton">
-                        <button class="btn-play" id="play-btn">INICIAR</button>
+                        Haz clic en el botón de Iniciar para comenzar a jugar.</p>
+                    <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
+                        <a id="play-btn">
+                            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-iniciar.png') ?>" alt="" class="img-fluid" width="23%">
+                        </a>
                     </div>
-                    </p>
+
                 </div>
 
             </div>
             <div class="col-lg-12 col-md-12 col-12 text-center" id="contenedorJuego">
                 <!-- <?php echo $this->session->userdata('identificador'); ?> -->
+                <div class="position-relative mt-5 text-center" id="animacionCarga">
+                    <!-- Texto Cargando -->
+                    <p id="loadingText" style="display: none; font-size: 1.2em; font-weight: bold;">Cargando...</p>
+                    <!-- Barra de progreso -->
+                    <div id="progressBar" class="progress" style="height: 10px; width: 100%; margin: 0 auto;">
+                        <div id="progress" class="progress-bar bg-success" style="width: 0;"></div>
+                    </div>
+                    <!-- Imagen del coche -->
+                    <div>
+                        <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid enlargable" style="position: absolute; top: -50px; left: 0; width: 10%;">
+                    </div>
+                </div>
                 <canvas id="confettiCanvas"></canvas>
                 <p class="indicaciones">Arrastra las letras hacia los contenedores verdes y descubre la palabra. <br>Da clic en el botón verde ✅ para verificar tu respuesta.</p>
                 <div id="emojiPalabra" class="emoji mt-05"></div>
@@ -87,7 +101,49 @@
 
             // Ocultar el encabezado inicial
             document.getElementById('header-inicial').classList.add('d-none');
+            startAnimation();
         });
+        playBtn.addEventListener('click', function() {
+            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
+            console.log("Juego mostrado"); // Agrega esta línea para depurar
+            // Ocultar el área donde está el botón de inicio
+            document.getElementById('areaJuego').style.display = 'none';
+            // Mostrar el contenedor del juego
+            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+            startAnimation();
+
+            // Inicia el cronómetro
+        });
+
+        function startAnimation() {
+            const loadingText = document.getElementById('loadingText');
+            const progress = document.getElementById('progress');
+            const car = document.getElementById('car');
+            const animacionCarga = document.getElementById('animacionCarga');
+
+            // Mostrar el texto de "Cargando..."
+            loadingText.style.display = 'block';
+
+            let width = 0;
+            const interval = setInterval(() => {
+                width += 2; // Incremento de progreso (ajusta la velocidad según prefieras)
+                progress.style.width = width + '%';
+                // Mueve el coche a lo largo de la barra (ajustamos su posición en función del ancho alcanzado)
+                car.style.left = Math.min(width, 90) + '%'; // Se detiene antes de llegar al 100%
+
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Opcional: muestra un mensaje final de "¡Comienza!"
+                    loadingText.textContent = "¡Comienza!";
+                    // Después de un breve retraso, oculta la animación y comienza el juego
+                    setTimeout(() => {
+                        animacionCarga.style.display = 'none';
+                        iniciarJuego();
+                        startTimer();
+                    }, 500);
+                }
+            }, 50);
+        }
 
         const palabras = [{
                 palabra: "bambú",
@@ -570,17 +626,6 @@
             });
         }
 
-        playBtn.addEventListener('click', function() {
-            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
-            console.log("Juego mostrado"); // Agrega esta línea para depurar
-            // Ocultar el área donde está el botón de inicio
-            document.getElementById('areaJuego').style.display = 'none';
-            // Mostrar el contenedor del juego
-            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
-            iniciarJuego();
-            startTimer();
-            // Inicia el cronómetro
-        });
 
 
     });
