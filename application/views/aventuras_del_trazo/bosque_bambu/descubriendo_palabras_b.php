@@ -3,8 +3,13 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_bambu" id="areaJuego">
                 <div class="col-lg-12 col-md-12 col-12">
+                    <div class="d-flex align-items-center">
+                        <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
+
+                        <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
+
+                    </div>
                     <p>
-                        ¡Es hora de comenzar la aventura! <br>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
                         <b> Instrucciones del juego</b> <br>
                         Observa la imagen y descubre la palabra correcta que que comienza con la letra "b". Arrastra las letras a los contenedores para descubrir la palabra correcta. <br>
@@ -13,6 +18,7 @@
                         </button> <br>
                     </p>
 
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
                     <!-- Modal -->
                     <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -41,7 +47,7 @@
                         Haz clic en el botón de Iniciar para comenzar a jugar.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
-                            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-iniciar.png') ?>" alt="" class="img-fluid" width="23%">
+                            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-iniciar.png') ?>" alt="" class="img-fluid" width="20%">
                         </a>
                     </div>
 
@@ -49,23 +55,27 @@
 
             </div>
             <div class="col-lg-12 col-md-12 col-12 text-center" id="contenedorJuego">
+                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio_gd_j.mp3') ?>" preload="auto"></audio>
+
                 <!-- <?php echo $this->session->userdata('identificador'); ?> -->
-                <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 1000px;">
+                <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
                     <!-- Texto Cargando -->
-                    <p id="loadingText" style="display: none; font-size: 2em; font-weight: bold;">Cargando...</p>
+                    <p id="loadingText" class="texto_loading">Cargando...</p>
                     <!-- Barra de progreso -->
-                    <div class="progress" style="height: 50px; width: 150%;">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid img_dino_coche">
+                    </div>
+                    <div class="progress" style="height: 30px;">
                         <div id="progress" class="progress-bar bg-success" style="width: 0;"></div>
                     </div>
                     <!-- Imagen del coche -->
 
-                    <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid" style="position: absolute; top: -80px; left: 0; width: 60%;">
-
                 </div>
-                <!-- <p class="indicaciones">Arrastra las letras hacia los contenedores verdes y descubre la palabra. <br>Da clic en el botón verde ✅ para verificar tu respuesta.</p> -->
+
                 <canvas id="confettiCanvas"></canvas>
                 <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
                 <audio id="audioIncorrecto" src="<?php echo base_url('almacenamiento/audios/incorrecto.mp3') ?>" preload="auto"></audio>
+                <audio id="audioTractor" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
 
                 <div id="emojiPalabra" class="emoji mt-05"></div>
                 <div id="contenedorLetras"></div>
@@ -100,7 +110,13 @@
 
         const playBtn = document.getElementById('play-btn');
         const audioEstrellas = document.getElementById('audioEstrellas');
+        const audioTractor = document.getElementById('audioTractor');
         const audioIncorrecto = document.getElementById('audioIncorrecto');
+        const dinoIndicaciones1 = document.getElementById('dinoIndicaciones1');
+        const dinoIndicaciones = document.getElementById('dinoIndicaciones');
+        const audio1 = document.getElementById('audioVista1');
+        const audio2 = document.getElementById('audioVista2');
+
 
         document.getElementById('play-btn').addEventListener('click', function() {
             // Mostrar el encabezado del juego
@@ -109,6 +125,12 @@
             // Ocultar el encabezado inicial
             document.getElementById('header-inicial').classList.add('d-none');
         });
+
+        audio1.play().catch(error => {
+            console.log("Error al reproducir audioVista1:", error);
+        });
+        audioIndicacionesUno();
+
         playBtn.addEventListener('click', function() {
             playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
             console.log("Juego mostrado"); // Agrega esta línea para depurar
@@ -116,13 +138,42 @@
             document.getElementById('areaJuego').style.display = 'none';
             // Mostrar el contenedor del juego
             document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+            audio1.pause();
+            audio1.currentTime = 0;
+            audio2.play().catch(error => {
+                console.log("Error al reproducir audio automáticamente:", error);
+            });
+            audioIndicacionesDos();
             startAnimation();
 
             // Inicia el cronómetro
         });
 
+        function audioIndicacionesUno() {
+            dinoIndicaciones1.addEventListener('click', function() {
+                if (audio1.paused) {
+                    audio1.play().catch(error => console.log("Error al reproducir el audio:", error));
+                } else {
+                    audio1.pause();
+                    audio1.currentTime = 0;
+                }
+            });
+        }
+
+        function audioIndicacionesDos() {
+            dinoIndicaciones.addEventListener('click', function() {
+                if (audio2.paused) {
+                    audio2.play().catch(error => console.log("Error al reproducir el audio:", error));
+                } else {
+                    audio2.pause();
+                    audio2.currentTime = 0;
+                }
+            });
+        }
+
         function startAnimation() {
-            audioEstrellaPuntos();
+            // audioEstrellaPuntos();
+            audioTractorAnimacion();
             const loadingText = document.getElementById('loadingText');
             const progress = document.getElementById('progress');
             const car = document.getElementById('car');
@@ -411,12 +462,12 @@
                 console.log('Array de Palabra correcta:', nuevapalabrasCorrectas);
                 for (i = 0; i < palabrasCorrectas.length; i++) {
                     console.log(`${i}: ${palabrasCorrectas[i]}`);
-                    audioEstrellaPuntos();
                     estrellaSalta();
-                   mostrarEstrellasCentrales();
-
+                    mostrarEstrellasCentrales();
 
                 }
+                document.getElementById("verificarPalabraBtn").disabled = true;
+
                 palabraIncorrecta = '';
 
                 // Hacer scroll al mensaje
@@ -454,7 +505,11 @@
                     return;
                 }
 
-                setTimeout(iniciarJuego, 4000);
+                setTimeout(function() {
+                    // Habilitar el botón "Verificar" para la siguiente palabra
+                    document.getElementById("verificarPalabraBtn").disabled = false;
+                    iniciarJuego(); // Llama a la función que inicia la siguiente palabra
+                }, 4000);
             } else {
                 // Reducir vidas y mostrar mensaje de error
                 vidas--;
@@ -525,6 +580,13 @@
         function audioEstrellaPuntos() {
             console.log("audio reproducido");
             audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function audioTractorAnimacion() {
+            console.log("audio reproducido");
+            audioTractor.play().catch(error => {
                 console.log("Error al reproducir el audio:", error);
             });
         }

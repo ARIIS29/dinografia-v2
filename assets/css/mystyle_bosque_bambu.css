@@ -175,14 +175,14 @@ body {
 }
 
 .casilla-letra {
-    background-color: rgb(188, 226, 241);
-    color: #0A2363;
+    background-color: rgb(189, 239, 182);
+    color: #214524;
     cursor: move;
 }
 
 .casilla-palabra {
-    background-color: skyblue;
-    color: #0A2363;
+    background-color: #00984F;
+    color: #ffffff;
     font-weight: bold;
     border: 2px solid white;
     position: relative;
@@ -359,4 +359,20 @@ body {
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
     }
+}
+
+.texto_loading {
+    font-family: 'Century Gothic', sans-serif;
+    display: none;
+    font-size: 2em; 
+    font-weight: bold;
+    text-align: center;
+    color: #214524 !important;
+}
+
+.img_dino_coche{
+    position: relative; 
+    margin-top: -20px; 
+    margin-left: 0; 
+    width: 20%;
 }

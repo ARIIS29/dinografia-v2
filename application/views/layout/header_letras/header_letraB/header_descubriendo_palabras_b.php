@@ -49,10 +49,10 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-2 col-md-2 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('letras/bosque_bambu/explora_y_descubre_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
+                    <a href="<?php echo site_url('letras/bosque_bambu/descubriendo_palabras_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_bambu">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="8%">Descubre la palabra oculta. <br>Da clic en el botón verde ✅ para verificar tu respuesta.
+                    <img  id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;"  width="8%">Descubre la palabra oculta. <br>Da clic en el botón verde ✅ para verificar tu respuesta.
                 
                 </div>
                 <div class="col-lg-3 col-md-3 d-flex justify-items-center texto_indicaciones_bambu">
