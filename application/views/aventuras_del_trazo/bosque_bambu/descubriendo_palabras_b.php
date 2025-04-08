@@ -50,24 +50,28 @@
             </div>
             <div class="col-lg-12 col-md-12 col-12 text-center" id="contenedorJuego">
                 <!-- <?php echo $this->session->userdata('identificador'); ?> -->
-                <div class="position-relative mt-5 text-center" id="animacionCarga">
+                <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 1000px;">
                     <!-- Texto Cargando -->
-                    <p id="loadingText" style="display: none; font-size: 1.2em; font-weight: bold;">Cargando...</p>
+                    <p id="loadingText" style="display: none; font-size: 2em; font-weight: bold;">Cargando...</p>
                     <!-- Barra de progreso -->
-                    <div id="progressBar" class="progress" style="height: 10px; width: 100%; margin: 0 auto;">
+                    <div class="progress" style="height: 50px; width: 150%;">
                         <div id="progress" class="progress-bar bg-success" style="width: 0;"></div>
                     </div>
                     <!-- Imagen del coche -->
-                    <div>
-                        <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid enlargable" style="position: absolute; top: -50px; left: 0; width: 10%;">
-                    </div>
+
+                    <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid" style="position: absolute; top: -80px; left: 0; width: 60%;">
+
                 </div>
+                <!-- <p class="indicaciones">Arrastra las letras hacia los contenedores verdes y descubre la palabra. <br>Da clic en el botón verde ✅ para verificar tu respuesta.</p> -->
                 <canvas id="confettiCanvas"></canvas>
-                <p class="indicaciones">Arrastra las letras hacia los contenedores verdes y descubre la palabra. <br>Da clic en el botón verde ✅ para verificar tu respuesta.</p>
+                <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
+                <audio id="audioIncorrecto" src="<?php echo base_url('almacenamiento/audios/incorrecto.mp3') ?>" preload="auto"></audio>
+
                 <div id="emojiPalabra" class="emoji mt-05"></div>
                 <div id="contenedorLetras"></div>
                 <div id="contenedorPalabra"></div>
-                <div class="d-flex justify-content-center mt-4">
+                <div id="botonesContenedor" class="d-flex justify-content-center mt-4 d-none">
+
                     <button id="verificarPalabraBtn" class="btn verificar me-2" title="Verificar Palbra">
                         <i class="fas fa-check"></i>
                     </button>
@@ -95,13 +99,15 @@
     document.addEventListener("DOMContentLoaded", function() {
 
         const playBtn = document.getElementById('play-btn');
+        const audioEstrellas = document.getElementById('audioEstrellas');
+        const audioIncorrecto = document.getElementById('audioIncorrecto');
+
         document.getElementById('play-btn').addEventListener('click', function() {
             // Mostrar el encabezado del juego
             document.getElementById('header-juego').classList.remove('d-none');
 
             // Ocultar el encabezado inicial
             document.getElementById('header-inicial').classList.add('d-none');
-            startAnimation();
         });
         playBtn.addEventListener('click', function() {
             playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
@@ -116,6 +122,7 @@
         });
 
         function startAnimation() {
+            audioEstrellaPuntos();
             const loadingText = document.getElementById('loadingText');
             const progress = document.getElementById('progress');
             const car = document.getElementById('car');
@@ -221,6 +228,7 @@
 
 
         function iniciarJuego() {
+            document.getElementById('botonesContenedor').classList.remove('d-none');
 
             contenedorLetras.innerHTML = "";
             contenedorPalabra.innerHTML = "";
@@ -394,6 +402,7 @@
                 mensaje.textContent = "¡Super asombroso!🎉 Has formado bien la palabra. Recompensa 200 estrellas";
                 mensaje.className = "correcto";
                 estrellas += 200;
+
                 contadorEstrellas.textContent = estrellas;
                 contadorBuenas++;
                 nuevapalabrasCorrectas = palabrasCorrectas.push(palabraActual.palabra);
@@ -402,6 +411,11 @@
                 console.log('Array de Palabra correcta:', nuevapalabrasCorrectas);
                 for (i = 0; i < palabrasCorrectas.length; i++) {
                     console.log(`${i}: ${palabrasCorrectas[i]}`);
+                    audioEstrellaPuntos();
+                    estrellaSalta();
+                   mostrarEstrellasCentrales();
+
+
                 }
                 palabraIncorrecta = '';
 
@@ -446,6 +460,16 @@
                 vidas--;
                 contadorVidas.textContent = vidas;
                 contadorIncorrectas++;
+                movimientosSalta();
+                if (contadorIncorrectas === 1) {
+                    mostrarLapizRoto(1);
+                }
+                if (contadorIncorrectas === 2) {
+                    mostrarLapizRoto(2);
+                }
+                if (contadorIncorrectas === 3) {
+                    mostrarLapizRoto(3);
+                }
                 mensaje.textContent = `¡Buen intento!🌟 Las casillas rojas están mal colocadas, da dos veces clic en la ficha roja para corregir y vuelve a verificar ✅. Te quedan solo ${vidas} intentos`;
                 mensaje.className = "incorrecto";
                 // nuevapalabrasIncorrectas = palabrasIncorrectas.push(palabraActual.palabra);
@@ -497,6 +521,124 @@
             palabrasRestantes.push(palabraActual);
             iniciarJuego();
         }
+
+        function audioEstrellaPuntos() {
+            console.log("audio reproducido");
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function estrellaSalta() {
+            const estrella = document.querySelector('img[src*="estrella.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function movimientosSalta() {
+            const estrella = document.querySelector('img[src*="movimientos.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioIncorrecto.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function mostrarEstrellasCentrales(cantidad = 20) {
+            for (let i = 0; i < cantidad; i++) {
+                const estrella = document.createElement('div');
+                estrella.classList.add('estrella-central');
+
+                // Posición aleatoria
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                estrella.style.top = `${top}%`;
+                estrella.style.left = `${left}%`;
+
+                // Tamaño aleatorio
+                const tamaño = Math.floor(Math.random() * 60) + 30; // Entre 30 y 90 px
+                estrella.style.width = `${tamaño}px`;
+                estrella.style.height = `${tamaño}px`;
+
+                // Ángulo de rotación aleatorio
+                const rotacion = Math.floor(Math.random() * 360);
+                estrella.style.setProperty('--rotacion', `${rotacion}deg`);
+
+                // Dirección de desplazamiento al desaparecer
+                const offsetX = Math.random() * 100 - 50; // entre -50 y +50
+                const offsetY = Math.random() * 100 - 50;
+                estrella.style.setProperty('--desplazarX', `${offsetX}px`);
+                estrella.style.setProperty('--desplazarY', `${offsetY}px`);
+
+                document.body.appendChild(estrella);
+
+                // Quitar del DOM después de la animación
+                setTimeout(() => {
+                    estrella.remove();
+                }, 1600);
+            }
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+
+        function mostrarLapizRoto(vidasPerdidas) {
+            const lapiz = document.createElement('div');
+            lapiz.classList.add('lapiz-central');
+
+            // Crear partes del lápiz
+            const goma = document.createElement('div');
+            goma.classList.add('goma');
+
+            const cuerpo = document.createElement('div');
+            cuerpo.classList.add('cuerpo');
+
+            const punta = document.createElement('div');
+            punta.classList.add('punta');
+
+            // Agregar partes visibles dependiendo de vidas restantes
+            if (vidasPerdidas < 1) {
+                lapiz.appendChild(goma);
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+            } else if (vidasPerdidas === 1) {
+                lapiz.appendChild(goma);
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+                setTimeout(() => goma.classList.add('roto'), 400);
+            } else if (vidasPerdidas === 2) {
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+                setTimeout(() => cuerpo.classList.add('roto'), 400);
+            } else if (vidasPerdidas === 3) {
+                lapiz.appendChild(punta);
+                setTimeout(() => punta.classList.add('roto'), 400);
+            }
+
+            document.body.appendChild(lapiz);
+
+            // Remover lápiz del DOM después de la animación
+            setTimeout(() => {
+                lapiz.remove();
+            }, 1600); // Duración total
+        }
+
 
         function finalizarJuego() {
             console.log("fin del juego");

@@ -127,18 +127,21 @@ body {
 #contenedorJuego {
     display: none;
 }
+
 .texto_instrucciones_bambu {
     font-family: 'Century Gothic', sans-serif;
     color: #214524 !important;
     font-size: 1.2rem;
     text-align: justify;
 }
-.titulo-h2{
+
+.titulo-h2 {
     color: #214524 !important;
     font-weight: bold;
     text-align: center;
 
 }
+
 .indicaciones {
     font-family: sans-serif;
     font-size: 1.8rem;
@@ -147,6 +150,7 @@ body {
     color: #0A2363 !important;
     text-align: center;
 }
+
 #contenedorLetras,
 #contenedorPalabra {
     display: flex;
@@ -177,7 +181,7 @@ body {
 }
 
 .casilla-palabra {
-    background-color:  skyblue;
+    background-color: skyblue;
     color: #0A2363;
     font-weight: bold;
     border: 2px solid white;
@@ -201,19 +205,19 @@ body {
     margin: 0 auto;
 }
 
-.btn-play{
+.btn-play {
     background-color: #0bb362;
     border: 2px solid white;
     padding: 10px 20px;
     transition: background-color 0.2s, transform 0.2s;
     text-align: center;
-    
+
 }
 
-.btn-play:hover{
+.btn-play:hover {
     background-color: #00984F;
     transform: scale(1.2);
-   
+
 }
 
 .centrar-boton {
@@ -221,4 +225,138 @@ body {
     justify-content: center;
 }
 
- 
+@keyframes saltarE {
+    0% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.saltarE {
+    animation: saltarE 0.6s ease;
+}
+
+.estrella-central {
+    position: fixed;
+    background-color: #00984F;
+    clip-path: polygon(50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%);
+    opacity: 0;
+    animation: aparecerEstrella 1.5s ease forwards;
+    z-index: 9999;
+
+    transform: translate(-50%, -50%) rotate(var(--rotacion, 0deg));
+}
+
+/* Animación con escala, giro y desplazamiento */
+@keyframes aparecerEstrella {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotate(var(--rotacion, 0deg));
+    }
+
+    30% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2) rotate(var(--rotacion, 0deg));
+    }
+
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(var(--rotacion, 0deg));
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--desplazarX, 0px)), calc(-50% + var(--desplazarY, 0px))) scale(0.8) rotate(var(--rotacion, 0deg));
+    }
+}
+
+
+.lapiz-central {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9999;
+    animation: aparecerLapiz 0.5s ease;
+}
+
+.goma,
+.cuerpo,
+.punta {
+    width: 40px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.goma {
+    height: 20px;
+    background-color: #00984F;
+    border-radius: 5px 5px 0 0;
+    border: 2px solid white;
+    /* Contorno blanco */
+    margin: 0 auto;
+    /* Centrar si lo necesitas */
+}
+
+.cuerpo {
+    height: 60px;
+    width: 40px;
+    /* Asegúrate de tener un ancho definido */
+    background-color: #00984F;
+    /* Verde */
+    border: 2px solid white;
+    /* Contorno blanco */
+    border-radius: 6px;
+    /* Opcional: bordes redondeados para suavizar */
+    margin: 0 auto;
+    /* Centrar si lo necesitas */
+}
+
+
+.punta {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 25px solid #00984F;
+
+}
+
+.roto {
+    opacity: 0;
+    transform: scale(0);
+}
+
+@keyframes aparecerLapiz {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}

@@ -48,23 +48,24 @@
     <section id="header-juego" class="d-none">
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-                <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
+                <div class="col-lg-2 col-md-2 justify-aling-center tipografia">
                     <a href="<?php echo site_url('letras/bosque_bambu/explora_y_descubre_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
-                <div class="col-lg-6 col-md-6 justify-aling-center text-center">
-                    <h1 class="titulo-h1-bambu">DESCU</h1>
+                <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_bambu">
+                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="8%">Descubre la palabra oculta. <br>Da clic en el botón verde ✅ para verificar tu respuesta.
+                
                 </div>
-                <div class="col-lg-3 col-md-3 d-flex justify-items-center ">
+                <div class="col-lg-3 col-md-3 d-flex justify-items-center texto_indicaciones_bambu">
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">
-                        <img src="<?php echo base_url('almacenamiento/img/dinografia/reloj.png') ?>" alt="" class="img-fluid" width="40%">
+                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/reloj.png') ?>" alt="" class="img-fluid" width="40%">
                         <span class="text-azul" id="timer">00:00</span>
                     </div>
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">
-                        <img src="<?php echo base_url('almacenamiento/img/dinografia/movimientos.png') ?>" alt="" class="img-fluid ms-4" width="40%">
+                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/movimientos.png') ?>" alt="" class="img-fluid ms-4" width="40%">
                         <span class="text-azul" id="contadorVidas">3</span>
                     </div>
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">
-                        <img src="<?php echo base_url('almacenamiento/img/dinografia/estrella.png') ?>" alt="" class="img-fluid ms-1" width="40%">
+                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-1" width="40%">
                         <span class="text-azul" id="contadorEstrellas">0</span>
                     </div>
 
