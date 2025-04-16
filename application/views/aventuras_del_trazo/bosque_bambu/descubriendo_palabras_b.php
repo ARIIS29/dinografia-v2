@@ -12,7 +12,7 @@
                     <p>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
                         <b> Instrucciones del juego</b> <br>
-                        Observa la imagen y descubre la palabra correcta que que comienza con la letra "b". Arrastra las letras a los contenedores para descubrir la palabra correcta. <br>
+                        ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
                         Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
                             ¿Cómo jugar?
                         </button> <br>
@@ -57,7 +57,6 @@
             <div class="col-lg-12 col-md-12 col-12 text-center" id="contenedorJuego">
                 <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio_gd_j.mp3') ?>" preload="auto"></audio>
 
-                <!-- <?php echo $this->session->userdata('identificador'); ?> -->
                 <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
                     <!-- Texto Cargando -->
                     <p id="loadingText" class="texto_loading">Cargando...</p>
@@ -301,6 +300,8 @@
                 casillaLetra.draggable = true;
                 casillaLetra.addEventListener("dragstart", iniciarArrastre);
                 contenedorLetras.appendChild(casillaLetra);
+
+
             });
 
             for (let i = 0; i < palabraActual.palabra.length; i++) {
@@ -310,6 +311,7 @@
                 casillaPalabra.addEventListener("dblclick", limpiarCasilla);
                 contenedorPalabra.appendChild(casillaPalabra);
             }
+
 
         }
         // Iniciar el arrastre táctil
@@ -389,6 +391,7 @@
 
         function iniciarArrastre(evento) {
             elementoArrastrado = evento.target;
+
         }
 
         contenedorPalabra.ondragover = (evento) => evento.preventDefault();
@@ -406,10 +409,12 @@
                 if (correcto) {
                     elementoArrastrado.draggable = false;
                     elementoArrastrado.style.opacity = 0.5;
+                    
                 } else {
                     elementoArrastrado.style.visibility = "hidden";
                 }
             }
+
         };
 
         function limpiarCasilla(evento) {
@@ -447,10 +452,9 @@
                 }
             });
 
-
             // Manejar el caso cuando no hay errores
             if (!errores) {
-                mensaje.textContent = "¡Super asombroso!🎉 Has formado bien la palabra. Recompensa 200 estrellas";
+                mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, palabra descubierta! 🎉 Ganaste +200 estrellas";
                 mensaje.className = "correcto";
                 estrellas += 200;
 
@@ -525,7 +529,7 @@
                 if (contadorIncorrectas === 3) {
                     mostrarLapizRoto(3);
                 }
-                mensaje.textContent = `¡Buen intento!🌟 Las casillas rojas están mal colocadas, da dos veces clic en la ficha roja para corregir y vuelve a verificar ✅. Te quedan solo ${vidas} intentos`;
+                mensaje.textContent = `¡Casi logrado <?php echo $this->session->userdata('usuario'); ?>!🌟 Las letras rojas no van ahí, dales doble clic y vuelve a intentar✅ ¡Tu puedes!. Te quedan solo ${vidas} intentos`;
                 mensaje.className = "incorrecto";
                 // nuevapalabrasIncorrectas = palabrasIncorrectas.push(palabraActual.palabra);
                 console.log('Incorrectas', contadorIncorrectas);
@@ -547,6 +551,7 @@
 
                 // Si las vidas llegan a 0, desactivar el botón de verificar
                 if (vidas <= 0) {
+                    mostrarMensajeExito();
                     mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, descubriste ${contadorBuenas} palabras y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
                     mensaje.className = "incorrecto";
                     clearInterval(timer);
@@ -569,6 +574,66 @@
 
                 }
             }
+        }
+
+        function mostrarMensajeExito() {
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>!<br>
+            Usaste tus 3 intentos, a seguir practicando ¡Tú puedes!💪<br>
+            Ganaste: <strong>${estrellas}</strong> estrellas. 🌟 <br>
+            Encontraste <strong>${contadorBuenas}</strong> palabras. 📝 <br>
+            Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> 📝 <br>`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#ffffff';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir trazando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el lienzo
+                trazoRealizado = false; // Restablecer trazo
+                botonGuardar.style.display = "none"; // Ocultar el botón de guardar
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
+
+
         }
 
         function saltarPalabra() {
@@ -732,7 +797,16 @@
             document.getElementById("saltarPalabraBtn").disabled = true;
             document.getElementById("finalizarJuegoBtn").disabled = true;
 
+
         }
+        contenedorPalabra.addEventListener('input', function() {
+            // Verificar si ya se completó la palabra
+            const todasLasCasillasLlenas = Array.from(contenedorPalabra.children).every(casilla => casilla.textContent.trim() !== '');
+
+            if (todasLasCasillasLlenas) {
+                verificarPalabra(); // Llamar a la función automáticamente
+            }
+        });
 
         function reiniciarJuego() {
             console.log("juego reiniciado");

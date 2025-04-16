@@ -26,7 +26,7 @@ class Login extends CI_Controller
 	public function autenticacion()
 	{
 		// Reglas de validación de formularios
-		$this->form_validation->set_rules('usuario', 'Usuario', 'required');
+		$this->form_validation->set_rules('usuario', 'usuario', 'required');
 		$this->form_validation->set_rules('contrasenia', 'contrasenia', 'required');
 
 
@@ -46,7 +46,7 @@ class Login extends CI_Controller
 				redirect('login'); // Redirige al formulario de inicio de sesión
 			}
 
-			$this->session->set_flashdata('usuario', $this->input->post('usuario'));
+			// $this->session->set_flashdata('usuario', $this->input->post('usuario'));
 
 			if (!password_verify($this->input->post('contrasenia'), $usuario_row->contrasenia)) {
 				// Contraseña incorrecta
@@ -58,8 +58,6 @@ class Login extends CI_Controller
 				$usuario_row->usuario,
 				$usuario_row->correo_tutor,
 				$usuario_row->identificador,
-
-
 				//$relacion_usuario_rol_row->rol_id
 				null
 			);

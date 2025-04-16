@@ -306,13 +306,13 @@ body {
 .goma,
 .cuerpo,
 .punta {
-    width: 40px;
+    width: 75px;
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .goma {
-    height: 20px;
-    background-color: #00984F;
+    height: 50px;
+    background-color: #ED7A92;
     border-radius: 5px 5px 0 0;
     border: 2px solid white;
     /* Contorno blanco */
@@ -321,8 +321,8 @@ body {
 }
 
 .cuerpo {
-    height: 60px;
-    width: 40px;
+    height: 150px;
+    width: 75px;
     /* Asegúrate de tener un ancho definido */
     background-color: #00984F;
     /* Verde */
@@ -338,9 +338,11 @@ body {
 .punta {
     width: 0;
     height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 25px solid #00984F;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-top: 40px solid #FEE4A3;
 
 }
 
