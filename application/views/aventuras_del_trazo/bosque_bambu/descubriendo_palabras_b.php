@@ -18,7 +18,7 @@
                         </button> <br>
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
                     <!-- Modal -->
                     <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -44,7 +44,7 @@
 
                     <p>
                         ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
-                        Haz clic en el botón de Iniciar para comenzar a jugar.</p>
+                        Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
                             <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-iniciar.png') ?>" alt="" class="img-fluid" width="20%">
@@ -300,8 +300,6 @@
                 casillaLetra.draggable = true;
                 casillaLetra.addEventListener("dragstart", iniciarArrastre);
                 contenedorLetras.appendChild(casillaLetra);
-
-
             });
 
             for (let i = 0; i < palabraActual.palabra.length; i++) {
@@ -409,7 +407,7 @@
                 if (correcto) {
                     elementoArrastrado.draggable = false;
                     elementoArrastrado.style.opacity = 0.5;
-                    
+
                 } else {
                     elementoArrastrado.style.visibility = "hidden";
                 }
@@ -468,7 +466,6 @@
                     console.log(`${i}: ${palabrasCorrectas[i]}`);
                     estrellaSalta();
                     mostrarEstrellasCentrales();
-
                 }
                 document.getElementById("verificarPalabraBtn").disabled = true;
 
@@ -483,10 +480,13 @@
                 // Verificar si se completaron todas las palabras
                 if (palabrasRestantes.length === 0) {
                     // Crear el mensaje inicial
+                    mostrarMensajeExitoFelicidades();
                     // let resultado = `¡Felicidades! Has completado las ${contadorBuenas} palabras. El tiempo fue ${formatTime(minutes)}:${formatTime(seconds)}.\n\nPalabras correctas:\n`;
                     let resultado = `¡Felicidades, has descubierto todas las palabras! 🎉. Ganaste ${estrellas} estrellas, descubriste las ${contadorBuenas} palabras escondidas y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
                     mensaje.className = "correcto";
+                    mostrarConfeti();
                     document.getElementById("verificarPalabraBtn").disabled = true;
+                    document.getElementById('reiniciarJuegoBtn').disabled = true;
                     document.getElementById("saltarPalabraBtn").disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
 
@@ -505,7 +505,6 @@
                         block: "end"
                     });
                     enviarEvaluacionDescubriendoPalabrasB();
-                    mostrarConfeti();
                     return;
                 }
 
@@ -529,7 +528,7 @@
                 if (contadorIncorrectas === 3) {
                     mostrarLapizRoto(3);
                 }
-                mensaje.textContent = `¡Casi logrado <?php echo $this->session->userdata('usuario'); ?>!🌟 Las letras rojas no van ahí, dales doble clic y vuelve a intentar✅ ¡Tu puedes!. Te quedan solo ${vidas} intentos`;
+                mensaje.textContent = `¡Casi logrado <?php echo $this->session->userdata('usuario'); ?>!🌟 Las letras de los cuadros rojos no van ahí, vuelve a intentar✅ ¡Tu puedes! Te quedan solo ${vidas} intentos`;
                 mensaje.className = "incorrecto";
                 // nuevapalabrasIncorrectas = palabrasIncorrectas.push(palabraActual.palabra);
                 console.log('Incorrectas', contadorIncorrectas);
@@ -551,9 +550,9 @@
 
                 // Si las vidas llegan a 0, desactivar el botón de verificar
                 if (vidas <= 0) {
-                    mostrarMensajeExito();
-                    mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, descubriste ${contadorBuenas} palabras y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
-                    mensaje.className = "incorrecto";
+                    mostrarMensajeExitoIntentos();
+                    // mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, descubriste ${contadorBuenas} palabras y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
+                    // mensaje.className = "incorrecto";
                     clearInterval(timer);
                     mensaje.scrollIntoView({
                         behavior: "smooth",
@@ -567,7 +566,9 @@
                     Array.from(contenedorPalabra.children).forEach(casilla => {
                         casilla.style.pointerEvents = "none";
                     });
+
                     document.getElementById("verificarPalabraBtn").disabled = true;
+                    document.getElementById('reiniciarJuegoBtn').disabled = true;
                     document.getElementById("saltarPalabraBtn").disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
                     enviarEvaluacionDescubriendoPalabrasB();
@@ -576,22 +577,25 @@
             }
         }
 
-        function mostrarMensajeExito() {
+        function mostrarMensajeExitoIntentos() {
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>!<br>
-            Usaste tus 3 intentos, a seguir practicando ¡Tú puedes!💪<br>
-            Ganaste: <strong>${estrellas}</strong> estrellas. 🌟 <br>
-            Encontraste <strong>${contadorBuenas}</strong> palabras. 📝 <br>
-            Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> 📝 <br>`;
+            mensaje.innerHTML = `<b>Exploración finalizada</b> <br> 
+            ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
+            Puedes seguir mejorando en tu próxima exploración 💪<br>
+            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Palabras encontradas <strong>${contadorBuenas}</strong><br>
+            ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong>.  <br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#ffffff';
+            mensaje.style.backgroundColor = '#E0F3B8';
             mensaje.style.border = '5px solid #00984f';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
@@ -603,8 +607,9 @@
             // Agregar los botones para seguir o no trazando
             const botones = document.createElement('div');
             botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
             const botonSeguir = document.createElement('button');
-            botonSeguir.textContent = 'Sí, seguir trazando';
+            botonSeguir.textContent = 'Sí, seguir explorando';
             botonSeguir.style.marginRight = '10px';
             botonSeguir.classList.add('btn', 'btn-success');
 
@@ -614,9 +619,7 @@
 
             // Acción al hacer clic en "Sí, seguir trazando"
             botonSeguir.addEventListener('click', () => {
-                ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el lienzo
-                trazoRealizado = false; // Restablecer trazo
-                botonGuardar.style.display = "none"; // Ocultar el botón de guardar
+                reiniciarJuego();
                 mensaje.remove(); // Eliminar el mensaje
             });
 
@@ -633,6 +636,128 @@
             // Añadir el mensaje al body
             document.body.appendChild(mensaje);
 
+        }
+
+        function mostrarMensajeExitoFinalizar() {
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `<b>Exploración finalizada</b> <br> 
+            ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
+            En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
+            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Palabras encontradas <strong>${contadorBuenas}</strong><br>
+            ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> <br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#E0F3B8';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir explorando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                reiniciarJuego();
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
+
+        }
+
+        function mostrarMensajeExitoFelicidades() {
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `<b>Exploración finalizada</b> <br> 
+            ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
+            En esta misión descubristes <b>todas las palabras</b>. <br>
+            ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
+            ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
+            📝 Palabras encontradas <strong>${contadorBuenas}</strong> <br>
+            ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong><br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#E0F3B8';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir explorando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                reiniciarJuego();
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
 
         }
 
@@ -766,84 +891,6 @@
             }, 1600); // Duración total
         }
 
-
-        function finalizarJuego() {
-            console.log("fin del juego");
-            // Detener el cronómetro
-            clearInterval(timer);
-
-            // Mostrar un mensaje con el tiempo y los aciertos
-            mensaje.textContent = `¡El juego ha sido finalizado con éxito! 🎉 Ganaste ${estrellas} estrellas, descubriste ${contadorBuenas} palabras y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
-            mensaje.className = "incorrecto";
-            mensaje.scrollIntoView({
-                behavior: "smooth",
-                block: "end"
-            });
-            enviarEvaluacionDescubriendoPalabrasB();
-
-            // Desactivar los elementos del juego
-            Array.from(contenedorLetras.children).forEach(letra => {
-                letra.draggable = false;
-                letra.style.cursor = "not-allowed";
-            });
-            Array.from(contenedorPalabra.children).forEach(casilla => {
-                casilla.style.pointerEvents = "none";
-            });
-
-            //se envian los datos al controlador para despues guardarlos en la base de datos
-
-            // Deshabilitar los botones para evitar interacción adicional
-            document.getElementById("verificarPalabraBtn").disabled = true;
-            document.getElementById("saltarPalabraBtn").disabled = true;
-            document.getElementById("finalizarJuegoBtn").disabled = true;
-
-
-        }
-        contenedorPalabra.addEventListener('input', function() {
-            // Verificar si ya se completó la palabra
-            const todasLasCasillasLlenas = Array.from(contenedorPalabra.children).every(casilla => casilla.textContent.trim() !== '');
-
-            if (todasLasCasillasLlenas) {
-                verificarPalabra(); // Llamar a la función automáticamente
-            }
-        });
-
-        function reiniciarJuego() {
-            console.log("juego reiniciado");
-            estrellas = 0;
-            contadorEstrellas.textContent = estrellas;
-            //Bloque de palabras buenas
-            contadorBuenas = 0;
-            palabrasCorrectas = [];
-            nuevapalabrasCorrectas = [];
-
-            //Bloque de palabras incorrectas
-            contadorIncorrectas = 0;
-            palabrasIncorrectas = [];
-            palabraIncorrecta = '';
-            nuevapalabrasIncorrectas = [];
-            clearInterval(timer); // Detener el cronómetro anterior
-            minutes = 0;
-            seconds = 0;
-            // timerElement.textContent = "Tiempo: 00:00";
-
-            vidas = 3; // Reiniciar vidas
-            contadorVidas.textContent = vidas;
-
-            contadorBuenas = 0; // Reiniciar aciertos
-            palabrasRestantes = [...palabras]; // Volver a llenar las palabras restantes
-            palabrasCorrectas = [];
-            mensaje.textContent = ""; // Limpiar mensajes
-            mensaje.className = "";
-
-            document.getElementById("verificarPalabraBtn").disabled = false;
-            document.getElementById("saltarPalabraBtn").disabled = false;
-            document.getElementById("finalizarJuegoBtn").disabled = false;
-
-            iniciarJuego(); // Iniciar el juego de nuevo
-            startTimer(); // Iniciar el cronómetro
-        }
-
         function mostrarConfeti() {
             const canvas = document.getElementById("confettiCanvas");
             const ctx = canvas.getContext("2d");
@@ -881,6 +928,80 @@
             // Detener confeti después de 5 segundos
             setTimeout(() => (canvas.style.display = "none"), 2000);
         }
+
+        function finalizarJuego() {
+            console.log("fin del juego");
+            // Detener el cronómetro
+            clearInterval(timer);
+            mostrarMensajeExitoFinalizar();
+
+            // Mostrar un mensaje con el tiempo y los aciertos
+            mensaje.textContent = `¡El juego ha sido finalizado con éxito! 🎉 Ganaste ${estrellas} estrellas, descubriste ${contadorBuenas} palabras y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
+            mensaje.className = "incorrecto";
+            mensaje.scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+            });
+
+            console.log("entre al desabilita");
+            // Desactivar los elementos del juego
+            Array.from(contenedorLetras.children).forEach(letra => {
+                letra.draggable = false;
+                letra.style.cursor = "not-allowed";
+            });
+            Array.from(contenedorPalabra.children).forEach(casilla => {
+                casilla.style.pointerEvents = "none";
+            });
+
+            //se envian los datos al controlador para despues guardarlos en la base de datos
+
+            // Deshabilitar los botones para evitar interacción adicional
+            document.getElementById("verificarPalabraBtn").disabled = true;
+            document.getElementById('reiniciarJuegoBtn').disabled = true;
+            document.getElementById("saltarPalabraBtn").disabled = true;
+            document.getElementById("finalizarJuegoBtn").disabled = true;
+            enviarEvaluacionDescubriendoPalabrasB();
+
+
+        }
+
+        function reiniciarJuego() {
+            console.log("juego reiniciado");
+            estrellas = 0;
+            contadorEstrellas.textContent = estrellas;
+            //Bloque de palabras buenas
+            contadorBuenas = 0;
+            palabrasCorrectas = [];
+            nuevapalabrasCorrectas = [];
+
+            //Bloque de palabras incorrectas
+            contadorIncorrectas = 0;
+            palabrasIncorrectas = [];
+            palabraIncorrecta = '';
+            nuevapalabrasIncorrectas = [];
+            clearInterval(timer); // Detener el cronómetro anterior
+            minutes = 0;
+            seconds = 0;
+            // timerElement.textContent = "Tiempo: 00:00";
+
+            vidas = 3; // Reiniciar vidas
+            contadorVidas.textContent = vidas;
+
+            contadorBuenas = 0; // Reiniciar aciertos
+            palabrasRestantes = [...palabras]; // Volver a llenar las palabras restantes
+            palabrasCorrectas = [];
+            mensaje.textContent = ""; // Limpiar mensajes
+            mensaje.className = "";
+
+            document.getElementById("verificarPalabraBtn").disabled = false;
+            document.getElementById('reiniciarJuegoBtn').disabled = false;
+            document.getElementById("saltarPalabraBtn").disabled = false;
+            document.getElementById("finalizarJuegoBtn").disabled = false;
+
+            iniciarJuego(); // Iniciar el juego de nuevo
+            startTimer(); // Iniciar el cronómetro
+        }
+
 
 
         // Función para enviar el tiempo final por AJAX
