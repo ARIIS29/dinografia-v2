@@ -55,8 +55,8 @@
 
             </div>
             <div class="col-lg-12 col-md-12 col-12 text-center" id="contenedorJuego">
-                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio_gd_j.mp3') ?>" preload="auto"></audio>
-
+                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio2_descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
+            
                 <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
                     <!-- Texto Cargando -->
                     <p id="loadingText" class="texto_loading">Cargando...</p>
@@ -79,25 +79,27 @@
                 <div id="emojiPalabra" class="emoji mt-05"></div>
                 <div id="contenedorLetras"></div>
                 <div id="contenedorPalabra"></div>
-                <div id="botonesContenedor" class="d-flex justify-content-center mt-4 d-none">
+                <div id="botonesContenedor" class="d-flex justify-content-center mt-5 d-none">
 
                     <button id="verificarPalabraBtn" class="btn verificar me-2" title="Verificar Palbra">
-                        <i class="fas fa-check"></i>
+                        <i class="fas fa-check"></i> Verificar Palabra
                     </button>
 
                     <button id="saltarPalabraBtn" class="btn saltar me-2" title="Saltar Palabra">
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right"></i> Saltar Palabra
                     </button>
 
                     <button id="reiniciarJuegoBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
-                        <i class="fas fa-redo"></i>
+                        <i class="fas fa-redo"></i> Reiniciar Misión
                     </button>
 
                     <button id="finalizarJuegoBtn" class="btn finalizar me-2" title="Finalizar Juego">
-                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i> Finalizar Misión
                     </button>
                 </div>
-                <p id="mensaje"></p>
+                <div class="col-lg-12 col-md-12 col-12" id="mensaje">
+                </div>
+
 
             </div>
 
@@ -172,7 +174,6 @@
 
         function startAnimation() {
             // audioEstrellaPuntos();
-            audioTractorAnimacion();
             const loadingText = document.getElementById('loadingText');
             const progress = document.getElementById('progress');
             const car = document.getElementById('car');
@@ -482,8 +483,8 @@
                     // Crear el mensaje inicial
                     mostrarMensajeExitoFelicidades();
                     // let resultado = `¡Felicidades! Has completado las ${contadorBuenas} palabras. El tiempo fue ${formatTime(minutes)}:${formatTime(seconds)}.\n\nPalabras correctas:\n`;
-                    let resultado = `¡Felicidades, has descubierto todas las palabras! 🎉. Ganaste ${estrellas} estrellas, descubriste las ${contadorBuenas} palabras escondidas y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
-                    mensaje.className = "correcto";
+                    // let resultado = `¡Felicidades, has descubierto todas las palabras! 🎉. Ganaste ${estrellas} estrellas, descubriste las ${contadorBuenas} palabras escondidas y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
+                    // mensaje.className = "correcto";
                     mostrarConfeti();
                     document.getElementById("verificarPalabraBtn").disabled = true;
                     document.getElementById('reiniciarJuegoBtn').disabled = true;
@@ -521,14 +522,22 @@
                 movimientosSalta();
                 if (contadorIncorrectas === 1) {
                     mostrarLapizRoto(1);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                ¡Solo te quedan  ${vidas} intentos, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 2) {
                     mostrarLapizRoto(2);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                ¡Solo te queda  ${vidas} intento, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 3) {
                     mostrarLapizRoto(3);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                 Te quedaste sin intentos, ¡pero diste lo mejor! 💪`;
                 }
-                mensaje.textContent = `¡Casi logrado <?php echo $this->session->userdata('usuario'); ?>!🌟 Las letras de los cuadros rojos no van ahí, vuelve a intentar✅ ¡Tu puedes! Te quedan solo ${vidas} intentos`;
+
                 mensaje.className = "incorrecto";
                 // nuevapalabrasIncorrectas = palabrasIncorrectas.push(palabraActual.palabra);
                 console.log('Incorrectas', contadorIncorrectas);
@@ -581,7 +590,7 @@
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `<b>Exploración finalizada</b> <br> 
+            mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
@@ -642,7 +651,7 @@
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `<b>Exploración finalizada</b> <br> 
+            mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
@@ -703,7 +712,7 @@
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `<b>Exploración finalizada</b> <br> 
+            mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En esta misión descubristes <b>todas las palabras</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
@@ -770,13 +779,6 @@
         function audioEstrellaPuntos() {
             console.log("audio reproducido");
             audioEstrellas.play().catch(error => {
-                console.log("Error al reproducir el audio:", error);
-            });
-        }
-
-        function audioTractorAnimacion() {
-            console.log("audio reproducido");
-            audioTractor.play().catch(error => {
                 console.log("Error al reproducir el audio:", error);
             });
         }
@@ -936,8 +938,8 @@
             mostrarMensajeExitoFinalizar();
 
             // Mostrar un mensaje con el tiempo y los aciertos
-            mensaje.textContent = `¡El juego ha sido finalizado con éxito! 🎉 Ganaste ${estrellas} estrellas, descubriste ${contadorBuenas} palabras y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
-            mensaje.className = "incorrecto";
+            // mensaje.textContent = `¡El juego ha sido finalizado con éxito! 🎉 Ganaste ${estrellas} estrellas, descubriste ${contadorBuenas} palabras y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
+            // mensaje.className = "incorrecto";
             mensaje.scrollIntoView({
                 behavior: "smooth",
                 block: "end"

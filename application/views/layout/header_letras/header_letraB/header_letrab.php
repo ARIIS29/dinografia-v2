@@ -24,8 +24,8 @@
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center">
                     <h1 class="titulo-h1-bambu">LETRA - B</h1>
                 </div>
-                <div class="col-lg-3 col-md-3 d-flex align-items-center">
-                    <img src="<?php echo base_url('almacenamiento/img/dinografia/estrella-amarilla.png') ?>" alt="" class="img-fluid ms-5" width="15%">
+                <div class="col-lg-3 col-md-3  justify-content-end">
+                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-5" width="15%">
                     <span class="texto_indicaciones_bambu ms-2" id="contadorEstrellas">0</span>
                 </div>
 
