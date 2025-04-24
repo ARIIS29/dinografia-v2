@@ -73,6 +73,10 @@
                 <div class="contenedor-figuras mt-8" id="contenedorFiguras"></div>
 
                 <canvas id="confettiCanvas"></canvas>
+                <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
+                <audio id="audioIncorrecto" src="<?php echo base_url('almacenamiento/audios/incorrecto.mp3') ?>" preload="auto"></audio>
+                <audio id="audioTractor" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
+
 
                 <div class="d-flex justify-content-center mt-8">
                     <button id="omitirBtn" class="btn saltar me-2" title="Saltar elemento">
@@ -193,7 +197,7 @@
         }
 
 
-     
+
         const emojis = ['🚲', '⛵', '👜', '🧭', '🥾', '🎋', '🧣', '🏳️', '💡', '🏀', '🗑️'];
         const nombresEmojis = {
             '🚲': 'bicicleta',
@@ -267,11 +271,14 @@
             divFiguraSeleccionada.classList.add('seleccionado');
 
             if (emojiSeleccionado === instruccionActual.emoji) {
+                estrellaSalta();
+                mostrarEstrellasCentrales();
                 contadorCorrectos++;
                 // document.getElementById("contadorCorrectos").textContent = contadorCorrectos;
                 divFiguraSeleccionada.classList.add("correcto");
                 estrellas += 100;
                 contadorEstrellas.textContent = estrellas;
+
 
                 mensaje.textContent = `¡Super asombroso!🎉 Has seleccionado el elemento correcto (${emojiSeleccionado}). Ganaste 100 estrellas`;
                 mensaje.className = "correcto";
@@ -279,6 +286,7 @@
                     behavior: "smooth",
                     block: "end"
                 });
+
                 desactivarEmoji();
 
                 if (!figurasEncontradas.includes(emojiSeleccionado)) {
@@ -355,6 +363,81 @@
             });
         }
 
+        function audioEstrellaPuntos() {
+            console.log("audio reproducido");
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function estrellaSalta() {
+            const estrella = document.querySelector('img[src*="estrella.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function movimientosSalta() {
+            const estrella = document.querySelector('img[src*="movimientos.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioIncorrecto.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function mostrarEstrellasCentrales(cantidad = 20) {
+            console.log("muestra estrellas");
+            for (let i = 0; i < cantidad; i++) {
+                const estrella = document.createElement('div');
+                estrella.classList.add('estrella-central');
+
+                // Posición aleatoria
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                estrella.style.top = `${top}%`;
+                estrella.style.left = `${left}%`;
+
+                // Tamaño aleatorio
+                const tamaño = Math.floor(Math.random() * 60) + 30; // Entre 30 y 90 px
+                estrella.style.width = `${tamaño}px`;
+                estrella.style.height = `${tamaño}px`;
+
+                // Ángulo de rotación aleatorio
+                const rotacion = Math.floor(Math.random() * 360);
+                estrella.style.setProperty('--rotacion', `${rotacion}deg`);
+
+                // Dirección de desplazamiento al desaparecer
+                const offsetX = Math.random() * 100 - 50; // entre -50 y +50
+                const offsetY = Math.random() * 100 - 50;
+                estrella.style.setProperty('--desplazarX', `${offsetX}px`);
+                estrella.style.setProperty('--desplazarY', `${offsetY}px`);
+
+                document.body.appendChild(estrella);
+
+                // Quitar del DOM después de la animación
+                setTimeout(() => {
+                    estrella.remove();
+                }, 1600);
+            }
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
 
         function mostrarConfeti() {
             const canvas = document.getElementById("confettiCanvas");
