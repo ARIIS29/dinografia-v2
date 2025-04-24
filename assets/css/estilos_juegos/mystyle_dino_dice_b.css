@@ -64,11 +64,11 @@ button:disabled {
 } */
 
 #instruccion {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 22px;
     font-weight: bold;
-    background-color: #bce2f1a2;
+    text-align: center;
+    color: #214524 !important;
 
 }
 

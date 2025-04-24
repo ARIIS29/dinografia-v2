@@ -44,7 +44,6 @@
                     <a href="<?php echo site_url('letras/bosque_bambu/descubriendo_palabras_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_bambu">
-                    <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">¡Vamos a descubrir la palabra oculta! 🔍 <br>Haz clic en el botón verde ✅ para verificar tu respuesta.
                 </div>
                 <div class="col-lg-3 col-md-3 d-flex justify-items-center texto_indicaciones_bambu">
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">

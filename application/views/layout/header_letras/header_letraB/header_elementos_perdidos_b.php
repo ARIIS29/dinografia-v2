@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">
                         <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-1" width="20%">
-                        <span class="text-azul"  id="contadorEstrellas">0</span>
+                        <span class="text-azul" id="contadorEstrellas">0</span>
                     </div>
 
                 </div>
