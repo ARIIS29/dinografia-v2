@@ -258,10 +258,10 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
-	public function encontrando_objetos_b()
+	public function elementos_perdidos_b()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_encontrando_objetos_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/encontrando_objetos_b');
+		$this->load->view('layout/header_letras/header_letraB/header_elementos_perdidos_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/elementos_perdidos_b');
 		$this->load->view('layout/footer');
 	}
 

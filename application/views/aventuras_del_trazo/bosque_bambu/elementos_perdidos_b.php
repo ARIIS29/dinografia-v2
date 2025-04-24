@@ -3,13 +3,21 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo instrucciones" id="areaJuego">
                 <div class="col-lg-12 col-md-12 col-12 mt-2">
+                    <div class="d-flex align-items-center">
+                        <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
+
+                        <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
+                    </div>
                     <p>
-                    <h1>¡Bienvenidos a la aventura del bosque de bambú! <br> <b>Elementos - Letra b</b></h1> <br>
-                    ¡Prepárate para una emocionante misión! Ayuda al dino a encontrar todos los elementos perdidos en el bosque de bambú. ¡Todos tienen algo en común: contienen la letra b!<br>
-                    <b> Instrucciones del juego</b> <br>
-                    Da clic en el boton azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                        ¿Cómo jugar?
-                    </button> <br>
+                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
+                        <b> Instrucciones del juego</b> <br>
+                        ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
+                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            ¿Cómo jugar?
+                        </button> <br>
+                    </p>
+
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal -->
                     <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
@@ -34,20 +42,38 @@
                         </div>
                     </div>
 
-                    ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
-                    Haz clic en el botón de Iniciar para comenzar a jugar.
-
-                    </p>
-                </div>
-
-                <div class="col-lg-12 col-md-12 col-12 text-center">
-                    <button id="play-btn">Play</button>
+                    <p>
+                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
+                    <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
+                        <a id="play-btn">
+                            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-iniciar.png') ?>" alt="" class="img-fluid" width="20%">
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-12 justify-content-center" id="contenedorJuego">
+
+                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio2_descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
+                <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
+                <audio id="audioIncorrecto" src="<?php echo base_url('almacenamiento/audios/incorrecto.mp3') ?>" preload="auto"></audio>
+                <audio id="audioTractor" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
+                <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
+                    <!-- Texto Cargando -->
+                    <p id="loadingText" class="texto_loading">Cargando...</p>
+                    <!-- Barra de progreso -->
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid img_dino_coche">
+                    </div>
+                    <div class="progress" style="height: 30px;">
+                        <div id="progress" class="progress-bar bg-success" style="width: 0;"></div>
+                    </div>
+                    <!-- Imagen del coche -->
+
+                </div>
                 <canvas id="confettiCanvas"></canvas>
 
-                <div class="col-12 text-center" id="objetivoEmoji"></div>
+                <!-- <div class="col-12 text-center" id="objetivoEmoji"></div> -->
                 <div class="justify-content-center areaJuegoObjetos" id="areaJuegoObjetos"></div>
                 <div class="col-lg-4 col-md-4">
                     <span class="text-azul ms-2" id="objetoRecolectado"></span>
@@ -69,13 +95,19 @@
                 </div>
 
             </div>
-
         </div>
 </section>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
 
         const playBtn = document.getElementById('play-btn');
+        const audioEstrellas = document.getElementById('audioEstrellas');
+        const audioTractor = document.getElementById('audioTractor');
+        const audioIncorrecto = document.getElementById('audioIncorrecto');
+        const dinoIndicaciones1 = document.getElementById('dinoIndicaciones1');
+        const dinoIndicaciones = document.getElementById('dinoIndicaciones');
+        const audio1 = document.getElementById('audioVista1');
+        const audio2 = document.getElementById('audioVista2');
 
         document.getElementById('play-btn').addEventListener('click', function() {
             // Mostrar el encabezado del juego
@@ -84,6 +116,84 @@
             // Ocultar el encabezado inicial
             document.getElementById('header-inicial').classList.add('d-none');
         });
+
+        audio1.play().catch(error => {
+            console.log("Error al reproducir audioVista1:", error);
+        });
+        audioIndicacionesUno();
+
+        playBtn.addEventListener('click', function() {
+
+            console.log("Juego mostrado"); // Agrega esta línea para depurar
+            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
+            // Ocultar el área donde está el botón de inicio
+            document.getElementById('areaJuego').style.display = 'none';
+            // Mostrar el contenedor del juego
+            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+            audio1.pause();
+            audio1.currentTime = 0;
+            audio2.play().catch(error => {
+                console.log("Error al reproducir audio automáticamente:", error);
+            });
+
+            audioIndicacionesDos();
+            startAnimation();
+
+            // Inicia el cronómetro
+        });
+
+        function audioIndicacionesUno() {
+            dinoIndicaciones1.addEventListener('click', function() {
+                if (audio1.paused) {
+                    audio1.play().catch(error => console.log("Error al reproducir el audio:", error));
+                } else {
+                    audio1.pause();
+                    audio1.currentTime = 0;
+                }
+            });
+        }
+
+        function audioIndicacionesDos() {
+            dinoIndicaciones.addEventListener('click', function() {
+                if (audio2.paused) {
+                    audio2.play().catch(error => console.log("Error al reproducir el audio:", error));
+                } else {
+                    audio2.pause();
+                    audio2.currentTime = 0;
+                }
+            });
+        }
+
+        function startAnimation() {
+            // audioEstrellaPuntos();
+            const loadingText = document.getElementById('loadingText');
+            const progress = document.getElementById('progress');
+            const car = document.getElementById('car');
+            const animacionCarga = document.getElementById('animacionCarga');
+
+            // Mostrar el texto de "Cargando..."
+            loadingText.style.display = 'block';
+
+            let width = 0;
+            const interval = setInterval(() => {
+                width += 2; // Incremento de progreso (ajusta la velocidad según prefieras)
+                progress.style.width = width + '%';
+                // Mueve el coche a lo largo de la barra (ajustamos su posición en función del ancho alcanzado)
+                car.style.left = Math.min(width, 90) + '%'; // Se detiene antes de llegar al 100%
+
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Opcional: muestra un mensaje final de "¡Comienza!"
+                    loadingText.textContent = "¡Comienza!";
+                    // Después de un breve retraso, oculta la animación y comienza el juego
+                    setTimeout(() => {
+                        animacionCarga.style.display = 'none';
+                        iniciarTemporizador();
+                        mostrarEmojis();
+                    }, 500);
+                }
+            }, 50);
+        }
 
         const areaJuego = document.getElementById('areaJuego');
         const contenedorJuego = document.getElementById('contenedorJuego');
@@ -95,10 +205,6 @@
         const intentosElemento = document.getElementById('intentos');
         const siguienteNivelElemento = document.getElementById('siguienteNivel');
         const recolectadosElemento = document.getElementById('objetoRecolectado');
-        // const botonFinalizar = document.getElementById('finalizarJuego');
-        // const botonPasarNivel = document.getElementById('pasarNivel');
-        // const botonReiniciar = document.getElementById('reiniciarJuego');
-        // document.getElementById('pasarNivel').addEventListener('click', pasarNivel);
 
         document.getElementById('pasarNivelBtn').addEventListener('click', pasarNivel);
         document.getElementById('finalizarJuegoBtn').addEventListener('click', finalizarJuego);
@@ -185,7 +291,9 @@
             cuentaCorrecta = 0;
 
             // Instrucción con emoji y su nombre
-            objetivoEmojiElemento.innerHTML = `¡Encuentra todos los elementos de <span>${emojiCorrecto.nombre}</span> (${emojiCorrecto.emoji}) haciendo clic sobre ellos!`;
+            // objetivoEmojiElemento.innerHTML = `¡Encuentra todos los elementos de <span>${emojiCorrecto.nombre}</span> (${emojiCorrecto.emoji}) haciendo clic sobre ellos!`;
+            objetivoEmojiElemento.innerHTML = `<img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">
+            ¡Encuentra todos los elementos de <span>${emojiCorrecto.nombre}</span> (${emojiCorrecto.emoji}) haciendo clic sobre ellos!`;
 
             const tamañoGrid = nivel + 2; // Aumenta el número de columnas por nivel
             const totalEmojis = tamañoGrid * 3; // Número fijo de filas (por ejemplo, 5 filas)
@@ -227,6 +335,7 @@
         function comprobarRespuesta(emojiElemento) {
             const emojiSeleccionado = emojiElemento.textContent;
             if (emojiElemento.classList.contains('seleccionado')) {
+
                 return;
             }
 
@@ -239,6 +348,9 @@
                 // recolectadosElemento.textContent = `${frutasRecolectadas}`;
                 estrellas += 50;
                 contadorEstrellas.textContent = estrellas;
+                console.log('estrellas obtrenidas', contadorEstrellas);
+                estrellaSalta();
+                mostrarEstrellasCentrales();
 
                 if (cuentaCorrecta === 0) {
                     mensaje.textContent = `¡Super asombroso 🎉! Has encontrado todos los elementos de ${emojiCorrecto.emoji} (${emojiCorrecto.nombre}). Recomepensa acumulada ${estrellas}`;
@@ -260,6 +372,24 @@
                 intentos--;
                 contadorIncorrectas++;
                 intentosElemento.textContent = `${intentos}`;
+                movimientosSalta();
+                if (contadorIncorrectas === 1) {
+                    mostrarLapizRoto(1);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                ¡Solo te quedan  ${vidas} intentos, tú puedes! 💪`;
+                }
+                if (contadorIncorrectas === 2) {
+                    mostrarLapizRoto(2);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                ¡Solo te queda  ${vidas} intento, tú puedes! 💪`;
+                }
+                if (contadorIncorrectas === 3) {
+                    mostrarLapizRoto(3);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                 Te quedaste sin intentos, ¡pero diste lo mejor! 💪`;
+                }
 
                 erroresRecolectados.push({
                     seleccionado: emojiSeleccionado,
@@ -326,6 +456,124 @@
                 emoji.style.pointerEvents = 'none';
             });
         }
+
+        function audioEstrellaPuntos() {
+            console.log("audio reproducido");
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function estrellaSalta() {
+            const estrella = document.querySelector('img[src*="estrella.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function movimientosSalta() {
+            const estrella = document.querySelector('img[src*="movimientos.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioIncorrecto.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function mostrarEstrellasCentrales(cantidad = 20) {
+            for (let i = 0; i < cantidad; i++) {
+                const estrella = document.createElement('div');
+                estrella.classList.add('estrella-central');
+
+                // Posición aleatoria
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                estrella.style.top = `${top}%`;
+                estrella.style.left = `${left}%`;
+
+                // Tamaño aleatorio
+                const tamaño = Math.floor(Math.random() * 60) + 30; // Entre 30 y 90 px
+                estrella.style.width = `${tamaño}px`;
+                estrella.style.height = `${tamaño}px`;
+
+                // Ángulo de rotación aleatorio
+                const rotacion = Math.floor(Math.random() * 360);
+                estrella.style.setProperty('--rotacion', `${rotacion}deg`);
+
+                // Dirección de desplazamiento al desaparecer
+                const offsetX = Math.random() * 100 - 50; // entre -50 y +50
+                const offsetY = Math.random() * 100 - 50;
+                estrella.style.setProperty('--desplazarX', `${offsetX}px`);
+                estrella.style.setProperty('--desplazarY', `${offsetY}px`);
+
+                document.body.appendChild(estrella);
+
+                // Quitar del DOM después de la animación
+                setTimeout(() => {
+                    estrella.remove();
+                }, 1600);
+            }
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+
+        function mostrarLapizRoto(vidasPerdidas) {
+            const lapiz = document.createElement('div');
+            lapiz.classList.add('lapiz-central');
+
+            // Crear partes del lápiz
+            const goma = document.createElement('div');
+            goma.classList.add('goma');
+
+            const cuerpo = document.createElement('div');
+            cuerpo.classList.add('cuerpo');
+
+            const punta = document.createElement('div');
+            punta.classList.add('punta');
+
+            // Agregar partes visibles dependiendo de vidas restantes
+            if (vidasPerdidas < 1) {
+                lapiz.appendChild(goma);
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+            } else if (vidasPerdidas === 1) {
+                lapiz.appendChild(goma);
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+                setTimeout(() => goma.classList.add('roto'), 400);
+            } else if (vidasPerdidas === 2) {
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+                setTimeout(() => cuerpo.classList.add('roto'), 400);
+            } else if (vidasPerdidas === 3) {
+                lapiz.appendChild(punta);
+                setTimeout(() => punta.classList.add('roto'), 400);
+            }
+
+            document.body.appendChild(lapiz);
+
+            // Remover lápiz del DOM después de la animación
+            setTimeout(() => {
+                lapiz.remove();
+            }, 1600); // Duración total
+        }
+
 
         function reiniciarJuego() {
             estrellas = 0;
@@ -416,14 +664,7 @@
         }
 
 
-        playBtn.addEventListener('click', function() {
-            console.log('Clic en el botón de inicio');
-            playBtn.style.display = 'none'; // Ocultar el botón
-            areaJuego.style.display = 'none'; // Ocultar el área del botón
-            contenedorJuego.style.display = 'block'; // Mostrar el juego
-            iniciarTemporizador();
-            mostrarEmojis();
-        });
+
 
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
         function enviarEvaluacionEncontrandoObjetosB() {

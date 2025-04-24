@@ -7,7 +7,6 @@
                         <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
 
                         <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
-
                     </div>
                     <p>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
@@ -456,7 +455,6 @@
                 mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, palabra descubierta! 🎉 Ganaste +200 estrellas";
                 mensaje.className = "correcto";
                 estrellas += 200;
-
                 contadorEstrellas.textContent = estrellas;
                 contadorBuenas++;
                 nuevapalabrasCorrectas = palabrasCorrectas.push(palabraActual.palabra);
@@ -648,6 +646,7 @@
         }
 
         function mostrarMensajeExitoFinalizar() {
+            
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
