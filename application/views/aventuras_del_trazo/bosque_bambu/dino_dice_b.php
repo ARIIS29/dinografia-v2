@@ -311,17 +311,38 @@
 
                 intentos--;
                 contadorIncorrectas++;
+                movimientosSalta();
+                if (contadorIncorrectas === 1) {
+                    mostrarLapizRoto(1);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                ¡Solo te quedan  ${intentos} intentos, tú puedes! 💪`;
+                }
+                if (contadorIncorrectas === 2) {
+                    mostrarLapizRoto(2);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                ¡Solo te queda  ${intentos} intento, tú puedes! 💪`;
+                }
+                if (contadorIncorrectas === 3) {
+                    mostrarLapizRoto(3);
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                 Te quedaste sin intentos, ¡pero diste lo mejor! 💪`;
+                }
+
                 mensaje.textContent = `¡Sigue intentando!🌟. Has seleccionado un elemento incorrecto (${emojiSeleccionado}). El elemento que debes buscar es (${instruccionActual.emoji}). Te quedan solo ${intentos} intentos`;
                 mensaje.className = "incorrecto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
                     block: "end"
                 });
+
                 document.getElementById("intentos").textContent = intentos;
                 divFiguraSeleccionada.classList.add("incorrecto");
 
 
                 if (intentos === 0) {
+                    mostrarMensajeExitoIntentos();
                     mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, recolectaste ${contadorCorrectos} elementos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
                     mensaje.className = "incorrecto";
                     mensaje.scrollIntoView({
@@ -336,6 +357,8 @@
                 }
             }
         }
+
+
 
         function nuevaInstruccion() {
             document.getElementById("mensaje").textContent = "";
@@ -353,6 +376,191 @@
 
             // Usar innerHTML para mostrar imagen + texto
             document.getElementById("instruccion").innerHTML = instruccionActual.texto;
+
+        }
+
+        function mostrarMensajeExitoIntentos() {
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
+            ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
+            Puedes seguir mejorando en tu próxima exploración 💪<br>
+            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Palabras encontradas <strong>${contadorCorrectos}</strong><br>
+            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong>.  <br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#E0F3B8';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir explorando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                reiniciarJuego();
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
+
+        }
+
+        function mostrarMensajeExitoFinalizar() {
+
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
+            ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
+            En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
+            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Palabras encontradas <strong>${contadorCorrectos}</strong><br>
+            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#E0F3B8';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir explorando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                reiniciarJuego();
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
+
+        }
+
+        function mostrarMensajeExitoFelicidades() {
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
+            ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
+            En esta misión descubristes <b>todas las palabras</b>. <br>
+            ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
+            ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
+            📝 Palabras encontradas <strong>${contadorCorrectos}</strong> <br>
+            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#E0F3B8';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir explorando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                reiniciarJuego();
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
 
         }
 
@@ -439,6 +647,48 @@
             });
         }
 
+        function mostrarLapizRoto(vidasPerdidas) {
+            const lapiz = document.createElement('div');
+            lapiz.classList.add('lapiz-central');
+
+            // Crear partes del lápiz
+            const goma = document.createElement('div');
+            goma.classList.add('goma');
+
+            const cuerpo = document.createElement('div');
+            cuerpo.classList.add('cuerpo');
+
+            const punta = document.createElement('div');
+            punta.classList.add('punta');
+
+            // Agregar partes visibles dependiendo de vidas restantes
+            if (vidasPerdidas < 1) {
+                lapiz.appendChild(goma);
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+            } else if (vidasPerdidas === 1) {
+                lapiz.appendChild(goma);
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+                setTimeout(() => goma.classList.add('roto'), 400);
+            } else if (vidasPerdidas === 2) {
+                lapiz.appendChild(cuerpo);
+                lapiz.appendChild(punta);
+                setTimeout(() => cuerpo.classList.add('roto'), 400);
+            } else if (vidasPerdidas === 3) {
+                lapiz.appendChild(punta);
+                setTimeout(() => punta.classList.add('roto'), 400);
+            }
+
+            document.body.appendChild(lapiz);
+
+            // Remover lápiz del DOM después de la animación
+            setTimeout(() => {
+                lapiz.remove();
+            }, 1600); // Duración total
+        }
+
+
         function mostrarConfeti() {
             const canvas = document.getElementById("confettiCanvas");
             const ctx = canvas.getContext("2d");
@@ -478,6 +728,7 @@
         }
 
         function mostrarMensajeFinal() {
+            mostrarMensajeExitoFelicidades();
             mensaje.textContent = `¡Felicidades, has seguido todas las instrucciones del Dino a la perfección! 🎉. Ganaste ${estrellas} estrellas, recolectaste los ${contadorCorrectos} elementos indicados y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
             mensaje.className = "correcto";
             mensaje.scrollIntoView({
@@ -550,6 +801,8 @@
         // Inicia el juego al cargar la página
 
         function finalizarJuego() {
+            mostrarMensajeExitoFinalizar();
+
             clearInterval(temporizador); // Detener el cronómetro
             const mensajeFinal = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, recolectaste ${contadorCorrectos} elementos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
             mensaje.className = "incorrecto";
