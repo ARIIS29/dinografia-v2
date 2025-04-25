@@ -17,43 +17,19 @@
 
 <body>
     <section>
-        <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top d-none d-sm-block">
+        <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-
+               
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
                     <a href="<?php echo site_url('letras/bosque_bambu') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
-                <div class="col-lg-6 col-md-6 justify-aling-center text-center d-none d-md-block">
+                <div class="col-lg-6 col-md-6 justify-aling-center text-center">
                     <h1 class="titulo-h1-bambu">EXPLORA Y DESCUBRE</h1>
-                </div>
-                <div class="col-lg-6 col-md-6 justify-aling-center text-center d-block d-md-none">
-                    <h1 class="titulo-h1-bambu-movil">EXPLORA DESCUBRE</h1>
                 </div>
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
                     <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn boton-cerrar-sesion float-end">Cerrar sesión</a>
                 </div>
 
-            </div>
-        </nav>
-
-        <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top d-block d-sm-none">
-            <div class="container-fluid">
-                <a href="<?php echo site_url('Aventuras_del_trazo') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
-                <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form class="d-flex ms-auto">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                                    <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn boton-cerrar-sesion float-end">Cerrar sesión</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </form>
-                </div>
             </div>
         </nav>
     </section>

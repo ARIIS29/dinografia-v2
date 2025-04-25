@@ -65,23 +65,15 @@
     <div class="container">
         <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
             <h1 class="titulo-h1-bambu-movil">LETRA - B</h1>
-            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-5" width="15%">
-            <span class="texto_indicaciones_bambu ms-2" id="estrellas">0</span>
-
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <!-- Imagen -->
             <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
             <!-- Texto -->
             <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
-            <div class="d-none d-md-block">
-                <p class="texto_indicaciones_bambu mb-0">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "b" en la pizarra! </p>
-            </div>
-            <div class="d-block d-md-none">
-                <p class="texto_indicaciones_bambu mb-0 mt-5">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "b" en la pizarra! </p>
-            </div>
+            <p class="texto_indicaciones_bambu mb-0">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "b" en la pizarra! </p>
             <div class="col-1 d-none d-sm-block">
-                <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriab.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriab.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
             </div>
 
         </div>
