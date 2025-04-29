@@ -78,6 +78,7 @@
                 <div id="emojiPalabra" class="emoji mt-05"></div>
                 <div id="contenedorLetras"></div>
                 <div id="contenedorPalabra"></div>
+                
                 <div id="botonesContenedor" class="d-flex justify-content-center mt-5 d-none">
 
                     <button id="verificarPalabraBtn" class="btn verificar me-2" title="Verificar Palbra">
