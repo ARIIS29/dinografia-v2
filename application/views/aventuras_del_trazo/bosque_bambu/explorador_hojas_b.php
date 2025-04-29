@@ -73,7 +73,7 @@
                 <audio id="audioIncorrecto" src="<?php echo base_url('almacenamiento/audios/incorrecto.mp3') ?>" preload="auto"></audio>
                 <audio id="audioTractor" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
 
-                <div id="area" class="col-lg-8 col-md-8 col-8 justify-content-center area d-none" >
+                <div id="area" class="col-lg-8 col-md-8 col-8 justify-content-center area d-none">
                     <img id="hoja" src="<?php echo base_url('almacenamiento/img/bosque_bambu/hojab.png') ?>" alt="HojaB" class="hoja-img" width="5%" style="cursor: pointer;">
                 </div>
                 <div id="botonesContenedor" class="d-flex justify-content-center d-none">
@@ -255,7 +255,11 @@
                 console.log('puntaje: ', puntaje);
 
                 setTimeout(() => {
-                    hoja.style.display = 'none';
+                    if (hoja.style.display === 'block') {
+                        // El usuario no hizo clic
+                        hoja.style.display = 'none';
+                        movimientosSalta();
+                    }
                 }, tiempoHoja);
 
             } else {
@@ -265,6 +269,7 @@
         hoja.addEventListener('click', () => {
             puntaje++;
             contadorPuntos.textContent = puntaje;
+            estrellaSalta();
             hoja.style.display = 'none';
             estrellas += 25;
             contadorEstrellas.textContent = estrellas;
@@ -287,23 +292,148 @@
             intervaloJuego = setInterval(movimientoHoja, tiempoHoja + 500);
         }
 
+        function mostrarMensajeExitoFinalizar() {
+            
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
+            ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
+            En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
+            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Palabras encontradas <strong>${puntaje}</strong><br>
+            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#E0F3B8';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir explorando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                reiniciarJuego();
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
+
+        }
+
+        function mostrarMensajeExitoFelicidades() {
+            // Crear el mensaje de éxito
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
+            ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
+            En esta misión descubristes <b>todas las palabras</b>. <br>
+            ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
+            ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
+            📝 Hojas encontradas <strong>${puntaje}</strong> <br>
+            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#E0F3B8';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir explorando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                reiniciarJuego();
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
+
+        }
+
         function finalizarJuego() {
             clearInterval(temporizador);
             clearInterval(intervaloJuego);
             const mensaje = document.getElementById('mensaje');
             if (hojasAparecidas < metaPuntos) {
+                mostrarMensajeExitoFinalizar()
                 var mensajeFinal = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, atrapaste ${puntaje} hojas y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
                 mensaje.textContent = mensajeFinal;
                 mensaje.className = "incorrecto";
                 document.getElementById("finalizarBtn").disabled = true;
             } else {
+                mostrarMensajeExitoFelicidades();
                 var mensajeFinal = `¡Felicidades has concluido el juego! 🎉. Ganaste ${estrellas} estrellas, atrapaste las ${puntaje} hojas disponibles y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
                 mensaje.textContent = mensajeFinal;
                 mensaje.className = "correcto";
                 document.getElementById("finalizarBtn").disabled = true;
                 mostrarConfeti();
-
-
+                mostrarEstrellasCentrales();
             }
 
             mensaje.scrollIntoView({
@@ -333,6 +463,74 @@
 
             iniciarJuego();
             iniciarTemporizador();
+        }
+
+        function estrellaSalta() {
+            const estrella = document.querySelector('img[src*="estrella.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function movimientosSalta() {
+            const estrella = document.querySelector('img[src*="hojab.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioIncorrecto.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function mostrarEstrellasCentrales(cantidad = 20) {
+            for (let i = 0; i < cantidad; i++) {
+                const estrella = document.createElement('div');
+                estrella.classList.add('estrella-central');
+
+                // Posición aleatoria
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                estrella.style.top = `${top}%`;
+                estrella.style.left = `${left}%`;
+
+                // Tamaño aleatorio
+                const tamaño = Math.floor(Math.random() * 60) + 30; // Entre 30 y 90 px
+                estrella.style.width = `${tamaño}px`;
+                estrella.style.height = `${tamaño}px`;
+
+                // Ángulo de rotación aleatorio
+                const rotacion = Math.floor(Math.random() * 360);
+                estrella.style.setProperty('--rotacion', `${rotacion}deg`);
+
+                // Dirección de desplazamiento al desaparecer
+                const offsetX = Math.random() * 100 - 50; // entre -50 y +50
+                const offsetY = Math.random() * 100 - 50;
+                estrella.style.setProperty('--desplazarX', `${offsetX}px`);
+                estrella.style.setProperty('--desplazarY', `${offsetY}px`);
+
+                document.body.appendChild(estrella);
+
+                // Quitar del DOM después de la animación
+                setTimeout(() => {
+                    estrella.remove();
+                }, 1600);
+            }
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
         }
 
         function mostrarConfeti() {
