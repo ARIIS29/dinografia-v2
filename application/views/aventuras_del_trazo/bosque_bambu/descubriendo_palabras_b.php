@@ -132,6 +132,7 @@
         audioIndicacionesUno();
 
         playBtn.addEventListener('click', function() {
+
             playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
             console.log("Juego mostrado"); // Agrega esta línea para depurar
             // Ocultar el área donde está el botón de inicio
