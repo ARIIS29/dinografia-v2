@@ -1,15 +1,23 @@
 <section class="mt-10">
     <div class="container-fluid d-flex justify-content-center" style="position: relative;">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo instrucciones" id="areaJuego">
-                <div class="col-lg-12 col-md-12 col-12 mt-2">
+            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_bambu" id="areaJuego">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="d-flex align-items-center">
+                        <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
+
+                        <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
+                    </div>
                     <p>
-                    <h1>¡Bienvenidos a la aventura del bosque de bambú! <br> <b>Explorando Hojas - Letra b</b></h1> <br>
-                    Prepárate para una emocionante misión: ¡Atrapa todas las hojas que aparezcan en el bosque de bambú! <br>
-                    <b> Instrucciones del juego</b> <br>
-                    Da clic en el boton azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                        ¿Cómo jugar?
-                    </button> <br>
+                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
+                        <b> Instrucciones del juego</b> <br>
+                        ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
+                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            ¿Cómo jugar?
+                        </button> <br>
+                    </p>
+
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal -->
                     <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
@@ -33,27 +41,42 @@
                             </div>
                         </div>
                     </div>
-
-                    ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
-                    Haz clic en el botón de Iniciar para comenzar a jugar.
-
-                    </p>
-                </div>
-
-                <div class="col-lg-12 col-md-12 col-12 text-center">
-                    <button id="play-btn">Play</button>
+                    <p>
+                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
+                    <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
+                        <a id="play-btn">
+                            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-iniciar.png') ?>" alt="" class="img-fluid" width="20%">
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-12 justify-content-center" id="contenedorJuego">
-                <canvas id="confettiCanvas"></canvas>
+                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio2_descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
 
-                <div class="col-lg-8 col-md-8 col-8 justify-content-center area" id="area">
-                    <p class="indicaciones">¡Atrapa todas las hojas que aparezcan haciendo clic en ellas!<br></p>
+                <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
+                    <!-- Texto Cargando -->
+                    <p id="loadingText" class="texto_loading">Cargando...</p>
+                    <!-- Barra de progreso -->
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid img_dino_coche">
+                    </div>
+                    <div class="progress" style="height: 30px;">
+                        <div id="progress" class="progress-bar bg-success" style="width: 0;"></div>
+                    </div>
+                    <!-- Imagen del coche -->
 
-                    <img id="hoja" src="<?php echo base_url('almacenamiento/img/bosque_bambu/hojab.png') ?>" alt="HojaB" class="hoja-img" width="5%">
-                    <!-- <div id="cuentaRegresiva">3</div> -->
                 </div>
-                <div class="d-flex justify-content-center mt-2">
+
+                <canvas id="confettiCanvas"></canvas>
+                <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
+                <audio id="audioIncorrecto" src="<?php echo base_url('almacenamiento/audios/incorrecto.mp3') ?>" preload="auto"></audio>
+                <audio id="audioTractor" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
+
+                <div id="area" class="col-lg-8 col-md-8 col-8 justify-content-center area d-none" >
+                    <img id="hoja" src="<?php echo base_url('almacenamiento/img/bosque_bambu/hojab.png') ?>" alt="HojaB" class="hoja-img" width="5%" style="cursor: pointer;">
+                </div>
+                <div id="botonesContenedor" class="d-flex justify-content-center d-none">
                     <button id="reiniciarBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
                         <i class="fas fa-redo"></i>
                     </button>
@@ -74,6 +97,16 @@
     document.addEventListener("DOMContentLoaded", function() {
         const playBtn = document.getElementById('play-btn');
         const temporizadorElemento = document.getElementById('temporizador');
+
+        const audioEstrellas = document.getElementById('audioEstrellas');
+        const audioTractor = document.getElementById('audioTractor');
+        const audioIncorrecto = document.getElementById('audioIncorrecto');
+        const dinoIndicaciones1 = document.getElementById('dinoIndicaciones1');
+        const dinoIndicaciones = document.getElementById('dinoIndicaciones');
+        const audio1 = document.getElementById('audioVista1');
+        const audio2 = document.getElementById('audioVista2');
+
+
         document.getElementById('play-btn').addEventListener('click', function() {
             // Mostrar el encabezado del juego
             document.getElementById('header-juego').classList.remove('d-none');
@@ -81,6 +114,87 @@
             // Ocultar el encabezado inicial
             document.getElementById('header-inicial').classList.add('d-none');
         });
+
+        audio1.play().catch(error => {
+            console.log("Error al reproducir audioVista1:", error);
+        });
+        audioIndicacionesUno();
+
+        playBtn.addEventListener('click', function() {
+
+            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
+            console.log("Juego mostrado"); // Agrega esta línea para depurar
+            // Ocultar el área donde está el botón de inicio
+            document.getElementById('areaJuego').style.display = 'none';
+            // Mostrar el contenedor del juego
+            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+            audio1.pause();
+            audio1.currentTime = 0;
+            audio2.play().catch(error => {
+                console.log("Error al reproducir audio automáticamente:", error);
+            });
+            audioIndicacionesDos();
+            startAnimation();
+
+            // Inicia el cronómetro
+        });
+
+
+
+
+        function audioIndicacionesUno() {
+            dinoIndicaciones1.addEventListener('click', function() {
+                if (audio1.paused) {
+                    audio1.play().catch(error => console.log("Error al reproducir el audio:", error));
+                } else {
+                    audio1.pause();
+                    audio1.currentTime = 0;
+                }
+            });
+        }
+
+        function audioIndicacionesDos() {
+            dinoIndicaciones.addEventListener('click', function() {
+                if (audio2.paused) {
+                    audio2.play().catch(error => console.log("Error al reproducir el audio:", error));
+                } else {
+                    audio2.pause();
+                    audio2.currentTime = 0;
+                }
+            });
+        }
+
+        function startAnimation() {
+            // audioEstrellaPuntos();
+            const loadingText = document.getElementById('loadingText');
+            const progress = document.getElementById('progress');
+            const car = document.getElementById('car');
+            const animacionCarga = document.getElementById('animacionCarga');
+
+            // Mostrar el texto de "Cargando..."
+            loadingText.style.display = 'block';
+
+            let width = 0;
+            const interval = setInterval(() => {
+                width += 2; // Incremento de progreso (ajusta la velocidad según prefieras)
+                progress.style.width = width + '%';
+                // Mueve el coche a lo largo de la barra (ajustamos su posición en función del ancho alcanzado)
+                car.style.left = Math.min(width, 90) + '%'; // Se detiene antes de llegar al 100%
+
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Opcional: muestra un mensaje final de "¡Comienza!"
+                    loadingText.textContent = "¡Comienza!";
+                    // Después de un breve retraso, oculta la animación y comienza el juego
+                    setTimeout(() => {
+                        animacionCarga.style.display = 'none';
+                        iniciarJuego();
+                        iniciarTemporizador();
+                    }, 500);
+                }
+            }, 50);
+        }
+
         const videoModal = document.getElementById('videoModal');
         const videoElement = document.getElementById('videoElement');
 
@@ -163,6 +277,8 @@
 
 
         function iniciarJuego() {
+            document.getElementById('botonesContenedor').classList.remove('d-none');
+            document.getElementById('area').classList.remove('d-none');
             puntaje = 0;
             hojasAparecidas = 0; // Reiniciar el contador de hojas
             hojasNoAtrapadas = 0;
@@ -257,17 +373,6 @@
             setTimeout(() => (canvas.style.display = "none"), 2000);
         }
 
-
-        playBtn.addEventListener('click', function() {
-            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
-            console.log("Juego mostrado"); // Agrega esta línea para depurar
-            // Ocultar el área donde está el botón de inicio
-            document.getElementById('areaJuego').style.display = 'none';
-            // Mostrar el contenedor del juego
-            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
-            iniciarJuego();
-            iniciarTemporizador();
-        });
 
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
         function enviarEvaluacionexploradorHojasB() {

@@ -25,10 +25,10 @@
                     <a href="<?php echo site_url('letras/bosque_bambu/explora_y_descubre_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center d-none d-md-block">
-                    <h1 class="titulo-h1-bambu">DINO DICE - B</h1>
+                    <h1 class="titulo-h1-bambu">ELEMENTOS PERDIDOS</h1>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center d-block d-md-none">
-                    <h1 class="titulo-h1-bambu-movil">DINO DICE - B</h1>
+                    <h1 class="titulo-h1-bambu-movil">ELEMENTOS PERDIDOS</h1>
                 </div>
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
                     <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn boton-cerrar-sesion float-end">Cerrar sesión</a>
