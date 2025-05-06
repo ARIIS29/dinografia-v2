@@ -45,3 +45,29 @@ canvas {
     left: 0;
     pointer-events: none;
 }
+
+/* Botón "Finalizar" */
+.finalizar {
+    color: white;
+    background-color: #dc3545;
+    /* Rojo */
+}
+
+.finalizar:hover {
+    background-color: #c82333;
+    color: white;
+    /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Botón "Reiniciar" */
+.reiniciar {
+    background-color: #007bff;
+    color: white;
+    /* Azul */
+}
+
+.reiniciar:hover {
+    background-color: #0069d9;
+    color: white;
+    /* Azul más oscuro al pasar el ratón */
+}

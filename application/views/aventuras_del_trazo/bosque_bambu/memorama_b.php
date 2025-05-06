@@ -46,21 +46,21 @@
             </div>
             <div class="col-lg-12 col-md-12 col-12 justify-content-center" id="contenedorJuego">
                 <canvas id="confettiCanvas"></canvas>
-                <h1>Pares Ocultos: Emoji y Palabra</h1>
                 <div class="areaJuegoMemorama" id="areaJuegoMemorama"></div>
                 <div id="resultado"></div>
                 <div id="movimientosRestantes"></div>
-                <div class="d-flex justify-content-center">
-                    <!-- <button id="pasarNivelBtn" class="btn saltar me-2" title="Saltar elemento">
-                        <i class="fas fa-arrow-right"></i>
-                    </button> -->
+
+                <div id="botonesContenedor" class="d-flex justify-content-center mt-5">
+
                     <button id="reiniciarJuegoBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
-                        <i class="fas fa-redo"></i>
+                        <i class="fas fa-redo"></i> Reiniciar Misión
                     </button>
-                    <!-- <button id="finalizarJuegoBtn" class="btn finalizar me-2" title="Finalizar Juego">
-                        <i class="fas fa-times"></i>
-                    </button> -->
+
+                    <button id="finalizarJuegoBtn" class="btn finalizar me-2" title="Finalizar Juego">
+                        <i class="fas fa-times"></i> Finalizar Misión
+                    </button>
                 </div>
+
                 <div>
                     <p id="mensaje"></p>
                 </div>
@@ -92,8 +92,11 @@
         });
 
         // document.getElementById('pasarNivelBtn').addEventListener('click', pasarNivel);
-        // document.getElementById('finalizarJuegoBtn').addEventListener('click', finalizarJuego);
+        document.getElementById('finalizarJuegoBtn').addEventListener('click', finalizarJuego);
+
         document.getElementById('reiniciarJuegoBtn').addEventListener('click', reiniciarJuego);
+
+
 
         // Arreglo de parejas base: Emoji y palabra
         const parejasBase = [{
@@ -172,12 +175,13 @@
 
         function iniciarJuego() {
             nivel++;
-            if (nivel > 3) {
-                nivel = 3;
+            if (nivel > 4) {
+                nivel = 4;
             }
 
-            // Ajustar las parejas según el nivel
-            parejas = parejasBase.slice(0, nivel * 2);
+            // Mezclar las parejas base antes de seleccionar las del nivel
+            const parejasMezcladas = mezclarArreglo([...parejasBase]);
+            parejas = parejasMezcladas.slice(0, nivel * 2);
             totalPares = parejas.length;
 
             areaJuegoMemorama.innerHTML = '';
@@ -197,12 +201,14 @@
                     movimientos = 12;
                     break;
                 default:
-                    movimientos = 4;
+                    movimientos = 16;
+                    break;
             }
+
             movimientosRestantes.textContent = `${movimientos}`;
-            movimientosSobrantes += movimientosRestantes;
+            movimientosSobrantes += movimientos; // corregido: no sumes el elemento HTML
             console.log("movimientos sobr", movimientosSobrantes);
-            console.log("movimientos res", movimientosRestantes);
+            console.log("movimientos res", movimientosRestantes.textContent);
 
             // Ajustar la cuadrícula del tablero según el nivel
             switch (nivel) {
@@ -220,27 +226,35 @@
                     break;
             }
 
-            // Crear el arreglo de tarjetas mezclado
-            const tarjetas = [];
+            // Crear arreglo de tarjetas duplicadas (emoji y palabra)
+            let tarjetas = [];
             parejas.forEach(par => {
-                tarjetas.push(par.emoji, par.palabra);
+                tarjetas.push({
+                    tipo: 'emoji',
+                    valor: par.emoji
+                });
+                tarjetas.push({
+                    tipo: 'palabra',
+                    valor: par.palabra
+                });
             });
 
+            // Mezclar las tarjetas
             const tarjetasMezcladas = mezclarArreglo(tarjetas);
 
+            // Crear elementos de las tarjetas en el DOM
             tarjetasMezcladas.forEach((tarjeta, indice) => {
                 const tarjetaDiv = document.createElement('div');
                 tarjetaDiv.classList.add('tarjeta');
                 tarjetaDiv.setAttribute('data-id', indice);
-                tarjetaDiv.setAttribute('data-valor', tarjeta);
+                tarjetaDiv.setAttribute('data-valor', tarjeta.valor);
                 tarjetaDiv.addEventListener('click', () => voltearTarjeta(tarjetaDiv));
-
                 areaJuegoMemorama.appendChild(tarjetaDiv);
             });
+
             resultado.textContent = `${paresTotalesEncontrados}`;
             mostrarTarjetasPor4Segundos();
         }
-
 
 
         // Función para mostrar las tarjetas durante 4 segundos
@@ -273,6 +287,15 @@
                 movimientos--; // Disminuir el contador de movimientos
                 movimientosRestantes.textContent = `${movimientos}`;
                 verificarEmparejamiento();
+                if (movimientos === 0) {
+                    mensaje.textContent = 'fin del juego';
+                    const tarjetas = document.querySelectorAll('.tarjeta');
+                    tarjetas.forEach(tarjeta => {
+                        const tarjetaClon = tarjeta.cloneNode(true);
+                        tarjeta.parentNode.replaceChild(tarjetaClon, tarjeta);
+                    });
+
+                }
             }
         }
 
@@ -293,12 +316,31 @@
                 segundaTarjeta.style.backgroundColor = 'green';
 
                 if (paresEncontrados === totalPares) {
-                    mensaje.textContent = `¡Felicidades! Completaste el nivel ${nivel}.`;
-                    resultado.textContent = '';
-                    setTimeout(() => {
-                        iniciarJuego(); // Iniciar el siguiente nivel después de un breve retraso
-                    }, 2000);
+                    paresTotalesEncontrados += totalPares;
+
+                    if (nivel === 3) {
+                        clearInterval(temporizador);
+
+                        // Bloquear clics en las tarjetas
+                        const tarjetas = document.querySelectorAll('.tarjeta');
+                        tarjetas.forEach(tarjeta => {
+                            const clon = tarjeta.cloneNode(true); // sin eventos
+                            tarjeta.replaceWith(clon);
+                        });
+
+                        mensaje.textContent = `🎉 ¡Felicidades! Has encontrado todos los pares y completado la misión.`;
+                        mensaje.className = "mensaje-final";
+
+                        // También puedes mostrar un botón para volver a jugar
+                        document.getElementById('reiniciarJuegoBtn').style.display = 'inline-block';
+
+                    } else {
+                        setTimeout(() => {
+                            iniciarJuego(); // pasar al siguiente nivel si no es el último
+                        }, 1500);
+                    }
                 }
+
 
                 resultado.textContent = `${paresTotalesEncontrados}`;
             } else {
@@ -315,14 +357,38 @@
             tarjetasVolteadas = [];
         }
 
-
         function reiniciarJuego() {
-            tarjetasVolteadas = [];
-            paresEncontrados = 0;
-            totalPares = 0;
-            parejas = [];
+            clearInterval(temporizador);
+            minutos = 0;
+            segundos = 0;
+            mensaje.textContent = "";
+            mensaje.className = "";
+            paresTotalesEncontrados = 0;
+            movimientosSobrantes = 0;
             nivel = 0;
-            movimientos = 0;
+            iniciarJuego();
+            iniciarTemporizador();
+        }
+
+        // Función para finalizar el juego
+        function finalizarJuego() {
+            clearInterval(temporizador);
+
+            // Mostrar mensaje con resultado final
+            const tiempoFinal = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+            mensaje.textContent = `¡Misión finalizada! Pares encontrados: ${paresTotalesEncontrados}. Tiempo: ${tiempoFinal}`;
+            mensaje.className = "mensaje-final"; // Puedes estilizar esto en CSS
+
+
+            // Deshabilitar las tarjetas al reemplazarlas por copias sin eventos
+            const tarjetas = document.querySelectorAll('.tarjeta');
+            tarjetas.forEach(tarjeta => {
+                const tarjetaClon = tarjeta.cloneNode(true);
+                tarjeta.parentNode.replaceChild(tarjetaClon, tarjeta);
+            });
+            // Opcional: deshabilitar las cartas restantes
+            // const tarjetas = document.querySelectorAll('.tarjeta');
+            // tarjetas.forEach(tarjeta => tarjeta.removeEventListener('click', voltearTarjeta));
         }
 
 
