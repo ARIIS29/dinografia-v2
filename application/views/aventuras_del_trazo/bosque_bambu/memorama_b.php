@@ -206,7 +206,7 @@
         const contenedorJuego = document.getElementById('contenedorJuego');
         const areaJuegoMemorama = document.getElementById('areaJuegoMemorama');
         const mensaje = document.getElementById('mensaje');
-        const resultado = document.getElementById('resultado');
+       
         const movimientosRestantes = document.getElementById('movimientosRestantes');
         const temporizadorElemento = document.getElementById('temporizador');
 
@@ -306,7 +306,7 @@
             totalPares = parejas.length;
 
             areaJuegoMemorama.innerHTML = '';
-            resultado.textContent = '';
+    
             tarjetasVolteadas = [];
             paresEncontrados = 0;
 
@@ -373,7 +373,7 @@
                 areaJuegoMemorama.appendChild(tarjetaDiv);
             });
 
-            resultado.textContent = `${paresTotalesEncontrados}`;
+            
             mostrarTarjetasPor4Segundos();
         }
 
@@ -470,8 +470,6 @@
                     }
                 }
 
-
-                resultado.textContent = `${paresTotalesEncontrados}`;
             } else {
                 mensaje.textContent = '¡Intenta de nuevo!';
                 setTimeout(() => {
