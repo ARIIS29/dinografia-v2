@@ -280,4 +280,11 @@ class Bosque_bambu extends CI_Controller
 	}
 	
 	
+	public function mi_avance_b()
+	{
+		$this->load->view('layout/header_letras/header_letraB/header_mi_avance_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/mi_avance_b');
+		$this->load->view('layout/footer');
+	}
+	
 }

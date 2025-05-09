@@ -28,7 +28,7 @@
 
 <section class="d-flex justify-content-center align-items-center mt-10" id="menuPrincipal">
     <div class="container">
-    <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
+        <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
             <h1 class="titulo-h1-bambu-movil">EXPLORA Y DESCUBRE</h1>
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
@@ -44,7 +44,7 @@
                 </a>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
-            <a href="<?php echo base_url('letras/bosque_bambu/descubriendo_mensajes_secretos_b') ?>">
+                <a href="<?php echo base_url('letras/bosque_bambu/descubriendo_mensajes_secretos_b') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/mensajes_secretos_btn.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
                 </a>
             </div>
@@ -70,6 +70,11 @@
                 </a>
             </div>
 
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-4 col-6 btn-transicion text-center mt-5">
+            <a href="<?php echo base_url('letras/bosque_bambu/mi_avance_b') ?>">
+                <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-avance-b.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button" width="20%">
+            </a>
         </div>
     </div>
 </section>

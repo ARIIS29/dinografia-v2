@@ -88,7 +88,7 @@
                     <button id="finalizarJuegoBtn" class="btn finalizar me-2" title="Finalizar Juego">
                         <i class="fas fa-times"></i> Finalizar Misión
                     </button>
-                    
+
                 </div>
 
                 <div>
@@ -206,7 +206,7 @@
         const contenedorJuego = document.getElementById('contenedorJuego');
         const areaJuegoMemorama = document.getElementById('areaJuegoMemorama');
         const mensaje = document.getElementById('mensaje');
-       
+
         const movimientosRestantes = document.getElementById('movimientosRestantes');
         const temporizadorElemento = document.getElementById('temporizador');
 
@@ -306,7 +306,7 @@
             totalPares = parejas.length;
 
             areaJuegoMemorama.innerHTML = '';
-    
+
             tarjetasVolteadas = [];
             paresEncontrados = 0;
 
@@ -327,8 +327,8 @@
             }
 
             movimientosRestantes.textContent = `${movimientos}`;
-         
-        
+
+
             console.log("movimientos res", movimientosRestantes.textContent);
 
             // Ajustar la cuadrícula del tablero según el nivel
@@ -373,7 +373,7 @@
                 areaJuegoMemorama.appendChild(tarjetaDiv);
             });
 
-            
+
             mostrarTarjetasPor4Segundos();
         }
 
@@ -413,6 +413,10 @@
                 if (movimientos === 0 && paresEncontrados < totalPares) {
                     clearInterval(temporizador);
                     mensaje.textContent = 'fin del juego';
+                    setTimeout(() => {
+                        mostrarMensajeExitoIntentos(); // pasar al siguiente nivel si no es el último
+                    }, 1500);
+
 
                     const tarjetas = document.querySelectorAll('.tarjeta');
                     tarjetas.forEach(tarjeta => {
@@ -433,7 +437,8 @@
 
             // Verificar si las tarjetas forman una pareja válida
             if (parejas.some(par => (primeraValor === par.emoji && segundaValor === par.palabra) || (primeraValor === par.palabra && segundaValor === par.emoji))) {
-
+                estrellaSalta();
+                mostrarEstrellasCentrales();
                 mensaje.textContent = '¡Correcto! Emparejaste las cartas.';
                 paresEncontrados++;
                 paresTotalesEncontrados++;
@@ -459,6 +464,7 @@
                         mostrarMensajeExitoFelicidades();
                         mensaje.textContent = `🎉 ¡Felicidades! Has encontrado todos los pares y completado la misión.`;
                         mensaje.className = "mensaje-final";
+                        mostrarConfeti();
 
                         // También puedes mostrar un botón para volver a jugar
                         document.getElementById('reiniciarJuegoBtn').style.display = 'inline-block';
@@ -485,6 +491,66 @@
             tarjetasVolteadas = [];
 
 
+
+        }
+
+        function mostrarMensajeExitoIntentos() {
+            const mensaje = document.createElement('div');
+            mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
+            mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
+            ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
+            En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
+            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Palabras encontradas <strong>${paresTotalesEncontrados}</strong><br>
+            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
+            Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
+            ¿Quieres seguir explorando esta misión o ir al menú principal?`;
+            mensaje.style.color = '#214524';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.position = 'absolute';
+            mensaje.style.top = '50px'; // Posición en la pantalla
+            mensaje.style.left = '50%'; // Centrar horizontalmente
+            mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#E0F3B8';
+            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.padding = '10px';
+            mensaje.style.borderRadius = '5px';
+            mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+
+            // Agregar los botones para seguir o no trazando
+            const botones = document.createElement('div');
+            botones.style.marginTop = '10px';
+            botones.style.textAlign = 'center';
+            const botonSeguir = document.createElement('button');
+            botonSeguir.textContent = 'Sí, seguir explorando';
+            botonSeguir.style.marginRight = '10px';
+            botonSeguir.classList.add('btn', 'btn-success');
+
+            const botonNoSeguir = document.createElement('button');
+            botonNoSeguir.textContent = 'No, ir al menú principal';
+            botonNoSeguir.classList.add('btn', 'btn-danger');
+
+            // Acción al hacer clic en "Sí, seguir trazando"
+            botonSeguir.addEventListener('click', () => {
+                reiniciarJuego();
+                mensaje.remove(); // Eliminar el mensaje
+            });
+
+            // Acción al hacer clic en "No, ir al menú principal"
+            botonNoSeguir.addEventListener('click', () => {
+                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+            });
+
+            // Añadir los botones al mensaje
+            botones.appendChild(botonSeguir);
+            botones.appendChild(botonNoSeguir);
+            mensaje.appendChild(botones);
+
+            // Añadir el mensaje al body
+            document.body.appendChild(mensaje);
 
         }
 
@@ -611,6 +677,120 @@
             document.body.appendChild(mensaje);
 
         }
+
+        function audioEstrellaPuntos() {
+            console.log("audio reproducido");
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function estrellaSalta() {
+            const estrella = document.querySelector('img[src*="estrella.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function movimientosSalta() {
+            const estrella = document.querySelector('img[src*="movimientos.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioIncorrecto.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function mostrarEstrellasCentrales(cantidad = 20) {
+            for (let i = 0; i < cantidad; i++) {
+                const estrella = document.createElement('div');
+                estrella.classList.add('estrella-central');
+
+                // Posición aleatoria
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                estrella.style.top = `${top}%`;
+                estrella.style.left = `${left}%`;
+
+                // Tamaño aleatorio
+                const tamaño = Math.floor(Math.random() * 60) + 30; // Entre 30 y 90 px
+                estrella.style.width = `${tamaño}px`;
+                estrella.style.height = `${tamaño}px`;
+
+                // Ángulo de rotación aleatorio
+                const rotacion = Math.floor(Math.random() * 360);
+                estrella.style.setProperty('--rotacion', `${rotacion}deg`);
+
+                // Dirección de desplazamiento al desaparecer
+                const offsetX = Math.random() * 100 - 50; // entre -50 y +50
+                const offsetY = Math.random() * 100 - 50;
+                estrella.style.setProperty('--desplazarX', `${offsetX}px`);
+                estrella.style.setProperty('--desplazarY', `${offsetY}px`);
+
+                document.body.appendChild(estrella);
+
+                // Quitar del DOM después de la animación
+                setTimeout(() => {
+                    estrella.remove();
+                }, 1600);
+            }
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function mostrarConfeti() {
+            const canvas = document.getElementById("confettiCanvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const colores = ["#ff6347", "#32cd32", "#4682b4", "#f4d03f", "#ff7f50"];
+            const particulas = Array.from({
+                length: 200
+            }, () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 5 + 2,
+                color: colores[Math.floor(Math.random() * colores.length)],
+                vx: Math.random() * 2 - 1,
+                vy: Math.random() * 2 + 1
+            }));
+
+            function animar() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particulas.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.y = p.y > canvas.height ? 0 : p.y;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animar);
+            }
+
+            animar();
+
+            // Detener confeti después de 5 segundos
+            setTimeout(() => (canvas.style.display = "none"), 2000);
+        }
+
 
 
         function reiniciarJuego() {
