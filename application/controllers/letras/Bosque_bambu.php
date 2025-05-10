@@ -10,6 +10,7 @@ class Bosque_bambu extends CI_Controller
 		$this->load->model('exploremos_model');
 		$this->load->model('galeria_model');
 		$this->load->model('rutaTrazo_model');
+		$this->load->model('ejercicios_model');
 		$this->load->library('session');  // Cargar la librería de sesión
 
 	}
@@ -229,7 +230,7 @@ class Bosque_bambu extends CI_Controller
 
 	//Inicio de las funciones de los ejercicios 
 
-	
+
 	public function explora_y_descubre_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_explora_y_descubre_b');
@@ -244,6 +245,25 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 	
+	public function enviarEvaluacionDescubriendoPalabrasB()
+	{
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$letra = $this->input->post('letra');
+
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+		);
+
+		if ($this->ejercicios_model->guardar_progreso($data)) {
+			echo json_encode(['success' => true]);
+		} else {
+			echo json_encode(['success' => false]);
+		}
+	}
+
 	public function descubriendo_mensajes_secretos_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_descubriendo_mensajes_secretos_b');
@@ -278,13 +298,15 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('aventuras_del_trazo/bosque_bambu/memorama_b');
 		$this->load->view('layout/footer');
 	}
-	
-	
+
+
 	public function mi_avance_b()
 	{
+		$prgreso_list = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b($this->session->userdata('identificador'))->result();
+		$data['prgreso_list'] = $prgreso_list;
+
 		$this->load->view('layout/header_letras/header_letraB/header_mi_avance_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/mi_avance_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/mi_avance_b', $data);
 		$this->load->view('layout/footer');
 	}
-	
 }

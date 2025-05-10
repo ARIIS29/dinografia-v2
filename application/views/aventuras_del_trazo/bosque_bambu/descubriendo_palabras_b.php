@@ -146,6 +146,8 @@
                 console.log("Error al reproducir audio automáticamente:", error);
             });
             audioIndicacionesDos();
+            enviarEvaluacionDescubriendoPalabrasB();
+          
             startAnimation();
 
             // Inicia el cronómetro
@@ -255,6 +257,7 @@
         let seconds = 0;
         let vidas = 3;
         let estrellas = 0;
+
         // Añadir soporte táctil para arrastrar y soltar
         let touchElementoArrastrado = null;
 
@@ -1010,14 +1013,11 @@
         // Función para enviar el tiempo final por AJAX
         function enviarEvaluacionDescubriendoPalabrasB() {
             $.ajax({
-                url: '<?php echo base_url('descubriendo_palabras/enviarEvaluacionDescubriendoPalabrasB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionDescubriendoPalabrasB'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
-                    tiempoFinal: timer,
-                    palabrasCorrectas: contadorBuenas,
-                    palabrasIncorrectas: contadorIncorrectas,
-                    tiempoFinal: tiempo,
-                    tiempoFinal: tiempo,
+                 letra: 'b',
+                 
                 }, // Datos a enviar
                 success: function(response) {
                     console.log('Tiempo enviado exitosamente:', response);
@@ -1026,6 +1026,8 @@
                     console.error('Error al enviar el tiempo:', error);
                 }
             });
+
+          
         }
 
 
