@@ -55,7 +55,7 @@
             </div>
             <div class="col-lg-12 col-md-12 col-12 text-center" id="contenedorJuego">
                 <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio2_descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
-            
+
                 <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
                     <!-- Texto Cargando -->
                     <p id="loadingText" class="texto_loading">Cargando...</p>
@@ -78,7 +78,7 @@
                 <div id="emojiPalabra" class="emoji mt-05"></div>
                 <div id="contenedorLetras"></div>
                 <div id="contenedorPalabra"></div>
-                
+
                 <div id="botonesContenedor" class="d-flex justify-content-center mt-5 d-none">
 
                     <button id="verificarPalabraBtn" class="btn verificar me-2" title="Verificar Palbra">
@@ -147,7 +147,7 @@
             });
             audioIndicacionesDos();
             enviarEvaluacionDescubriendoPalabrasB();
-          
+
             startAnimation();
 
             // Inicia el cronómetro
@@ -651,7 +651,7 @@
         }
 
         function mostrarMensajeExitoFinalizar() {
-            
+
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
@@ -1012,12 +1012,18 @@
 
         // Función para enviar el tiempo final por AJAX
         function enviarEvaluacionDescubriendoPalabrasB() {
+            var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
+
             $.ajax({
                 url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionDescubriendoPalabrasB'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
-                 letra: 'b',
-                 
+                    letra: 'b',
+                    tiempoFinal: tiempo,
+                    palabrasCorrectas: contadorBuenas,
+                    palabrasIncorrectascont: contadorIncorrectas,
+                    totalEstrellas: estrellas,
+                    arrayPalabras: JSON.stringify(palabrasIncorrectas)
                 }, // Datos a enviar
                 success: function(response) {
                     console.log('Tiempo enviado exitosamente:', response);
@@ -1027,7 +1033,7 @@
                 }
             });
 
-          
+
         }
 
 
