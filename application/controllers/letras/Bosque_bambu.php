@@ -240,8 +240,11 @@ class Bosque_bambu extends CI_Controller
 
 	public function descubriendo_palabras_b()
 	{
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado()->result();
+		$data['prueba'] = $prueba;
+
 		$this->load->view('layout/header_letras/header_letraB/header_descubriendo_palabras_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/descubriendo_palabras_b.php');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/descubriendo_palabras_b.php', $data);
 		$this->load->view('layout/footer');
 	}
 

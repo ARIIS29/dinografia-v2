@@ -106,6 +106,8 @@
         </div>
 </section>
 
+<?php print_r($prueba); ?>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
 
@@ -146,7 +148,7 @@
                 console.log("Error al reproducir audio automáticamente:", error);
             });
             audioIndicacionesDos();
-            enviarEvaluacionDescubriendoPalabrasB();
+            // enviarEvaluacionDescubriendoPalabrasB();
 
             startAnimation();
 
@@ -472,7 +474,7 @@
                     mostrarEstrellasCentrales();
                 }
                 document.getElementById("verificarPalabraBtn").disabled = true;
-
+                enviarEvaluacionDescubriendoPalabrasB();
                 palabraIncorrecta = '';
 
                 // Hacer scroll al mensaje
