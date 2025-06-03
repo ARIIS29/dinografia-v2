@@ -1,33 +1,48 @@
+<style>
+    /* Fuente y color general */
+    .table-estilos {
+        font-family: 'Century Gothic', sans-serif;
+        font-size: 15px;
+    }
+
+    /* Encabezado personalizado */
+    .table-estilos thead {
+        background-color: #00984F !important;
+        color: white !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .table-estilos thead th {
+        font-family: 'Century Gothic', sans-serif;
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+</style>
+
 <section class="container mt-12">
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 mt-5">
-            <table class="table display nowrap table-striped table-bordered scroll-horizontal table-hover text-center" cellspacing="0" name="table" id="table">
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+            <table class="table-estilos table display nowrap table-striped table-bordered scroll-horizontal table-hover" cellspacing="0" name="table" id="table">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Fecha</th>
                         <th>Actividad</th>
-                        <th>Cronómetro</th>
-                        <th>Aciertos</th>
-                        <th>Incorrectas</th>
+                        <th>Fecha</th>
+                        <th>Tiempo</th>
+                        <th>Logros</th>
+                        <th>Intentos</th>
                         <th>Estrellas</th>
-                        <th>Evaluación</th>
-                        <th>Observaciones</th>
+                        <!-- <th>Evaluación</th> -->
+                        <th>Informe de Aventura</th>
                     </tr>
                 </thead>
             </table>
         </div>
     </div>
 </section>
+<!-- <?php print_r($prgreso_list) ?> -->
 <script src="<?php echo base_url('assets/js/evaluacion_ejercicios/index.js') ?>"></script>
-
-<script>
-    // Mostrar el modal automáticamente cuando se carga la página
-    window.addEventListener('DOMContentLoaded', (event) => {
-        var myModal = new bootstrap.Modal(document.getElementById('modalInstrucciones'), {
-            keyboard: false // No cerrará el modal con la tecla ESC
-        });
-        myModal.show();
-    });
-</script>
-<?php print_r($prgreso_list)?>

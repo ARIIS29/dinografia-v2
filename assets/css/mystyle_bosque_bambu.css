@@ -366,15 +366,16 @@ body {
 .texto_loading {
     font-family: 'Century Gothic', sans-serif;
     display: none;
-    font-size: 2em; 
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
     color: #214524 !important;
 }
 
-.img_dino_coche{
-    position: relative; 
-    margin-top: -20px; 
-    margin-left: 0; 
+.img_dino_coche {
+    position: relative;
+    margin-top: -20px;
+    margin-left: 0;
     width: 20%;
 }
+

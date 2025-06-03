@@ -16,7 +16,7 @@ class Ejercicios_model extends CI_Model
         return $query;
     }
 
-    public function obtener_evaluacion_ejercicios_por_usuario_b($usuario_identificador)
+    public function obtener_evaluacion_ejercicios_por_usuario_b()
     {
         $query = $this->db
 
@@ -38,13 +38,26 @@ class Ejercicios_model extends CI_Model
         return $query;
     }
 
-    public function obtener_evaluacion_ejercicios_por_usuario_b_actualizado(){
-        $query = $this ->db
-        ->select('t1.id, t1.identificador, t1.identificador_usuario, t1.letra')
-        ->from('ejercicios t1')
-        ->order_by('id', 'desc')
-        ->limit(1)
-        ->get();
+    public function obtener_evaluacion_ejercicios_por_usuario_b_actualizado($usuario_identificador, $letra)
+    {
+        $query = $this->db
+            ->select('t1.id, t1.identificador, t1.identificador_usuario, t1.letra')
+            ->from('ejercicios t1')
+            ->order_by('id', 'desc')
+            ->limit(1)
+            ->where('t1.identificador_usuario', $usuario_identificador)
+            ->where('t1.letra', $letra)
+            ->get();
+        return $query;
+    }
+
+    public function guardar_progreso_actualizado($data, $identificador)
+    {
+
+        $query = $this->db
+            ->where('identificador', $identificador)
+            ->update('ejercicios', $data);
+
         return $query;
     }
 }

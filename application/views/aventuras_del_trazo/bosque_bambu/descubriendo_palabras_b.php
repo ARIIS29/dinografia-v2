@@ -148,7 +148,7 @@
                 console.log("Error al reproducir audio automáticamente:", error);
             });
             audioIndicacionesDos();
-            // enviarEvaluacionDescubriendoPalabrasB();
+            enviarInicioEvaluacionDescubriendoPalabrasB();
 
             startAnimation();
 
@@ -1018,6 +1018,30 @@
 
             $.ajax({
                 url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionDescubriendoPalabrasB'); ?>', // URL de tu controlador
+                type: 'POST',
+                data: {
+                    letra: 'b',
+                    tiempoFinal: tiempo,
+                    palabrasCorrectas: contadorBuenas,
+                    palabrasIncorrectascont: contadorIncorrectas,
+                    totalEstrellas: estrellas,
+                    arrayPalabras: JSON.stringify(palabrasIncorrectas)
+                }, // Datos a enviar
+                success: function(response) {
+                    console.log('Tiempo enviado exitosamente:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al enviar el tiempo:', error);
+                }
+            });
+
+        }
+
+        function enviarInicioEvaluacionDescubriendoPalabrasB() {
+            var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
+
+            $.ajax({
+                url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroDescubriendoPalbrasB'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
                     letra: 'b',

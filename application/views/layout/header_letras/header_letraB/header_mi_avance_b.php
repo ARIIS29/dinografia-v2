@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi avance "b"</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/tables/datatables/datatables.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/extensions/responsive.dataTables.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-css/bootstrap.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_bosque_bambu.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_general.css') ?>">
@@ -15,7 +17,7 @@
 </head>
 
 
-<body>
+<body class="body-explorando-letrab">
     <section>
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top d-none d-sm-block">
             <div class="container-fluid">
@@ -57,3 +59,6 @@
             </div>
         </nav>
     </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="<?php echo base_url('assets/js/tables/datatables/datatables.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/tables/datatables/dataTables.responsive.min.js') ?>"></script>

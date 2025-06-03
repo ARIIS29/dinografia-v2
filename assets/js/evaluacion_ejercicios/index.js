@@ -2,9 +2,10 @@ var table;
 var actual_url = document.URL;
 var method_call = "";
 
+
 console.log(actual_url);
 // Configuraciones
-(actual_url.indexOf("index") < 0) ? method_call = "evaluacion_ejercicios/" : method_call = "";
+(actual_url.indexOf("index") < 0) ? method_call = "" : method_call = "";
 $.fn.dataTable.ext.errMode = 'throw'; // Configuración de manejo de errores de DataTables
 
 $(document).ready(function () {
@@ -15,24 +16,24 @@ $(document).ready(function () {
         "order": [[0, "desc"]],
         "lengthMenu": [[25, 50, 100, 250, 500, -1], [25, 50, 100, 250, 500, "Todos"]],
         "ajax": {
-            "url": method_call + "obtener_evaluacion_ejercicios_por_usuario",
+            "url": method_call + "obtener_tabla_evaluacion_ejercicios_por_usuario",
             "type": 'POST'
         },
         "columns": [
             { "data": "id" },
-            { "data": "fecha" },
             { "data": "nombre" },
+            { "data": "fecha" },
             { "data": "cronometro" },
             { "data": "correctas" },
             { "data": "incorrectas" },
             { "data": "estrellas" },
-            { "data": "evaluacion" },
+            // { "data": "evaluacion" },
             { "data": "observaciones" },
             // {"data": "opciones"},
         ],
         'language': {
             "sProcessing": '<i class="fa fa-spinner spinner"></i> Cargando...',
-            "sLengthMenu": "Mostrar MENU",
+            "sLengthMenu": "BITÁCORA DE LOGROS 🦖",
             "sZeroRecords": "No se encontraron resultados",
             "sEmptyTable": "Juega para ver tus resultados &#128512",
             "sInfo": "Mostrando del Inicio al Fin de TOTAL",
@@ -58,29 +59,45 @@ $(document).ready(function () {
                 "colvis": "Visibilidad"
             }
         },
-        rowCallback: function (row, data, index) {
-            if (data.evaluacion === '¡A seguir practicando!') {
-                $(row).css('background-color', '#FF8000'); // Fila en naranja
-            } else if (data.evaluacion === '¡Casi lo logras!') {
-                $(row).css('background-color', '#FFFF00'); // Fila en amarillo
-            } else if (data.evaluacion === '¡Super asombroso!') {
-                $(row).css('background-color', '#4BE54B'); // Fila en verde
-            }
-            // $(row).find('td:eq(0)').css('background-color', '#37BC9B');
-            // $(row).find('td:eq(1)').css('background-color', '#37BC9B');
-            // $(row).find('td:eq(2)').css('background-color', '#37BC9B');
-            // $(row).find('td:eq(2)').css('background-color', '#37BC9B');
-            // $(row).find('td:eq(4)').css('background-color', '#37BC9B');
-            $(row).find('td:eq(2)').css('text-align', 'justify');
-            $(row).find('td:eq(8)').css('text-align', 'justify');
-            // $(row).find('td:eq(6)').css('background-color', '#37BC9B');
 
-            // $(row).find('td:eq(0)').css('color', 'white');
-            // $(row).find('td:eq(1)').css('color', 'white');
-            // $(row).find('td:eq(2)').css('color', 'white');
-            // $(row).find('td:eq(3)').css('color', 'white');
-            // $(row).find('td:eq(4)').css('color', 'white');
-            // $(row).find('td:eq(5)').css('color', 'white');
+        rowCallback: function (row, data, index) {
+            var cellContent = data.observaciones; // Accedemos al contenido de la columna 'evaluacion'
+
+            // Validación basada en emojis
+            if (cellContent.includes("💪")) {
+                $(row).find('td:eq(0)').css('background-color', 'rgb(255,128,0)');
+                $(row).find('td:eq(1)').css('background-color', 'rgb(255,128,0)');
+                $(row).find('td:eq(2)').css('background-color', 'rgb(255,128,0)');
+                $(row).find('td:eq(3)').css('background-color', 'rgb(255,128,0)');
+                $(row).find('td:eq(4)').css('background-color', 'rgb(255,128,0)');
+                $(row).find('td:eq(5)').css('background-color', 'rgb(255,128,0)');
+                $(row).find('td:eq(6)').css('background-color', 'rgb(255,128,0)');
+                $(row).find('td:eq(7)').css('background-color', 'rgb(255,128,0)');
+            } else if (cellContent.includes("🌟")) {
+                $(row).find('td:eq(0)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(1)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(2)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(3)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(4)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(5)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(6)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(7)').css('background-color', 'rgb(255, 255, 0)');
+            } else if (cellContent.includes("🎉")) {
+                $(row).find('td:eq(0)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(1)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(2)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(3)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(4)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(5)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(6)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(7)').css('background-color', 'rgb(75, 229, 75)');
+            }
         }
+
     });
+    // Aplica la fuente desde JS después de inicializar
+    setTimeout(function () {
+        $('#table_wrapper *').css('font-family', 'Century Gothic, sans-serif');
+    }, 300);
+
 });
