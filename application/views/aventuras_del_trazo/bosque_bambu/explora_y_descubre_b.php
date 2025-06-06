@@ -1,31 +1,3 @@
-<!-- Sección que contiene el contenido principal -->
-<!-- <div class="modal fade" id="modalInstrucciones" tabindex="-1" aria-labelledby="modalInstruccionesLabel" aria-hidden="true">
-    <div class="modal-dialog texto-modal-bambu">
-        <div class="modal-content mod-color">
-            <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="8%"><b>¡Hola Explorador!</b>
-                </h5>
-                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close" title="Cerrar ventana"></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    ¡Bienvenido al bosque de bambú!
-                    En esta aventura, exploraremos juntos la letra <b>b</b>.
-                    A lo largo del viaje, descubrirás sus secretos y completarás misiones divertidas que te ayudarán a mejorar tus trazos y escribirla fácilmente. <br>
-                    ¡Juntos, exploremos la letra <b>b</b> y aprenderemos a escribirla correctamente! Prepárate para practicar y completar todas las misiones que el bosque de bambú tiene para ti. <br>
-                    ¡Comencemos con la exploración!
-                </p>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
 <section class="d-flex justify-content-center align-items-center mt-10" id="menuPrincipal">
     <div class="container">
         <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
@@ -33,9 +5,10 @@
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <!-- Imagen -->
-            <img src="<?php echo base_url('almacenamiento/img/botones/btn-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="6%">
+            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3 d-none d-sm-block" id="dino" width="6%">
             <!-- Texto -->
-            <p class="texto_indicaciones_bambu mb-0">Haz clic en uno de los botones y tracemos aventuras con la letra b</p>
+            <p class="texto_indicaciones_bambu mb-0"> ¡Haz clic en uno de los botones y completemos misiones juntos!</p>
+            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/menu_explora_descubre_b.mp3') ?>" preload="auto"></audio>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
@@ -80,11 +53,34 @@
 </section>
 
 <script>
-    // Mostrar el modal automáticamente cuando se carga la página
-    window.addEventListener('DOMContentLoaded', (event) => {
-        var myModal = new bootstrap.Modal(document.getElementById('modalInstrucciones'), {
-            keyboard: false // No cerrará el modal con la tecla ESC
+    // Referencias a elementos
+    const dino = document.getElementById('dino');
+    const audio = document.getElementById('dinoAudio');
+
+    // Inicia animación y audio al cargar la página
+    window.addEventListener('DOMContentLoaded', function() {
+        dino.classList.add('dino-hablando'); // Inicia la animación
+        audio.play().catch(error => {
+            console.log("Error al reproducir el audio automáticamente:", error);
         });
-        myModal.show();
+    });
+
+    // Manejo del clic en Dino
+    dino.addEventListener('click', function() {
+        if (dino.classList.contains('dino-hablando')) {
+            dino.classList.remove('dino-hablando'); // Detiene la animación
+            audio.pause(); // Pausa el audio
+            audio.currentTime = 0; // Reinicia el audio
+        } else {
+            dino.classList.add('dino-hablando'); // Inicia la animación
+            audio.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+    });
+
+    // Detener animación cuando termine el audio
+    audio.addEventListener('ended', function() {
+        dino.classList.remove('dino-hablando'); // Detiene la animación
     });
 </script>

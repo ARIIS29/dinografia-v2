@@ -12,32 +12,18 @@
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
                         <b> Instrucciones del juego</b> <br>
                         ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
-                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                            ¿Cómo jugar?
-                        </button> <br>
                     </p>
 
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
                     <!-- Modal -->
-                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="videoModalLabel">Instrucciones del juego</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- Contenedor del video -->
-                                    <video id="videoElement" width="100%" controls>
-                                        <!-- Ruta al archivo de video -->
-                                        <source src="<?php echo base_url('almacenamiento/img/instrucciones/descubriendo_palabras.mp4'); ?>" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
+                    <!-- Modal del tutorial -->
+                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
+                        <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
+                            <video id="tutorialVideo" width="100%" controls>
+                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/hazle_caso_dino.mp4'); ?>" type="video/mp4">
+                                Tu navegador no soporta el video.
+                            </video>
+                            <button id="cerrarTutorial" style="position:absolute; top:10px; right:10px;">X</button>
                         </div>
                     </div>
 
@@ -106,7 +92,7 @@
         </div>
 </section>
 
-<?php print_r($prueba); ?>
+<!-- <?php print_r($prueba); ?> -->
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -135,25 +121,41 @@
         audioIndicacionesUno();
 
         playBtn.addEventListener('click', function() {
-
-            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
-            console.log("Juego mostrado"); // Agrega esta línea para depurar
-            // Ocultar el área donde está el botón de inicio
-            document.getElementById('areaJuego').style.display = 'none';
-            // Mostrar el contenedor del juego
-            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+            playBtn.style.display = 'none';
             audio1.pause();
             audio1.currentTime = 0;
-            audio2.play().catch(error => {
-                console.log("Error al reproducir audio automáticamente:", error);
+
+            // Mostrar el modal del tutorial
+            const modal = document.getElementById('tutorialModal');
+            const video = document.getElementById('tutorialVideo');
+            modal.style.display = 'flex';
+            video.currentTime = 0;
+            video.play();
+
+            // Cuando el usuario cierra el modal
+            document.getElementById('cerrarTutorial').addEventListener('click', function() {
+                modal.style.display = 'none';
+                video.pause();
+
+                // Ahora sí se muestra el juego
+                console.log("Juego mostrado");
+                document.getElementById('areaJuego').style.display = 'none';
+                document.getElementById('contenedorJuego').style.display = 'block';
+
+
+                // Reproduce las instrucciones
+                audio2.play().catch(error => {
+                    console.log("Error al reproducir audio automáticamente:", error);
+                });
+                audioIndicacionesDos();
+
+                enviarInicioEvaluacionDescubriendoPalabrasB();
+
+                startAnimation();
+                // Inicia el cronómetro si lo tienes aquí
             });
-            audioIndicacionesDos();
-            enviarInicioEvaluacionDescubriendoPalabrasB();
-
-            startAnimation();
-
-            // Inicia el cronómetro
         });
+
 
         function audioIndicacionesUno() {
             dinoIndicaciones1.addEventListener('click', function() {
