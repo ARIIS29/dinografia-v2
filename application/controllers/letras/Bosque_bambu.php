@@ -305,13 +305,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Observa con más detalle la imagen de referencia e intenta organizar<br>las letras de otra forma, a veces mover una o dos letras puede hacer que la palabra encaje.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Observa con más detalle la imagen de referencia e intenta organizar<br>las letras de otra forma, a veces mover una o dos letras puede hacer que la palabra encaje.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		} else if ($estrellas > 200 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Observa bien la imagen de referencia y prueba reorganizar las letras con calma.<br> A veces, pequeños ajustes en el orden pueden hacer que la palabra encaje mejor.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Observa bien la imagen de referencia y prueba reorganizar las letras con calma.<br> A veces, pequeños ajustes en el orden pueden hacer que la palabra encaje mejor.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Super asombroso explorador!🎉<br>Lograste descubrir todas las palabras. <br> Tu habilidad para descurbir es impresionante. ¡Sigue así explorador! <br> Palabras descubiertas: $correctas de 5 palabras <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Super asombroso explorador!🎉<br>Lograste descubrir todas las palabras. <br> Tu habilidad para descurbir es impresionante. ¡Sigue así explorador! <br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		}
 
 		foreach ($array_palabras as $key => $value) {
@@ -324,7 +324,7 @@ class Bosque_bambu extends CI_Controller
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b>Nombre :</b> Descubriendo Palabras - Letra b.' . "<br>" . '<b>Objetivo :</b> Descubrir las 5 palabras que se forman con la letra b.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por palabra descubierta.' . "<br>" . '<b>Total de palabras a descubrir :</b> 5 palabras.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'nombre' => '<b>Nombre :</b> Descubriendo Palabras - Letra b.' . "<br>" . '<b>Objetivo :</b> Descubrir las 5 palabras que se forman con la letra b.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por palabra descubierta.'. "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
 			'cronometro' => $tiempo,
 			'correctas' => $correctas,
 			'incorrectas' => $incorrectas,
@@ -369,13 +369,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Observa con más detalle la imagen de referencia e intenta organizar<br>las letras de otra forma, a veces mover una o dos letras puede hacer que la palabra encaje.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Observa con más detalle la imagen de referencia e intenta organizar<br>las letras de otra forma, a veces mover una o dos letras puede hacer que la palabra encaje.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		} else if ($estrellas > 200 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Observa bien la imagen de referencia y prueba reorganizar las letras con calma.<br> A veces, pequeños ajustes en el orden pueden hacer que la palabra encaje mejor.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Observa bien la imagen de referencia y prueba reorganizar las letras con calma.<br> A veces, pequeños ajustes en el orden pueden hacer que la palabra encaje mejor.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Super asombroso explorador!🎉<br>Lograste descubrir todas las palabras. <br> Tu habilidad para descurbir es impresionante. ¡Sigue así explorador! <br> Palabras descubiertas: $correctas de 5 palabras <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Super asombroso explorador!🎉<br>Lograste descubrir todas las palabras. <br> Tu habilidad para descurbir es impresionante. ¡Sigue así explorador! <br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		}
 
 		foreach ($array_palabras as $key => $value) {
@@ -388,7 +388,7 @@ class Bosque_bambu extends CI_Controller
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b>Nombre :</b> Descubriendo Palabras - Letra b.' . "<br>" . '<b>Objetivo :</b> Descubrir las 5 palabras que se forman con la letra b.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por palabra descubierta.' . "<br>" . '<b>Total de palabras a descubrir :</b> 5 palabras.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'nombre' => '<b>Nombre :</b> Descubriendo Palabras - Letra b.' . "<br>" . '<b>Objetivo :</b> Descubrir las 5 palabras que se forman con la letra b.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por palabra descubierta.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
 			'cronometro' => $tiempo,
 			'correctas' => $correctas,
 			'incorrectas' => $incorrectas,

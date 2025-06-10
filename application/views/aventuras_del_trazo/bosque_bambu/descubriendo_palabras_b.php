@@ -557,7 +557,7 @@
                     block: "end"
                 });
 
-                let palabraIncorrectaCorrecta = '🔴 Palabra incorrecta: ' + palabraIncorrecta + ' - 🟢Palabra correcta: ' + palabraActual.palabra;
+                let palabraIncorrectaCorrecta = '🔴 Palabra escrita: ' + palabraIncorrecta + ' - 🟢Palabra a descubrir: ' + palabraActual.palabra;
 
                 nuevapalabrasIncorrectas = palabrasIncorrectas.push(palabraIncorrectaCorrecta);
                 palabraIncorrecta = '';
