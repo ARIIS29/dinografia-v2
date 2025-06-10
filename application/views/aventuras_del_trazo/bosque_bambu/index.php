@@ -1,32 +1,4 @@
-<!-- Sección que contiene el contenido principal -->
-<!-- <div class="modal fade" id="modalInstrucciones" tabindex="-1" aria-labelledby="modalInstruccionesLabel" aria-hidden="true">
-    <div class="modal-dialog texto-modal-bambu">
-        <div class="modal-content mod-color mt-5">
-            <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="8%"><b>¡Hola Explorador!</b>
-                </h5>
-                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close" title="Cerrar ventana"></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    ¡Bienvenido al bosque de bambú! <br>
-                    En esta aventura, exploraremos juntos la letra <b>b</b> y aprenderemos a escribirla correctamente! <br>
-                    Prepárate para practicar y completar todas las misiones que el bosque de bambú tiene para ti. <br>
-                    ¡Comencemos con la exploración!
-                </p>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!-- ¡Bienvenido al bosque de bambú! En esta aventura, exploraremos juntos la letra b. A lo largo del viaje, descubrirás sus secretos y completarás misiones divertidas que te ayudarán a mejorar tus trazos y escribirla fácilmente.
-¡Juntos, exploremos la letra b y aprenderemos a escribirla correctamente! Prepárate para practicar y completar todas las misiones que el bosque de bambú tiene para ti.
-¡Comencemos con la exploración! -->
 
 <section class="d-flex justify-content-center align-items-center mt-10" id="menuPrincipal">
     <div class="container">
@@ -38,7 +10,7 @@
             <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3 d-none d-sm-block" id="dino" width="6%">
             <!-- Texto -->
             <p class="texto_indicaciones_bambu mb-0">¡Comencemos con la exploración, haciendo clic en un botón!</p>
-            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audio_bosque_bambu.mp3') ?>" preload="auto"></audio>
+            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/audio_bosque_bambu.mp3') ?>" preload="auto"></audio>
         </div>
         <div class="row justify-content-center text-center">
             <!-- Botón 1 -->

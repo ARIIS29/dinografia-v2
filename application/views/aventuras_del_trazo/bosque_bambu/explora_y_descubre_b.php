@@ -8,7 +8,7 @@
             <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3 d-none d-sm-block" id="dino" width="6%">
             <!-- Texto -->
             <p class="texto_indicaciones_bambu mb-0"> ¡Haz clic en uno de los botones y completemos misiones juntos!</p>
-            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/menu_explora_descubre_b.mp3') ?>" preload="auto"></audio>
+            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_menu_explora_descubre.mp3') ?>" preload="auto"></audio>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
