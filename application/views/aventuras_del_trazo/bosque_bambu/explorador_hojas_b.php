@@ -6,43 +6,30 @@
                     <div class="d-flex align-items-center">
                         <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
 
-                        <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
+                        <p class="mb-0">¡Comencemos la exploración!<br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
-                        <b> Instrucciones del juego</b> <br>
-                        ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
-                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                            ¿Cómo jugar?
+                        Prepárate para esta emocionante misión: ¡Atrapa todas las hojas que aparezcan en la pantalla del bosque de bambú! <br>
+                        Cuando veas una hoja aparecer, presiona sobre ella rápidamente para atraparla.
                         </button> <br>
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_explorador_hojas.mp3') ?>" preload="auto"></audio>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="videoModalLabel">Instrucciones del juego</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- Contenedor del video -->
-                                    <video id="videoElement" width="100%" controls>
-                                        <!-- Ruta al archivo de video -->
-                                        <source src="<?php echo base_url('almacenamiento/img/instrucciones/Explorado_hojas.mp4'); ?>" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
+                    <!-- Modal del tutorial -->
+                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
+                        <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
+                            <video id="tutorialVideo" width="100%" controls>
+                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_explorador_hojas.mp4'); ?>" type="video/mp4">
+                                Tu navegador no soporta el video.
+                            </video>
+                            <!-- <button id="cerrarTutorial" >Cerrar</button> -->
+                            <button id="cerrarTutorial" type="button" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Cerrar</button>
                         </div>
+
                     </div>
                     <p>
-                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        ¡Exploremos juntos esta misión en el mágico bosque de bambú!<br>
                         Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
@@ -52,7 +39,7 @@
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-12 justify-content-center" id="contenedorJuego">
-                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio2_descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
+                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audios_b/b_explorador_hojas_tractor.mp3') ?>" preload="auto"></audio>
 
                 <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
                     <!-- Texto Cargando -->
@@ -77,12 +64,13 @@
                     <img id="hoja" src="<?php echo base_url('almacenamiento/img/bosque_bambu/hojab.png') ?>" alt="HojaB" class="hoja-img" width="5%" style="cursor: pointer;">
                 </div>
                 <div id="botonesContenedor" class="d-flex justify-content-center d-none">
+
                     <button id="reiniciarBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
-                        <i class="fas fa-redo"></i>
+                        <i class="fas fa-redo"></i> Reiniciar Misión
                     </button>
 
                     <button id="finalizarBtn" class="btn finalizar me-2" title="Finalizar Juego">
-                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i> Finalizar Misión
                     </button>
                 </div>
             </div>
@@ -121,26 +109,38 @@
         audioIndicacionesUno();
 
         playBtn.addEventListener('click', function() {
-
-            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
-            console.log("Juego mostrado"); // Agrega esta línea para depurar
-            // Ocultar el área donde está el botón de inicio
-            document.getElementById('areaJuego').style.display = 'none';
-            // Mostrar el contenedor del juego
-            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+            playBtn.style.display = 'none';
             audio1.pause();
             audio1.currentTime = 0;
-            audio2.play().catch(error => {
-                console.log("Error al reproducir audio automáticamente:", error);
+
+            // Mostrar el modal del tutorial
+            const modal = document.getElementById('tutorialModal');
+            const video = document.getElementById('tutorialVideo');
+            modal.style.display = 'flex';
+            video.currentTime = 0;
+            video.play();
+
+            document.getElementById('cerrarTutorial').addEventListener('click', function() {
+                modal.style.display = 'none';
+                video.pause();
+
+                playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
+                console.log("Juego mostrado"); // Agrega esta línea para depurar
+                // Ocultar el área donde está el botón de inicio
+                document.getElementById('areaJuego').style.display = 'none';
+                // Mostrar el contenedor del juego
+                document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+               
+                audio2.play().catch(error => {
+                    console.log("Error al reproducir audio automáticamente:", error);
+                });
+                audioIndicacionesDos();
+                enviarInicioEvaluacionExploradorHojasB();
+                startAnimation();
             });
-            audioIndicacionesDos();
-            startAnimation();
 
             // Inicia el cronómetro
         });
-
-
-
 
         function audioIndicacionesUno() {
             dinoIndicaciones1.addEventListener('click', function() {
@@ -195,14 +195,7 @@
             }, 50);
         }
 
-        const videoModal = document.getElementById('videoModal');
-        const videoElement = document.getElementById('videoElement');
-
-        // Pausa el video cuando el modal se cierra
-        videoModal.addEventListener('hidden.bs.modal', function() {
-            videoElement.pause();
-            videoElement.currentTime = 0; // Reinicia el video
-        });
+       
 
         let hoja = document.getElementById('hoja');
         // let cuentaRegresiva = document.getElementById('cuentaRegresiva');
@@ -258,12 +251,15 @@
                     if (hoja.style.display === 'block') {
                         // El usuario no hizo clic
                         hoja.style.display = 'none';
+
                         movimientosSalta();
+
                     }
                 }, tiempoHoja);
 
             } else {
                 finalizarJuego();
+
             }
         }
         hoja.addEventListener('click', () => {
@@ -276,10 +272,10 @@
             console.log('puntajes real: ', puntaje);
             hojasNoAtrapadas = metaPuntos - puntaje;
             console.log('hojasNoAtrapadas: ', hojasNoAtrapadas);
+            enviarEvaluacionExploradorHojasB();
+
 
         });
-
-
 
         function iniciarJuego() {
             document.getElementById('botonesContenedor').classList.remove('d-none');
@@ -290,22 +286,24 @@
             // barraProgreso.value = 0;
             clearInterval(intervaloJuego);
             intervaloJuego = setInterval(movimientoHoja, tiempoHoja + 500);
+
         }
 
         function mostrarMensajeExitoFinalizar() {
-            
+
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
+            En tu exploración diste un gran paso, ¡cada intento te hace mejor! 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
             📝 Palabras encontradas <strong>${puntaje}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -360,7 +358,7 @@
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En esta misión descubristes <b>todas las palabras</b>. <br>
+            En esta misión atrapaste <b>todas las hojas</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
             📝 Hojas encontradas <strong>${puntaje}</strong> <br>
@@ -368,6 +366,7 @@
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -422,16 +421,12 @@
             const mensaje = document.getElementById('mensaje');
             if (hojasAparecidas < metaPuntos) {
                 mostrarMensajeExitoFinalizar()
-                var mensajeFinal = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, atrapaste ${puntaje} hojas y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
+                // var mensajeFinal = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, atrapaste ${puntaje} hojas y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
                 mensaje.textContent = mensajeFinal;
                 mensaje.className = "incorrecto";
-                document.getElementById("finalizarBtn").disabled = true;
+
             } else {
                 mostrarMensajeExitoFelicidades();
-                var mensajeFinal = `¡Felicidades has concluido el juego! 🎉. Ganaste ${estrellas} estrellas, atrapaste las ${puntaje} hojas disponibles y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
-                mensaje.textContent = mensajeFinal;
-                mensaje.className = "correcto";
-                document.getElementById("finalizarBtn").disabled = true;
                 mostrarConfeti();
                 mostrarEstrellasCentrales();
             }
@@ -440,7 +435,10 @@
                 behavior: "smooth",
                 block: "end"
             });
-            enviarEvaluacionexploradorHojasB();
+            document.getElementById("finalizarBtn").disabled = true;
+            document.getElementById("reiniciarBtn").disabled = true;
+
+            enviarEvaluacionExploradorHojasB();
         }
 
 
@@ -460,6 +458,8 @@
             hojasAparecidas = 0;
             hojasNoAtrapadas = 0;
             document.getElementById("finalizarBtn").disabled = false;
+            document.getElementById('reiniciarBtn').disabled = false;
+
 
             iniciarJuego();
             iniciarTemporizador();
@@ -486,7 +486,6 @@
             estrella.classList.remove('saltarE');
             void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
             estrella.classList.add('saltarE');
-
             // Reproducir audio (opcional)
             audioIncorrecto.play().catch(error => {
                 console.log("Error al reproducir el audio:", error);
@@ -573,12 +572,13 @@
 
 
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
-        function enviarEvaluacionexploradorHojasB() {
+        function enviarEvaluacionExploradorHojasB() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
             $.ajax({
-                url: '<?php echo base_url('ejercicios/ejercicios_letra_b/enviarEvaluacionexploradorHojasB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionExploradorHojasB'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
+                    letra: 'b',
                     tiempoFinal: tiempo,
                     hojasAtrapadas: puntaje,
                     hojasIncorrectas: hojasNoAtrapadas,
@@ -594,6 +594,29 @@
             });
         }
 
+
+        function enviarInicioEvaluacionExploradorHojasB() {
+            var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+
+            $.ajax({
+                url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroEvaluacionExploradorHojasB'); ?>', // URL de tu controlador
+                // URL de tu controlador
+                type: 'POST',
+                data: {
+                    letra: 'b',
+                    tiempoFinal: tiempo,
+                    hojasAtrapadas: puntaje,
+                    hojasIncorrectas: hojasNoAtrapadas,
+                    totalEstrellas: estrellas
+                }, // Datos a enviar
+                success: function(response) {
+                    console.log('Tiempo enviado exitosamente:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al enviar el tiempo:', error);
+                }
+            });
+        }
 
     });
 </script>

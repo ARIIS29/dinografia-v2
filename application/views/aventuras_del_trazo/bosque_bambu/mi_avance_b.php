@@ -34,7 +34,7 @@
                         <th>Fecha</th>
                         <th>Tiempo</th>
                         <th>Logros</th>
-                        <th>Intentos</th>
+                        <th>Desaciertos</th>
                         <th>Estrellas</th>
                         <!-- <th>Evaluación</th> -->
                         <th>Informe de Aventura</th>

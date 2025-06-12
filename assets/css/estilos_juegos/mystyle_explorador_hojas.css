@@ -7,30 +7,33 @@
     overflow: hidden;
     display: flex;
 }
- 
+
 #contenedorJuego {
     display: none;
     /* position: relative; */
 }
+
 .instrucciones {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 1.2rem;
     color: #0A2363 !important;
     text-align: justify;
     /* Color de texto azul por defecto */
 }
+
 .indicaciones {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-size: 2rem;
     color: #0A2363 !important;
     text-align: center;
     font-weight: bold;
-  
+
 
     /* Color de texto azul por defecto */
 }
+
 h1 {
-    color: #0A2363 ;
+    color: #0A2363;
     margin-top: 20px;
     text-align: center;
 }
@@ -38,23 +41,28 @@ h1 {
 .hoja-img {
     position: absolute;
     display: none;
-    transition: all 0.5s ease; /* Para hacer que el movimiento sea más suave */
+    transition: all 0.5s ease;
+    /* Para hacer que el movimiento sea más suave */
 }
 
 
 /* Estilos generales para los botones */
 button {
-    font-size: 18px;  /* Aumenta el tamaño de la fuente */
-    padding: 15px 30px;  /* Aumenta el padding para hacerlo más grande */
+    font-size: 18px;
+    /* Aumenta el tamaño de la fuente */
+    padding: 15px 30px;
+    /* Aumenta el padding para hacerlo más grande */
     border-radius: 5px;
     color: white;
     display: flex;
     align-items: center;
-    justify-content: center;  /* Centra los íconos y texto */
+    justify-content: center;
+    /* Centra los íconos y texto */
 }
 
 button i {
-    font-size: 24px;  /* Aumenta el tamaño de los íconos */
+    font-size: 24px;
+    /* Aumenta el tamaño de los íconos */
 }
 
 
@@ -62,12 +70,16 @@ button i {
 .finalizar {
     color: white;
     background-color: #dc3545;
+    font-family: 'Century Gothic', sans-serif;
+
     /* Rojo */
 }
 
 .finalizar:hover {
     background-color: #c82333;
     color: white;
+    font-family: 'Century Gothic', sans-serif;
+
     /* Rojo más oscuro al pasar el ratón */
 }
 
@@ -75,18 +87,23 @@ button i {
 .reiniciar {
     background-color: #007bff;
     color: white;
+    font-family: 'Century Gothic', sans-serif;
+
     /* Azul */
 }
 
 .reiniciar:hover {
     background-color: #0069d9;
     color: white;
+    font-family: 'Century Gothic', sans-serif;
+
     /* Azul más oscuro al pasar el ratón */
 }
 
 
 .text-azul {
-    font-family: sans-serif;
+    font-family: 'Century Gothic', sans-serif;
+
     font-size: 25px;
     color: #0A2363 !important;
     /* Color de texto azul por defecto */
@@ -100,27 +117,30 @@ button i {
 .enlargable:hover {
     transform: scale(1.5);
 }
+
 #mensaje {
     font-size: 1.2rem;
     margin-top: 20px;
 }
+
 .correcto {
-    color: white  !important;
+    color: white !important;
     font-weight: bold;
     background-color: #2bbe23e5;
     text-align: center;
 }
 
 .incorrecto {
-    color: white  !important;
+    color: white !important;
     font-weight: bold;
     text-align: center;
     background-color: rgba(255, 0, 0, 0.584);
 }
-.color-fondo
-{
+
+.color-fondo {
     background-color: #cceee288;
 }
+
 canvas {
     position: absolute;
     top: 0;
