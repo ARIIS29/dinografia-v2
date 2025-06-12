@@ -437,21 +437,21 @@ class Bosque_bambu extends CI_Controller
 
 		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
 
-		if ($estrellas <= 25) {
+		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Para atrapar más hojas, enfócate en reaccionar más rápido <br>y observa cada movimiento con atención. ¡Tus reflejos son clave para mejorar! <br>Lograste atrapar $puntaje hojas de 40 hojas <br>";
-		} else if ($estrellas > 25 && $estrellas <= 975) {
+			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Para atrapar más hojas, enfócate en reaccionar más rápido <br>y observa cada movimiento con atención. ¡Tus reflejos son clave para mejorar! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
+		} else if ($estrellas > 100 && $estrellas <= 975) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Para atrapar más hojas, trata de mejorar la velocidad de tu reacción<br> y observa con más detalle cada movimiento. ¡Estás cerca de lograrlo! <br>Lograste atrapar $puntaje hojas de 40 hojas <br>";
+			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Para atrapar más hojas, trata de mejorar la velocidad de tu reacción<br> y observa con más detalle cada movimiento. ¡Estás cerca de lograrlo! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Super asombroso explorador!🎉<br>Lograste atrapar todas las hojas sin que se te escapara ninguna. <br> Tu destreza en los reflejos es asombrosa. ¡Sigue así y atraparás todas las hojas! <br>Lograste atrapar $puntaje hojas de 40 hojas <br>";
+			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Super asombroso explorador!🎉<br>Lograste atrapar todas las hojas sin que se te escapara ninguna. <br> Tu destreza en los reflejos es asombrosa. ¡Sigue así y atraparás todas las hojas! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
 		}
 		$data = array(
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b>Nombre :</b> Explorador de hojas - Letra b.' . "<br>" . '<b>Objetivo :</b> Atrapar las hojas que aparecen en pantalla.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 25 estrellas por hoja atrapada.' . "<br>" . '<b>Total de hojas a atrapar :</b> 40 hojas.',
+			'nombre' => '<b>Nombre :</b> Explorador de hojas - Letra b.' . "<br>" . '<b>Objetivo :</b> Atrapar las hojas que aparecen en pantalla.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 100 estrellas por hoja atrapada.' . "<br>" . '<b>Total de hojas a atrapar :</b> 10 hojas.',
 			'cronometro' => $tiempo,
 			'correctas' => $puntaje,
 			'incorrectas' => $hojasNoAtrapadas,
@@ -491,19 +491,19 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 25) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Para atrapar más hojas, enfócate en reaccionar más rápido <br>y observa cada movimiento con atención. ¡Tus reflejos son clave para mejorar! <br>Lograste atrapar $puntaje hojas de 40 hojas <br>";
+			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Para atrapar más hojas, enfócate en reaccionar más rápido <br>y observa cada movimiento con atención. ¡Tus reflejos son clave para mejorar! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
 		} else if ($estrellas > 25 && $estrellas <= 975) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Para atrapar más hojas, trata de mejorar la velocidad de tu reacción<br> y observa con más detalle cada movimiento. ¡Estás cerca de lograrlo! <br>Lograste atrapar $puntaje hojas de 40 hojas <br>";
+			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Para atrapar más hojas, trata de mejorar la velocidad de tu reacción<br> y observa con más detalle cada movimiento. ¡Estás cerca de lograrlo! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Super asombroso explorador!🎉<br>Lograste atrapar todas las hojas sin que se te escapara ninguna. <br> Tu destreza en los reflejos es asombrosa. ¡Sigue así y atraparás todas las hojas! <br>Lograste atrapar $puntaje hojas de 40 hojas <br>";
+			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Super asombroso explorador!🎉<br>Lograste atrapar todas las hojas sin que se te escapara ninguna. <br> Tu destreza en los reflejos es asombrosa. ¡Sigue así y atraparás todas las hojas! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
 		}
 		$data = array(
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b>Nombre :</b> Explorador de hojas - Letra b.' . "<br>" . '<b>Objetivo :</b> Atrapar las hojas que aparecen en pantalla.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 25 estrellas por hoja atrapada.' . "<br>" . '<b>Total de hojas a atrapar :</b> 40 hojas.',
+			'nombre' => '<b>Nombre :</b> Explorador de hojas - Letra b.' . "<br>" . '<b>Objetivo :</b> Atrapar las hojas que aparecen en pantalla.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 100 estrellas por hoja atrapada.' . "<br>" . '<b>Total de hojas a atrapar :</b> 10 hojas.',
 			'cronometro' => $tiempo,
 			'correctas' => $puntaje,
 			'incorrectas' => $hojasNoAtrapadas,

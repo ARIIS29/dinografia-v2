@@ -223,7 +223,7 @@
 
 
         let puntaje = 0;
-        const metaPuntos = 5; // Número de hojas a atrapar
+        const metaPuntos = 10; // Número de hojas a atrapar
         let tiempoHoja = 1300;
         let intervaloJuego;
         let hojasAparecidas = 0;
@@ -285,11 +285,12 @@
             contadorPuntos.textContent = puntaje;
             estrellaSalta();
             hoja.style.display = 'none';
-            estrellas += 25;
+            estrellas += 100;
             contadorEstrellas.textContent = estrellas;
             console.log('puntajes real: ', puntaje);
             hojasNoAtrapadas = metaPuntos - puntaje;
             console.log('hojasNoAtrapadas: ', hojasNoAtrapadas);
+            enviarEvaluacionExploradorHojasB();
 
 
         });
@@ -438,9 +439,7 @@
             const mensaje = document.getElementById('mensaje');
             if (hojasAparecidas < metaPuntos) {
                 mostrarMensajeExitoFinalizar()
-                // var mensajeFinal = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, atrapaste ${puntaje} hojas y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
-                mensaje.textContent = mensajeFinal;
-                mensaje.className = "incorrecto";
+               
 
             } else {
                 mostrarMensajeExitoFelicidades();
