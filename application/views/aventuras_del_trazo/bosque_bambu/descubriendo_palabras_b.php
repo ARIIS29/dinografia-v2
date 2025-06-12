@@ -116,9 +116,17 @@
             document.getElementById('header-inicial').classList.add('d-none');
         });
 
-        audio1.play().catch(error => {
-            console.log("Error al reproducir audioVista1:", error);
-        });
+        // audio1.play().catch(error => {
+        //     console.log("Error al reproducir audioVista1:", error);
+        // });
+        if (!sessionStorage.getItem('audio1Reproducido_descubriendoPalabras')) {
+            audio1.play().then(() => {
+                sessionStorage.setItem('audio1Reproducido_descubriendoPalabras', 'true');
+            }).catch(error => {
+                console.log("Error al reproducir audioVista1:", error);
+            });
+        }
+
         audioIndicacionesUno();
 
         playBtn.addEventListener('click', function() {
@@ -148,6 +156,7 @@
                 audio2.play().catch(error => {
                     console.log("Error al reproducir audio automáticamente:", error);
                 });
+
                 audioIndicacionesDos();
 
                 enviarInicioEvaluacionDescubriendoPalabrasB();
@@ -179,6 +188,17 @@
                 }
             });
         }
+        document.getElementById('btnRegresar').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            if (!audio1.paused) {
+                audio1.pause();
+                audio1.currentTime = 0;
+            }
+
+            window.location.href = this.href;
+        });
+
 
         function startAnimation() {
             // audioEstrellaPuntos();

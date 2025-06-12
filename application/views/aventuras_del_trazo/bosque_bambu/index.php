@@ -1,5 +1,3 @@
-
-
 <section class="d-flex justify-content-center align-items-center mt-10" id="menuPrincipal">
     <div class="container">
         <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
@@ -51,13 +49,21 @@
     const dino = document.getElementById('dino');
     const audio = document.getElementById('dinoAudio');
 
-    // Inicia animación y audio al cargar la página
-    window.addEventListener('DOMContentLoaded', function() {
+    // Función para iniciar animación y audio
+    function iniciarDino() {
         dino.classList.add('dino-hablando'); // Inicia la animación
         audio.play().catch(error => {
             console.log("Error al reproducir el audio automáticamente:", error);
         });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+        if (!sessionStorage.getItem('audioDinoReproducido_bosqueBambu')) {
+            iniciarDino();
+            sessionStorage.setItem('audioDinoReproducido_bosqueBambu', 'true');
+        }
     });
+
 
     // Manejo del clic en Dino
     dino.addEventListener('click', function() {

@@ -20,7 +20,7 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
             <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('letras/bosque_bambu/explora_y_descubre_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
+                    <a href="<?php echo site_url('letras/bosque_bambu/explora_y_descubre_b') ?>" class="btn boton-regresar-bambu float-start" id="btnRegresar"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center d-none d-md-block">
                     <h1 class="titulo-h1-bambu">EXPLORADOR DE HOJAS</h1>
@@ -40,7 +40,7 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top d-none d-md-block">
             <div class="container-fluid">
                 <div class="col-lg-2 col-md-2 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('letras/bosque_bambu/explorador_hojas_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
+                    <a href="<?php echo site_url('letras/bosque_bambu/explorador_hojas_b') ?>" class="btn boton-regresar-bambu float-start" id="btnRegresar"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_bambu">
                     <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">¡Vamos explorador!  ¡Haz clic o presiona en cada hoja que aparezca y atrápala antes de que se escape!
