@@ -279,17 +279,14 @@ class Bosque_bambu extends CI_Controller
 
 	public function descubriendo_palabras_b()
 	{
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
-		$data['prueba'] = $prueba;
-
+	
 		$this->load->view('layout/header_letras/header_letraB/header_descubriendo_palabras_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/descubriendo_palabras_b.php', $data);
+		$this->load->view('aventuras_del_trazo/bosque_bambu/descubriendo_palabras_b.php');
 		$this->load->view('layout/footer');
 	}
 
 	public function enviarEvaluacionDescubriendoPalabrasB()
 	{
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
 
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
@@ -301,6 +298,8 @@ class Bosque_bambu extends CI_Controller
 		$incorrectas = $this->input->post('palabrasIncorrectascont');
 		$estrellas = $this->input->post('totalEstrellas');
 		$array_palabras = json_decode($this->input->post('arrayPalabras'));
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
+
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
@@ -417,8 +416,6 @@ class Bosque_bambu extends CI_Controller
 
 	public function explorador_hojas_b()
 	{
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
-		$data['prueba'] = $prueba;
 		
 		$this->load->view('layout/header_letras/header_letraB/header_explorador_hojas_b');
 		$this->load->view('aventuras_del_trazo/bosque_bambu/explorador_hojas_b');
@@ -427,16 +424,18 @@ class Bosque_bambu extends CI_Controller
 
 	public function enviarEvaluacionExploradorHojasB()
 	{
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
 
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
 		$identificador_1 = hash("crc32b", $key_1);
 		$identificador_usuario = $this->session->userdata('identificador');
+		$letra = $this->input->post('letra');
 		$tiempo = $this->input->post('tiempoFinal');
 		$puntaje = $this->input->post('hojasAtrapadas');
 		$hojasNoAtrapadas = $this->input->post('hojasIncorrectas');
 		$estrellas = $this->input->post('totalEstrellas');
+
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
 
 		if ($estrellas <= 25) {
 			$evaluacion = '¡A seguir practicando!';
@@ -450,6 +449,7 @@ class Bosque_bambu extends CI_Controller
 		}
 		$data = array(
 			'identificador' => $identificador_1,
+			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
 			'nombre' => '<b>Nombre :</b> Explorador de hojas - Letra b.' . "<br>" . '<b>Objetivo :</b> Atrapar las hojas que aparecen en pantalla.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 25 estrellas por hoja atrapada.' . "<br>" . '<b>Total de hojas a atrapar :</b> 40 hojas.',
 			'cronometro' => $tiempo,
@@ -460,7 +460,7 @@ class Bosque_bambu extends CI_Controller
 			'observaciones' => $observacion,
 			'fecha_registro' => $fecha_registro,
 		);
-		if ($identificador_usuario == $prueba->identificador_usuario) {
+		if (($identificador_usuario == $prueba->identificador_usuario)) {
 			if ($this->ejercicios_model->guardar_progreso_actualizado($data, $prueba->identificador)) {
 
 				echo json_encode(['success' => true]);
@@ -483,6 +483,7 @@ class Bosque_bambu extends CI_Controller
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
 		$identificador_1 = hash("crc32b", $key_1);
 		$identificador_usuario = $this->session->userdata('identificador');
+		$letra = $this->input->post('letra');
 		$tiempo = $this->input->post('tiempoFinal');
 		$puntaje = $this->input->post('hojasAtrapadas');
 		$hojasNoAtrapadas = $this->input->post('hojasIncorrectas');
@@ -500,6 +501,7 @@ class Bosque_bambu extends CI_Controller
 		}
 		$data = array(
 			'identificador' => $identificador_1,
+			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
 			'nombre' => '<b>Nombre :</b> Explorador de hojas - Letra b.' . "<br>" . '<b>Objetivo :</b> Atrapar las hojas que aparecen en pantalla.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 25 estrellas por hoja atrapada.' . "<br>" . '<b>Total de hojas a atrapar :</b> 40 hojas.',
 			'cronometro' => $tiempo,

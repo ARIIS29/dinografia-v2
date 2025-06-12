@@ -205,7 +205,7 @@
 
 
         let puntaje = 0;
-        const metaPuntos = 40; // Número de hojas a atrapar
+        const metaPuntos = 5; // Número de hojas a atrapar
         let tiempoHoja = 1300;
         let intervaloJuego;
         let hojasAparecidas = 0;
@@ -272,7 +272,6 @@
             console.log('puntajes real: ', puntaje);
             hojasNoAtrapadas = metaPuntos - puntaje;
             console.log('hojasNoAtrapadas: ', hojasNoAtrapadas);
-            enviarEvaluacionExploradorHojasB();
 
 
         });
