@@ -17,7 +17,7 @@
     margin-top: 8%;
 }
 
-.mt-6{
+.mt-6 {
     margin-top: 6%;
 }
 
@@ -230,6 +230,7 @@ h2 {
     text-align: center;
 
 }
+
 .titulo-h1-azul-movil {
     font-size: 35px;
     font-weight: bold;
@@ -544,20 +545,21 @@ h2 {
 }
 
 #guardar.btn-guardar-inactive {
-    background-color:  orange;
+    background-color: orange;
     color: white !important;
     /* animation: glow 1.5s infinite; */
 }
 
 #guardar.btn-guardar-inactive:hover {
     background-color: rgb(240, 160, 12);
-    
+
 }
 
 #toggleLetraB.btn-toggle-active {
     background-color: rgb(117, 237, 36);
     color: white;
 }
+
 #toggleLetraB.btn-toggle-active:hover {
     background-color: rgb(98, 217, 19);
 }
@@ -584,6 +586,7 @@ video {
     width: 100%;
     height: 300px;
 }
+
 /*Terminan los etilos para el trazo de las letras b, d, p y q */
 
 /* ====================================================================================== */
@@ -594,7 +597,8 @@ video {
     background-color: #D7B468;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    touch-action: none; /* Desactiva gestos táctiles predeterminados */
+    touch-action: none;
+    /* Desactiva gestos táctiles predeterminados */
 }
 
 /* Aqui terminan los estilos de trazos en la arena de las letras b, d, p y q */
@@ -629,5 +633,128 @@ video {
     opacity: 0.8;
     /* Opcional: haz que el selector de archivo sea semitransparente */
 }
+/* Estilos generales para los botones */
+button {
+    font-size: 18px;
+    /* Aumenta el tamaño de la fuente */
+    padding: 15px 30px;
+    /* Aumenta el padding para hacerlo más grande */
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centra los íconos y texto */
+}
+
+button i {
+    font-size: 24px;
+    /* Aumenta el tamaño de los íconos */
+}
+
+/* Botón "Verificar" */
+.verificar {
+    background-color: #28a745;
+    color: white;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Verde */
+}
+
+.verificar:hover {
+    background-color: #218838;
+    color: white;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Verde más oscuro al pasar el ratón */
+}
 
 /* Fin de estilos para la seccion de grafismo b, d, p yq  */
+/* Botón "Saltar" */
+.saltar {
+    background-color: #fcbf06;
+    color: rgb(248, 248, 248);
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Amarillo */
+}
+
+.saltar:hover {
+    background-color: #e0a800;
+    color: white;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Amarillo más oscuro al pasar el ratón */
+}
+
+/* Botón "Finalizar" */
+.finalizar {
+    color: white;
+    background-color: #dc3545;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Rojo */
+}
+
+.finalizar:hover {
+    background-color: #c82333;
+    color: white;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Botón "Reiniciar" */
+.reiniciar {
+    background-color: #007bff;
+    color: white;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Azul */
+}
+
+.reiniciar:hover {
+    background-color: #0069d9;
+    color: white;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+
+
+
+    /* Azul más oscuro al pasar el ratón */
+}
+
+.color-fondo {
+    background-color: #cceee288;
+}
+
+#mensaje {
+    font-family: 'Century Gothic', sans-serif !important;
+    margin-top: 1%;
+}
+
+.correcto {
+    color: white !important;
+    font-weight: bold;
+    background-color: #2bbe23e5;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.incorrecto {
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: rgb(249,125,0);
+}

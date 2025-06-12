@@ -1,6 +1,7 @@
 #contenedorJuego {
     display: none;
 }
+
 .areaJuegoObjetos {
     display: grid;
     grid-gap: 20px;
@@ -24,6 +25,7 @@
     cursor: pointer;
     transition: transform 0.2s;
 }
+
 .emoji:hover {
     background-color: skyblue;
     transform: scale(1.1);
@@ -67,24 +69,7 @@
     }
 }
 
-#mensaje {
-    font-family: sans-serif;
-    font-size: 1.2rem;
-    margin-top: 2%;
-}
-.correcto {
-    color: white  !important;
-    font-weight: bold;
-    background-color: #2bbe23e5;
-    text-align: center;
-}
 
-.incorrecto {
-    color: white  !important;
-    font-weight: bold;
-    text-align: center;
-    background-color: rgba(255, 0, 0, 0.584);
-}
 
 #objetivoEmoji {
     font-family: 'Century Gothic', sans-serif;
@@ -94,19 +79,6 @@
     color: #214524 !important;
 }
 
-.instrucciones {
-    font-family: sans-serif;
-    font-size: 1.2rem;
-    color: #0A2363 !important;
-    text-align: justify;
-    /* Color de texto azul por defecto */
-}
-
-h1 {
-    color: #0A2363 ;
-    margin-top: 20px;
-    text-align: center;
-}
 
 
 #siguienteNivel {
@@ -120,64 +92,8 @@ h1 {
     margin-top: 20px;
     font-weight: bold;
 }
-/* Estilos generales para los botones */
-button {
-    font-size: 18px;  /* Aumenta el tamaño de la fuente */
-    padding: 15px 30px;  /* Aumenta el padding para hacerlo más grande */
-    border-radius: 5px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;  /* Centra los íconos y texto */
-}
 
-button i {
-    font-size: 24px;  /* Aumenta el tamaño de los íconos */
-}
 
-/* Botón "Saltar" */
-.saltar {
-    background-color: #ffc107;
-    color: white;
-    /* Amarillo */
-}
-
-.saltar:hover {
-    background-color: #e0a800;
-    color: white;
-    /* Amarillo más oscuro al pasar el ratón */
-}
-
-/* Botón "Finalizar" */
-.finalizar {
-    color: white;
-    background-color: #dc3545;
-    /* Rojo */
-}
-
-.finalizar:hover {
-    background-color: #c82333;
-    color: white;
-    /* Rojo más oscuro al pasar el ratón */
-}
-
-/* Botón "Reiniciar" */
-.reiniciar {
-    background-color: #007bff;
-    color: white;
-    /* Azul */
-}
-
-.reiniciar:hover {
-    background-color: #0069d9;
-    color: white;
-    /* Azul más oscuro al pasar el ratón */
-}
-
-.color-fondo
-{
-    background-color: #cceee288;
-}
 canvas {
     position: absolute;
     top: 0;

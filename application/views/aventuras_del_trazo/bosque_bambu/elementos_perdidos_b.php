@@ -1,20 +1,17 @@
 <section class="mt-10">
     <div class="container-fluid d-flex justify-content-center" style="position: relative;">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo instrucciones" id="areaJuego">
+            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_bambu" id="areaJuego">
                 <div class="col-lg-12 col-md-12 col-12 mt-2">
                     <div class="d-flex align-items-center">
                         <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
 
-                        <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
+                        <p class="mb-0">¡Busquemos en la aventura! <br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
-                        <b> Instrucciones del juego</b> <br>
-                        ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
-                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                            ¿Cómo jugar?
-                        </button> <br>
+                        ¡Prepárate para una emocionante misión! Ayuda al dino a encontrar <b>todos</b> los elementos perdidos en el bosque de bambú.<br>
+                        Para completar esta misión da clic o toca solo los objetos que el Dino te pide encontrar en el tablero.
+
                     </p>
 
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
@@ -43,7 +40,7 @@
                     </div>
 
                     <p>
-                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        ¡Diviértete aprendiendo mientras encontramos juntos los elementos del bosque de bambú! <br>
                         Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
@@ -80,14 +77,14 @@
                 </div>
                 <div class="d-flex justify-content-center mt-4">
                     <button id="pasarNivelBtn" class="btn saltar me-2" title="Saltar elemento">
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right"></i> Saltar elemento
                     </button>
                     <button id="reiniciarJuegoBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
-                        <i class="fas fa-redo"></i>
+                        <i class="fas fa-redo"></i> Reiniciar Misión
                     </button>
 
                     <button id="finalizarJuegoBtn" class="btn finalizar me-2" title="Finalizar Juego">
-                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i> Finalizar Misión
                     </button>
                 </div>
                 <div class="col-lg-12 col-md-12 col-12" id="mensaje">
@@ -405,7 +402,9 @@
 
                 if (intentos <= 0) {
                     console.log('entre a intentos 0');
-                    mostrarMensajeExitoIntentos();
+                    setTimeout(function() {
+                        mostrarMensajeExitoIntentos();
+                    }, 1500);
                     // botonPasarNivel.disabled = true;
                     clearInterval(temporizador);
                     // mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, encontraste ${frutasRecolectadas} elementos y lo hiciste en un tiempo de  ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
@@ -416,6 +415,7 @@
                     });
                     deshabilitarSeleccionEmojis();
                     document.getElementById("pasarNivelBtn").disabled = true;
+                    document.getElementById("reiniciarJuegoBtn").disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
                     enviarEvaluacionEncontrandoObjetosB();
 
@@ -433,17 +433,18 @@
 
 
             } else {
-                mensaje.textContent = `¡Felicidades, has encontrado todos los elementos! 🎉. Ganaste ${estrellas} estrellas, encontraste los ${frutasRecolectadas} elementos perdidos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
-                mensaje.className = "correcto";
-                mensaje.scrollIntoView({
-                    behavior: "smooth",
-                    block: "end"
-                });
+                // mensaje.textContent = `¡Felicidades, has encontrado todos los elementos! 🎉. Ganaste ${estrellas} estrellas, encontraste los ${frutasRecolectadas} elementos perdidos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
+                // mensaje.className = "correcto";
+                // mensaje.scrollIntoView({
+                //     behavior: "smooth",
+                //     block: "end"
+                // });
                 clearInterval(temporizador);
                 mostrarConfeti();
                 deshabilitarSeleccionEmojis();
                 //  document.getElementById("finalizarJuegoBtn").disabled = true;
                 document.getElementById("finalizarJuegoBtn").disabled = true;
+                document.getElementById("reiniciarJuegoBtn").disabled = true;
                 document.getElementById("pasarNivelBtn").disabled = true;
                 mostrarMensajeExitoFelicidades();
 
@@ -461,12 +462,13 @@
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${frutasRecolectadas}</strong><br>
+            📝 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
             mensaje.style.fontWeight = 'bold';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
@@ -521,13 +523,14 @@
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
+            En tu recorrido diste un gran paso encontrando elementos, ¡cada intento te hace mejor! 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${frutasRecolectadas}</strong><br>
+            📝 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>  
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -582,14 +585,15 @@
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En esta misión descubristes <b>todas las palabras</b>. <br>
+            En esta misión encontrastes <b>todos los elementos</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${frutasRecolectadas}</strong><br>
+            📝 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>  
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -787,6 +791,7 @@
             // botonPasarNivel.disabled = false;
             // botonFinalizar.disabled = false;
             document.getElementById("pasarNivelBtn").disabled = false;
+            document.getElementById("reiniciarJuegoBtn").disabled = false;
             document.getElementById("finalizarJuegoBtn").disabled = false;
             mostrarEmojis();
             iniciarTemporizador();
@@ -806,10 +811,10 @@
 
         function finalizarJuego() {
             clearInterval(temporizador); // Detener el temporizador
-            mensaje.textContent = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, encontraste ${frutasRecolectadas} elementos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`; // Mostrar mensaje
-            mensaje.className = "incorrecto";
             deshabilitarSeleccionEmojis(); // Deshabilitar la selección de emojis
             document.getElementById("pasarNivelBtn").disabled = true; // Deshabilitar el botón de pasar nivel
+            document.getElementById("reiniciarJuegoBtn").disabled = true;
+
             document.getElementById("finalizarJuegoBtn").disabled = true; // Deshabilitar el botón de finalizar juego
             mensaje.scrollIntoView({
                 behavior: "smooth",

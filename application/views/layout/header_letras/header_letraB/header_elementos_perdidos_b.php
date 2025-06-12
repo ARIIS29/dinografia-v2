@@ -42,7 +42,7 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('letras/bosque_bambu/dino_dice_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
+                    <a href="<?php echo site_url('letras/bosque_bambu/elementos_perdidos_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
 
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_bambu" id="objetivoEmoji">
