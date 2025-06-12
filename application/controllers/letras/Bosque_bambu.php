@@ -279,7 +279,7 @@ class Bosque_bambu extends CI_Controller
 
 	public function descubriendo_palabras_b()
 	{
-	
+
 		$this->load->view('layout/header_letras/header_letraB/header_descubriendo_palabras_b');
 		$this->load->view('aventuras_del_trazo/bosque_bambu/descubriendo_palabras_b.php');
 		$this->load->view('layout/footer');
@@ -298,6 +298,7 @@ class Bosque_bambu extends CI_Controller
 		$incorrectas = $this->input->post('palabrasIncorrectascont');
 		$estrellas = $this->input->post('totalEstrellas');
 		$array_palabras = json_decode($this->input->post('arrayPalabras'));
+
 		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
 
 
@@ -416,7 +417,7 @@ class Bosque_bambu extends CI_Controller
 
 	public function explorador_hojas_b()
 	{
-		
+
 		$this->load->view('layout/header_letras/header_letraB/header_explorador_hojas_b');
 		$this->load->view('aventuras_del_trazo/bosque_bambu/explorador_hojas_b');
 		$this->load->view('layout/footer');
@@ -440,7 +441,7 @@ class Bosque_bambu extends CI_Controller
 		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
 			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Para atrapar más hojas, enfócate en reaccionar más rápido <br>y observa cada movimiento con atención. ¡Tus reflejos son clave para mejorar! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
-		} else if ($estrellas > 100 && $estrellas <= 975) {
+		} else if ($estrellas > 100 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
 			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Para atrapar más hojas, trata de mejorar la velocidad de tu reacción<br> y observa con más detalle cada movimiento. ¡Estás cerca de lograrlo! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
 		} else if ($estrellas == 1000) {
@@ -489,10 +490,10 @@ class Bosque_bambu extends CI_Controller
 		$hojasNoAtrapadas = $this->input->post('hojasIncorrectas');
 		$estrellas = $this->input->post('totalEstrellas');
 
-		if ($estrellas <= 25) {
+		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
 			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Para atrapar más hojas, enfócate en reaccionar más rápido <br>y observa cada movimiento con atención. ¡Tus reflejos son clave para mejorar! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
-		} else if ($estrellas > 25 && $estrellas <= 975) {
+		} else if ($estrellas > 100 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
 			$observacion = "<b>Explorador de hojas - letra b🌿</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Para atrapar más hojas, trata de mejorar la velocidad de tu reacción<br> y observa con más detalle cada movimiento. ¡Estás cerca de lograrlo! <br>Lograste atrapar $puntaje hojas de 10 hojas <br>";
 		} else if ($estrellas == 1000) {
@@ -524,6 +525,115 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('layout/header_letras/header_letraB/header_elementos_perdidos_b');
 		$this->load->view('aventuras_del_trazo/bosque_bambu/elementos_perdidos_b');
 		$this->load->view('layout/footer');
+	}
+	public function enviarEvaluacionElementosPerdidosB()
+	{
+		
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$identificador_usuario = $this->session->userdata('identificador');
+		$letra = $this->input->post('letra');
+		$tiempo = $this->input->post('tiempoFinal');
+		$objetosCorrectos = $this->input->post('objetosCorrectos');
+		$objetosIncorrectos = $this->input->post('objetosIncorrectos');
+		$estrellas = $this->input->post('totalEstrellas');
+		$arrayObjetosIncorrectos = json_decode($this->input->post('arrayObjetosIncorrectos'), true);
+
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
+
+		if ($estrellas <= 50) {
+			$evaluacion = '¡A seguir practicando!';
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+		} else if ($estrellas > 50 && $estrellas <= 950) {
+			$evaluacion = '¡Casi lo logras!';
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+		} else if ($estrellas == 1000) {
+			$evaluacion = '¡Super asombroso!';
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+		}
+
+		foreach ($arrayObjetosIncorrectos as $key => $value) {
+			$indice = $key + 1;
+			$observacion .= $indice . ". 🔴 <b>Elemento seleccionado:</b> " . $value['seleccionado'] . " - 🟢 <b>Elemento correcto:</b> " . $value['correcto'] . "<br>";
+		}
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+			'identificador_usuario' => $identificador_usuario,
+			'nombre' => '<b> Nombre :</b> Elementos perdidos - Letra b' . "<br>" . '<b>Objetivo :</b> Encontrar todos los elementos perdidos en el bosque de bambú.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas .' . "<br>" . '<b>Recompensa de estrellas :</b> 50 estrellas por elementos encontrado.' . "<br>" . '<b>Total de elementos a encontrar :</b> 20 elementos perdidios.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'cronometro' => $tiempo,
+			'correctas' => $objetosCorrectos,
+			'incorrectas' => $objetosIncorrectos,
+			'estrellas' => $estrellas,
+			'evaluacion' => $evaluacion,
+			'observaciones' => $observacion,
+			'fecha_registro' => $fecha_registro,
+		);
+		if (($identificador_usuario == $prueba->identificador_usuario)) {
+			if ($this->ejercicios_model->guardar_progreso_actualizado($data, $prueba->identificador)) {
+
+				echo json_encode(['success' => true]);
+			} else {
+				echo json_encode(['success' => false]);
+			}
+		} else {
+			if ($this->ejercicios_model->guardar_progreso($data)) {
+
+				echo json_encode(['success' => true]);
+			} else {
+				echo json_encode(['success' => false]);
+			}
+		}
+	}
+
+	public function guardarRegistroElementosPerdidos()
+	{
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$identificador_usuario = $this->session->userdata('identificador');
+		$letra = $this->input->post('letra');
+		$tiempo = $this->input->post('tiempoFinal');
+		$objetosCorrectos = $this->input->post('objetosCorrectos');
+		$objetosIncorrectos = $this->input->post('objetosIncorrectos');
+		$estrellas = $this->input->post('totalEstrellas');
+		$arrayObjetosIncorrectos = json_decode($this->input->post('arrayObjetosIncorrectos'), true);
+
+
+		if ($estrellas <= 50) {
+			$evaluacion = '¡A seguir practicando!';
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+		} else if ($estrellas > 50 && $estrellas <= 950) {
+			$evaluacion = '¡Casi lo logras!';
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+		} else if ($estrellas == 1000) {
+			$evaluacion = '¡Super asombroso!';
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+		}
+
+		foreach ($arrayObjetosIncorrectos as $key => $value) {
+			$indice = $key + 1;
+			$observacion .= $indice . ". 🔴 <b>Elemento seleccionado:</b> " . $value['seleccionado'] . " - 🟢 <b>Elemento correcto:</b> " . $value['correcto'] . "<br>";
+		}
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+			'identificador_usuario' => $identificador_usuario,
+			'nombre' => '<b> Nombre :</b> Elementos perdidos - Letra b' . "<br>" . '<b>Objetivo :</b> Encontrar todos los elementos perdidos en el bosque de bambú.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas .' . "<br>" . '<b>Recompensa de estrellas :</b> 50 estrellas por elementos encontrado.' . "<br>" . '<b>Total de elementos a encontrar :</b> 20 elementos perdidios.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'cronometro' => $tiempo,
+			'correctas' => $objetosCorrectos,
+			'incorrectas' => $objetosIncorrectos,
+			'estrellas' => $estrellas,
+			'evaluacion' => $evaluacion,
+			'observaciones' => $observacion,
+			'fecha_registro' => $fecha_registro,
+		);
+		if ($this->ejercicios_model->guardar_progreso($data)) {
+			echo json_encode(['success' => true]);
+		} else {
+			echo json_encode(['success' => false]);
+		}
 	}
 
 	public function dino_dice_b()

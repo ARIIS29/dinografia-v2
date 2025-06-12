@@ -133,9 +133,11 @@
             });
 
             audioIndicacionesDos();
-            startAnimation();
 
-            // Inicia el cronómetro
+            startAnimation();
+            // enviarInicioEvaluacionElementosPerdidosB();
+
+
         });
 
         function audioIndicacionesUno() {
@@ -289,7 +291,7 @@
             // Instrucción con emoji y su nombre
             // objetivoEmojiElemento.innerHTML = `¡Encuentra todos los elementos de <span>${emojiCorrecto.nombre}</span> (${emojiCorrecto.emoji}) haciendo clic sobre ellos!`;
             objetivoEmojiElemento.innerHTML = `<img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">
-            ¡Encuentra todos los elementos de <span>${emojiCorrecto.nombre}</span> (${emojiCorrecto.emoji}) haciendo clic sobre ellos!`;
+            Selecciona o haz clic en todos los elementos de la imagén <span style="background-color: yellow; color: black; padding: 2px 4px; border-radius: 4px;">${emojiCorrecto.nombre}</span> (${emojiCorrecto.emoji})`;
 
             const tamañoGrid = nivel + 2; // Aumenta el número de columnas por nivel
             const totalEmojis = tamañoGrid * 3; // Número fijo de filas (por ejemplo, 5 filas)
@@ -299,6 +301,7 @@
             for (let i = 0; i < Math.floor(totalEmojis / 3); i++) {
                 arrayEmojis.push(emojiCorrecto.emoji); // Solo el emoji
                 cuentaCorrecta++;
+
             }
 
             while (arrayEmojis.length < totalEmojis) {
@@ -321,6 +324,7 @@
 
                 areaJuegoObjetos.appendChild(emojiElemento);
             });
+
         }
 
 
@@ -350,7 +354,7 @@
                 mostrarEstrellasCentrales();
 
                 if (cuentaCorrecta === 0) {
-                    mensaje.textContent = `¡Super asombroso 🎉! Has encontrado todos los elementos de ${emojiCorrecto.emoji} (${emojiCorrecto.nombre}). Recomepensa acumulada ${estrellas}`;
+                    mensaje.textContent = `¡Super asombroso 🎉! Encontraste todos los elementos de ${emojiCorrecto.nombre} ${emojiCorrecto.emoji}. Ganaste +${estrellas} estrellas.`;
                     mensaje.className = "correcto";
                     mensaje.scrollIntoView({
                         behavior: "smooth",
@@ -360,7 +364,7 @@
                     setTimeout(pasarNivel, 4000);
 
                 }
-                noencotrado = 77 - frutasRecolectadas;
+                noencotrado = 20 - frutasRecolectadas;
                 console.log('No encontrado', noencotrado);
 
             } else {
@@ -376,14 +380,12 @@
                 movimientosSalta();
                 if (contadorIncorrectas === 1) {
                     mostrarLapizRoto(1);
-                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
-                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
-                ¡Solo te quedan  ${intentos} intentos, tú puedes! 💪`;
+                    mensaje.innerHTML = `¡Sigue intentando<?php echo $this->session->userdata('usuario'); ?>!🌟 Seleccionaste ${emojiSeleccionado}, pero el elemento a encontrar es ${emojiCorrecto.nombre} ${emojiCorrecto.emoji} <br>
+                    ¡Solo te quedan  ${intentos} intentos, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 2) {
                     mostrarLapizRoto(2);
-                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
-                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                    mensaje.innerHTML = `¡Sigue intentando <?php echo $this->session->userdata('usuario'); ?>!🌟  Seleccionaste ${emojiSeleccionado}, pero el elemento a encontrar es ${emojiCorrecto.nombre} ${emojiCorrecto.emoji} <br>
                 ¡Solo te queda  ${intentos} intento, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 3) {
@@ -417,17 +419,17 @@
                     document.getElementById("pasarNivelBtn").disabled = true;
                     document.getElementById("reiniciarJuegoBtn").disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
-                    enviarEvaluacionEncontrandoObjetosB();
+                    enviarEvaluacionElementosPerdidosB();
 
                 }
             }
         }
 
         function pasarNivel() {
-            if (nivel < 10) { // 5 niveles en total (nivel 0 a 4)
+            if (nivel < 4) { // 5 niveles en total (nivel 0 a 4)
                 nivel++;
                 mostrarEmojis();
-                if (nivel === 8) {
+                if (nivel === 4) {
                     document.getElementById("pasarNivelBtn").disabled = true;
                 }
 
@@ -448,7 +450,7 @@
                 document.getElementById("pasarNivelBtn").disabled = true;
                 mostrarMensajeExitoFelicidades();
 
-                enviarEvaluacionEncontrandoObjetosB();
+                enviarEvaluacionElementosPerdidosB();
 
             }
         }
@@ -821,7 +823,7 @@
                 block: "end"
             });
             mostrarMensajeExitoFinalizar();
-            enviarEvaluacionEncontrandoObjetosB();
+            enviarEvaluacionElementosPerdidosB();
         }
 
         function mostrarConfeti() {
@@ -863,21 +865,19 @@
         }
 
 
-
-
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
-        function enviarEvaluacionEncontrandoObjetosB() {
+        function enviarEvaluacionElementosPerdidosB() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
 
             $.ajax({
-                url: '<?php echo base_url('ejercicios/ejercicios_letra_b/enviarEvaluacionEncontrandoObjetosB'); ?>', // URfL de tu controlador
+                url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionElementosPerdidosB'); ?>', // URfL de tu controlador
                 type: 'POST',
                 data: {
+                    letra: 'b',
                     tiempoFinal: tiempo,
                     objetosCorrectos: frutasRecolectadas,
                     objetosIncorrectos: contadorIncorrectas,
                     totalEstrellas: estrellas,
-                    objetosNoEncontrados: noencotrado,
                     arrayObjetosIncorrectos: JSON.stringify(erroresRecolectados)
 
                 }, // Datos a enviar
@@ -888,6 +888,31 @@
                     console.error('Error al enviar el tiempo:', error);
                 }
             });
+        }
+
+
+        function enviarInicioEvaluacionElementosPerdidosB() {
+            var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
+
+            $.ajax({
+                url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroElementosPerdidos'); ?>', // URL de tu controlador
+                type: 'POST',
+                data: {
+                    letra: 'b',
+                    tiempoFinal: tiempo,
+                    objetosCorrectos: frutasRecolectadas,
+                    objetosIncorrectos: contadorIncorrectas,
+                    totalEstrellas: estrellas,
+                    arrayObjetosIncorrectos: JSON.stringify(erroresRecolectados)
+                }, // Datos a enviar
+                success: function(response) {
+                    console.log('Tiempo enviado exitosamente:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al enviar el tiempo:', error);
+                }
+            });
+
         }
 
 
