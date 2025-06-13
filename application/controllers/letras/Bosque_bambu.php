@@ -47,7 +47,7 @@ class Bosque_bambu extends CI_Controller
 		$length = $this->input->post('length');
 		$order = $this->input->post('order');
 
-		$prgreso_list = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b();
+		$prgreso_list = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b($this->session->userdata('identificador'));
 
 		$data = [];
 
@@ -55,7 +55,7 @@ class Bosque_bambu extends CI_Controller
 
 
 			$data[] = array(
-				'id' => $value->id,
+				'id' => $key+1,
 				'nombre' => $value->nombre,
 				'fecha' => $value->fecha_registro,
 				'cronometro' => $value->cronometro,

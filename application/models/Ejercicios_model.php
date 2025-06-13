@@ -16,10 +16,10 @@ class Ejercicios_model extends CI_Model
         return $query;
     }
 
-    public function obtener_evaluacion_ejercicios_por_usuario_b()
+    public function obtener_evaluacion_ejercicios_por_usuario_b($usuario_identificador)
     {
         $query = $this->db
-
+            ->where('t1.identificador_usuario', $usuario_identificador)
             ->where('letra', 'b')
             ->select('t1.*')
             ->from('ejercicios t1')
