@@ -40,7 +40,7 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('letras/bosque_bambu/dino_dice_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
+                    <a href="<?php echo site_url('letras/bosque_bambu/dino_dice_b') ?>" class="btn boton-regresar-bambu float-start" id="btnRegresar"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_bambu" id="instruccion">
                     <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">
@@ -64,3 +64,5 @@
             </div>
         </nav>
     </section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

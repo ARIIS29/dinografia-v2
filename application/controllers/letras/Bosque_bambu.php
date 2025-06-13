@@ -55,7 +55,7 @@ class Bosque_bambu extends CI_Controller
 
 
 			$data[] = array(
-				'id' => $key+1,
+				'id' => $key + 1,
 				'nombre' => $value->nombre,
 				'fecha' => $value->fecha_registro,
 				'cronometro' => $value->cronometro,
@@ -528,7 +528,7 @@ class Bosque_bambu extends CI_Controller
 	}
 	public function enviarEvaluacionElementosPerdidosB()
 	{
-		
+
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
 		$identificador_1 = hash("crc32b", $key_1);
@@ -600,7 +600,6 @@ class Bosque_bambu extends CI_Controller
 		$estrellas = $this->input->post('totalEstrellas');
 		$arrayObjetosIncorrectos = json_decode($this->input->post('arrayObjetosIncorrectos'), true);
 
-
 		if ($estrellas <= 50) {
 			$evaluacion = '¡A seguir practicando!';
 			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
@@ -641,6 +640,122 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('layout/header_letras/header_letraB/header_dino_dice_b');
 		$this->load->view('aventuras_del_trazo/bosque_bambu/dino_dice_b');
 		$this->load->view('layout/footer');
+	}
+	public function enviarEvaluacionDinoDiceB()
+	{
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$letra = $this->input->post('letra');
+		$identificador_usuario = $this->session->userdata('identificador');
+		$tiempo = $this->input->post('tiempoFinal');
+		$contadorCorrectos = $this->input->post('objetosCorrectos');
+		$contadorIncorrectas = $this->input->post('intentosInocrrectos');
+		$estrellas = $this->input->post('totalEstrellas');
+		$arrayObjetosIncorrectos = json_decode($this->input->post('arrayObjetosIncorrectos'), true);
+
+		// $arrayObjetosIncorrectos = json_decode($this->input->post('objetosIncorrectos'));
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
+
+
+		if ($estrellas <= 100) {
+			$evaluacion = '¡A seguir practicando!';
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+		} else if ($estrellas > 100 && $estrellas <= 900) {
+			$evaluacion = '¡Casi lo logras!';
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+		} else if ($estrellas == 1000) {
+			$evaluacion = '¡Super asombroso!';
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+		}
+
+		foreach ($arrayObjetosIncorrectos as $key => $value) {
+			$indice = $key + 1;
+			$observacion .= $indice . ". 🔴 <b>Elemento seleccionado:</b> " . $value['seleccionado'] . " - 🟢 <b>Elemento correcto:</b> " . $value['correcto'] . "<br>";
+		}
+
+
+
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+			'identificador_usuario' => $identificador_usuario,
+			'nombre' => '<b>Nombre :</b> Hazle Caso al Dino - Letra b.' . "<br>" . '<b>Objetivo :</b> Recolectar los objetos que el Dino indique.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 100 estrellas por objeto recolectado.' . "<br>" . '<b>Total de objetos a recolectar :</b> 10 objetos.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'cronometro' => $tiempo,
+			'correctas' => $contadorCorrectos,
+			'incorrectas' => $contadorIncorrectas,
+			'estrellas' => $estrellas,
+			'evaluacion' => $evaluacion,
+			'observaciones' => $observacion,
+			'fecha_registro' => $fecha_registro,
+		);
+		if (($identificador_usuario == $prueba->identificador_usuario)) {
+			if ($this->ejercicios_model->guardar_progreso_actualizado($data, $prueba->identificador)) {
+
+				echo json_encode(['success' => true]);
+			} else {
+				echo json_encode(['success' => false]);
+			}
+		} else {
+			if ($this->ejercicios_model->guardar_progreso($data)) {
+
+				echo json_encode(['success' => true]);
+			} else {
+				echo json_encode(['success' => false]);
+			}
+		}
+	}
+
+	public function guardarRegistroEvaluacionDinoDiceB()
+	{
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$letra = $this->input->post('letra');
+		$identificador_usuario = $this->session->userdata('identificador');
+		$tiempo = $this->input->post('tiempoFinal');
+		$contadorCorrectos = $this->input->post('objetosCorrectos');
+		$contadorIncorrectas = $this->input->post('intentosInocrrectos');
+		$estrellas = $this->input->post('totalEstrellas');
+		$arrayObjetosIncorrectos = json_decode($this->input->post('arrayObjetosIncorrectos'), true);
+
+		// $arrayObjetosIncorrectos = json_decode($this->input->post('objetosIncorrectos'));
+
+
+		if ($estrellas <= 100) {
+			$evaluacion = '¡A seguir practicando!';
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+		} else if ($estrellas > 100 && $estrellas <= 900) {
+			$evaluacion = '¡Casi lo logras!';
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+		} else if ($estrellas == 1000) {
+			$evaluacion = '¡Super asombroso!';
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+		}
+
+		foreach ($arrayObjetosIncorrectos as $key => $value) {
+			$indice = $key + 1;
+			$observacion .= $indice . ". 🔴 <b>Elemento seleccionado:</b> " . $value['seleccionado'] . " - 🟢 <b>Elemento correcto:</b> " . $value['correcto'] . "<br>";
+		}
+
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+			'identificador_usuario' => $identificador_usuario,
+			'nombre' => '<b>Nombre :</b> Hazle Caso al Dino - Letra b.' . "<br>" . '<b>Objetivo :</b> Recolectar los objetos que el Dino indique.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 100 estrellas por objeto recolectado.' . "<br>" . '<b>Total de objetos a recolectar :</b> 10 objetos.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'cronometro' => $tiempo,
+			'correctas' => $contadorCorrectos,
+			'incorrectas' => $contadorIncorrectas,
+			'estrellas' => $estrellas,
+			'evaluacion' => $evaluacion,
+			'observaciones' => $observacion,
+			'fecha_registro' => $fecha_registro,
+		);
+		if ($this->ejercicios_model->guardar_progreso($data)) {
+			echo json_encode(['success' => true]);
+		} else {
+			echo json_encode(['success' => false]);
+		}
 	}
 
 	public function memorama_b()

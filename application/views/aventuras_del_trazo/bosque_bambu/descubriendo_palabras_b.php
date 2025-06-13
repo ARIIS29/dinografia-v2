@@ -119,9 +119,9 @@
         // audio1.play().catch(error => {
         //     console.log("Error al reproducir audioVista1:", error);
         // });
-        if (!sessionStorage.getItem('audio1Reproducido_descubriendoPalabras')) {
+        if (!sessionStorage.getItem('audio1Reproducido_descubriendoPalabrasB')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_descubriendoPalabras', 'true');
+                sessionStorage.setItem('audio1Reproducido_descubriendoPalabrasB', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });

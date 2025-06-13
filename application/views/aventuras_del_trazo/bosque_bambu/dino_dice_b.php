@@ -9,34 +9,24 @@
                         <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: Recolecta los elementos que se necesitan para la exploración del bosque de bambú. Lee con atención las instruccione que el  Dino te indicará.
+                        Prepárate para una emocionante misión: Recolecta los elementos que se necesitan para la exploración del bosque de bambú. Lee con atención las instruccione que el Dino te indicará.
                         <br>
                         Para cumplir con la misión debes seleccionar o dar clic en el elemento que se te pide.
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="videoModalLabel">Instrucciones del juego</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- Contenedor del video -->
-                                    <video id="videoElement" width="100%" controls>
-                                        <!-- Ruta al archivo de video -->
-                                        <source src="<?php echo base_url('almacenamiento/img/instrucciones/hazle_caso_dino.mp4'); ?>" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
+                    <!-- Modal del tutorial -->
+                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
+                        <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
+                            <video id="tutorialVideo" width="100%" controls>
+                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
+                                Tu navegador no soporta el video.
+                            </video>
+                            <!-- <button id="cerrarTutorial" >Cerrar</button> -->
+                            <button id="cerrarTutorial" type="button" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Cerrar</button>
                         </div>
+
                     </div>
 
                     <p>
@@ -116,27 +106,52 @@
             document.getElementById('header-inicial').classList.add('d-none');
         });
 
-        audio1.play().catch(error => {
-            console.log("Error al reproducir audioVista1:", error);
-        });
+        // audio1.play().catch(error => {
+        //     console.log("Error al reproducir audioVista1:", error);
+        // });
+
+        if (!sessionStorage.getItem('audio1Reproducido_dinodiceB')) {
+            audio1.play().then(() => {
+                sessionStorage.setItem('audio1Reproducido_dinodiceB', 'true');
+            }).catch(error => {
+                console.log("Error al reproducir audioVista1:", error);
+            });
+        }
         audioIndicacionesUno();
 
         playBtn.addEventListener('click', function() {
-            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
-            console.log("Juego mostrado"); // Agrega esta línea para depurar
-            // Ocultar el área donde está el botón de inicio
-            document.getElementById('areaJuego').style.display = 'none';
-            // Mostrar el contenedor del juego
-            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+
+            playBtn.style.display = 'none';
             audio1.pause();
             audio1.currentTime = 0;
-            audio2.play().catch(error => {
-                console.log("Error al reproducir audio automáticamente:", error);
-            });
-            audioIndicacionesDos();
-            startAnimation();
 
-            // Inicia el cronómetro
+            // Mostrar el modal del tutorial
+            const modal = document.getElementById('tutorialModal');
+            const video = document.getElementById('tutorialVideo');
+            modal.style.display = 'flex';
+            video.currentTime = 0;
+            video.play();
+
+            // Cuando el usuario cierra el modal
+            document.getElementById('cerrarTutorial').addEventListener('click', function() {
+                modal.style.display = 'none';
+                video.pause();
+                console.log("Juego mostrado"); // Agrega esta línea para depurar
+                // Ocultar el área donde está el botón de inicio
+                document.getElementById('areaJuego').style.display = 'none';
+                // Mostrar el contenedor del juego
+                document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+                audio1.pause();
+                audio1.currentTime = 0;
+                audio2.play().catch(error => {
+                    console.log("Error al reproducir audio automáticamente:", error);
+                });
+                audioIndicacionesDos();
+                enviarInicioEvaluacionDinoDiceB();
+                startAnimation();
+
+            });
+
         });
 
         function audioIndicacionesUno() {
@@ -250,12 +265,15 @@
                 div.textContent = emoji;
                 div.addEventListener('click', () => verificarFigura(emoji));
                 contenedor.appendChild(div);
+                enviarEvaluacionDinoDiceB();
+
             });
         }
 
         // Función que se ejecuta al hacer clic en un emoji
         function verificarFigura(emojiSeleccionado) {
             const mensaje = document.getElementById("mensaje");
+
 
             const divFiguraSeleccionada = Array.from(document.getElementById("contenedorFiguras").children)
                 .find(div => div.textContent === emojiSeleccionado);
@@ -266,6 +284,7 @@
             }
             // Marcar el emoji como seleccionado
             divFiguraSeleccionada.classList.add('seleccionado');
+
 
             if (emojiSeleccionado === instruccionActual.emoji) {
                 estrellaSalta();
@@ -299,6 +318,7 @@
                         nuevaInstruccion();
                     }, 3000);
                 }
+
             } else {
                 objetosIncorrectos.push({
                     seleccionado: emojis[emojiSeleccionado] || emojiSeleccionado, // Si no se encuentra el emoji, se guarda el emoji mismo
@@ -316,7 +336,7 @@
                 }
                 if (contadorIncorrectas === 2) {
                     mostrarLapizRoto(2);
-                   mensaje.innerHTML = `¡Sigue intentando <?php echo $this->session->userdata('usuario'); ?>!🌟 Seleccionaste ${emojiSeleccionado}, pero el elemento que debes seleccionar es ${instruccionActual.emoji}. <br>
+                    mensaje.innerHTML = `¡Sigue intentando <?php echo $this->session->userdata('usuario'); ?>!🌟 Seleccionaste ${emojiSeleccionado}, pero el elemento que debes seleccionar es ${instruccionActual.emoji}. <br>
                     ¡Solo te quedan  ${intentos} intento, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 3) {
@@ -333,7 +353,6 @@
 
                 document.getElementById("intentos").textContent = intentos;
                 divFiguraSeleccionada.classList.add("incorrecto");
-
 
                 if (intentos === 0) {
                     setTimeout(function() {
@@ -813,15 +832,37 @@
 
         }
 
-
-
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
         function enviarEvaluacionDinoDiceB() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
             $.ajax({
-                url: '<?php echo base_url('ejercicios/ejercicios_letra_b/enviarEvaluacionDinoDiceB'); ?>', // URfL de tu controlador
+                url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionDinoDiceB'); ?>', // URfL de tu controlador
                 type: 'POST',
                 data: {
+                    letra: 'b',
+                    tiempoFinal: tiempo,
+                    objetosCorrectos: contadorCorrectos,
+                    intentosInocrrectos: contadorIncorrectas,
+                    totalEstrellas: estrellas,
+                    arrayObjetosIncorrectos: JSON.stringify(objetosIncorrectos)
+
+                }, // Datos a enviar
+                success: function(response) {
+                    console.log('Tiempo enviado exitosamente:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al enviar el tiempo:', error);
+                }
+            });
+        }
+
+        function enviarInicioEvaluacionDinoDiceB() {
+            var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+            $.ajax({
+                url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroEvaluacionDinoDiceB'); ?>', // URfL de tu controlador
+                type: 'POST',
+                data: {
+                    letra: 'b',
                     tiempoFinal: tiempo,
                     objetosCorrectos: contadorCorrectos,
                     intentosInocrrectos: contadorIncorrectas,
