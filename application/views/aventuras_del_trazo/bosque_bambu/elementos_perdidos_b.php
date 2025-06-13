@@ -142,10 +142,10 @@
                 audio2.play().catch(error => {
                     console.log("Error al reproducir audio automáticamente:", error);
                 });
-
                 audioIndicacionesDos();
-                startAnimation();
                 enviarInicioEvaluacionElementosPerdidosB();
+
+                startAnimation();
 
 
             });
@@ -917,7 +917,7 @@
 
 
         function enviarInicioEvaluacionElementosPerdidosB() {
-            var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
+            var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
 
             $.ajax({
                 url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroElementosPerdidos'); ?>', // URL de tu controlador

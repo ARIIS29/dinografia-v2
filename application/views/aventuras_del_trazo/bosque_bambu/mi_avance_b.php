@@ -26,8 +26,10 @@
 <section class="container mt-12">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
-            <table class="table-estilos table display nowrap table-striped table-bordered scroll-horizontal table-hover" cellspacing="0" name="table" id="table">
-                <thead>
+        <?php echo $this->session->userdata('usuario')?>    
+        <table class="table-estilos table display nowrap table-striped table-bordered scroll-horizontal table-hover" cellspacing="0" name="table" id="table">
+                
+            <thead>
                     <tr>
                         <th>#</th>
                         <th>Actividad</th>
