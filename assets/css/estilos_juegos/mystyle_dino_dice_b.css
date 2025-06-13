@@ -3,66 +3,6 @@
     display: none;
 }
 
-/* Estilos generales para los botones */
-button {
-    font-size: 18px;  /* Aumenta el tamaño de la fuente */
-    padding: 15px 30px;  /* Aumenta el padding para hacerlo más grande */
-    border-radius: 5px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;  /* Centra los íconos y texto */
-}
-
-button i {
-    font-size: 24px;  /* Aumenta el tamaño de los íconos */
-}
-
-/* Botón "Saltar" */
-.saltar {
-    background-color: #ffc107;
-    color: white;
-    /* Amarillo */
-}
-
-.saltar:hover {
-    background-color: #e0a800;
-    color: white;
-    /* Amarillo más oscuro al pasar el ratón */
-}
-
-/* Botón "Finalizar" */
-.finalizar {
-    color: white;
-    background-color: #dc3545;
-    /* Rojo */
-}
-
-.finalizar:hover {
-    background-color: #c82333;
-    color: white;
-    /* Rojo más oscuro al pasar el ratón */
-}
-
-/* Botón "Reiniciar" */
-.reiniciar {
-    background-color: #007bff;
-    color: white;
-    /* Azul */
-}
-
-.reiniciar:hover {
-    background-color: #0069d9;
-    color: white;
-    /* Azul más oscuro al pasar el ratón */
-}
-
-/* 
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-} */
-
 #instruccion {
     font-family: 'Century Gothic', sans-serif;
     font-size: 22px;
@@ -150,49 +90,15 @@ button:disabled {
 }
 
 
-#mensaje {
-    font-size: 1.2rem;
-    margin-top: 20px;
-}
-.correcto {
-    color: white  !important;
-    font-weight: bold;
-    background-color: #2bbe23e5;
-    text-align: center;
-}
-
-.incorrecto {
-    color: white  !important;
-    font-weight: bold;
-    text-align: center;
-    background-color: rgba(255, 0, 0, 0.584);
-}
 canvas {
     position: absolute;
     top: 0;
     left: 0;
     pointer-events: none;
 }
-.instrucciones {
-    font-family: sans-serif;
-    font-size: 1.2rem;
-    color: #0A2363 !important;
-    text-align: justify;
-    background-color: #bce2f1a2;
 
-    /* Color de texto azul por defecto */
-}
-.indicaciones {
-    font-family: sans-serif;
-    font-size: 1.5rem;
-    color: #0A2363 !important;
-    /* Color de texto azul por defecto */
-}
 .color-fondo
 {
     background-color: #cceee288;
 }
 
-h1{
-    text-align: center;
-}

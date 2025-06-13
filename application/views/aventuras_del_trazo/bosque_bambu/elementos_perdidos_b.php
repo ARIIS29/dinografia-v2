@@ -389,6 +389,8 @@
                     setTimeout(pasarNivel, 4000);
 
                 }
+                enviarEvaluacionElementosPerdidosB();
+
                 noencotrado = 20 - frutasRecolectadas;
                 console.log('No encontrado', noencotrado);
 

@@ -24,7 +24,7 @@ class Ejercicios_model extends CI_Model
             ->select('t1.*')
             ->from('ejercicios t1')
             // ->order_by('t1.evaluado', 'ASC')
-            ->order_by('t1.id', 'DESC')
+            ->order_by('t1.id', 'ASC')
             ->get();
 
         return $query;

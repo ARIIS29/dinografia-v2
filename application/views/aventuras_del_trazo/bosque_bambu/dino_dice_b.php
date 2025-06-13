@@ -1,7 +1,7 @@
 <section class="mt-10">
     <div class="container-fluid d-flex justify-content-center" style="position: relative;">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo instrucciones" id="areaJuego">
+            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_bambu" id="areaJuego">
                 <div class="col-lg-12 col-md-12 col-12 mt-2">
                     <div class="d-flex align-items-center">
                         <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
@@ -9,12 +9,9 @@
                         <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
-                        <b> Instrucciones del juego</b> <br>
-                        ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
-                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                            ¿Cómo jugar?
-                        </button> <br>
+                        Prepárate para una emocionante misión: Para continuar con la aventura, debes recolectar elementos para explorar el bosque de bambú. Lee con atención las instrucciones, prepara todo para la nueva expedición haciéndole caso al Dino.
+                        <br>
+                        Para cumplir con la misión debes seleccionar o dar clic en el elemento que se te pide.
                     </p>
 
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
@@ -80,14 +77,14 @@
 
                 <div class="d-flex justify-content-center mt-8">
                     <button id="omitirBtn" class="btn saltar me-2" title="Saltar elemento">
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right"></i>Saltar elemento
                     </button>
                     <button id="reiniciarBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
-                        <i class="fas fa-redo"></i>
+                        <i class="fas fa-redo"></i> Reiniciar Misión
                     </button>
 
                     <button id="finalizarBtn" class="btn finalizar me-2" title="Finalizar Juego">
-                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i> Finalizar Misión
                     </button>
                 </div>
                 <div class="col-lg-12 col-md-12 col-12" id="mensaje">
@@ -342,7 +339,9 @@
 
 
                 if (intentos === 0) {
-                    mostrarMensajeExitoIntentos();
+                    setTimeout(function() {
+                        mostrarMensajeExitoIntentos();
+                    }, 1500);
                     mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, recolectaste ${contadorCorrectos} elementos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
                     mensaje.className = "incorrecto";
                     mensaje.scrollIntoView({
@@ -352,6 +351,7 @@
                     desactivarEmoji();
                     clearInterval(temporizador); // Detener el cronómetro
                     document.getElementById("omitirBtn").disabled = true;
+                    document.getElementById("reiniciarBtn").disabled = true; // Habilitar el botón de reiniciar
                     document.getElementById("finalizarBtn").disabled = true;
                     enviarEvaluacionDinoDiceB();
                 }
@@ -387,11 +387,12 @@
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${contadorCorrectos}</strong><br>
+            📝 Elementos encontrados: <strong>${contadorCorrectos}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -449,11 +450,12 @@
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${contadorCorrectos}</strong><br>
+            📝 Elementos encontrados: <strong>${contadorCorrectos}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -508,14 +510,15 @@
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En esta misión descubristes <b>todas las palabras</b>. <br>
+            En esta misión encontrates muchos <b>elementos</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
-            📝 Palabras encontradas <strong>${contadorCorrectos}</strong> <br>
+            📝 Elementos encontrados: <strong>${contadorCorrectos}</strong> <br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -728,15 +731,17 @@
         }
 
         function mostrarMensajeFinal() {
+            // mostrarMensajeExitoFelicidades();
+            // mensaje.textContent = `¡Felicidades, has seguido todas las instrucciones del Dino a la perfección! 🎉. Ganaste ${estrellas} estrellas, recolectaste los ${contadorCorrectos} elementos indicados y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
+            // mensaje.className = "correcto";
             mostrarMensajeExitoFelicidades();
-            mensaje.textContent = `¡Felicidades, has seguido todas las instrucciones del Dino a la perfección! 🎉. Ganaste ${estrellas} estrellas, recolectaste los ${contadorCorrectos} elementos indicados y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
-            mensaje.className = "correcto";
             mensaje.scrollIntoView({
                 behavior: "smooth",
                 block: "end"
             });
             mostrarConfeti();
             desactivarEmoji();
+            document.getElementById("reiniciarBtn").disabled = true;
             document.getElementById("omitirBtn").disabled = true;
             document.getElementById("finalizarBtn").disabled = true;
 
@@ -802,24 +807,9 @@
 
         function finalizarJuego() {
             mostrarMensajeExitoFinalizar();
-
-            clearInterval(temporizador); // Detener el cronómetro
-            const mensajeFinal = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, recolectaste ${contadorCorrectos} elementos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
-            mensaje.className = "incorrecto";
-            mensaje.scrollIntoView({
-                behavior: "smooth",
-                block: "end"
-            });
-
-            document.getElementById("mensaje").textContent = mensajeFinal;
-            document.getElementById("mensaje").style.color = "blue";
-
-            mostrarConfeti(); // Mostrar confeti como celebración opcional
-
-            // Deshabilitar botones adicionales si deseas
             desactivarEmoji();
 
-            document.getElementById("reiniciarBtn").disabled = false; // Habilitar el botón de reiniciar
+            document.getElementById("reiniciarBtn").disabled = true; // Habilitar el botón de reiniciar
             document.getElementById("omitirBtn").disabled = true;
             document.getElementById("finalizarBtn").disabled = true;
             enviarEvaluacionDinoDiceB();
