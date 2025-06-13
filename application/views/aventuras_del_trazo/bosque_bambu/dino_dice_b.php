@@ -9,7 +9,7 @@
                         <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: Para continuar con la aventura, debes recolectar elementos para explorar el bosque de bambú. Lee con atención las instrucciones, prepara todo para la nueva expedición haciéndole caso al Dino.
+                        Prepárate para una emocionante misión: Recolecta los elementos que se necesitan para la exploración del bosque de bambú. Lee con atención las instruccione que el  Dino te indicará.
                         <br>
                         Para cumplir con la misión debes seleccionar o dar clic en el elemento que se te pide.
                     </p>
@@ -77,7 +77,7 @@
 
                 <div class="d-flex justify-content-center mt-8">
                     <button id="omitirBtn" class="btn saltar me-2" title="Saltar elemento">
-                        <i class="fas fa-arrow-right"></i>Saltar elemento
+                        <i class="fas fa-arrow-right"></i> Saltar elemento
                     </button>
                     <button id="reiniciarBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
                         <i class="fas fa-redo"></i> Reiniciar Misión
@@ -277,7 +277,7 @@
                 contadorEstrellas.textContent = estrellas;
 
 
-                mensaje.textContent = `¡Super asombroso!🎉 Has seleccionado el elemento correcto (${emojiSeleccionado}). Ganaste 100 estrellas`;
+                mensaje.textContent = `¡Super asombroso!🎉 Has seleccionado el elemento correcto (${emojiSeleccionado}). Ganaste +100 estrellas`;
                 mensaje.className = "correcto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
@@ -311,23 +311,20 @@
                 movimientosSalta();
                 if (contadorIncorrectas === 1) {
                     mostrarLapizRoto(1);
-                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
-                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
-                ¡Solo te quedan  ${intentos} intentos, tú puedes! 💪`;
+                    mensaje.innerHTML = `¡Sigue intentando <?php echo $this->session->userdata('usuario'); ?>!🌟 Seleccionaste ${emojiSeleccionado}, pero el elemento que debes seleccionar es ${instruccionActual.emoji}. <br>
+                    ¡Solo te quedan  ${intentos} intentos, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 2) {
                     mostrarLapizRoto(2);
-                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
-                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
-                ¡Solo te queda  ${intentos} intento, tú puedes! 💪`;
+                   mensaje.innerHTML = `¡Sigue intentando <?php echo $this->session->userdata('usuario'); ?>!🌟 Seleccionaste ${emojiSeleccionado}, pero el elemento que debes seleccionar es ${instruccionActual.emoji}. <br>
+                    ¡Solo te quedan  ${intentos} intento, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 3) {
                     mostrarLapizRoto(3);
-                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
-                 Te quedaste sin intentos, ¡pero diste lo mejor! 💪`;
+                    mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 Te quedaste sin intentos, ¡pero diste lo mejor! 💪`;
                 }
 
-                mensaje.textContent = `¡Sigue intentando!🌟. Has seleccionado un elemento incorrecto (${emojiSeleccionado}). El elemento que debes buscar es (${instruccionActual.emoji}). Te quedan solo ${intentos} intentos`;
+                // mensaje.textContent = `¡Sigue intentando!🌟. Has seleccionado un elemento incorrecto (${emojiSeleccionado}). El elemento que debes buscar es (${instruccionActual.emoji}). Te quedan solo ${intentos} intentos`;
                 mensaje.className = "incorrecto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
@@ -342,7 +339,7 @@
                     setTimeout(function() {
                         mostrarMensajeExitoIntentos();
                     }, 1500);
-                    mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, recolectaste ${contadorCorrectos} elementos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
+                    // mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, recolectaste ${contadorCorrectos} elementos y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
                     mensaje.className = "incorrecto";
                     mensaje.scrollIntoView({
                         behavior: "smooth",

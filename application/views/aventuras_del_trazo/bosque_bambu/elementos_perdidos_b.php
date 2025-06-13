@@ -407,7 +407,7 @@
                 movimientosSalta();
                 if (contadorIncorrectas === 1) {
                     mostrarLapizRoto(1);
-                    mensaje.innerHTML = `¡Sigue intentando<?php echo $this->session->userdata('usuario'); ?>!🌟 Seleccionaste ${emojiSeleccionado}, pero el elemento a encontrar es ${emojiCorrecto.nombre} ${emojiCorrecto.emoji} <br>
+                    mensaje.innerHTML = `¡Sigue intentando <?php echo $this->session->userdata('usuario'); ?>!🌟 Seleccionaste ${emojiSeleccionado}, pero el elemento a encontrar es ${emojiCorrecto.nombre} ${emojiCorrecto.emoji} <br>
                     ¡Solo te quedan  ${intentos} intentos, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 2) {
