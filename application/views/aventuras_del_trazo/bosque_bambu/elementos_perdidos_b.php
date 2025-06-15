@@ -14,13 +14,13 @@
 
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_elemento_perdidos.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_elementos_perdidos.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
-                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
+                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/tutorial_elementos_perdidos_b.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
                             </video>
                             <!-- <button id="cerrarTutorial" >Cerrar</button> -->
@@ -106,9 +106,9 @@
         // audio1.play().catch(error => {
         //     console.log("Error al reproducir audioVista1:", error);
         // });
-        if (!sessionStorage.getItem('audio1Reproducido_elementosPerdidos')) {
+        if (!sessionStorage.getItem('audio1Reproducido_elementosPerdidosB')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_elementosPerdidos', 'true');
+                sessionStorage.setItem('audio1Reproducido_elementosPerdidosB', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });
@@ -379,7 +379,7 @@
                 mostrarEstrellasCentrales();
 
                 if (cuentaCorrecta === 0) {
-                    mensaje.textContent = `¡Super asombroso 🎉! Encontraste todos los elementos de ${emojiCorrecto.nombre} ${emojiCorrecto.emoji}. Ganaste +${estrellas} estrellas.`;
+                    mensaje.textContent = `¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>! 🎉 Encontraste todos los elementos de ${emojiCorrecto.nombre} ${emojiCorrecto.emoji}. Ganaste +${estrellas} estrellas.`;
                     mensaje.className = "correcto";
                     mensaje.scrollIntoView({
                         behavior: "smooth",

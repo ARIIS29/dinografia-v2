@@ -6,21 +6,21 @@
                     <div class="d-flex align-items-center">
                         <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
 
-                        <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
+                        <p class="mb-0">¡Escuchemos en la aventura! <br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: Recolecta los elementos que se necesitan para la exploración del bosque de bambú. Lee con atención las instruccione que el Dino te indicará.
+                        Prepárate para una emocionante misión: Recolecta los elementos que se necesitan para la exploración del bosque de bambú. Lee con atención las instrucciones que el Dino te indicará.
                         <br>
                         Para cumplir con la misión debes seleccionar o dar clic en el elemento que se te pide.
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_dino_dice.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
-                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
+                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_dino_dice_b.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
                             </video>
                             <!-- <button id="cerrarTutorial" >Cerrar</button> -->
@@ -42,7 +42,7 @@
             </div>
             <div class="col-lg-12 col-md-12 col-12 justify-content-center" id="contenedorJuego">
                 <!-- <div class="indicaciones" id="instruccion"></div> -->
-                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio2_descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
+                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audios_b/b_dino_dice_tractor.mp3') ?>" preload="auto"></audio>
 
                 <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
                     <!-- Texto Cargando -->
@@ -296,7 +296,7 @@
                 contadorEstrellas.textContent = estrellas;
 
 
-                mensaje.textContent = `¡Super asombroso!🎉 Has seleccionado el elemento correcto (${emojiSeleccionado}). Ganaste +100 estrellas`;
+                mensaje.textContent = `¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>!🎉 Has seleccionado el elemento correcto (${emojiSeleccionado}). Ganaste +100 estrellas`;
                 mensaje.className = "correcto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
@@ -386,7 +386,7 @@
 
             instruccionActual = {
                 emoji: emojiSeleccionado,
-                texto: `<div class="d-flex align-items-center"> <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>"alt="Dino" style="width: 50px; height: auto; margin-right: 10px;"> El dino dice: ¡Haz clic en el elemento <span style="background-color: yellow; color: black; padding: 2px 4px; border-radius: 4px;">${nombreEmoji}</span> !</div>
+                texto: `<div class="d-flex align-items-center"> <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>"alt="Dino" style="width: 50px; height: auto; margin-right: 10px;"> ¡Haz clic en el elemento que se te indica! <span style="background-color: yellow; color: black; padding: 2px 4px; border-radius: 4px;"> ${nombreEmoji}</span></div>
 `
             };
 
