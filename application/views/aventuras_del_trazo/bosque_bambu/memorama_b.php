@@ -17,28 +17,19 @@
                         </button> <br>
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
-                    <!-- Modal -->
-                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="videoModalLabel">Instrucciones del juego</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- Contenedor del video -->
-                                    <video id="videoElement" width="100%" controls>
-                                        <!-- Ruta al archivo de video -->
-                                        <source src="<?php echo base_url('almacenamiento/img/instrucciones/descubriendo_palabras.mp4'); ?>" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
+
+                    <!-- Modal del tutorial -->
+                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
+                        <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
+                            <video id="tutorialVideo" width="100%" controls>
+                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
+                                Tu navegador no soporta el video.
+                            </video>
+                            <!-- <button id="cerrarTutorial" >Cerrar</button> -->
+                            <button id="cerrarTutorial" type="button" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Cerrar</button>
                         </div>
+
                     </div>
 
                     <p>
@@ -79,7 +70,7 @@
                 <div id="resultado"></div>
                 <div id="movimientosRestantes"></div>
 
-                <div id="botonesContenedor" class="d-flex justify-content-center mt-5">
+                <div id="botonesContenedor" class="d-flex justify-content-center mt-5 d-none">
 
                     <button id="reiniciarJuegoBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
                         <i class="fas fa-redo"></i> Reiniciar Misión
@@ -124,29 +115,48 @@
             document.getElementById('header-inicial').classList.add('d-none');
         });
 
-        audio1.play().catch(error => {
-            console.log("Error al reproducir audioVista1:", error);
-        });
+        if (!sessionStorage.getItem('audio1Reproducido_descubriendoPalabrasB')) {
+            audio1.play().then(() => {
+                sessionStorage.setItem('audio1Reproducido_descubriendoPalabrasB', 'true');
+            }).catch(error => {
+                console.log("Error al reproducir audioVista1:", error);
+            });
+        }
         audioIndicacionesUno();
 
         playBtn.addEventListener('click', function() {
-
-            playBtn.style.display = 'none'; // Ocultar el botón después de hacer clic
-            console.log("Juego mostrado"); // Agrega esta línea para depurar
-            // Ocultar el área donde está el botón de inicio
-            document.getElementById('areaJuego').style.display = 'none';
-            // Mostrar el contenedor del juego
-            document.getElementById('contenedorJuego').style.display = 'block'; // Cambié 'flex' por 'block' para asegurar visibilidad
+            playBtn.style.display = 'none';
             audio1.pause();
             audio1.currentTime = 0;
-            audio2.play().catch(error => {
-                console.log("Error al reproducir audio automáticamente:", error);
-            });
-            audioIndicacionesDos();
-            enviarInicioEvaluacionMemorama();
-            startAnimation();
 
-            // Inicia el cronómetro
+            // Mostrar el modal del tutorial
+            const modal = document.getElementById('tutorialModal');
+            const video = document.getElementById('tutorialVideo');
+            modal.style.display = 'flex';
+            video.currentTime = 0;
+            video.play();
+
+            // Cuando el usuario cierra el modal
+            document.getElementById('cerrarTutorial').addEventListener('click', function() {
+                modal.style.display = 'none';
+                video.pause();
+
+                // Ahora sí se muestra el juego
+                console.log("Juego mostrado");
+                document.getElementById('areaJuego').style.display = 'none';
+                document.getElementById('contenedorJuego').style.display = 'block';
+
+
+                // Reproduce las instrucciones
+                audio2.play().catch(error => {
+                    console.log("Error al reproducir audio automáticamente:", error);
+                });
+
+                audioIndicacionesDos();
+                enviarInicioEvaluacionMemorama();
+                startAnimation();
+
+            });
         });
 
 
@@ -297,6 +307,8 @@
         let movimientosSobrantes = 0; // Movimientos sobrantes de cada nivel
 
         function iniciarJuego() {
+            document.getElementById('botonesContenedor').classList.remove('d-none');
+
             nivel++;
             if (nivel > 3) {
                 nivel = 3;
