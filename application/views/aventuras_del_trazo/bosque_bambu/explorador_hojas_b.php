@@ -439,11 +439,14 @@
             const mensaje = document.getElementById('mensaje');
             if (hojasAparecidas < metaPuntos) {
                 mostrarMensajeExitoFinalizar()
-               
+
 
             } else {
-                mostrarMensajeExitoFelicidades();
-                mostrarConfeti();
+                setTimeout(() => {
+                    mostrarConfeti();
+                    mostrarMensajeExitoFelicidades();
+
+                }, 1500);
                 mostrarEstrellasCentrales();
             }
 

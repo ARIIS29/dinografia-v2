@@ -489,7 +489,12 @@
                 // Verificar si se completaron todas las palabras
                 if (palabrasRestantes.length === 0) {
                     // Crear el mensaje inicial
-                    mostrarMensajeExitoFelicidades();
+                    setTimeout(() => {
+                        mostrarConfeti();
+                        mostrarMensajeExitoFelicidades();
+
+                    }, 1500);
+                    mostrarEstrellasCentrales();
                     // let resultado = `¡Felicidades, has formado todos los mensajes secretos! 🎉. Ganaste ${estrellas} estrellas, descubriste los ${contadorBuenas} mensajes secretos y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
                     document.getElementById("verificarPalabraBtn").disabled = true;
                     document.getElementById("saltarPalabraBtn").disabled = true;

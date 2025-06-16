@@ -469,14 +469,19 @@
                 //     block: "end"
                 // });
                 clearInterval(temporizador);
-                mostrarConfeti();
+
                 deshabilitarSeleccionEmojis();
                 //  document.getElementById("finalizarJuegoBtn").disabled = true;
                 document.getElementById("finalizarJuegoBtn").disabled = true;
                 document.getElementById("reiniciarJuegoBtn").disabled = true;
                 document.getElementById("pasarNivelBtn").disabled = true;
-                mostrarMensajeExitoFelicidades();
+                setTimeout(() => {
+                     mostrarConfeti();
+                    mostrarMensajeExitoFelicidades();
 
+                }, 1500);
+               
+                mostrarEstrellasCentrales();
                 enviarEvaluacionElementosPerdidosB();
 
             }

@@ -509,11 +509,16 @@
                 // Verificar si se completaron todas las palabras
                 if (palabrasRestantes.length === 0) {
                     // Crear el mensaje inicial
-                    mostrarMensajeExitoFelicidades();
+                    setTimeout(() => {
+                        mostrarConfeti();
+
+                        mostrarMensajeExitoFelicidades();
+
+                    }, 1500);
                     // let resultado = `¡Felicidades! Has completado las ${contadorBuenas} palabras. El tiempo fue ${formatTime(minutes)}:${formatTime(seconds)}.\n\nPalabras correctas:\n`;
                     // let resultado = `¡Felicidades, has descubierto todas las palabras! 🎉. Ganaste ${estrellas} estrellas, descubriste las ${contadorBuenas} palabras escondidas y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
                     // mensaje.className = "correcto";
-                    mostrarConfeti();
+                    mostrarEstrellasCentrales();
                     document.getElementById("verificarPalabraBtn").disabled = true;
                     document.getElementById('reiniciarJuegoBtn').disabled = true;
                     document.getElementById("saltarPalabraBtn").disabled = true;

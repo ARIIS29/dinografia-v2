@@ -867,7 +867,7 @@ class Bosque_bambu extends CI_Controller
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b>Nombre :</b> Hazle Caso al Dino - Letra b.' . "<br>" . '<b>Objetivo :</b> Recolectar los objetos que el Dino indique.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 100 estrellas por objeto recolectado.' . "<br>" . '<b>Total de objetos a recolectar :</b> 10 objetos.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'nombre' => '<b>Nombre :</b> Hazle Caso al Dino - Letra b.' . "<br>" . '<b>Objetivo :</b> Recolectar los objetos que el Dino indique.' . "<br>" . '<b>Estrellas a ganar :</b> 1200 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 100 estrellas por objeto recolectado.' . "<br>" . '<b>Total de objetos a recolectar :</b> 10 objetos.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
 			'cronometro' => $tiempo,
 			'correctas' => $contadorCorrectos,
 			'incorrectas' => $contadorIncorrectas,
@@ -888,6 +888,108 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('layout/header_letras/header_letraB/header_memorama_b');
 		$this->load->view('aventuras_del_trazo/bosque_bambu/memorama_b');
 		$this->load->view('layout/footer');
+	}
+	public function enviarEvaluacionMemorama()
+	{
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$letra = $this->input->post('letra');
+		$identificador_usuario = $this->session->userdata('identificador');
+		$tiempo = $this->input->post('tiempoFinal');
+		$paresTotalesEncontrados = $this->input->post('paresCorrectos');
+		$contadorIncorrectas = $this->input->post('intentosInocrrectos');
+		$estrellas = $this->input->post('totalEstrellas');
+
+		// $arrayObjetosIncorrectos = json_decode($this->input->post('objetosIncorrectos'));
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
+
+
+		if ($estrellas <= 100) {
+			$evaluacion = '¡A seguir practicando!';
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para observar bien cada emoji y leer con atención las palabras.<br> Busca detalles que te ayuden a relacionar el emoji con la palabra que más se le parezca.</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+		} else if ($estrellas > 100 && $estrellas <= 1100) {
+			$evaluacion = '¡Casi lo logras!';
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Fíjate bien en el emoji. ¿Qué palabra lo describe mejor? No te apresures, tómate tu tiempo y observa con atención. ¡Tú puedes!</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+		} else if ($estrellas == 1200) {
+			$evaluacion = '¡Super asombroso!';
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todas las parejas. ¡Sigue así explorador! <br> Tu capacidad para encontrar y tu atención a los detalles para descubrir son impresionantes.<br>Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+		}
+
+
+
+
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+			'identificador_usuario' => $identificador_usuario,
+			'nombre' => '<b>Nombre :</b> Memorama - Letra b.' . "<br>" . '<b>Objetivo :</b> Encontrar las parejas correctas.' . "<br>" . '<b>Estrellas a ganar :</b> 1200 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 100 estrellas por pareja encontrada.' . "<br>" . '<b>Total de parejas a encontra :</b> 12 parejas.' . "<br>",
+			'cronometro' => $tiempo,
+			'correctas' => $paresTotalesEncontrados,
+			'incorrectas' => $contadorIncorrectas,
+			'estrellas' => $estrellas,
+			'evaluacion' => $evaluacion,
+			'observaciones' => $observacion,
+			'fecha_registro' => $fecha_registro,
+		);
+		if (($identificador_usuario == $prueba->identificador_usuario)) {
+			if ($this->ejercicios_model->guardar_progreso_actualizado($data, $prueba->identificador)) {
+
+				echo json_encode(['success' => true]);
+			} else {
+				echo json_encode(['success' => false]);
+			}
+		} else {
+			if ($this->ejercicios_model->guardar_progreso($data)) {
+
+				echo json_encode(['success' => true]);
+			} else {
+				echo json_encode(['success' => false]);
+			}
+		}
+	}
+
+	public function guardarRegistroMemorama()
+	{
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$letra = $this->input->post('letra');
+		$identificador_usuario = $this->session->userdata('identificador');
+		$tiempo = $this->input->post('tiempoFinal');
+		$paresTotalesEncontrados = $this->input->post('paresCorrectos');
+		$contadorIncorrectas = $this->input->post('intentosInocrrectos');
+		$estrellas = $this->input->post('totalEstrellas');
+
+		if ($estrellas <= 100) {
+			$evaluacion = '¡A seguir practicando!';
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para observar bien cada emoji y leer con atención las palabras.<br> Busca detalles que te ayuden a relacionar el emoji con la palabra que más se le parezca.</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
+		} else if ($estrellas > 100 && $estrellas <= 1100) {
+			$evaluacion = '¡Casi lo logras!';
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Fíjate bien en el emoji. ¿Qué palabra lo describe mejor? No te apresures, tómate tu tiempo y observa con atención. ¡Tú puedes!</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
+		} else if ($estrellas == 1200) {
+			$evaluacion = '¡Super asombroso!';
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todas las parejas. ¡Sigue así explorador! <br> Tu capacidad para encontrar y tu atención a los detalles para descubrir son impresionantes.<br>Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
+		}
+
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+			'identificador_usuario' => $identificador_usuario,
+			'nombre' => '<b>Nombre :</b> Memorama - Letra b.' . "<br>" . '<b>Objetivo :</b> Encontrar las parejas correctas.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 100 estrellas por pareja encontrada.' . "<br>" . '<b>Total de parejas a encontra :</b> 12 parejas.' . "<br>",
+			'cronometro' => $tiempo,
+			'correctas' => $paresTotalesEncontrados,
+			'incorrectas' => $contadorIncorrectas,
+			'estrellas' => $estrellas,
+			'evaluacion' => $evaluacion,
+			'observaciones' => $observacion,
+			'fecha_registro' => $fecha_registro,
+		);
+		if ($this->ejercicios_model->guardar_progreso($data)) {
+			echo json_encode(['success' => true]);
+		} else {
+			echo json_encode(['success' => false]);
+		}
 	}
 
 

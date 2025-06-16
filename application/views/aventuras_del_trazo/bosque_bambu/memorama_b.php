@@ -143,6 +143,7 @@
                 console.log("Error al reproducir audio automáticamente:", error);
             });
             audioIndicacionesDos();
+            enviarInicioEvaluacionMemorama();
             startAnimation();
 
             // Inicia el cronómetro
@@ -265,6 +266,7 @@
         let tarjetasVolteadas = [];
         let paresEncontrados = 0;
         let paresTotalesEncontrados = 0;
+        var contadorIncorrectas = 0;
         let totalPares = 0;
         let parejas = [];
         let nivel = 0;
@@ -328,8 +330,9 @@
 
             movimientosRestantes.textContent = `${movimientos}`;
 
-
             console.log("movimientos res", movimientosRestantes.textContent);
+
+
 
             // Ajustar la cuadrícula del tablero según el nivel
             switch (nivel) {
@@ -411,9 +414,11 @@
             if (tarjetasVolteadas.length === 2) {
                 movimientos--; // Disminuir el contador de movimientos
 
+
                 verificarEmparejamiento();
                 // const tarjetasNoEmparejadas = document.querySelectorAll('.tarjeta:not(.emparejada)');
                 movimientosRestantes.textContent = `${movimientos}`;
+
                 if (movimientos === 0 && paresEncontrados < totalPares) {
                     clearInterval(temporizador);
                     setTimeout(() => {
@@ -421,6 +426,7 @@
                         mostrarLapizRoto();
 
                     }, 1500);
+                    enviarEvaluacionMemorama();
 
                     document.getElementById('reiniciarJuegoBtn').disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
@@ -430,6 +436,7 @@
                         tarjeta.parentNode.replaceChild(tarjetaClon, tarjeta);
                     });
                 }
+
 
 
             }
@@ -446,7 +453,7 @@
             if (parejas.some(par => (primeraValor === par.emoji && segundaValor === par.palabra) || (primeraValor === par.palabra && segundaValor === par.emoji))) {
                 estrellaSalta();
                 mostrarEstrellasCentrales();
-                mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, encontraste su pareja! 🎉 Ganaste +200 estrellas";
+                mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, encontraste su pareja! 🎉 Ganaste +100 estrellas";
                 mensaje.className = "correcto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
@@ -454,7 +461,7 @@
                 });
                 paresEncontrados++;
                 paresTotalesEncontrados++;
-                estrellas += 50;
+                estrellas += 100;
                 contadorEstrellas.textContent = estrellas;
 
                 // Cambiar el color de fondo a verde
@@ -473,11 +480,17 @@
                             const clon = tarjeta.cloneNode(true); // sin eventos
                             tarjeta.replaceWith(clon);
                         });
-                        mostrarMensajeExitoFelicidades();
+                        setTimeout(() => {
+                            mostrarConfeti();
+
+                            mostrarMensajeExitoFelicidades();
+
+                        }, 1500);
+
                         // mensaje.textContent = `🎉 ¡Felicidades! Has encontrado todos los pares y completado la misión.`;
                         // mensaje.className = "mensaje-final";
-                        mostrarConfeti();
                         mostrarEstrellasCentrales();
+                        enviarEvaluacionMemorama();
                         document.getElementById('reiniciarJuegoBtn').disabled = true;
                         document.getElementById("finalizarJuegoBtn").disabled = true;
 
@@ -502,6 +515,8 @@
                     block: "end"
                 });
                 movimientosSalta();
+                contadorIncorrectas++;
+                console.log("incorrectos", contadorIncorrectas);
 
                 setTimeout(() => {
                     // Voltear las cartas nuevamente
@@ -820,6 +835,7 @@
 
         function reiniciarJuego() {
             clearInterval(temporizador);
+            contadorIncorrectas = 0;
             minutos = 0;
             segundos = 0;
             mensaje.textContent = "";
@@ -849,12 +865,56 @@
             });
             document.getElementById('reiniciarJuegoBtn').disabled = true;
             document.getElementById("finalizarJuegoBtn").disabled = true;
+            enviarEvaluacionMemorama();
             // Opcional: deshabilitar las cartas restantes
             // const tarjetas = document.querySelectorAll('.tarjeta');
             // tarjetas.forEach(tarjeta => tarjeta.removeEventListener('click', voltearTarjeta));
         }
 
+        // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
+        function enviarEvaluacionMemorama() {
+            var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+            $.ajax({
+                url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionMemorama'); ?>', // URfL de tu controlador
+                type: 'POST',
+                data: {
+                    letra: 'b',
+                    tiempoFinal: tiempo,
+                    paresCorrectos: paresTotalesEncontrados,
+                    intentosInocrrectos: contadorIncorrectas,
+                    totalEstrellas: estrellas
 
+                }, // Datos a enviar
+                success: function(response) {
+                    console.log('Tiempo enviado exitosamente:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al enviar el tiempo:', error);
+                }
+            });
+        }
+
+        function enviarInicioEvaluacionMemorama() {
+            var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+            $.ajax({
+                url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroMemorama'); ?>', // URfL de tu controlador
+                type: 'POST',
+                data: {
+                    letra: 'b',
+                    tiempoFinal: tiempo,
+                    paresCorrectos: paresTotalesEncontrados,
+                    intentosInocrrectos: contadorIncorrectas,
+                    totalEstrellas: estrellas
+
+                }, // Datos a enviar
+                success: function(response) {
+                    console.log('Tiempo enviado exitosamente:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al enviar el tiempo:', error);
+                }
+            });
+        }
 
 
     });

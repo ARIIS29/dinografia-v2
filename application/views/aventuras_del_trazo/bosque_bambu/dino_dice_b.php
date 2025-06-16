@@ -750,12 +750,17 @@
             // mostrarMensajeExitoFelicidades();
             // mensaje.textContent = `¡Felicidades, has seguido todas las instrucciones del Dino a la perfección! 🎉. Ganaste ${estrellas} estrellas, recolectaste los ${contadorCorrectos} elementos indicados y lo hiciste en un tiempo de ${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.`;
             // mensaje.className = "correcto";
-            mostrarMensajeExitoFelicidades();
+            setTimeout(() => {
+                mostrarConfeti();
+
+                mostrarMensajeExitoFelicidades();
+
+            }, 1500);
             mensaje.scrollIntoView({
                 behavior: "smooth",
                 block: "end"
             });
-            mostrarConfeti();
+            mostrarEstrellasCentrales();
             desactivarEmoji();
             document.getElementById("reiniciarBtn").disabled = true;
             document.getElementById("omitirBtn").disabled = true;
