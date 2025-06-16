@@ -81,7 +81,7 @@
                 <div id="botonesContenedor" class="d-flex justify-content-center mt-5 d-none">
 
                     <button id="verificarPalabraBtn" class="btn verificar me-2" title="Verificar Palbra">
-                        <i class="fas fa-check"></i> Verificar Palabra
+                        <i class="fas fa-check"></i> Verificar mensaje
                     </button>
 
                     <button id="saltarPalabraBtn" class="btn saltar me-2" title="Saltar Palabra">
@@ -200,22 +200,22 @@
             }, 50);
         }
         const palabras = [{
-                palabra: "Explorando el bosque de bambú.",
+                palabra: "¡Exploremos juntos el bosque de bambú!",
                 emoji: ""
             }, {
-                palabra: "Bambú se escribe con la letra b.",
+                palabra: "Bambú empieza con la letra b.",
                 emoji: ""
             },
             {
-                palabra: "La letra b siempre camina a la derecha.",
+                palabra: "Con los binoculares veremos objetos lejanos.",
                 emoji: ""
             },
             {
-                palabra: "La letra b se encuentra en los binoculares.",
+                palabra: "La brújula guía nuestro camino.",
                 emoji: ""
             },
             {
-                palabra: "Recuerda los binoculares cuando escribas la letra b.",
+                palabra: "En la botella llevemos agua.",
                 emoji: ""
             },
         ];
@@ -449,7 +449,7 @@
 
             // Manejar el caso cuando no hay errores
             if (!errores) {
-                mensaje.textContent = "¡Super asombroso 🎉! Has formado bien la oración. Recompensa 200 estrellas";
+                mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, mensaje descubierto! 🎉 Ganaste +200 estrellas";
                 mensaje.className = "correcto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
@@ -474,9 +474,10 @@
                 if (palabrasRestantes.length === 0) {
                     // Crear el mensaje inicial
                     mostrarMensajeExitoFelicidades();
-                    let resultado = `¡Felicidades, has formado todos los mensajes secretos! 🎉. Ganaste ${estrellas} estrellas, descubriste los ${contadorBuenas} mensajes secretos y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
+                    // let resultado = `¡Felicidades, has formado todos los mensajes secretos! 🎉. Ganaste ${estrellas} estrellas, descubriste los ${contadorBuenas} mensajes secretos y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
                     document.getElementById("verificarPalabraBtn").disabled = true;
                     document.getElementById("saltarPalabraBtn").disabled = true;
+                    document.getElementById("reiniciarJuegoBtn").disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
 
 
@@ -512,13 +513,13 @@
                 if (contadorIncorrectas === 1) {
                     mostrarLapizRoto(1);
                     mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
-                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                Las palabras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
                 ¡Solo te quedan  ${vidas} intentos, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 2) {
                     mostrarLapizRoto(2);
                     mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
-                Las letras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
+                Las palabras en rojo no van ahí. Dales doble clic y corrígelas ✅ <br>
                 ¡Solo te queda  ${vidas} intento, tú puedes! 💪`;
                 }
                 if (contadorIncorrectas === 3) {
@@ -587,11 +588,12 @@
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${contadorBuenas}</strong><br>
+            📝 Palabras encontradas: <strong>${contadorBuenas}</strong><br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -649,11 +651,12 @@
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${contadorBuenas}</strong><br>
+            📝 Mensajes encontrados: <strong>${contadorBuenas}</strong><br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -708,14 +711,15 @@
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En esta misión descubristes <b>todas las palabras</b>. <br>
+            En esta misión descubristes <b>todas los mensajes secretos</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
-            📝 Palabras encontradas <strong>${contadorBuenas}</strong> <br>
+            📝 Mensajes encontrados: <strong>${contadorBuenas}</strong> <br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -777,7 +781,7 @@
             clearInterval(timer);
 
             // Mostrar un mensaje con el tiempo y los aciertos
-            mensaje.textContent = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, descubriste los ${contadorBuenas} mensajes secretos y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
+            // mensaje.textContent = `¡El juego ha sido finalizado con éxito! 🎉. Ganaste ${estrellas} estrellas, descubriste los ${contadorBuenas} mensajes secretos y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
             mensaje.className = "incorrecto";
             mensaje.scrollIntoView({
                 behavior: "smooth",
@@ -795,6 +799,7 @@
             // Deshabilitar los botones para evitar interacción adicional
             document.getElementById("verificarPalabraBtn").disabled = true;
             document.getElementById("saltarPalabraBtn").disabled = true;
+            document.getElementById("reiniciarJuegoBtn").disabled = true;
             document.getElementById("finalizarJuegoBtn").disabled = true;
             enviarEvaluacionMensajesSecretosB();
         }
@@ -830,6 +835,7 @@
 
             document.getElementById("verificarPalabraBtn").disabled = false;
             document.getElementById("saltarPalabraBtn").disabled = false;
+            document.getElementById("reiniciarJuegoBtn").disabled = false;
             document.getElementById("finalizarJuegoBtn").disabled = false;
 
             iniciarJuego(); // Iniciar el juego de nuevo
