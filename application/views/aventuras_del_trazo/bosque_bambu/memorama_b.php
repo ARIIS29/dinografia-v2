@@ -418,7 +418,6 @@
         // Función para voltear las cartas
         function voltearTarjeta(tarjeta) {
             if (tarjeta.classList.contains('volteada') || tarjetasVolteadas.length === 2 || movimientos === 0) return;
-
             tarjeta.classList.add('volteada');
             tarjeta.textContent = tarjeta.getAttribute('data-valor');
             tarjetasVolteadas.push(tarjeta);
@@ -448,6 +447,7 @@
                         tarjeta.parentNode.replaceChild(tarjetaClon, tarjeta);
                     });
                 }
+                enviarEvaluacionMemorama();
 
 
 
