@@ -415,6 +415,131 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
+	public function enviarEvaluacionDescubriendoMensajesSecretosB()
+	{
+
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$identificador_usuario = $this->session->userdata('identificador');
+		$letra = $this->input->post('letra');
+		$tiempo = $this->input->post('tiempoFinal');
+		$correctas = $this->input->post('palabrasCorrectas');
+		$incorrectas = $this->input->post('palabrasIncorrectascont');
+		$estrellas = $this->input->post('totalEstrellas');
+		$array_palabras = json_decode($this->input->post('arrayPalabras'));
+
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_b_actualizado($this->session->userdata('identificador'), 'b')->row();
+
+
+		if ($estrellas <= 200) {
+			$evaluacion = '¡A seguir practicando!';
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra b con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Errores cometidos: $incorrectas<br>";
+		} else if ($estrellas > 200 && $estrellas <= 900) {
+			$evaluacion = '¡Casi lo logras!';
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra b.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+		} else if ($estrellas == 1000) {
+			$evaluacion = '¡Super asombroso!';
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra b. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+		}
+
+		foreach ($array_palabras as $key => $value) {
+			$indice = $key + 1;
+			$observacion .= $indice . '.- ' . $value . '<br>';
+			# code...
+		}
+
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+			'identificador_usuario' => $identificador_usuario,
+			'nombre' => '<b>Nombre :</b> Mensajes secretos - Letra b.' . "<br>" . '<b>Objetivo :</b> Descubrir los 5 mensajes secretos.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por mensaje descubierto.' . "<br>" . '<b>Total de mensajes secretos a descubrir :</b> 5 mensajes.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'cronometro' => $tiempo,
+			'correctas' => $correctas,
+			'incorrectas' => $incorrectas,
+			'estrellas' => $estrellas,
+			'evaluacion' => $evaluacion,
+			'observaciones' => $observacion,
+			// 'observaciones' => json_encode($array_palabras),
+			'fecha_registro' => $fecha_registro,
+
+		);
+
+		if ($identificador_usuario == $prueba->identificador_usuario) {
+			if ($this->ejercicios_model->guardar_progreso_actualizado($data, $prueba->identificador)) {
+
+				echo json_encode(['success' => true]);
+			} else {
+				echo json_encode(['success' => false]);
+			}
+		} else {
+			if ($this->ejercicios_model->guardar_progreso($data)) {
+
+				echo json_encode(['success' => true]);
+			} else {
+				echo json_encode(['success' => false]);
+			}
+		}
+	}
+
+	public function guardarRegistroDescubriendoMensajesSecretosB()
+	{
+
+		$fecha_registro = date("Y-m-d H:i:s");
+		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
+		$identificador_1 = hash("crc32b", $key_1);
+		$identificador_usuario = $this->session->userdata('identificador');
+		$letra = $this->input->post('letra');
+		$tiempo = $this->input->post('tiempoFinal');
+		$correctas = $this->input->post('palabrasCorrectas');
+		$incorrectas = $this->input->post('palabrasIncorrectascont');
+		$estrellas = $this->input->post('totalEstrellas');
+		$array_palabras = json_decode($this->input->post('arrayPalabras'));
+
+		if ($estrellas <= 200) {
+			$evaluacion = '¡A seguir practicando!';
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra b con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Errores cometidos: $incorrectas<br>";
+		} else if ($estrellas > 200 && $estrellas <= 900) {
+			$evaluacion = '¡Casi lo logras!';
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra b.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+		} else if ($estrellas == 1000) {
+			$evaluacion = '¡Super asombroso!';
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra b. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+		}
+
+		foreach ($array_palabras as $key => $value) {
+			$indice = $key + 1;
+			$observacion .= $indice . '.- ' . $value . '<br>';
+			# code...
+		}
+
+		$data = array(
+			'identificador' => $identificador_1,
+			'letra' => $letra,
+			'identificador_usuario' => $identificador_usuario,
+			'nombre' => '<b>Nombre :</b> Mensajes secretos - Letra b.' . "<br>" . '<b>Objetivo :</b> Descubrir los 5 mensajes secretos.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por mensaje descubierto.' . "<br>" . '<b>Total de mensajes secretos a descubrir :</b> 5 mensajes.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'cronometro' => $tiempo,
+			'correctas' => $correctas,
+			'incorrectas' => $incorrectas,
+			'estrellas' => $estrellas,
+			'evaluacion' => $evaluacion,
+			'observaciones' => $observacion,
+			// 'observaciones' => json_encode($array_palabras),
+			'fecha_registro' => $fecha_registro,
+
+		);
+
+
+		if ($this->ejercicios_model->guardar_progreso($data)) {
+
+			echo json_encode(['success' => true]);
+		} else {
+			echo json_encode(['success' => false]);
+		}
+	}
+
+
+
 	public function explorador_hojas_b()
 	{
 

@@ -142,6 +142,7 @@
                 console.log("Error al reproducir audio automáticamente:", error);
             });
             audioIndicacionesDos();
+            enviarInicioEvaluacionDescubriendoMensajesSecretosB();
             startAnimation();
 
             // Inicia el cronómetro
@@ -468,6 +469,8 @@
                     estrellaSalta();
                     mostrarEstrellasCentrales();
                 }
+                document.getElementById("verificarPalabraBtn").disabled = true;
+                enviarEvaluacionDescubriendoMensajesSecretosB();
                 palabraIncorrecta = '';
 
                 // Verificar si se completaron todas las palabras
@@ -498,12 +501,15 @@
                         block: "end"
                     });
 
-                    enviarEvaluacionMensajesSecretosB();
-                    mostrarConfeti();
+                    enviarEvaluacionDescubriendoMensajesSecretosB();
                     return;
                 }
 
-                setTimeout(iniciarJuego, 3000);
+                setTimeout(function() {
+                    // Habilitar el botón "Verificar" para la siguiente palabra
+                    document.getElementById("verificarPalabraBtn").disabled = false;
+                    iniciarJuego(); // Llama a la función que inicia la siguiente palabra
+                }, 4000);
             } else {
                 // Reducir vidas y mostrar mensaje de error
                 vidas--;
@@ -555,7 +561,7 @@
                 // Si las vidas llegan a 0, desactivar el botón de verificar
                 if (vidas <= 0) {
                     mostrarMensajeExitoIntentos();
-                    mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, descubriste los ${contadorBuenas} mensajes secretos y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
+                    // mensaje.textContent = `Juego terminado. ¡A seguir practicando, te has quedado sin intentos! 💪. Ganaste ${estrellas} estrellas, descubriste los ${contadorBuenas} mensajes secretos y lo hiciste en un tiempo de ${formatTime(minutes)}:${formatTime(seconds)}.`;
                     mensaje.className = "incorrecto";
                     clearInterval(timer);
                     mensaje.scrollIntoView({
@@ -575,7 +581,7 @@
                     document.getElementById("saltarPalabraBtn").disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
 
-                    enviarEvaluacionMensajesSecretosB();
+                    enviarEvaluacionDescubriendoMensajesSecretosB();
                 }
             }
         }
@@ -801,7 +807,7 @@
             document.getElementById("saltarPalabraBtn").disabled = true;
             document.getElementById("reiniciarJuegoBtn").disabled = true;
             document.getElementById("finalizarJuegoBtn").disabled = true;
-            enviarEvaluacionMensajesSecretosB();
+            enviarEvaluacionDescubriendoMensajesSecretosB();
         }
 
         function reiniciarJuego() {
@@ -997,19 +1003,20 @@
             setTimeout(() => (canvas.style.display = "none"), 2000);
         }
 
-        // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
-        function enviarEvaluacionMensajesSecretosB() {
+        // Función para enviar el tiempo final por AJAX
+        function enviarEvaluacionDescubriendoMensajesSecretosB() {
             var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
+
             $.ajax({
-                url: '<?php echo base_url('ejercicios/ejercicios_letra_b/enviarEvaluacionMensajesSecretosB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionDescubriendoMensajesSecretosB'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
+                    letra: 'b',
                     tiempoFinal: tiempo,
                     palabrasCorrectas: contadorBuenas,
-                    palabrasIncorrectas: contadorIncorrectas,
+                    palabrasIncorrectascont: contadorIncorrectas,
                     totalEstrellas: estrellas,
                     arrayPalabras: JSON.stringify(palabrasIncorrectas)
-
                 }, // Datos a enviar
                 success: function(response) {
                     console.log('Tiempo enviado exitosamente:', response);
@@ -1018,7 +1025,33 @@
                     console.error('Error al enviar el tiempo:', error);
                 }
             });
+
         }
+
+        function enviarInicioEvaluacionDescubriendoMensajesSecretosB() {
+            var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
+
+            $.ajax({
+                url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroDescubriendoMensajesSecretosB'); ?>', // URL de tu controlador
+                type: 'POST',
+                data: {
+                    letra: 'b',
+                    tiempoFinal: tiempo,
+                    palabrasCorrectas: contadorBuenas,
+                    palabrasIncorrectascont: contadorIncorrectas,
+                    totalEstrellas: estrellas,
+                    arrayPalabras: JSON.stringify(palabrasIncorrectas)
+                }, // Datos a enviar
+                success: function(response) {
+                    console.log('Tiempo enviado exitosamente:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al enviar el tiempo:', error);
+                }
+            });
+
+        }
+
 
     });
 </script>
