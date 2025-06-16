@@ -367,6 +367,9 @@
             tarjetasMezcladas.forEach((tarjeta, indice) => {
                 const tarjetaDiv = document.createElement('div');
                 tarjetaDiv.classList.add('tarjeta');
+
+                tarjetaDiv.classList.add(tarjeta.tipo);
+
                 tarjetaDiv.setAttribute('data-id', indice);
                 tarjetaDiv.setAttribute('data-valor', tarjeta.valor);
                 tarjetaDiv.addEventListener('click', () => voltearTarjeta(tarjetaDiv));
@@ -392,7 +395,8 @@
                     tarjeta.classList.remove('volteada');
                     tarjeta.textContent = '';
                 });
-                mensaje.textContent = '¡Comienza a emparejar!';
+                mensaje.textContent = "¡Comienza a emparejar <?php echo $this->session->userdata('usuario'); ?>! 🌟 ";
+                mensaje.className = "correcto";
             }, 2000);
         }
 
@@ -412,18 +416,21 @@
                 movimientosRestantes.textContent = `${movimientos}`;
                 if (movimientos === 0 && paresEncontrados < totalPares) {
                     clearInterval(temporizador);
-                    mensaje.textContent = 'fin del juego';
                     setTimeout(() => {
-                        mostrarMensajeExitoIntentos(); // pasar al siguiente nivel si no es el último
+                        mostrarMensajeExitoIntentos(); // pasar al siguiente nivel si no es el 
+                        mostrarLapizRoto();
+
                     }, 1500);
 
-
+                    document.getElementById('reiniciarJuegoBtn').disabled = true;
+                    document.getElementById("finalizarJuegoBtn").disabled = true;
                     const tarjetas = document.querySelectorAll('.tarjeta');
                     tarjetas.forEach(tarjeta => {
                         const tarjetaClon = tarjeta.cloneNode(true);
                         tarjeta.parentNode.replaceChild(tarjetaClon, tarjeta);
                     });
                 }
+
 
             }
         }
@@ -439,15 +446,20 @@
             if (parejas.some(par => (primeraValor === par.emoji && segundaValor === par.palabra) || (primeraValor === par.palabra && segundaValor === par.emoji))) {
                 estrellaSalta();
                 mostrarEstrellasCentrales();
-                mensaje.textContent = '¡Correcto! Emparejaste las cartas.';
+                mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, encontraste su pareja! 🎉 Ganaste +200 estrellas";
+                mensaje.className = "correcto";
+                mensaje.scrollIntoView({
+                    behavior: "smooth",
+                    block: "end"
+                });
                 paresEncontrados++;
                 paresTotalesEncontrados++;
                 estrellas += 50;
                 contadorEstrellas.textContent = estrellas;
 
                 // Cambiar el color de fondo a verde
-                primeraTarjeta.style.backgroundColor = 'green';
-                segundaTarjeta.style.backgroundColor = 'green';
+                primeraTarjeta.style.backgroundColor = '#2ecc71';
+                segundaTarjeta.style.backgroundColor = '#2ecc71';
 
 
                 if (paresEncontrados === totalPares) {
@@ -462,9 +474,13 @@
                             tarjeta.replaceWith(clon);
                         });
                         mostrarMensajeExitoFelicidades();
-                        mensaje.textContent = `🎉 ¡Felicidades! Has encontrado todos los pares y completado la misión.`;
-                        mensaje.className = "mensaje-final";
+                        // mensaje.textContent = `🎉 ¡Felicidades! Has encontrado todos los pares y completado la misión.`;
+                        // mensaje.className = "mensaje-final";
                         mostrarConfeti();
+                        mostrarEstrellasCentrales();
+                        document.getElementById('reiniciarJuegoBtn').disabled = true;
+                        document.getElementById("finalizarJuegoBtn").disabled = true;
+
 
                         // También puedes mostrar un botón para volver a jugar
                         document.getElementById('reiniciarJuegoBtn').style.display = 'inline-block';
@@ -477,7 +493,16 @@
                 }
 
             } else {
-                mensaje.textContent = '¡Intenta de nuevo!';
+                mensaje.innerHTML = `¡Casi lo logras <?php echo $this->session->userdata('usuario'); ?>!🌟 
+                Esa no es la pareja correcta<br>
+                ¡Sigue intentando, tú puedes! 💪 Solo te queda  ${movimientos} movimientos`;
+                mensaje.className = "incorrecto";
+                mensaje.scrollIntoView({
+                    behavior: "smooth",
+                    block: "end"
+                });
+                movimientosSalta();
+
                 setTimeout(() => {
                     // Voltear las cartas nuevamente
                     primeraTarjeta.classList.remove('volteada');
@@ -491,21 +516,21 @@
             tarjetasVolteadas = [];
 
 
-
         }
 
         function mostrarMensajeExitoIntentos() {
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
-            ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
+            mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
+            ¡Muy cerca <?php echo $this->session->userdata('usuario'); ?>, usaste todos tus movimientos! ✏️ <br>
+            Puedes seguir mejorando en tu próxima exploración 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${paresTotalesEncontrados}</strong><br>
+            📝 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -563,11 +588,12 @@
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
             ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${paresTotalesEncontrados}</strong><br>
+            📝 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -622,14 +648,15 @@
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En esta misión descubristes <b>todas las palabras</b>. <br>
+            En esta misión encontraste <b>todas las parejas</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
-            📝 Palabras encontradas <strong>${paresTotalesEncontrados}</strong> <br>
+            📝 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong> <br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
@@ -791,8 +818,6 @@
             setTimeout(() => (canvas.style.display = "none"), 2000);
         }
 
-
-
         function reiniciarJuego() {
             clearInterval(temporizador);
             minutos = 0;
@@ -804,6 +829,8 @@
             nivel = 0;
             iniciarJuego();
             iniciarTemporizador();
+            document.getElementById('reiniciarJuegoBtn').disabled = false;
+            document.getElementById("finalizarJuegoBtn").disabled = false;
         }
 
         // Función para finalizar el juego
@@ -812,8 +839,6 @@
 
             // Mostrar mensaje con resultado final
             const tiempoFinal = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
-            mensaje.textContent = `¡Misión finalizada! Pares encontrados: ${paresTotalesEncontrados}. Tiempo: ${tiempoFinal}`;
-            mensaje.className = "mensaje-final"; // Puedes estilizar esto en CSS
             mostrarMensajeExitoFinalizar();
 
             // Deshabilitar las tarjetas al reemplazarlas por copias sin eventos
@@ -822,6 +847,8 @@
                 const tarjetaClon = tarjeta.cloneNode(true);
                 tarjeta.parentNode.replaceChild(tarjetaClon, tarjeta);
             });
+            document.getElementById('reiniciarJuegoBtn').disabled = true;
+            document.getElementById("finalizarJuegoBtn").disabled = true;
             // Opcional: deshabilitar las cartas restantes
             // const tarjetas = document.querySelectorAll('.tarjeta');
             // tarjetas.forEach(tarjeta => tarjeta.removeEventListener('click', voltearTarjeta));

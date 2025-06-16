@@ -608,8 +608,8 @@
                     });
 
                     document.getElementById("verificarPalabraBtn").disabled = true;
-                    document.getElementById('reiniciarJuegoBtn').disabled = true;
                     document.getElementById("saltarPalabraBtn").disabled = true;
+                    document.getElementById('reiniciarJuegoBtn').disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
                     enviarEvaluacionDescubriendoPalabrasB();
 
