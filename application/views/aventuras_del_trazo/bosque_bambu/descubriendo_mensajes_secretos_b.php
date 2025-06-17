@@ -20,7 +20,7 @@
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
-                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
+                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_mensajes_secretos.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
                             </video>
                             <!-- <button id="cerrarTutorial" >Cerrar</button> -->
@@ -69,11 +69,11 @@
                 <div id="botonesContenedor" class="d-flex justify-content-center mt-5 d-none">
 
                     <button id="verificarPalabraBtn" class="btn verificar me-2" title="Verificar Palbra">
-                        <i class="fas fa-check"></i> Verificar mensaje
+                        <i class="fas fa-check"></i> Verificar Mensaje
                     </button>
 
                     <button id="saltarPalabraBtn" class="btn saltar me-2" title="Saltar Palabra">
-                        <i class="fas fa-arrow-right"></i> Saltar Palabra
+                        <i class="fas fa-arrow-right"></i> Saltar Mensaje
                     </button>
 
                     <button id="reiniciarJuegoBtn" class="btn reiniciar me-2" title="Reiniciar Juego">
