@@ -6,18 +6,15 @@
                     <div class="d-flex align-items-center">
                         <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
 
-                        <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
+                        <p class="mb-0">¡Descubramos en la aventura! <br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
-                        <b> Instrucciones del juego</b> <br>
-                        ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
-                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                            ¿Cómo jugar?
-                        </button> <br>
+                        Prepárate para una emocionante misión: ¡Ayuda al Dino a formar los mensajes secretos que se encuentran en el bosque de bambú! <br>
+                        Para comenzar con la misión tienes que arrastrar las palabras a los cuadros verdes para formar el mensaje correcto, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
+
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_mensajes_secretos.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
@@ -33,7 +30,7 @@
                     </div>
 
                     <p>
-                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        ¡Diviértete aprendiendo mientras descubrimos mensajes secretos en el mágico bosque de bambú! <br>
                         Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
@@ -45,7 +42,7 @@
 
             </div>
             <div class="col-lg-12 col-md-12 col-12" id="contenedorJuego">
-                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio2_descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
+                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audios_b/b_mensajes_secretos_tractor.mp3') ?>" preload="auto"></audio>
 
                 <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
                     <!-- Texto Cargando -->
