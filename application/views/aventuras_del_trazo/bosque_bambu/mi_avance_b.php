@@ -25,8 +25,9 @@
 
 <section class="container mt-12">
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
-        <?php echo $this->session->userdata('usuario')?>    
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-10" >
+            <p class="texto_tabla_bambu"> <b>¡Hola <?php echo $this->session->userdata('usuario')?>! 🦖</b></p>
+           
         <table class="table-estilos table display nowrap table-striped table-bordered scroll-horizontal table-hover" cellspacing="0" name="table" id="table">
                 
             <thead>

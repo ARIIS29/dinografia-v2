@@ -33,7 +33,7 @@ $(document).ready(function () {
         ],
         'language': {
             "sProcessing": '<i class="fa fa-spinner spinner"></i> Cargando...',
-            "sLengthMenu": "BITÁCORA DE LOGROS DEL BOSQUE DE BAMBÚ🦖",
+            "sLengthMenu": "📖 ESTÁ ES TU BITÁCORA DE LOGROS DEL BOSQUE DE BAMBÚ 🌟",
             "sZeroRecords": "No se encontraron resultados",
             "sEmptyTable": "Juega para ver tus resultados &#128512",
             "sInfo": "Mostrando del Inicio al Fin de TOTAL",

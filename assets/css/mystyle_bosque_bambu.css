@@ -81,6 +81,11 @@ body {
     color: #214524 !important;
 }
 
+.texto_tabla_bambu {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 22px;
+    color: #214524 !important;
+}
 .texto-modal-bambu {
     font-family: 'Century Gothic', sans-serif;
     font-size: 18px;
