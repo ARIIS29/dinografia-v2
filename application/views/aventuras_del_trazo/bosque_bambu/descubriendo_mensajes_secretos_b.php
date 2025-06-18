@@ -10,7 +10,7 @@
                     </div>
                     <p>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a formar los mensajes secretos que se encuentran en el bosque de bambú! <br>
-                        Para comenzar con la misión tienes que arrastrar las palabras a los cuadros verdes para formar el mensaje correcto, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
+                       <b>Para comenzar con la misión tienes que arrastrar las palabras a los cuadros verdes para formar el mensaje correcto, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b>  <br>
 
                     </p>
 
@@ -111,9 +111,9 @@
             document.getElementById('header-inicial').classList.add('d-none');
         });
 
-        if (!sessionStorage.getItem('audio1Reproducido_descubriendoPalabrasB')) {
+        if (!sessionStorage.getItem('audio1Reproducido_descubriendoMensajesSecretosB')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_descubriendoPalabrasB', 'true');
+                sessionStorage.setItem('audio1Reproducido_descubriendoMensajesSecretosB', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });
@@ -460,7 +460,7 @@
 
             // Manejar el caso cuando no hay errores
             if (!errores) {
-                mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, mensaje descubierto! 🎉 Ganaste +200 estrellas";
+                mensaje.textContent = "¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>! 🎉 ¡Mensaje descubierto! 🥳 ¡Ganaste +200 estrellas! 🌟";
                 mensaje.className = "correcto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
@@ -608,8 +608,8 @@
             mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas: <strong>${contadorBuenas}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Mensajes encontrados: <strong>${contadorBuenas}</strong><br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -671,7 +671,7 @@
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
             📝 Mensajes encontrados: <strong>${contadorBuenas}</strong><br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
@@ -734,7 +734,7 @@
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En esta misión descubristes <b>todas los mensajes secretos</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
-            ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
+            🌟 Estrellas ganadas: <strong>${estrellas}</strong> <br> 
             📝 Mensajes encontrados: <strong>${contadorBuenas}</strong> <br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>

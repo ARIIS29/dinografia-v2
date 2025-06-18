@@ -10,7 +10,7 @@
                     </div>
                     <p>
                         ¡Prepárate para una emocionante misión! Ayuda al dino a encontrar <b>todos</b> los elementos perdidos en el bosque de bambú.<br>
-                        Para completar esta misión da clic o toca solo los objetos que el Dino te pide encontrar en el tablero.
+                        <b>Para completar esta misión da clic o toca solo los objetos que el Dino te pide encontrar en el tablero.</b>
 
                     </p>
 
@@ -379,7 +379,7 @@
                 mostrarEstrellasCentrales();
 
                 if (cuentaCorrecta === 0) {
-                    mensaje.textContent = `¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>! 🎉 Encontraste todos los elementos de ${emojiCorrecto.nombre} ${emojiCorrecto.emoji}. Ganaste +${estrellas} estrellas.`;
+                    mensaje.textContent = `¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>! 🎉 ¡Encontraste todos los elementos de ${emojiCorrecto.nombre} ${emojiCorrecto.emoji}! ¡Ganaste +${estrellas} estrellas! 🌟`;
                     mensaje.className = "correcto";
                     mensaje.scrollIntoView({
                         behavior: "smooth",
@@ -495,8 +495,8 @@
             mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            🔍 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -558,8 +558,8 @@
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso encontrando elementos, ¡cada intento te hace mejor! 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            🔍 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>  
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -621,8 +621,8 @@
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En esta misión encontrastes <b>todos los elementos</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            🔍 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>  
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;

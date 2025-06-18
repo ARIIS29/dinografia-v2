@@ -10,7 +10,7 @@
                     </div>
                     <p>
                         Prepárate para esta emocionante misión: ¡Atrapa todas las hojas que aparezcan en la pantalla del bosque de bambú! <br>
-                        Cuando veas una hoja aparecer, presiona sobre ella rápidamente para atraparla.
+                        <b> Cuando veas una hoja aparecer, presiona sobre ella rápidamente para atraparla.</b>
                         </button> <br>
                     </p>
 
@@ -315,8 +315,8 @@
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu exploración diste un gran paso, ¡cada intento te hace mejor! 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${puntaje}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            🍃 Hojas atrapadas: <strong>${puntaje}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -378,8 +378,8 @@
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En esta misión atrapaste <b>todas las hojas</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
-            ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
-            📝 Hojas encontradas <strong>${puntaje}</strong> <br>
+            🌟 Estrellas ganadas: <strong>${estrellas}</strong> <br> 
+            🍃 Hojas atrapadas: <strong>${puntaje}</strong> <br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;

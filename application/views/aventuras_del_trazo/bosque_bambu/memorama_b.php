@@ -6,24 +6,22 @@
                     <div class="d-flex align-items-center">
                         <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
 
-                        <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
+                        <p class="mb-0">¡Encontremos en la aventura! <br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
-                        <b> Instrucciones del juego</b> <br>
-                        ¡Descubre la palabra secreta! Arrastra las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
-                        Da clic en el botón azul, para saber <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-                            ¿Cómo jugar?
-                        </button> <br>
+                        
+                        Prepárate para una emocionante misión: ¡Ayuda al Dino a encontrar y descubrir las parejas, pero ten cuidado... ¡no son iguales!, debes encontrar el animal y la palabra que lo representa. ¡Tu atención y memoria te ayudarán en esta gran aventura!<br>
+                        <b>Para explorar, da clic o selecciona las tarjetas para darles la vuelta y encontrar las parejas correctas.</b>
+                        <br>
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_encuentra_descubre.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
-                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
+                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_memorama.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
                             </video>
                             <!-- <button id="cerrarTutorial" >Cerrar</button> -->
@@ -33,7 +31,7 @@
                     </div>
 
                     <p>
-                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        ¡Diviértete descubriendo y aprendiendo mientras exploramos juntos el bosque de bambú! <br>
                         Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
@@ -45,7 +43,7 @@
 
             </div>
             <div class="col-lg-12 col-md-12 col-12 justify-content-center" id="contenedorJuego">
-                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audio2_descubriendo_palabras_b.mp3') ?>" preload="auto"></audio>
+                <audio id="audioVista2" src="<?php echo base_url('almacenamiento/audios/audios_b/b_encuentra_descubre_tractor.mp3') ?>" preload="auto"></audio>
 
                 <div class="col-lg-12 col-md-12 col-12 position-relative mt-5 text-center mx-auto" id="animacionCarga" style="max-width: 800px; ">
                     <!-- Texto Cargando -->
@@ -103,9 +101,6 @@
         const audio2 = document.getElementById('audioVista2');
         const contadorEstrellas = document.getElementById("contadorEstrellas");
 
-        let estrellas = 0;
-
-
 
         document.getElementById('play-btn').addEventListener('click', function() {
             // Mostrar el encabezado del juego
@@ -115,9 +110,9 @@
             document.getElementById('header-inicial').classList.add('d-none');
         });
 
-        if (!sessionStorage.getItem('audio1Reproducido_descubriendoPalabrasB')) {
+        if (!sessionStorage.getItem('audio1Reproducido_memorama')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_descubriendoPalabrasB', 'true');
+                sessionStorage.setItem('audio1Reproducido_memorama', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });
@@ -284,6 +279,7 @@
         let temporizador;
         let minutos = 0;
         let segundos = 0;
+        let estrellas = 0;
 
         function iniciarTemporizador() {
             temporizador = setInterval(() => {
@@ -410,7 +406,7 @@
                     tarjeta.classList.remove('volteada');
                     tarjeta.textContent = '';
                 });
-                mensaje.textContent = "¡Comienza a emparejar <?php echo $this->session->userdata('usuario'); ?>! 🌟 ";
+                mensaje.textContent = "¡Comienza a emparejar <?php echo $this->session->userdata('usuario'); ?>! 🔍 ";
                 mensaje.className = "correcto";
             }, 2000);
         }
@@ -465,7 +461,7 @@
             if (parejas.some(par => (primeraValor === par.emoji && segundaValor === par.palabra) || (primeraValor === par.palabra && segundaValor === par.emoji))) {
                 estrellaSalta();
                 mostrarEstrellasCentrales();
-                mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, encontraste su pareja! 🎉 Ganaste +100 estrellas";
+                mensaje.textContent = "¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>! 🎉 ¡Encontraste su pareja! 🥳 ¡Ganaste +100 estrellas! 🌟";
                 mensaje.className = "correcto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
@@ -551,8 +547,8 @@
             mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
             ¡Muy cerca <?php echo $this->session->userdata('usuario'); ?>, usaste todos tus movimientos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            💡 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -614,8 +610,8 @@
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            💡 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -677,8 +673,8 @@
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En esta misión encontraste <b>todas las parejas</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
-            ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
-            📝 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong> <br>
+            🌟 Estrellas ganadas: <strong>${estrellas}</strong> <br> 
+            💡 Parejas encontradas: <strong>${paresTotalesEncontrados}</strong> <br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -846,6 +842,8 @@
         }
 
         function reiniciarJuego() {
+            estrellas = 0;
+            contadorEstrellas.textContent = estrellas;
             clearInterval(temporizador);
             contadorIncorrectas = 0;
             minutos = 0;

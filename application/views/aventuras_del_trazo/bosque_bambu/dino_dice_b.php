@@ -11,7 +11,7 @@
                     <p>
                         Prepárate para una emocionante misión: Recolecta los elementos que se necesitan para la exploración del bosque de bambú. Lee con atención las instrucciones que el Dino te indicará.
                         <br>
-                        Para cumplir con la misión debes seleccionar o dar clic en el elemento que se te pide.
+                        <b>Para cumplir con la misión debes seleccionar o dar clic en el elemento que se te pide.</b>
                     </p>
 
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_dino_dice.mp3') ?>" preload="auto"></audio>
@@ -296,7 +296,7 @@
                 contadorEstrellas.textContent = estrellas;
 
 
-                mensaje.textContent = `¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>!🎉 Has seleccionado el elemento correcto (${emojiSeleccionado}). Ganaste +100 estrellas`;
+                mensaje.textContent = `¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>! 🎉 ¡Has seleccionado el elemento correcto (${emojiSeleccionado})! ¡Ganaste +100 estrellas! 🌟`;
                 mensaje.className = "correcto";
                 mensaje.scrollIntoView({
                     behavior: "smooth",
@@ -402,8 +402,8 @@
             mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Elementos encontrados: <strong>${contadorCorrectos}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            🔍 Elementos encontrados: <strong>${contadorCorrectos}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -465,8 +465,8 @@
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Elementos encontrados: <strong>${contadorCorrectos}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            🔍 Elementos encontrados: <strong>${contadorCorrectos}</strong><br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -528,8 +528,8 @@
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En esta misión encontrates muchos <b>elementos</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
-            ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
-            📝 Elementos encontrados: <strong>${contadorCorrectos}</strong> <br>
+            🌟 Estrellas ganadas: <strong>${estrellas}</strong> <br> 
+            🔍 Elementos encontrados: <strong>${contadorCorrectos}</strong> <br>
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;

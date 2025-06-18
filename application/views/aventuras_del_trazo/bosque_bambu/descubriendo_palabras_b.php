@@ -10,7 +10,7 @@
                     </div>
                     <p>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
-                        Para jugar, tienes que arrastrar las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta. <br>
+                       <b>Para jugar, tienes que arrastrar las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b>  <br>
                     </p>
 
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
@@ -482,7 +482,7 @@
 
             // Manejar el caso cuando no hay errores
             if (!errores) {
-                mensaje.textContent = "¡Super asombroso, <?php echo $this->session->userdata('usuario'); ?>, palabra descubierta! 🎉 Ganaste +200 estrellas";
+                mensaje.textContent = "¡Super asombroso <?php echo $this->session->userdata('usuario'); ?>!🎉 ¡Palabra descubierta! 🥳 ¡Ganaste +200 estrellas! 🌟";
                 mensaje.className = "correcto";
                 estrellas += 200;
                 contadorEstrellas.textContent = estrellas;
@@ -629,8 +629,8 @@
             mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${contadorBuenas}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Palabras encontradas: <strong>${contadorBuenas}</strong><br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -692,8 +692,8 @@
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
-            ⭐ Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            📝 Palabras encontradas <strong>${contadorBuenas}</strong><br>
+            🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
+            📝 Palabras encontradas: <strong>${contadorBuenas}</strong><br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
@@ -755,8 +755,8 @@
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En esta misión descubristes <b>todas las palabras</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
-            ⭐ Estrellas ganadas: <strong>${estrellas}</strong> <br> 
-            📝 Palabras encontradas <strong>${contadorBuenas}</strong> <br>
+            🌟 Estrellas ganadas: <strong>${estrellas}</strong> <br> 
+            📝 Palabras encontradas: <strong>${contadorBuenas}</strong> <br>
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;

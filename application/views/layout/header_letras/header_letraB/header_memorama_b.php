@@ -43,7 +43,8 @@
                     <a href="<?php echo site_url('letras/bosque_bambu/memorama_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_bambu">
-                    <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">¡Vamos a emparejar! 🔍 <br>
+                    <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">¡Encuentra al animal y su nombre! <br>
+                    ¡Da clic o selecciona la tarjeta para voltearla!🔍 <br>
                 </div>
 
                 <div class="col-lg-3 col-md-3 d-flex justify-items-center texto_indicaciones_bambu">
@@ -59,11 +60,11 @@
                         <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-1" width="40%">
                         <span id="contadorEstrellas">0</span>
                     </div>
-                  
+
 
                 </div>
 
             </div>
         </nav>
     </section>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
