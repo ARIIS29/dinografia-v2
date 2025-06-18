@@ -8,7 +8,7 @@
             <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3 d-none d-sm-block" id="dino" width="6%">
             <!-- Texto -->
             <p class="texto_indicaciones_bambu mb-0"> ¡Haz clic en un botón y tracemos juntos grandes aventuras!</p>
-            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audio_bb_trazando_aventurasb.mp3') ?>" preload="auto"></audio>
+            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_trazando_aventuras.mp3') ?>" preload="auto"></audio>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">
@@ -35,18 +35,24 @@
         </div>
     </div>
 </section>
-
 <script>
     // Referencias a elementos
     const dino = document.getElementById('dino');
     const audio = document.getElementById('dinoAudio');
 
-    // Inicia animación y audio al cargar la página
-    window.addEventListener('DOMContentLoaded', function() {
+    // Función para iniciar animación y audio
+    function iniciarDino() {
         dino.classList.add('dino-hablando'); // Inicia la animación
         audio.play().catch(error => {
             console.log("Error al reproducir el audio automáticamente:", error);
         });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+        if (!sessionStorage.getItem('audioDinoReproducido_trazando_aventuras')) {
+            iniciarDino();
+            sessionStorage.setItem('audioDinoReproducido_trazando_aventuras', 'true');
+        }
     });
 
     // Manejo del clic en Dino
