@@ -35,7 +35,7 @@ $(document).ready(function () {
             "sProcessing": '<i class="fa fa-spinner spinner"></i> Cargando...',
             "sLengthMenu": "📖 ESTÁ ES TU BITÁCORA DE LOGROS DEL BOSQUE DE BAMBÚM DE EXPLORA Y DESCUBRE 🌟",
             "sZeroRecords": "No se encontraron resultados",
-            "sEmptyTable": "Juega para ver tus resultados &#128512",
+            "sEmptyTable": "Completa misiones para ver tus resultados &#128512",
             "sInfo": "Mostrando del Inicio al Fin de TOTAL",
             "sInfoEmpty": "Mostrando del 0 al 0 de 0",
             "sInfoFiltered": "(filtrado MAX)",

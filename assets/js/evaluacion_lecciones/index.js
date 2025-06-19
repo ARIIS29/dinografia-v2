@@ -4,7 +4,9 @@ var method_call = "";
 
 console.log(actual_url);
 // Configuraciones
-(actual_url.indexOf("index") < 0) ? method_call = "evaluacion_lecciones/" : method_call = "";
+// (actual_url.indexOf("index") < 0) ? method_call = "evaluacion_lecciones/" : method_call = "";
+(actual_url.indexOf("index") < 0) ? method_call = "" : method_call = "";
+
 $.fn.dataTable.ext.errMode = 'throw'; // Configuración de manejo de errores de DataTables
 
 $(document).ready(function () {
@@ -27,10 +29,10 @@ $(document).ready(function () {
         ],
         'language': {
             "sProcessing": '<i class="fa fa-spinner spinner"></i> Cargando...',
-            "sLengthMenu": "Mostrar MENU",
+            "sLengthMenu": "📸 ESTÁ ES TU BITÁCORA DE GALERÍAS DEL BOSQUE DE BAMBÚM - TRAZANDO AVENTURAS 🖼️",
             "sZeroRecords": "No se encontraron resultados",
-            "sEmptyTable": "Juega para ver tus resultados &#128512",
-            "sInfo": "Mostrando del START al END de TOTAL",
+            "sEmptyTable": "Traza aventuras y evalualas para ver tus resultados 📸",
+            "sInfo": "Mostrando del Inicio al Fin de TOTAL",
             "sInfoEmpty": "Mostrando del 0 al 0 de 0",
             "sInfoFiltered": "(filtrado MAX)",
             "sInfoPostFix": "",
@@ -72,7 +74,7 @@ $(document).ready(function () {
 
         rowCallback: function (row, data, index) {
             var cellContent = data.evaluacion; // Accedemos al contenido de la columna 'evaluacion'
-        
+
             // Validación basada en emojis
             if (cellContent.includes("💪")) {
                 $(row).find('td:eq(0)').css('background-color', 'rgb(252,75,8)');
@@ -92,4 +94,8 @@ $(document).ready(function () {
             }
         }
     });
+    // Aplica la fuente desde JS después de inicializar
+    setTimeout(function () {
+        $('#table_wrapper *').css('font-family', 'Century Gothic, sans-serif');
+    }, 300);
 });

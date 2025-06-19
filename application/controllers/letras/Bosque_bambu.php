@@ -39,7 +39,58 @@ class Bosque_bambu extends CI_Controller
 			$this->load->view('layout/footer');
 		}
 	}
+	public function obtener_evaluacion_lecciones_por_usuario()
+	{
+		$draw = $this->input->post('draw');
+		$start = $this->input->post('start');
+		$length = $this->input->post('length');
+		$order = $this->input->post('order');
 
+		$prgreso_list = $this->galeria_model->obtener_imagenes_usuario($this->session->userdata('identificador'));
+
+		$data = [];
+		$evaluaciuon = '';
+
+		foreach ($prgreso_list->result() as $key => $value) {
+
+			$opciones = '
+                    <a href="' . site_url("clientes/editar/") . $value->identificador . '">Editar</a>    
+                    |
+                    <a href="#" onclick="suspender(' . $value->identificador . ');return false;">Eliminar</a>
+                ';
+
+
+			if ($value->evaluacion == 'bueno') {
+				$evaluacion = '¡Super asombroso! 🎉 <br>
+								¡Increíble! Tu trazo es muy preciso.<br>
+								La curva y la línea vertical están en el lugar perfecto. <br>
+								Sigue así, ¡lo estás haciendo genial!';
+			} else if ($value->evaluacion == 'regular') {
+				$evaluacion = '¡Casi lo logras! 🌟 <br>
+								¡Buen intento! El trazo está muy bien, solo falta un pequeño ajuste en la curva o línea. Con un poco más de práctica, ¡será perfecto! Sigue practicando, ¡estás muy cerca!';
+			} else if ($value->evaluacion == 'malo') {
+				$evaluacion = '¡A seguir practicando! 💪 <br> No pasa nada, lo importante es que sigas intentándolo. El trazo necesita más precisión, pero cada vez que lo intentas, mejoras. ¡No te rindas, lo estás haciendo cada vez mejor! ';
+			}
+
+			$data[] = array(
+				'id' => $value->id,
+				'leccion' => $value->nombre,
+				'fecha' => $value->fecha_registro,
+				'evaluacion' => $evaluacion,
+				// 'opciones' => $opciones,
+			);
+		}
+
+		$result = array(
+			"draw" => $draw,
+			"recordsTotal" => $prgreso_list->num_rows(),
+			"recordsFiltered" => $prgreso_list->num_rows(),
+			"data" => $data
+		);
+
+		echo json_encode($result);
+		exit();
+	}
 	public function obtener_tabla_evaluacion_ejercicios_por_usuario()
 	{
 		$draw = $this->input->post('draw');
@@ -79,6 +130,8 @@ class Bosque_bambu extends CI_Controller
 		exit();
 	}
 
+
+
 	// incio de lecciones
 
 	public function trazando_aventuras_b()
@@ -87,6 +140,7 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('aventuras_del_trazo/bosque_bambu/trazando_aventuras_b.php');
 		$this->load->view('layout/footer');
 	}
+
 	public function letrab()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_letrab');
@@ -268,7 +322,7 @@ class Bosque_bambu extends CI_Controller
 		}
 	}
 
-	
+
 	public function mi_avance_trazando_aventuras_b()
 	{
 
@@ -276,6 +330,8 @@ class Bosque_bambu extends CI_Controller
 		$this->load->view('aventuras_del_trazo/bosque_bambu/mi_avance_trazando_aventuras_b');
 		$this->load->view('layout/footer');
 	}
+
+
 
 
 	//Inicio de las funciones de los ejercicios 

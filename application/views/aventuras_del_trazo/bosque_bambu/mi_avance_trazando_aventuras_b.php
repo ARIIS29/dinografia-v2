@@ -20,36 +20,29 @@
         border: 1px solid #ccc;
         text-align: center;
     }
-
 </style>
 
 <section class="container mt-12">
     <div class="row">
         <div class="col-lg-12 col-md-12 d-flex align-items-center mt-10">
             <!-- Imagen -->
-            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-lapiz-avance.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="6%">
+            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-lapiz-avance.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="5%">
             <!-- Texto -->
-            <p class="texto_tabla_bambu"> <b>¡Hola <?php echo $this->session->userdata('usuario')?>!</b></p>
+            <p class="texto_tabla_bambu"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>!</b></p>
         </div>
-           
+
         <table class="table-estilos table display nowrap table-striped table-bordered scroll-horizontal table-hover" cellspacing="0" name="table" id="table">
-                
             <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Actividad</th>
-                        <th>Fecha</th>
-                        <th>Tiempo</th>
-                        <th>Logros</th>
-                        <th>Desaciertos</th>
-                        <th>Estrellas</th>
-                        <!-- <th>Evaluación</th> -->
-                        <th>Informe de Aventura</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
+                <tr>
+                    <th class="">#</th>
+                    <th class="">Lección</th>
+                    <th class="">Fecha</th>
+                    <th class="">Evaluacion</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
     </div>
 </section>
 <!-- <?php print_r($prgreso_list) ?> -->
-<script src="<?php echo base_url('assets/js/evaluacion_ejercicios/index.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/evaluacion_lecciones/index.js') ?>"></script>

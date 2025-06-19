@@ -81,7 +81,9 @@
                 <p class="texto_indicaciones_bambu mb-0 mt-5">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "b" en la pizarra! </p>
             </div>
             <div class="col-1 d-none d-sm-block">
-                <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriab.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+                <a href="<?php echo base_url('galeria/galeriab') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriab.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+                </a>
             </div>
 
         </div>
