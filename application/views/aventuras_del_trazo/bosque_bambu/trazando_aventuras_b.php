@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-4 col-6 btn-transicion text-center mt-3">
-                <a href="<?php echo base_url('letras/bosque_bambu/mi_avance_b') ?>">
+                <a href="<?php echo base_url('letras/bosque_bambu/mi_avance_trazando_aventuras_b') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-avance-leccionesb.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button" width="20%">
                 </a>
             </div>

@@ -79,6 +79,8 @@ class Bosque_bambu extends CI_Controller
 		exit();
 	}
 
+	// incio de lecciones
+
 	public function trazando_aventuras_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_trazando_aventuras_b');
@@ -264,6 +266,15 @@ class Bosque_bambu extends CI_Controller
 		} else {
 			echo json_encode(['status' => 'error', 'message' => 'No se recibió ninguna imagen(3)']);
 		}
+	}
+
+	
+	public function mi_avance_trazando_aventuras_b()
+	{
+
+		$this->load->view('layout/header_letras/header_letraB/header_mi_avance_trazando_aventuras_b');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/mi_avance_trazando_aventuras_b');
+		$this->load->view('layout/footer');
 	}
 
 
