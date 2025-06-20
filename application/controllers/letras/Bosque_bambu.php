@@ -67,15 +67,25 @@ class Bosque_bambu extends CI_Controller
 								Sigue así, ¡lo estás haciendo genial!';
 			} else if ($value->evaluacion == 'regular') {
 				$evaluacion = '¡Casi lo logras! 🌟 <br>
-								¡Buen intento! El trazo está muy bien, solo falta un pequeño ajuste en la curva o línea. Con un poco más de práctica, ¡será perfecto! Sigue practicando, ¡estás muy cerca!';
+								¡Buen intento! El trazo está muy bien.<br>
+								Solo falta un pequeño ajuste en la curva o línea. <br>
+								Con un poco más de práctica, ¡será perfecto! <br>
+								Sigue practicando, ¡estás muy cerca!';
 			} else if ($value->evaluacion == 'malo') {
-				$evaluacion = '¡A seguir practicando! 💪 <br> No pasa nada, lo importante es que sigas intentándolo. El trazo necesita más precisión, pero cada vez que lo intentas, mejoras. ¡No te rindas, lo estás haciendo cada vez mejor! ';
+				$evaluacion = '¡A seguir practicando! 💪 <br>
+				 No pasa nada, lo importante es que sigas intentándolo. <br>
+				 El trazo necesita más precisión, pero cada vez que lo intentas, mejoras. <br>
+				 ¡No te rindas, lo estás haciendo cada vez mejor! ';
 			}
+         
+			$trazob = '<img src="'.base_url('').$value->url_imagen.'" alt="Img-Dino-Indicaciones" class="img-fluid">';
 
 			$data[] = array(
 				'id' => $value->id,
-				'leccion' => $value->nombre,
+				'nombre' => $value->nombre,
+				'imagen' => $trazob,
 				'fecha' => $value->fecha_registro,
+				'estrellas' => $value->estrellas,
 				'evaluacion' => $evaluacion,
 				// 'opciones' => $opciones,
 			);
@@ -152,7 +162,8 @@ class Bosque_bambu extends CI_Controller
 	{
 		if ($this->input->post('imagen')) {
 			$imagenData = $this->input->post('imagen');
-
+			$estrellas = $this->input->post('puntaje');
+			
 			// Validar formato de imagen
 			if (preg_match('/^data:image\/(png|jpeg|jpg);base64,/', $imagenData)) {
 				$imagen_decodificada = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagenData));
@@ -183,6 +194,7 @@ class Bosque_bambu extends CI_Controller
 					'galeria_letra' => 'b',
 					'url_imagen' => $ruta_completa,
 					'tipo' => 'leccion',
+					'estrellas' => $estrellas,
 					'fecha_registro' => date("Y-m-d H:i:s")
 				);
 

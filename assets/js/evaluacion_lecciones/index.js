@@ -12,6 +12,16 @@ $.fn.dataTable.ext.errMode = 'throw'; // Configuración de manejo de errores de 
 $(document).ready(function () {
     table = $('#table').DataTable({
         "scrollX": true,
+        "autoWidth": false,
+        "columnDefs": [
+            { targets: 0, width: "40px" },   // #
+            { targets: 1, width: "100px" },  // Nombre
+            { targets: 2, width: "120px" },  // Imagen
+            { targets: 3, width: "140px" },  // Fecha
+            { targets: 4, width: "80px" },   // Estrellas
+            { targets: 5, width: "350px" }   // Evaluación
+        ],
+
         "deferRender": true,
         'processing': true,
         "order": [[0, "desc"]],
@@ -22,8 +32,10 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "id" },
-            { "data": "leccion" },
+            { "data": "nombre" },
+            { "data": "imagen" },
             { "data": "fecha" },
+            { "data": "estrellas" },
             { "data": "evaluacion" },
             // {"data": "opciones"},
         ],
@@ -81,16 +93,22 @@ $(document).ready(function () {
                 $(row).find('td:eq(1)').css('background-color', 'rgb(252,75,8)');
                 $(row).find('td:eq(2)').css('background-color', 'rgb(252,75,8)');
                 $(row).find('td:eq(3)').css('background-color', 'rgb(252,75,8)');
+                $(row).find('td:eq(4)').css('background-color', 'rgb(252,75,8)');
+                $(row).find('td:eq(5)').css('background-color', 'rgb(252,75,8)');
             } else if (cellContent.includes("🌟")) {
                 $(row).find('td:eq(0)').css('background-color', 'rgb(255, 255, 0)');
                 $(row).find('td:eq(1)').css('background-color', 'rgb(255, 255, 0)');
                 $(row).find('td:eq(2)').css('background-color', 'rgb(255, 255, 0)');
                 $(row).find('td:eq(3)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(4)').css('background-color', 'rgb(255, 255, 0)');
+                $(row).find('td:eq(5)').css('background-color', 'rgb(255, 255, 0)');
             } else if (cellContent.includes("🎉")) {
                 $(row).find('td:eq(0)').css('background-color', 'rgb(75, 229, 75)');
                 $(row).find('td:eq(1)').css('background-color', 'rgb(75, 229, 75)');
                 $(row).find('td:eq(2)').css('background-color', 'rgb(75, 229, 75)');
                 $(row).find('td:eq(3)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(4)').css('background-color', 'rgb(75, 229, 75)');
+                $(row).find('td:eq(5)').css('background-color', 'rgb(75, 229, 75)');
             }
         }
     });

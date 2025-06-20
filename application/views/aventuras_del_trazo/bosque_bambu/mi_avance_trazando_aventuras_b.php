@@ -20,6 +20,12 @@
         border: 1px solid #ccc;
         text-align: center;
     }
+    .table-estilos td img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 </style>
 
 <section class="container mt-12">
@@ -30,17 +36,20 @@
             <!-- Texto -->
             <p class="texto_tabla_bambu"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>!</b></p>
         </div>
-
-        <table class="table-estilos table display nowrap table-striped table-bordered scroll-horizontal table-hover" cellspacing="0" name="table" id="table">
-            <thead>
-                <tr>
-                    <th class="">#</th>
-                    <th class="">Lección</th>
-                    <th class="">Fecha</th>
-                    <th class="">Evaluacion</th>
-                </tr>
-            </thead>
-        </table>
+        <div style="overflow-x:auto;">
+            <table class="table-estilos table display nowrap table-striped table-bordered scroll-horizontal table-hover" name="table" id="table">
+                <thead>
+                    <tr>
+                        <th class="">#</th>
+                        <th class="">Nombre</th>
+                        <th class="">Imagen</th>
+                        <th class="">Fecha</th>
+                        <th class="">Estrellas</th>
+                        <th class="">Evaluacion</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
     </div>
 </section>

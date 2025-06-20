@@ -307,6 +307,7 @@
                 // Crear un FormData para enviar la imagen correctamente
                 const formData = new FormData();
                 formData.append('imagen', imagenBase64);
+                formData.append('puntaje', estrellas);
 
                 fetch(baseUrl + 'letras/bosque_bambu/guardarImagen', {
                         method: 'POST',
