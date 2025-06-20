@@ -65,11 +65,10 @@ class Galeria extends CI_Controller
 	}
 	public function galeriat()
 	{
-		$galeriast_lista = $this->galeria_model->obtener_imagen_usuario($this->session->userdata('identificador'), 't')->result();
-		$data['galeriast_lista'] = $galeriast_lista;
-
-		$this->load->view('layout/header_galeriat');
-		$this->load->view('galeriat/index', $data);
+		$galeriasb_lista = $this->galeria_model->obtener_imagen_usuario($this->session->userdata('identificador'), 't')->result();
+		$data['galeriasb_lista'] = $galeriasb_lista;
+		$this->load->view('layout/header_letras/header_letraB/header_galeria-t');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/galeria-t.php', $data);
 		$this->load->view('layout/footer');
 	}
 

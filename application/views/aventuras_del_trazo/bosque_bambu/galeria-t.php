@@ -6,15 +6,17 @@
                 <!-- Imagen -->
                 <img src="<?php echo base_url('almacenamiento/img/dinografia/dino-galeria-b.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="5%">
                 <!-- Texto -->
-                <p class="texto_tabla_bambu"> <b>¡Hora de evaluar tu trazo, <?php echo $this->session->userdata('usuario') ?>! 📝</b> <br></p>
+                <p class="texto_tabla_bambu"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>, es hora de evaluar tu trazo en la arena!! 📝</b> <br></p>
 
             </div>
             <div class="col-12 indicaciones">
                 <p>
-                    Aquí puedes ver los trazos que hiciste de la <b>"Letra b."</b> <br>
+                    Aquí puedes ver los trazos que hiciste en <b>"Trazos en la Arena".
+                    </b> <br>
                     Observa con atención cada trazo y elige la opción que mejor describe tu trabajo.
                 </p>
             </div>
+
             <?php foreach ($galeriasb_lista as $key => $galeria) : ?>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div id="card1" class="card me-5">
@@ -40,23 +42,26 @@
                             <div id="cara2" class="cara cara2">
                                 <div class="content texto-verde">
                                     <h5 class="text-center"><b>¡Super asombroso! 🎉</b></h5>
-                                    <p>¡Increíble! Tu trazo es muy preciso. <br>
-                                        La curva y la línea vertical están en el lugar perfecto. <br>
-                                        Sigue así, ¡lo estás haciendo genial! <img src="<?php echo base_url('almacenamiento/img/letra-b/dino-verde-evaluacion.png'); ?>" alt="" width="12%"></p>
+                                    <p>¡Wow! Sentiste el trazo con mucha seguridad. <br>
+                                        Tu dedo explorador recorrió muy bien la curva y la línea. <br>
+                                        ¡Estoy muy orgulloso de ti!🦖👏 <img src="<?php echo base_url('almacenamiento/img/letra-b/dino-verde-evaluacion.png'); ?>" alt="" width="12%"></p>
                                 </div>
                             </div>
                         <?php elseif ($galeria->evaluacion == 'regular') : ?>
                             <div id="cara2" class="cara cara2">
                                 <div class="content texto-amarillo">
                                     <h5 class="text-center mt-3"><b>¡Casi lo logras! 🌟</b></h5>
-                                    <p>¡Buen intento! El trazo está muy bien, solo falta un pequeño ajuste en la curva o línea. Con un poco más de práctica, ¡será perfecto! Sigue practicando, ¡estás muy cerca! <img src="<?php echo base_url('almacenamiento/img/letra-q/dino-amarillo-evaluacion.png'); ?>" alt="" width="12%"></p>
+                                    <p>Buen trabajo! Ya estás reconociendo la forma de la letra. Solo necesitas un poco más de práctica con tu dedo mágico.
+                                        ¡Sigue así, lo estás haciendo genial! 🦖✨ <img src="<?php echo base_url('almacenamiento/img/letra-q/dino-amarillo-evaluacion.png'); ?>" alt="" width="12%"></p>
                                 </div>
                             </div>
                         <?php elseif ($galeria->evaluacion == 'malo') : ?>
                             <div id="cara2" class="cara cara2">
                                 <div class="content texto-naranja">
                                     <h5 class="text-center mt-3"><b>¡A seguir practicando! 💪</b></h5>
-                                    <p>No pasa nada, lo importante es que sigas intentándolo. El trazo necesita más precisión, pero cada vez que lo intentas, mejoras. ¡No te rindas, lo estás haciendo cada vez mejor! <img src="<?php echo base_url('almacenamiento/img/letra-d/dino-naranja-evaluacion.png'); ?>" alt="" width="12%"></p>
+                                    <p>¡No te preocupes, explorador! A veces necesitamos más intentos.
+                                        Cada trazo con tu dedo te ayuda a conocer mejor la letra.
+                                        ¡Yo sé que puedes lograrlo!” 🦖💚 <img src="<?php echo base_url('almacenamiento/img/letra-d/dino-naranja-evaluacion.png'); ?>" alt="" width="12%"></p>
                                 </div>
                             </div>
                         <?php endif; ?>

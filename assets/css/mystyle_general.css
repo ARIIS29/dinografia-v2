@@ -163,7 +163,8 @@ h2 {
     /* Bordes redondeados */
     color: white;
     /* Texto blanco */
-    font-family: 'Century Gothic', sans-serif;
+    font-family: 'Century Gothic', sans-serif !important;
+
     /* Fuente amigable */
     font-size: 16px;
     padding: 10px 20px;
@@ -507,16 +508,22 @@ h2 {
     background-color: #0D6EFD;
     color: white !important;
     animation: pulsoLapiz 1.5s infinite;
+    font-family: 'Century Gothic', sans-serif !important;
+
 }
 
 #lapiz.btn-lapiz-inactive:hover {
     background-color: #0B5ED7;
+    font-family: 'Century Gothic', sans-serif !important;
+
 }
 
 #lapiz.btn-lapiz-active {
     background-color: #0D6EFD;
     color: white !important;
     animation: none;
+    font-family: 'Century Gothic', sans-serif !important;
+
 }
 
 .cursor-lapiz {
@@ -526,42 +533,51 @@ h2 {
 .btn-limpiar-desact {
     background-color: rgb(248, 62, 62);
     color: white !important;
+    font-family: 'Century Gothic', sans-serif !important;
+    
 }
 
 #limpiar.btn-limpiar-inactive {
     background-color: rgb(243, 88, 88);
     color: white !important;
+    font-family: 'Century Gothic', sans-serif !important;
 
 }
 
 #limpiar.btn-limpiar-inactive:hover {
     background-color: rgb(248, 62, 62);
     color: white !important;
+    font-family: 'Century Gothic', sans-serif !important;
 }
 
 .btn-guardar-desact {
     background-color: orange;
     color: white !important;
+    font-family: 'Century Gothic', sans-serif !important;
 }
 
 #guardar.btn-guardar-inactive {
     background-color: orange;
     color: white !important;
+    font-family: 'Century Gothic', sans-serif !important;
     /* animation: glow 1.5s infinite; */
 }
 
 #guardar.btn-guardar-inactive:hover {
     background-color: rgb(240, 160, 12);
+    font-family: 'Century Gothic', sans-serif !important;
 
 }
 
 #toggleLetraB.btn-toggle-active {
     background-color: rgb(117, 237, 36);
     color: white;
+    font-family: 'Century Gothic', sans-serif !important;
 }
 
 #toggleLetraB.btn-toggle-active:hover {
     background-color: rgb(98, 217, 19);
+    font-family: 'Century Gothic', sans-serif !important;
 }
 
 
@@ -633,6 +649,7 @@ video {
     opacity: 0.8;
     /* Opcional: haz que el selector de archivo sea semitransparente */
 }
+
 /* Estilos generales para los botones */
 button {
     font-size: 18px;
@@ -756,6 +773,5 @@ button i {
     font-weight: bold;
     text-align: center;
     font-size: 1.2rem;
-    background-color: rgb(249,125,0);
+    background-color: rgb(249, 125, 0);
 }
-
