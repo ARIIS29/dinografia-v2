@@ -492,7 +492,7 @@
             const mensaje = document.createElement('div');
             console.log("entra mensaje de intentos");
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
+            mensaje.innerHTML = `<b>¡Tu misión ha terminado, <?php echo $this->session->userdata('usuario'); ?>! 🦖</b> <br> 
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 

@@ -41,11 +41,11 @@
                 <thead>
                     <tr>
                         <th class="">#</th>
-                        <th class="">Nombre</th>
-                        <th class="">Imagen</th>
-                        <th class="">Fecha</th>
-                        <th class="">Estrellas</th>
-                        <th class="">Evaluacion</th>
+                        <th class="">ACTIVIDAD</th>
+                        <th class="">TRAZO</th>
+                        <th class="">FECHA</th>
+                        <th class="">ESTRELLAS</th>
+                        <th class="">INFORME DE AVENTURA</th>
                     </tr>
                 </thead>
             </table>

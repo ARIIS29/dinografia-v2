@@ -61,24 +61,27 @@ class Bosque_bambu extends CI_Controller
 
 
 			if ($value->evaluacion == 'bueno') {
-				$evaluacion = '¡Super asombroso! 🎉 <br>
+				$evaluacion = '<b>Traza la letra</b> 📝<br>
+				                ¡Super asombroso! 🎉 <br>
 								¡Increíble! Tu trazo es muy preciso.<br>
 								La curva y la línea vertical están en el lugar perfecto. <br>
 								Sigue así, ¡lo estás haciendo genial!';
 			} else if ($value->evaluacion == 'regular') {
-				$evaluacion = '¡Casi lo logras! 🌟 <br>
+				$evaluacion = '<b>Traza la letra</b> 📝<br>
+								¡Casi lo logras! 🌟 <br>
 								¡Buen intento! El trazo está muy bien.<br>
 								Solo falta un pequeño ajuste en la curva o línea. <br>
 								Con un poco más de práctica, ¡será perfecto! <br>
 								Sigue practicando, ¡estás muy cerca!';
 			} else if ($value->evaluacion == 'malo') {
-				$evaluacion = '¡A seguir practicando! 💪 <br>
+				$evaluacion = '<b>Traza la letra</b> 📝<br>
+				¡A seguir practicando! 💪 <br>
 				 No pasa nada, lo importante es que sigas intentándolo. <br>
 				 El trazo necesita más precisión, pero cada vez que lo intentas, mejoras. <br>
 				 ¡No te rindas, lo estás haciendo cada vez mejor! ';
 			}
-         
-			$trazob = '<img src="'.base_url('').$value->url_imagen.'" alt="Img-Dino-Indicaciones" class="img-fluid">';
+
+			$trazob = '<img src="' . base_url('') . $value->url_imagen . '" alt="Img-Dino-Indicaciones" class="img-fluid">';
 
 			$data[] = array(
 				'id' => $key + 1,
@@ -163,7 +166,7 @@ class Bosque_bambu extends CI_Controller
 		if ($this->input->post('imagen')) {
 			$imagenData = $this->input->post('imagen');
 			$estrellas = $this->input->post('puntaje');
-			
+
 			// Validar formato de imagen
 			if (preg_match('/^data:image\/(png|jpeg|jpg);base64,/', $imagenData)) {
 				$imagen_decodificada = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagenData));

@@ -1,4 +1,3 @@
-
 .maze-container {
     display: grid;
     margin: 20px auto;
@@ -31,48 +30,49 @@
 }
 
 /* estilos galeria b */
-.bg-bueno{
+.bg-bueno {
     background-color: rgb(75, 229, 75) !important;
-    color: #0A2363!important;
+    color: #0A2363 !important;
 }
 
-.bg-regular{
+.bg-regular {
     background-color: rgb(255, 255, 0) !important;
-    color: #0A2363!important;;
+    color: #0A2363 !important;
+    ;
 }
 
-.bg-malo{
-    background-color: rgb(252,75,8) !important;
-    color: white!important;
+.bg-malo {
+    background-color: rgb(252, 75, 8) !important;
+    color: white !important;
 }
 
-.bg-{
+.bg- {
     background-color: rgb(255, 255, 255) !important;
 }
 
 /* estilos card  */
-.container{
+.container {
     width: 1000px;
     position: relative;
     display: flex;
     justify-content: space-between;
 }
 
-.container .card{
+.container .card {
     background-color: rgba(252, 248, 248, 0);
     border: rgba(255, 0, 0, 0);
     position: relative;
     cursor: pointer;
 }
 
-.container .card .cara{
+.container .card .cara {
     width: 300px;
     height: 200px;
     transition: 0.5s;
     background-color: white;
 }
 
-.container .card .cara.cara1{
+.container .card .cara.cara1 {
     position: relative;
     background: #333;
     display: flex;
@@ -82,22 +82,22 @@
     transform: translateY(100px);
 }
 
-.container .card:hover .cara.cara1{
+.container .card:hover .cara.cara1 {
     background: #ff0057;
     transform: translateY(0);
 }
 
-.container .card .cara.cara1 .content{
+.container .card .cara.cara1 .content {
     transition: 0.5s;
 }
 
-.container .card:hover .cara.cara1 .content{
+.container .card:hover .cara.cara1 .content {
     opacity: 1;
 }
 
 
 
-.container .card .cara.cara1 .content h3{
+.container .card .cara.cara1 .content h3 {
     margin: 10px 0 0;
     padding: 0;
     color: #fff;
@@ -105,7 +105,7 @@
     font-size: 1.5em;
 }
 
-.container .card .cara.cara2{
+.container .card .cara.cara2 {
     position: relative;
     background: #fff;
     display: flex;
@@ -117,61 +117,115 @@
     transform: translateY(-100px);
 }
 
-.container .card:hover .cara.cara2{
+.container .card:hover .cara.cara2 {
     transform: translateY(0);
 }
 
-.container .card .cara.cara2 .content p{
+.container .card .cara.cara2 .content p {
     margin: 0;
     padding: 0;
 }
 
-.container .card .cara.cara2 .content a{
+.container .card .cara.cara2 .content a {
     margin: 15px 0 0;
-    display:  inline-block;
+    display: inline-block;
     text-decoration: none;
     font-weight: 900;
     padding: 5px;
 }
 
-.bueno a:hover{
+.bueno a:hover {
+    font-family: 'Century Gothic', sans-serif;
     background: rgb(75, 229, 75) !important;
-    color: white!important;
+    color: white !important;
 }
 
-.regular a:hover{
+.regular a:hover {
+    font-family: 'Century Gothic', sans-serif;
     background: yellow !important;
-    color: #0A2363!important;
-}
-.malo a:hover{
-    background: rgb(252,75,8) !important;
-    color: white!important;
+    color: #0A2363 !important;
 }
 
-.card{
-  border: 1px solid rgb(255, 255, 255);
+.malo a:hover {
+    font-family: 'Century Gothic', sans-serif;
+    background: rgb(252, 75, 8) !important;
+    color: white !important;
 }
-.texto-azul{
-    text-align: justify;
-    color: #0A2363!important;
+
+.card {
+    border: 1px solid rgb(255, 255, 255);
 }
-.texto-verde{
-    text-align: justify;
-    color: green!important;
-}
-.texto-amarillo{
-    text-align: justify;
-    color: rgb(232, 157, 29)!important;
-}
-.texto-naranja{
-    text-align: justify;
-    color: rgb(252,75,8) !important;
-}
-.indicaciones {
-    font-family: sans-serif;
-    font-size: 1.5rem;
+
+.texto {
+    font-family: 'Century Gothic', sans-serif !important;
     font-weight: bold;
+}
+
+.texto-azul {
+    font-family: 'Century Gothic', sans-serif;
+    text-align: justify;
     color: #0A2363 !important;
+}
+
+.texto-verde {
+    font-family: 'Century Gothic', sans-serif;
+    text-align: justify;
+    color: green !important;
+}
+
+.texto-amarillo {
+    font-family: 'Century Gothic', sans-serif;
+    text-align: justify;
+    color: rgb(232, 157, 29) !important;
+}
+
+.texto-naranja {
+    font-family: 'Century Gothic', sans-serif;
+    text-align: justify;
+    color: rgb(252, 75, 8) !important;
+}
+
+.indicaciones {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.2rem;
+    color: #214524 !important;
     text-align: center;
     /* Color de texto azul por defecto */
+}
+
+.tarjetas-evaluacion {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Espacio entre tarjetas */
+    justify-content: center;
+}
+
+.tarjeta {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    font-size: 15px;
+}
+
+.tarjeta:hover {
+    transform: scale(1.03);
+}
+
+.super {
+    border-left: 6px solid #4CAF50;
+    /* Verde */
+}
+
+.casi {
+    border-left: 6px solid #FFC107;
+    /* Amarillo */
+}
+
+.practica {
+    border-left: 6px solid #F44336;
+    /* Rojo */
 }

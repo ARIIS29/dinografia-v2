@@ -605,7 +605,7 @@
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `<b>¡Tu misión ha terminado, <?php echo $this->session->userdata('usuario'); ?>! 🦖 </b> <br> 
+            mensaje.innerHTML = `<b>¡Tu misión ha terminado! 🦖</b> <br> 
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
@@ -730,7 +730,7 @@
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `<b>¡Misión completada, <?php echo $this->session->userdata('usuario'); ?>!</b> 🎉🦖 <br> 
+            mensaje.innerHTML = `<b>¡Misión completada!</b> 🎉🦖 <br> 
             ¡Felicidades <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
             En esta misión descubristes <b>todas los mensajes secretos</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>

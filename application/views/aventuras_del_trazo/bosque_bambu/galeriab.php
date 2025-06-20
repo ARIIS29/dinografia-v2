@@ -6,26 +6,30 @@
                 <!-- Imagen -->
                 <img src="<?php echo base_url('almacenamiento/img/dinografia/dino-galeria-b.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="5%">
                 <!-- Texto -->
-                <p class="texto_tabla_bambu"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>!</b></p>
+                <p class="texto_tabla_bambu"> <b>¡Hora de evaluar tu trazo, <?php echo $this->session->userdata('usuario') ?>! 📝</b> <br>
+                    Aquí puedes ver los trazos que hiciste de la letra b. <br>
+                    Observa con atención cada trazo y elige la opción que mejor describe tu trabajo.</p>
+
             </div>
+
             <?php foreach ($galeriasb_lista as $key => $galeria) : ?>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div id="card1" class="card me-5">
                         <div id="cara1" class="cara cara1 d-block">
                             <div class="content bg-<?php echo $galeria->evaluacion; ?>">
                                 <img src="<?php echo '../' . $galeria->url_imagen; ?>" width="200%" class="img-fluid">
-                                <h6 class="card-title ms-1">Trazo <?php echo $key + 1 ?></h6>
-                                <h6 class="card-text ms-1">Fecha: <?php echo $galeria->fecha_registro ?></h6>
+                                <h6 class="card-title texto ms-1">Trazo <?php echo $key + 1 ?></h6>
+                                <h6 class="card-text texto ms-1">Fecha: <?php echo $galeria->fecha_registro ?></h6>
                             </div>
                         </div>
                         <?php if ($galeria->evaluacion == null) : ?>
                             <div id="cara2" class="cara cara2">
                                 <div class="content">
-                                    <h5 class="text-center texto-azul mt-2"><b>Precisión del trazo</b></h5>
+                                    <h5 class="text-center indicaciones mt-4"><b>Evalúa tu trazo 📝:</b></h5>
                                     <ul>
-                                        <li class="bueno"><a class="texto-verde" title="El trazo es muy preciso. La curva y la línea vertical están en el lugar perfecto." href="<?php echo base_url('galeria/guardar_bueno/' . $galeria->identificador); ?>" id="bueno">¡Super asombroso! 🎉</a></li>
-                                        <li class="regular"> <a class="texto-amarillo" title="El trazo está muy bien, solo falta un pequeño ajuste en la curva o línea." href="<?php echo base_url('galeria/guardar_regular/' . $galeria->identificador); ?>" id="regular">¡Casi logrado! 🌟</a></li>
-                                        <li class="malo"><a class="texto-naranja" title="El trazo necesita más precisión en la curva o línea." href="<?php echo base_url('galeria/guardar_malo/' . $galeria->identificador); ?>" id="malo">¡A seguir practicando! 💪</a></li>
+                                        <li class="bueno"><a class="texto-verde" title="El trazo es muy preciso. La curva y la línea vertical están en el lugar perfecto." href="<?php echo base_url('galeria/guardar_bueno/' . $galeria->identificador); ?>" id="bueno">🎉 ¡Super asombroso!</a></li>
+                                        <li class="regular"> <a class="texto-amarillo" title="El trazo está muy bien, solo falta un pequeño ajuste en la curva o línea." href="<?php echo base_url('galeria/guardar_regular/' . $galeria->identificador); ?>" id="regular">🌟 ¡Casi logrado!</a></li>
+                                        <li class="malo"><a class="texto-naranja" title="El trazo necesita más precisión en la curva o línea." href="<?php echo base_url('galeria/guardar_malo/' . $galeria->identificador); ?>" id="malo">💪 ¡A seguir practicando!</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -34,8 +38,8 @@
                                 <div class="content texto-verde">
                                     <h5 class="text-center"><b>¡Super asombroso! 🎉</b></h5>
                                     <p>¡Increíble! Tu trazo es muy preciso. <br>
-                                     La curva y la línea vertical están en el lugar perfecto. <br>
-                                     Sigue así, ¡lo estás haciendo genial! <img src="<?php echo base_url('almacenamiento/img/letra-b/dino-verde-evaluacion.png'); ?>" alt="" width="12%"></p>
+                                        La curva y la línea vertical están en el lugar perfecto. <br>
+                                        Sigue así, ¡lo estás haciendo genial! <img src="<?php echo base_url('almacenamiento/img/letra-b/dino-verde-evaluacion.png'); ?>" alt="" width="12%"></p>
                                 </div>
                             </div>
                         <?php elseif ($galeria->evaluacion == 'regular') : ?>
