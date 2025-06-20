@@ -308,6 +308,13 @@
                 const formData = new FormData();
                 formData.append('imagen', imagenBase64);
                 formData.append('puntaje', estrellas);
+                document.getElementById("lapiz").disabled = true;
+                document.getElementById("limpiar").disabled = true;
+                document.getElementById("guardar").disabled = true;
+
+                estrellaSalta();
+                mostrarEstrellasCentrales();
+
 
                 fetch(baseUrl + 'letras/bosque_bambu/guardarImagen', {
                         method: 'POST',
@@ -333,20 +340,76 @@
             };
         });
 
+        function estrellaSalta() {
+            const estrella = document.querySelector('img[src*="estrella.png"]');
+
+            // Reiniciar animación si ya tiene la clase
+            estrella.classList.remove('saltarE');
+            void estrella.offsetWidth; // Forzar reflow para reiniciar la animación
+            estrella.classList.add('saltarE');
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+        function mostrarEstrellasCentrales(cantidad = 20) {
+            for (let i = 0; i < cantidad; i++) {
+                const estrella = document.createElement('div');
+                estrella.classList.add('estrella-central');
+
+                // Posición aleatoria
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                estrella.style.top = `${top}%`;
+                estrella.style.left = `${left}%`;
+
+                // Tamaño aleatorio
+                const tamaño = Math.floor(Math.random() * 60) + 30; // Entre 30 y 90 px
+                estrella.style.width = `${tamaño}px`;
+                estrella.style.height = `${tamaño}px`;
+
+                // Ángulo de rotación aleatorio
+                const rotacion = Math.floor(Math.random() * 360);
+                estrella.style.setProperty('--rotacion', `${rotacion}deg`);
+
+                // Dirección de desplazamiento al desaparecer
+                const offsetX = Math.random() * 100 - 50; // entre -50 y +50
+                const offsetY = Math.random() * 100 - 50;
+                estrella.style.setProperty('--desplazarX', `${offsetX}px`);
+                estrella.style.setProperty('--desplazarY', `${offsetY}px`);
+
+                document.body.appendChild(estrella);
+
+                // Quitar del DOM después de la animación
+                setTimeout(() => {
+                    estrella.remove();
+                }, 1600);
+            }
+
+            // Reproducir audio (opcional)
+            audioEstrellas.play().catch(error => {
+                console.log("Error al reproducir el audio:", error);
+            });
+        }
+
+
         function mostrarMensajeExito() {
             // Crear el mensaje de éxito
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
-            mensaje.innerHTML = `¡Increíble trabajo, explorador!<br>
+            mensaje.innerHTML = `¡Increíble trabajo,  <?php echo $this->session->userdata('usuario'); ?>!🎉<br>
             Tu trazo se ha guardado con éxito en la galería B.<br>
-            ¡Sigue explorando! <br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas 🌟`;
+            ¡Sigue explorando! 🦖<br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas 🌟`;
             mensaje.style.color = '#214524';
+            mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#ffffff';
+            mensaje.style.backgroundColor = '#E0F3B8';
             mensaje.style.border = '5px solid #00984f';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
@@ -373,6 +436,9 @@
                 trazoRealizado = false; // Restablecer trazo
                 botonGuardar.style.display = "none"; // Ocultar el botón de guardar
                 mensaje.remove(); // Eliminar el mensaje
+                document.getElementById("lapiz").disabled = false;
+                document.getElementById("limpiar").disabled = false;
+                document.getElementById("guardar").disabled = false;
             });
 
             // Acción al hacer clic en "No, ir al menú principal"
