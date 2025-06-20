@@ -331,3 +331,60 @@ body {
     margin-left: 0;
     width: 20%;
 }
+
+.galeria-letrab {
+    background-color: #97D3E6;
+    color: #1B4965;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Verde */
+}
+
+.galeria-letrab:hover {
+    background-color: #5bbedc;
+    color: #1B4965;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Verde más oscuro al pasar el ratón */
+}
+
+.galeria-trazos-arena {
+    background-color: #D7B468;
+    color: #8A500A;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Verde */
+}
+
+.galeria-trazos-arena:hover {
+    background-color: #dfb457;
+    color: #8A500A;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Verde más oscuro al pasar el ratón */
+}
+
+.galeria-grafismo {
+    background-color: #F8D568;
+    color: #48721E;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Verde */
+}
+
+.galeria-grafismo:hover {
+    background-color: rgb(229, 185, 90);
+    color: #48721E;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+
+
+    /* Verde más oscuro al pasar el ratón */
+}

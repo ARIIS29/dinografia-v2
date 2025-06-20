@@ -81,7 +81,7 @@ class Bosque_bambu extends CI_Controller
 			$trazob = '<img src="'.base_url('').$value->url_imagen.'" alt="Img-Dino-Indicaciones" class="img-fluid">';
 
 			$data[] = array(
-				'id' => $value->id,
+				'id' => $key + 1,
 				'nombre' => $value->nombre,
 				'imagen' => $trazob,
 				'fecha' => $value->fecha_registro,
