@@ -28,7 +28,7 @@
                 <a href="<?php echo base_url('letras/bosque_bambu/grafismo_b') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-grafismo.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button" width="65%">
                 </a>
-                <a href="<?php echo site_url('letras/bosque_bambu/descubriendo_palabras_b') ?>" class="btn galeria-grafismo me-2"> <i class="fas fa-image"></i> Ver Galería</a>
+                <a href="<?php echo site_url('galeria/galeriag') ?>" class="btn galeria-grafismo me-2"> <i class="fas fa-image"></i> Ver Galería</a>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-4 col-6 btn-transicion text-center mt-3">
                 <a href="<?php echo base_url('letras/bosque_bambu/mi_avance_trazando_aventuras_b') ?>">

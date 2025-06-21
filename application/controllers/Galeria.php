@@ -57,10 +57,10 @@ class Galeria extends CI_Controller
 	public function galeriag()
 	{
 		$galeriasg_lista = $this->galeria_model->obtener_imagen_usuario($this->session->userdata('identificador'), 'g')->result();
-		$data['galeriasg_lista'] = $galeriasg_lista;
+		$data['galeriasb_lista'] = $galeriasg_lista;
 
-		$this->load->view('layout/header_galeriag');
-		$this->load->view('galeriag/index', $data);
+		$this->load->view('layout/header_letras/header_letraB/header_galeria_g');
+		$this->load->view('aventuras_del_trazo/bosque_bambu/galeria_g.php', $data);
 		$this->load->view('layout/footer');
 	}
 	public function galeriat()

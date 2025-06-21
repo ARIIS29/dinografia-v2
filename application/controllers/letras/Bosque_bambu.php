@@ -289,6 +289,8 @@ class Bosque_bambu extends CI_Controller
 
 	public function guardarImagenGrafismoB()
 	{
+		$estrellas = $this->input->post('puntaje');
+
 		if ($this->input->post('imagen')) {
 			$imagenData = $this->input->post('imagen');
 
@@ -322,6 +324,7 @@ class Bosque_bambu extends CI_Controller
 					'galeria_letra' => 'g',
 					'url_imagen' => $ruta_completa,
 					'tipo' => 'leccion',
+					'estrellas' => $estrellas,
 					'fecha_registro' => date("Y-m-d H:i:s")
 				);
 
