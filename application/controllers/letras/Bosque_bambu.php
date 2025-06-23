@@ -49,40 +49,77 @@ class Bosque_bambu extends CI_Controller
 		$prgreso_list = $this->galeria_model->obtener_imagenes_usuario($this->session->userdata('identificador'));
 
 		$data = [];
-		$evaluaciuon = '';
 
 		foreach ($prgreso_list->result() as $key => $value) {
+			$evaluacion = '';
 
-			$opciones = '
-                    <a href="' . site_url("clientes/editar/") . $value->identificador . '">Editar</a>    
-                    |
-                    <a href="#" onclick="suspender(' . $value->identificador . ');return false;">Eliminar</a>
-                ';
-
-
-			if ($value->evaluacion == 'bueno') {
-				$evaluacion = '<b>Traza la letra</b> 📝<br>
-				                ¡Super asombroso! 🎉 <br>
-								¡Increíble! Tu trazo es muy preciso.<br>
-								La curva y la línea vertical están en el lugar perfecto. <br>
-								Sigue así, ¡lo estás haciendo genial!';
-			} else if ($value->evaluacion == 'regular') {
-				$evaluacion = '<b>Traza la letra</b> 📝<br>
-								¡Casi lo logras! 🌟 <br>
-								¡Buen intento! El trazo está muy bien.<br>
-								Solo falta un pequeño ajuste en la curva o línea. <br>
-								Con un poco más de práctica, ¡será perfecto! <br>
-								Sigue practicando, ¡estás muy cerca!';
-			} else if ($value->evaluacion == 'malo') {
-				$evaluacion = '<b>Traza la letra</b> 📝<br>
-				¡A seguir practicando! 💪 <br>
-				 No pasa nada, lo importante es que sigas intentándolo. <br>
-				 El trazo necesita más precisión, pero cada vez que lo intentas, mejoras. <br>
-				 ¡No te rindas, lo estás haciendo cada vez mejor! ';
+			// Actividad: letra
+			if ($value->galeria_letra == 'b') {
+				if ($value->evaluacion == 'bueno') {
+					$evaluacion = '<b>Traza la letra</b> 📝<br>
+                    ¡Super asombroso! 🎉<br>
+                    ¡Increíble! Tu trazo es muy preciso.<br>
+                    La curva y la línea vertical están en el lugar perfecto.<br>
+                    Sigue así, ¡lo estás haciendo genial!';
+				} elseif ($value->evaluacion == 'regular') {
+					$evaluacion = '<b>Traza la letra</b> 📝<br>
+                    ¡Casi lo logras! 🌟<br>
+                    ¡Buen intento! El trazo está muy bien.<br>
+                    Solo falta un pequeño ajuste en la curva o línea.<br>
+                    Con un poco más de práctica, ¡será perfecto!';
+				} elseif ($value->evaluacion == 'malo') {
+					$evaluacion = '<b>Traza la letra</b> 📝<br>
+                    ¡A seguir practicando! 💪<br>
+                    El trazo necesita más precisión.<br>
+                    ¡No te rindas, cada intento te hace mejorar!';
+				}
 			}
 
-			$trazob = '<img src="' . base_url('') . $value->url_imagen . '" alt="Img-Dino-Indicaciones" class="img-fluid">';
+			// Actividad: trazos_arena
+			elseif ($value->galeria_letra  == 't') {
+				if ($value->evaluacion == 'bueno') {
+					$evaluacion = '<b>Trazos en la arena</b> 🏖️<br>
+                    ¡Super asombroso! 🎉<br>
+                    Usaste tu dedo con mucha precisión.<br>
+                    El trazo fue fluido y claro.<br>
+                    ¡Excelente explorador de arena!';
+				} elseif ($value->evaluacion == 'regular') {
+					$evaluacion = '<b>Trazos en la arena</b> 🏖️<br>
+                    ¡Casi logrado! 🌟<br>
+                    Buen intento. Solo falta un poco más de control.<br>
+                    ¡Sigue practicando con tu dedo!';
+				} elseif ($value->evaluacion == 'malo') {
+					$evaluacion = '<b>Trazos en la arena</b> 🏖️<br>
+                    ¡A seguir practicando! 💪<br>
+                    El trazo necesita más forma y dirección.<br>
+                    ¡Sigue intentando, vas muy bien!';
+				}
+			}
 
+			// Actividad: grafismo
+			elseif ($value->galeria_letra == 'g') {
+				if ($value->evaluacion == 'bueno') {
+					$evaluacion = '<b>Grafismo</b> ✏️<br>
+                    ¡Super asombroso! 🎉<br>
+                    Tus líneas fueron firmes y controladas.<br>
+                    ¡Gran dominio del lápiz!';
+				} elseif ($value->evaluacion == 'regular') {
+					$evaluacion = '<b>Grafismo</b> ✏️<br>
+                    ¡Casi logrado! 🌟<br>
+                    Buen trabajo. Puedes mejorar un poco la dirección o la presión.<br>
+                    ¡Sigue así!';
+				} elseif ($value->evaluacion == 'malo') {
+					$evaluacion = '<b>Grafismo</b> ✏️<br>
+                    ¡A seguir practicando! 💪<br>
+                    Necesitas un poco más de control y firmeza en tu trazo.<br>
+                    ¡Tú puedes, sigue practicando!';
+				}
+			}
+
+			// Imagen del trazo
+			$trazob = '<img src="' . base_url('') . $value->url_imagen . '" alt="Img-Dino" class="img-fluid">';
+
+			// Construcción del arreglo para DataTables
 			$data[] = array(
 				'id' => $key + 1,
 				'nombre' => $value->nombre,
@@ -90,7 +127,7 @@ class Bosque_bambu extends CI_Controller
 				'fecha' => $value->fecha_registro,
 				'estrellas' => $value->estrellas,
 				'evaluacion' => $evaluacion,
-				// 'opciones' => $opciones,
+				// 'opciones' => $opciones, // Descomentarlo si lo necesitas
 			);
 		}
 
@@ -101,9 +138,12 @@ class Bosque_bambu extends CI_Controller
 			"data" => $data
 		);
 
-		echo json_encode($result);
+		// Para evitar errores JSON con tildes y emojis
+		header('Content-Type: application/json');
+		echo json_encode($result, JSON_UNESCAPED_UNICODE);
 		exit();
 	}
+
 	public function obtener_tabla_evaluacion_ejercicios_por_usuario()
 	{
 		$draw = $this->input->post('draw');
@@ -190,6 +230,7 @@ class Bosque_bambu extends CI_Controller
 				$fecha_registro = date("Y-m-d H:i:s");
 				$key_1 = "usuarios-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
 				$identificador_1 = hash("crc32b", $key_1);
+
 				$data = array(
 					'identificador' => $identificador_1,
 					'identificador_usuario' => $identificador_usuario,
@@ -199,6 +240,7 @@ class Bosque_bambu extends CI_Controller
 					'tipo' => 'leccion',
 					'estrellas' => $estrellas,
 					'fecha_registro' => date("Y-m-d H:i:s")
+
 				);
 
 				$this->galeria_model->insertar_galeria($data);
@@ -256,7 +298,7 @@ class Bosque_bambu extends CI_Controller
 				$data = array(
 					'identificador' => $identificador_1,
 					'identificador_usuario' => $identificador_usuario,
-					'nombre' => 'Trazoz en la Arena - b',
+					'nombre' => 'Trazos en la Arena - b',
 					'galeria_letra' => 't',
 					'url_imagen' => $ruta_completa,
 					'tipo' => 'leccion',
