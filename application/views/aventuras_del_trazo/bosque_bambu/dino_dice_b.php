@@ -17,8 +17,8 @@
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_dino_dice.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
-                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.)8; justify-content:center; align-items:center; z-index:1000;">
-                        <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
+                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(221, 247, 216, 0.8); justify-content:center; align-items:center; z-index:1000;">
+                        <div style="position:relative; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
                                 <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_dino_dice_b.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
