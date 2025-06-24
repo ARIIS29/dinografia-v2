@@ -1,34 +1,26 @@
-<!-- Sección que contiene el contenido principal -->
+<!-- Modal con video tutorial -->
 <div class="modal fade" id="modalInstrucciones" tabindex="-1" aria-labelledby="modalInstruccionesLabel" aria-hidden="true">
-    <div class="modal-dialog  texto-modal">
+    <div class="modal-dialog modal-md modal-dialog-centered texto_indicaciones_modal ">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel">
-                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3" width="8%"><b>¡Hola Explorador!</b>
-                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audio_trazos_arena.mp3') ?>" preload="auto"></audio>
+                <h5 class="modal-title" id="modalInstruccionesLabel">
+                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
+                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
 
+                    <b>¡Hola Explorador!</b>
                 </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <div class="modal-body texto-modal-bambu">
-                <p>
-                    En esta misión trazaremos en la arena la letra ‘b’. Usa tu dedo o lápiz digital para formar la letra ‘b’ a tu manera. <br>Experimenta, crea y diviértete realizando todos los trazos que quieras.
-                <ul>
-                    <li>Para borrar todo y realizar un nuevo trazo, da clic en el botón
-                        <button class="btn-limpiar-desact" title="Limpiar toda la pizarra" disabled>
-                            <i class="fas fa-trash-alt"></i> Limpiar Arena
-                        </button>
-                    </li>
-                    <li>Para guardar tus trazos en la Galería de Trazos en la Arena, da clic en el botón
-                        <button class="btn-guardar-desact" title="Guardar mi trazo" disabled>
-                            <i class="fas fa-camera"></i> Guardar Trazo.
-                        </button> Si no lo haces, tus trazos no se guardarán.
-
-                    </li>
-                </ul>
-                ¡Haz tantos trazos como quieras! Guarda los que más te gusten. <br>
-                ¡Vamos a trazar y aprender! ¡Lo harás genial!
+            <div class="modal-body">
+                <p class="mb-3">
+                    En esta aventura sensorial, aprenderemos a sentir y trazar la letra "b" con tu dedo. Mira este video para descubrir cómo trazar en la arena y empezar tu exploración.
                 </p>
-
+                <div class="ratio ratio-16x9">
+                    <video id="tutorialVideo" controls>
+                        <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_trazos_arena.mp4'); ?>" type="video/mp4">
+                        Tu navegador no soporta el video.
+                    </video>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -79,6 +71,8 @@
     // Función que se ejecuta cuando el contenido del DOM se ha cargado
     document.addEventListener("DOMContentLoaded", () => {
 
+        const modalEl = document.getElementById('modalInstrucciones');
+        const video = document.getElementById('tutorialVideo');
         const dinoModal = document.getElementById('dinoModal');
         const dinoModalAudio = document.getElementById('dinoModalAudio');
         const modal = new bootstrap.Modal(document.getElementById('modalInstrucciones'));
@@ -95,51 +89,58 @@
         // Mostrar el modal al cargar la página
         modal.show();
 
-        // Iniciar animación y audio cuando el modal se abre
-        document.getElementById('modalInstrucciones').addEventListener('shown.bs.modal', function() {
-            dinoModal.classList.add('dino-hablando');
-            dinoModalAudio.play().catch(error => console.log("Error al reproducir el audio:", error));
-        });
-
-        // Detener animación cuando termine el audio
-        dinoModalAudio.addEventListener('ended', function() {
-            dinoModal.classList.remove('dino-hablando');
-        });
-
-        // Manejo del clic en Dino dentro del modal para repetir el audio
-        dinoModal.addEventListener('click', function() {
-            if (dinoModalAudio.paused) {
+        modalEl.addEventListener('shown.bs.modal', function() {
+            if (dinoModalAudio) {
+                dinoModalAudio.play().catch(error => {
+                    console.log("Error al reproducir el audio automáticamente:", error);
+                });
+            }
+            if (dinoModal) {
                 dinoModal.classList.add('dino-hablando');
-                dinoModalAudio.play().catch(error => console.log("Error al reproducir el audio:", error));
-            } else {
-                dinoModal.classList.remove('dino-hablando');
+            }
+        });
+
+        modalEl.addEventListener('hidden.bs.modal', function() {
+            // Detener video
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+
+            // Detener audio del modal
+            if (dinoModalAudio) {
                 dinoModalAudio.pause();
                 dinoModalAudio.currentTime = 0;
             }
-        });
 
-        // Detener el audio y la animación cuando se cierra el modal, y luego reproducir dinoIndicacionesAudio
-        document.getElementById('modalInstrucciones').addEventListener('hidden.bs.modal', function() {
-            dinoModalAudio.pause();
-            dinoModalAudio.currentTime = 0;
-            dinoModal.classList.remove('dino-hablando');
-
-            // Reproducir dinoIndicacionesAudio después de cerrar el modal
-            setTimeout(() => {
-                dinoIndicacionesAudio.play().catch(error => console.log("Error al reproducir el audio:", error));
-            }, 500); // Pequeña demora para asegurar carga del audio
-        });
-
-        // Manejo del clic en dinoIndicaciones para repetir el audio
-        dinoIndicaciones.addEventListener('click', function() {
-            if (dinoIndicacionesAudio.paused) {
-                dinoIndicacionesAudio.play().catch(error => console.log("Error al reproducir el audio:", error));
-            } else {
-                dinoIndicacionesAudio.pause();
-                dinoIndicacionesAudio.currentTime = 0;
+            if (dinoModal) {
+                dinoModal.classList.remove('dino-hablando');
             }
+
+            // Retrasar la reproducción de dinoIndicacionesAudio para evitar bloqueo
+            setTimeout(() => {
+                if (dinoIndicacionesAudio) {
+                    dinoIndicacionesAudio.play().catch(error => {
+                        console.log("⚠️ No se pudo reproducir dinoIndicacionesAudio automáticamente:", error);
+                    });
+                }
+            }, 500); // 500 ms de espera antes de reproducir
         });
 
+
+        // Manejo del clic en el dino dentro del modal
+        if (dinoModal && dinoModalAudio) {
+            dinoModal.addEventListener('click', function() {
+                if (dinoModalAudio.paused) {
+                    dinoModal.classList.add('dino-hablando');
+                    dinoModalAudio.play().catch(error => console.log("Error al reproducir el audio:", error));
+                } else {
+                    dinoModal.classList.remove('dino-hablando');
+                    dinoModalAudio.pause();
+                    dinoModalAudio.currentTime = 0;
+                }
+            });
+        }
 
         // Ocultar la imagen por defecto
         imgLetraB.style.display = 'none';
