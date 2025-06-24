@@ -15,6 +15,22 @@
                     </b> <br>
                     Observa con atención cada trazo y elige la opción que mejor describe tu trabajo.
                 </p>
+                <a id="abrirTutorial" class="btn galeria-trazos-arena me-2"><i class="fas fa-clipboard-check"></i> Guía para evaluar mi trazo</a>
+                </p>
+                <div class="row">
+                    <div class="col-4">
+                        <p>🟢¡Super asombroso! 🎉</p>
+                    </div>
+                    <div class="col-4">
+                        <p>🟡¡Casi logrado! 🌟</p>
+
+                    </div>
+                    <div class="col-4">
+                        🟠¡A seguir practicando! 💪
+
+                    </div>
+
+                </div>
             </div>
 
             <?php foreach ($galeriasb_lista as $key => $galeria) : ?>

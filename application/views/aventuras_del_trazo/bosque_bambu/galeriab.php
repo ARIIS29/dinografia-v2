@@ -2,10 +2,10 @@
 <section class="d-flex justify-content-center align-items-center mt-3">
     <div class="container">
         <div class="row d-flex justify-content-evenly">
-            <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
+            <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(221, 247, 216, 0.8); justify-content:center; align-items:center; z-index:1000;">
                 <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                     <video id="tutorialVideo" width="100%" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_mensajes_secretos.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_galeriab.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                     <button id="cerrarTutorial" type="button" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Cerrar</button>
@@ -25,6 +25,20 @@
                     Observa con atención cada trazo y elige la opción que mejor describe tu trabajo.
                     <a id="abrirTutorial" class="btn  galeria-letrab me-2"><i class="fas fa-clipboard-check"></i> Guía para evaluar mi trazo</a>
                 </p>
+                <div class="row">
+                    <div class="col-4">
+                        <p>🟢¡Super asombroso! 🎉</p>
+                    </div>
+                    <div class="col-4">
+                        <p>🟡¡Casi logrado! 🌟</p>
+
+                    </div>
+                    <div class="col-4">
+                        🟠¡A seguir practicando! 💪
+
+                    </div>
+
+                </div>
             </div>
             <?php foreach ($galeriasb_lista as $key => $galeria) : ?>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -82,15 +96,25 @@
 
 <script>
     document.getElementById('abrirTutorial').addEventListener('click', function(e) {
-        e.preventDefault(); // Evita el salto de página
-        document.getElementById('tutorialModal').style.display = 'flex';
+        e.preventDefault(); // Evita redireccionamiento
+        const modal = document.getElementById('tutorialModal');
+        const video = document.getElementById('tutorialVideo');
+
+        modal.style.display = 'flex';
+
+        // Reproduce el video automáticamente
+        video.currentTime = 0; // Reinicia por si ya se había visto antes
+        video.play().catch(error => {
+            console.warn('El navegador bloqueó la reproducción automática:', error);
+        });
     });
 
     document.getElementById('cerrarTutorial').addEventListener('click', function() {
-        var modal = document.getElementById('tutorialModal');
-        var video = document.getElementById('tutorialVideo');
+        const modal = document.getElementById('tutorialModal');
+        const video = document.getElementById('tutorialVideo');
+
         modal.style.display = 'none';
-        video.pause(); // Detiene el video al cerrar
+        video.pause();
     });
 
     document.getElementById('evaluar').addEventListener('click', function() {
