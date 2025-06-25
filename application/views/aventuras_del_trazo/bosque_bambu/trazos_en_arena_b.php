@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 d-flex align-items-center">
-                <img id="letraBImg" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letrab-img.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="display: none;" width="80%">
+                <img id="letraBImg" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letra.gif') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="display: none;" width="80%">
             </div>
         </div>
 
