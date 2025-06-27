@@ -19,7 +19,7 @@
             </div>
             <!-- Botón 2 -->
             <div class="col-lg-3 col-md-3 col-6 btn-transicion d-none d-sm-block">
-                <a href="<?php echo base_url('letras/desierto//explora_y_descubre_b') ?>">
+                <a href="<?php echo base_url('letras/desierto//explora_y_descubre_d') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn_explora_descubre.png') ?>" alt="Botón explora y descubre d" class="img-fluid animated-button2">
                 </a>
             </div>
@@ -58,9 +58,9 @@
     }
 
     window.addEventListener('DOMContentLoaded', function() {
-        if (!sessionStorage.getItem('audioDinoReproducido_bosqueBambu')) {
+        if (!sessionStorage.getItem('audioDinoReproducido_desierto')) {
             iniciarDino();
-            sessionStorage.setItem('audioDinoReproducido_bosqueBambu', 'true');
+            sessionStorage.setItem('audioDinoReproducido_desierto', 'true');
         }
     });
 

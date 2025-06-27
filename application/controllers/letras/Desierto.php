@@ -400,10 +400,10 @@ class Desierto extends CI_Controller
 	//Inicio de las funciones de los ejercicios 
 
 
-	public function explora_y_descubre_b()
+	public function explora_y_descubre_d()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_explora_y_descubre_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/explora_y_descubre_b.php');
+		$this->load->view('layout/header_letras/header_letraD/header_explora_y_descubre_d');
+		$this->load->view('aventuras_del_trazo/desierto/explora_y_descubre_d.php');
 		$this->load->view('layout/footer');
 	}
 

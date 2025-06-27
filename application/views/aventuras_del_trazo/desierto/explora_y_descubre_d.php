@@ -1,52 +1,52 @@
 <section class="d-flex justify-content-center align-items-center mt-10" id="menuPrincipal">
     <div class="container">
         <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
-            <h1 class="titulo-h1-bambu-movil">EXPLORA Y DESCUBRE</h1>
+            <h1 class="titulo-h1-desierto-movil">EXPLORA Y DESCUBRE</h1>
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <!-- Imagen -->
-            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3 d-none d-sm-block" id="dino" width="6%">
+            <img src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3 d-none d-sm-block" id="dino" width="6%">
             <!-- Texto -->
-            <p class="texto_indicaciones_bambu mb-0"> ¡Haz clic en uno de los botones y completemos misiones juntos!</p>
+            <p class="texto_indicaciones_desierto mb-0"> ¡Haz clic en uno de los botones y completemos misiones juntos!</p>
             <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_menu_explora_descubre.mp3') ?>" preload="auto"></audio>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
-                <a href="<?php echo base_url('letras/bosque_bambu/descubriendo_palabras_b') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/descubriendo_palabras-btn.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                <a href="<?php echo base_url('letras/desierto/descubriendo_palabras_d') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn_descubriendo_palabras.png') ?>" alt="Botón descubriendo palabras d" class=" img-fluid animated-button">
                 </a>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
-                <a href="<?php echo base_url('letras/bosque_bambu/descubriendo_mensajes_secretos_b') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/mensajes_secretos_btn.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                <a href="<?php echo base_url('letras/bosque_desierto/descubriendo_mensajes_secretos_d') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn_mensajes_secretos.png') ?>" alt="Botón mensajes_secretos_d" class=" img-fluid animated-button">
                 </a>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
-                <a href="<?php echo base_url('letras/bosque_bambu/explorador_hojas_b') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/explorando_hojas_btn.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                <a href="<?php echo base_url('letras/desierto/explorador_hojas_d') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn_explorador_hojas.png') ?>" alt="Botón explorador_hojas_d" class=" img-fluid animated-button">
                 </a>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
-                <a href="<?php echo base_url('letras/bosque_bambu/elementos_perdidos_b') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/encontrando_objetos_btn.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                <a href="<?php echo base_url('letras/desierto/elementos_perdidos_d') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn_elementos_perdidos.png') ?>" alt="Botón elementos_perdidos_d" class=" img-fluid animated-button">
                 </a>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
-                <a href="<?php echo base_url('letras/bosque_bambu/dino_dice_b') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino_dice_btn.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                <a href="<?php echo base_url('letras/desierto/dino_dice_d') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn_hazle_caso_dino.png') ?>" alt="Botón hazle_caso_dino" class=" img-fluid animated-button">
                 </a>
             </div>
 
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
-                <a href="<?php echo base_url('letras/bosque_bambu/memorama_b') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/encuentra_descubre_btn.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button">
+                <a href="<?php echo base_url('letras/desierto/memorama_d') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn_encuentra_descubre.png') ?>" alt="Botón encuentra_descubre_d" class=" img-fluid animated-button">
                 </a>
             </div>
 
         </div>
         <div class="col-lg-12 col-md-12 col-sm-4 col-6 btn-transicion text-center mt-5">
-            <a href="<?php echo base_url('letras/bosque_bambu/mi_avance_b') ?>">
-                <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-avance-ejerciciosb.png') ?>" alt="Botón bosque de bambú" class=" img-fluid animated-button" width="20%">
+            <a href="<?php echo base_url('letras/desierto/mi_avance_d') ?>">
+                <img src="<?php echo base_url('almacenamiento/img/desierto/btn_mi_avance_misiones.png') ?>" alt="Botón mi_avance_misiones" class=" img-fluid animated-button" width="20%">
             </a>
         </div>
     </div>
