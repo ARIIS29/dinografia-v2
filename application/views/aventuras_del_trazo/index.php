@@ -19,7 +19,7 @@
             </div>
             <!-- Botón 2 -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4">
-                <a href="<?php echo base_url('ejercicios/ejercicios_letra_d/index') ?>">
+                <a href="<?php echo base_url('letras/desierto/index') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/botones//btn-desierto.png') ?>" alt="Botón el desierto" class="img-fluid enlargable" width="100%">
                 </a>
             </div>

@@ -29,8 +29,8 @@ class Galeria extends CI_Controller
 		$galeriasd_lista = $this->galeria_model->obtener_imagen_usuario($this->session->userdata('identificador'), 'd')->result();
 		$data['galeriasd_lista'] = $galeriasd_lista;
 
-		$this->load->view('layout/header_galeriad');
-		$this->load->view('galeriad/index', $data);
+		$this->load->view('layout/header_letras/header_letraD/header_galeriad');
+		$this->load->view('aventuras_del_trazo/desierto/galeriad.php', $data);
 		$this->load->view('layout/footer');
 	}
 
@@ -69,6 +69,24 @@ class Galeria extends CI_Controller
 		$data['galeriasb_lista'] = $galeriasb_lista;
 		$this->load->view('layout/header_letras/header_letraB/header_galeria-t');
 		$this->load->view('aventuras_del_trazo/bosque_bambu/galeria-t.php', $data);
+		$this->load->view('layout/footer');
+	}
+
+	public function galeriagd()
+	{
+		$galeriasg_lista = $this->galeria_model->obtener_imagen_usuario($this->session->userdata('identificador'), 'gd')->result();
+		$data['galeriasd_lista'] = $galeriasg_lista;
+
+		$this->load->view('layout/header_letras/header_letraB/header_galeria_g');
+		$this->load->view('aventuras_del_trazo/desierto/galeria_gd.php', $data);
+		$this->load->view('layout/footer');
+	}
+	public function galeriatd()
+	{
+		$galeriasb_lista = $this->galeria_model->obtener_imagen_usuario($this->session->userdata('identificador'), 't')->result();
+		$data['galeriasd_lista'] = $galeriasb_lista;
+		$this->load->view('layout/header_letras/header_letraD/header_galeria-td');
+		$this->load->view('aventuras_del_trazo/desierto/galeria-td.php', $data);
 		$this->load->view('layout/footer');
 	}
 
