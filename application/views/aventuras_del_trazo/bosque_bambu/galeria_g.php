@@ -2,6 +2,17 @@
 <section class="d-flex justify-content-center align-items-center mt-3">
     <div class="container">
         <div class="row d-flex justify-content-evenly">
+
+            <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(221, 247, 216, 0.8); justify-content:center; align-items:center; z-index:1000;">
+                <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
+                    <video id="tutorialVideo" width="100%" controls>
+                        <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_galeria_arena.mp4'); ?>" type="video/mp4">
+                        Tu navegador no soporta el video.
+                    </video>
+                    <button id="cerrarTutorial" type="button" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Cerrar</button>
+                </div>
+            </div>
+
             <div class="col-lg-12 col-md-12 d-flex align-items-center mt-10">
                 <!-- Imagen -->
                 <img src="<?php echo base_url('almacenamiento/img/dinografia/dino-galeria-b.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="5%">
@@ -15,7 +26,7 @@
                     </b> <br>
                     ¡Observa bien lo que dibujaste y dime cómo te sentiste al hacerlo!
                 </p>
-                     <a id="abrirTutorial" class="btn galeria-grafismo me-2"><i class="fas fa-clipboard-check"></i> Guía para evaluar mi trazo</a>
+                <a id="abrirTutorial" class="btn galeria-grafismo me-2"><i class="fas fa-clipboard-check"></i> Guía para evaluar mi trazo</a>
                 </p>
                 <div class="row">
                     <div class="col-4">
@@ -92,6 +103,27 @@
 </section>
 
 <script>
+    document.getElementById('abrirTutorial').addEventListener('click', function(e) {
+        e.preventDefault(); // Evita redireccionamiento
+        const modal = document.getElementById('tutorialModal');
+        const video = document.getElementById('tutorialVideo');
+
+        modal.style.display = 'flex';
+
+        // Reproduce el video automáticamente
+        video.currentTime = 0; // Reinicia por si ya se había visto antes
+        video.play().catch(error => {
+            console.warn('El navegador bloqueó la reproducción automática:', error);
+        });
+    });
+
+    document.getElementById('cerrarTutorial').addEventListener('click', function() {
+        const modal = document.getElementById('tutorialModal');
+        const video = document.getElementById('tutorialVideo');
+
+        modal.style.display = 'none';
+        video.pause();
+    });
     document.getElementById('evaluar').addEventListener('click', function() {
         document.getElementById('cara1').classList.remove('d-block');
         document.getElementById('cara1').classList.add('d-none');
