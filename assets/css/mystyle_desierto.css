@@ -9,6 +9,7 @@ body {
     -webkit-background-size: cover;
     background-size: cover;
 }
+
 .navbar-color-d {
     background: rgb(230, 221, 221);
 
@@ -72,6 +73,7 @@ body {
     text-align: center;
     color: #704004 !important;
 }
+
 .texto_indicaciones_modal {
     font-family: 'Century Gothic', sans-serif;
     font-size: 15px;
@@ -84,6 +86,7 @@ body {
     font-size: 22px;
     color: #A1420F !important;
 }
+
 .texto-modal-bambu {
     font-family: 'Century Gothic', sans-serif;
     font-size: 18px;
@@ -98,7 +101,8 @@ body {
     /* Verde claro */
     border-radius: 20px;
     /* Bordes redondeados */
-    color: #E97132;;
+    color: #E97132;
+    ;
     /* Texto blanco */
     font-family: 'Century Gothic', sans-serif;
     /* Fuente amigable */
@@ -144,7 +148,7 @@ body {
     display: none;
 }
 
-.texto_instrucciones_desierto{
+.texto_instrucciones_desierto {
     font-family: 'Century Gothic', sans-serif;
     color: #933705 !important;
     font-size: 1.2rem;
@@ -408,7 +412,7 @@ body {
 }
 
 .casilla-letra {
-    background-color: rgb(240,204,178);
+    background-color: rgb(240, 204, 178);
     color: #704004;
     cursor: move;
 }
@@ -421,6 +425,30 @@ body {
     position: relative;
 }
 
-.color_barra_coche{
+.color_barra_coche {
     background-color: #ef7532;
+}
+
+/* elementos perdidos */
+.emoji {
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FD7B36;
+
+    border-color: #933705;
+    color: #0A2363;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.emoji:hover {
+    background-color: #cc4b06;
+
+    transform: scale(1.1);
 }

@@ -11,25 +11,7 @@
     /* align-items: center; */
 }
 
-.emoji {
-    font-size: 36px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(188, 226, 241);
-    color: #0A2363;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
 
-.emoji:hover {
-    background-color: skyblue;
-    transform: scale(1.1);
-}
 
 .emoji.correcto {
     background-color: #2ecc71;

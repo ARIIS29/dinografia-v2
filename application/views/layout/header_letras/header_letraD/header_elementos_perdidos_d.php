@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elementos perdidos - b</title>
+    <title>Elementos perdidos - d</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-css/bootstrap.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_bosque_bambu.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_desierto.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_general.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos_juegos/mystyle_elementos_perdidos_b.css') ?>">
     <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dinografia/dinografia-dino-lapiz.png') ?>" type="image/x-icon">
@@ -22,13 +22,13 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('letras/bosque_bambu/explora_y_descubre_b') ?>" class="btn boton-regresar-bambu float-start" id="btnRegresar"> <i class="fas fa-arrow-left"></i></a>
+                    <a href="<?php echo site_url('letras/desierto/explora_y_descubre_d') ?>" class="btn boton-regresar-desierto float-start" id="btnRegresar"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center d-none d-md-block">
-                    <h1 class="titulo-h1-bambu">ELEMENTOS PERDIDOS</h1>
+                    <h1 class="titulo-h1-desierto">ELEMENTOS PERDIDOS</h1>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center d-block d-md-none">
-                    <h1 class="titulo-h1-bambu-movil">ELEMENTOS PERDIDOS</h1>
+                    <h1 class="titulo-h1-desierto-movil">ELEMENTOS PERDIDOS</h1>
                 </div>
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
                     <a href="<?php echo site_url('login/cerrar_sesion') ?>" id="cerrarSesion" class="btn boton-cerrar-sesion float-end">Cerrar sesión</a>
@@ -39,26 +39,26 @@
 
     </section>
     <section id="header-juego" class="d-none">
-        <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top">
+        <nav class="navbar navbar-color-d navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('letras/bosque_bambu/elementos_perdidos_b') ?>" class="btn boton-regresar-bambu float-start" id="btnRegresar"> <i class="fas fa-arrow-left"></i></a>
+                    <a href="<?php echo site_url('letras/desierto/elementos_perdidos_d') ?>" class="btn boton-regresar-desierto float-start" id="btnRegresar"> <i class="fas fa-arrow-left"></i></a>
                 </div>
 
-                <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_bambu" id="objetivoEmoji">
-                    <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">
+                <div class="col-lg-6 col-md-6 justify-aling-center text-center texto_indicaciones_desierto" id="objetivoEmoji">
+                    <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="cursor: pointer;" width="8%">
                 </div>
-                <div class="col-lg-3 col-md-3 d-flex justify-items-center texto_indicaciones_bambu">
+                <div class="col-lg-3 col-md-3 d-flex justify-items-center texto_indicaciones_desierto">
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/reloj.png') ?>" alt="" class="img-fluid" width="40%">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/reloj.png') ?>" alt="" class="img-fluid" width="40%">
                         <span id="temporizador">00:00</span>
                     </div>
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/movimientos.png') ?>" alt="" class="img-fluid ms-4" width="40%">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/movimientos.png') ?>" alt="" class="img-fluid ms-4" width="40%">
                         <span id="intentos">3</span>
                     </div>
                     <div class="col-lg-4 col-md-4 d-flex align-items-center">
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-1" width="40%">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/estrella.png') ?>" alt="" class="img-fluid ms-1" width="40%">
                         <span id="contadorEstrellas">0</span>
                     </div>
 

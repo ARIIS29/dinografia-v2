@@ -775,10 +775,10 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function elementos_perdidos_b()
+	public function elementos_perdidos_d()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_elementos_perdidos_b');
-		$this->load->view('aventuras_del_trazo/desierto/elementos_perdidos_b');
+		$this->load->view('layout/header_letras/header_letraD/header_elementos_perdidos_d');
+		$this->load->view('aventuras_del_trazo/desierto/elementos_perdidos_d');
 		$this->load->view('layout/footer');
 	}
 	public function enviarEvaluacionElementosPerdidosB()
