@@ -1,0 +1,57 @@
+h1 {
+    font-size: 2rem;
+}
+
+.areaJuegoMemorama {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    /* margin-top: 30px; */
+}
+
+#contenedorJuego {
+    display: none;
+}
+
+.tarjeta {
+    width: 100px;
+    height: 100px;
+    background-color: #ef7532;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    /* Tamaño base */
+}
+
+.tarjeta.emoji {
+    font-size: 3rem;
+    /* Más grande para emojis */
+}
+
+.tarjeta.palabra {
+    font-size: 1.7rem;
+    color: #704004 !important;
+  
+
+}
+
+.tarjeta.volteada {
+    background-color: #ecf0f1;
+    color: black;
+}
+
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}

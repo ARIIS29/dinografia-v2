@@ -1013,10 +1013,10 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function memorama_b()
+	public function memorama_d()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_memorama_b');
-		$this->load->view('aventuras_del_trazo/desierto/memorama_b');
+		$this->load->view('layout/header_letras/header_letraD/header_memorama_d');
+		$this->load->view('aventuras_del_trazo/desierto/memorama_d');
 		$this->load->view('layout/footer');
 	}
 	public function enviarEvaluacionMemorama()
