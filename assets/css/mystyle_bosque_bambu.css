@@ -395,3 +395,34 @@ body {
     /* Verde más oscuro al pasar el ratón */
 }
 
+/* estilos descubriendo palabras y mensajes */
+.casilla-letra,
+.casilla-palabra {
+    font-family: 'Century Gothic', sans-serif !important;
+    margin-top: 2%;
+    font-size: 4rem;
+    padding: 20px;
+    width: 70px;
+    height: 70px;
+    background-color: #e3e8ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+}
+
+.casilla-letra {
+    background-color: rgb(189, 239, 182);
+    color: #214524;
+    cursor: move;
+}
+
+.casilla-palabra {
+    background-color: #00984F;
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid white;
+    position: relative;
+}
+

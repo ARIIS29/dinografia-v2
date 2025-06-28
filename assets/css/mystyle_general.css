@@ -534,7 +534,7 @@ h2 {
     background-color: rgb(248, 62, 62);
     color: white !important;
     font-family: 'Century Gothic', sans-serif !important;
-    
+
 }
 
 #limpiar.btn-limpiar-inactive {
@@ -674,9 +674,11 @@ button i {
     background-color: #28a745;
     color: white;
     font-family: 'Century Gothic', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+    border-width: 3px;
+    border-style: solid;
+    border-color: #14892f;
 
-
-    /* Verde */
 }
 
 .verificar:hover {
@@ -684,30 +686,39 @@ button i {
     color: white;
     font-weight: bold;
     font-family: 'Century Gothic', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+    border-width: 3px;
+    border-style: solid;
+    border-color: #14892f;
 
-
-    /* Verde más oscuro al pasar el ratón */
 }
 
 /* Fin de estilos para la seccion de grafismo b, d, p yq  */
 /* Botón "Saltar" */
 .saltar {
-    background-color: #ecb309;
+    background-color: #FFD700;
     color: rgb(248, 248, 248);
     font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+    border-width: 3px;
+    border-style: solid;
+    border-color: #bda312;
 
 
-    /* Amarillo */
 }
 
 .saltar:hover {
-    background-color: #c79705;
+    background-color: #e1c109;
     color: white;
     font-weight: bold;
     font-family: 'Century Gothic', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+    border-width: 3px;
+    border-style: solid;
+    border-color: #bda312;
 
 
-    /* Amarillo más oscuro al pasar el ratón */
 }
 
 /* Botón "Finalizar" */
@@ -715,9 +726,11 @@ button i {
     color: white;
     background-color: #dc3545;
     font-family: 'Century Gothic', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+    border-width: 3px;
+    border-style: solid;
+    border-color: #98121f;
 
-
-    /* Rojo */
 }
 
 .finalizar:hover {
@@ -725,9 +738,11 @@ button i {
     color: white;
     font-weight: bold;
     font-family: 'Century Gothic', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+    border-width: 3px;
+    border-style: solid;
+    border-color: #98121f;
 
-
-    /* Rojo más oscuro al pasar el ratón */
 }
 
 /* Botón "Reiniciar" */
@@ -735,9 +750,11 @@ button i {
     background-color: #007bff;
     color: white;
     font-family: 'Century Gothic', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+    border-color: #0150a5;
+    border-width: 3px;
+    border-style: solid;
 
-
-    /* Azul */
 }
 
 .reiniciar:hover {
@@ -745,10 +762,12 @@ button i {
     color: white;
     font-weight: bold;
     font-family: 'Century Gothic', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+    border-color: #0150a5;
+    border-width: 3px;
+    border-style: solid;
 
 
-
-    /* Azul más oscuro al pasar el ratón */
 }
 
 .color-fondo {

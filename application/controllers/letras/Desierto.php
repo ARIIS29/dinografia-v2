@@ -190,14 +190,14 @@ class Desierto extends CI_Controller
 	public function trazando_aventuras_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_trazando_aventuras_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/trazando_aventuras_b.php');
+		$this->load->view('aventuras_del_trazo/desierto/trazando_aventuras_b.php');
 		$this->load->view('layout/footer');
 	}
 
 	public function letrab()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_letrab');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/letrab.php');
+		$this->load->view('aventuras_del_trazo/desierto/letrab.php');
 		$this->load->view('layout/footer');
 	}
 
@@ -261,7 +261,7 @@ class Desierto extends CI_Controller
 	public function trazos_en_arena_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_trazos_en_arena_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/trazos_en_arena_b.php');
+		$this->load->view('aventuras_del_trazo/desierto/trazos_en_arena_b.php');
 		$this->load->view('layout/footer');
 	}
 
@@ -325,7 +325,7 @@ class Desierto extends CI_Controller
 	public function grafismo_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_grafismo_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/grafismo_b.php');
+		$this->load->view('aventuras_del_trazo/desierto/grafismo_b.php');
 		$this->load->view('layout/footer');
 	}
 
@@ -390,7 +390,7 @@ class Desierto extends CI_Controller
 	{
 
 		$this->load->view('layout/header_letras/header_letraB/header_mi_avance_trazando_aventuras_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/mi_avance_trazando_aventuras_b');
+		$this->load->view('aventuras_del_trazo/desierto/mi_avance_trazando_aventuras_b');
 		$this->load->view('layout/footer');
 	}
 
@@ -407,11 +407,11 @@ class Desierto extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
-	public function descubriendo_palabras_b()
+	public function descubriendo_palabras_d()
 	{
 
-		$this->load->view('layout/header_letras/header_letraB/header_descubriendo_palabras_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/descubriendo_palabras_b.php');
+		$this->load->view('layout/header_letras/header_letraD/header_descubriendo_palabras_d');
+		$this->load->view('aventuras_del_trazo/desierto/descubriendo_palabras_d.php');
 		$this->load->view('layout/footer');
 	}
 
@@ -541,7 +541,7 @@ class Desierto extends CI_Controller
 	public function descubriendo_mensajes_secretos_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_descubriendo_mensajes_secretos_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/descubriendo_mensajes_secretos_b');
+		$this->load->view('aventuras_del_trazo/desierto/descubriendo_mensajes_secretos_b');
 		$this->load->view('layout/footer');
 	}
 
@@ -674,7 +674,7 @@ class Desierto extends CI_Controller
 	{
 
 		$this->load->view('layout/header_letras/header_letraB/header_explorador_hojas_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/explorador_hojas_b');
+		$this->load->view('aventuras_del_trazo/desierto/explorador_hojas_b');
 		$this->load->view('layout/footer');
 	}
 
@@ -778,7 +778,7 @@ class Desierto extends CI_Controller
 	public function elementos_perdidos_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_elementos_perdidos_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/elementos_perdidos_b');
+		$this->load->view('aventuras_del_trazo/desierto/elementos_perdidos_b');
 		$this->load->view('layout/footer');
 	}
 	public function enviarEvaluacionElementosPerdidosB()
@@ -893,7 +893,7 @@ class Desierto extends CI_Controller
 	public function dino_dice_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_dino_dice_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/dino_dice_b');
+		$this->load->view('aventuras_del_trazo/desierto/dino_dice_b');
 		$this->load->view('layout/footer');
 	}
 	public function enviarEvaluacionDinoDiceB()
@@ -1016,7 +1016,7 @@ class Desierto extends CI_Controller
 	public function memorama_b()
 	{
 		$this->load->view('layout/header_letras/header_letraB/header_memorama_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/memorama_b');
+		$this->load->view('aventuras_del_trazo/desierto/memorama_b');
 		$this->load->view('layout/footer');
 	}
 	public function enviarEvaluacionMemorama()
@@ -1129,7 +1129,7 @@ class Desierto extends CI_Controller
 		$data['prgreso_list'] = $prgreso_list;
 
 		$this->load->view('layout/header_letras/header_letraB/header_mi_avance_b');
-		$this->load->view('aventuras_del_trazo/bosque_bambu/mi_avance_b', $data);
+		$this->load->view('aventuras_del_trazo/desierto/mi_avance_b', $data);
 		$this->load->view('layout/footer');
 	}
 }

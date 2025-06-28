@@ -9,10 +9,15 @@ body {
     -webkit-background-size: cover;
     background-size: cover;
 }
+.navbar-color-d {
+    background: rgb(230, 221, 221);
+
+
+}
 
 .mod-color {
     background: #f6fcf9;
-    color: #214524 !important;
+    color: #A1420F !important;
 
 
 }
@@ -28,13 +33,13 @@ body {
 }
 
 .modal-header {
-    background-color: #00984f !important;
+    background-color: #E97132 !important;
     color: white !important;
 
 }
 
 .modal-footer {
-    background-color: #00984f !important;
+    background-color: #E97132 !important;
 }
 
 .titulo-h1-desierto {
@@ -65,26 +70,26 @@ body {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    color: #A1420F !important;
+    color: #8A500A !important;
 }
 .texto_indicaciones_modal {
     font-family: 'Century Gothic', sans-serif;
     font-size: 15px;
     font-weight: bold;
-    color: #214524 !important;
+    color: #A1420F !important;
 }
 
 .texto_tabla_bambu {
     font-family: 'Century Gothic', sans-serif;
     font-size: 22px;
-    color: #214524 !important;
+    color: #A1420F !important;
 }
 .texto-modal-bambu {
     font-family: 'Century Gothic', sans-serif;
     font-size: 18px;
     text-align: justify;
     font-weight: 500;
-    color: #214524 !important;
+    color: #A1420F !important;
 }
 
 .boton-regresar-desierto {
@@ -129,6 +134,9 @@ body {
     pointer-events: none;
 }
 
+.color-fondo-d {
+    background-color: #cceeeee2;
+}
 
 
 /* Estilos juego */
@@ -136,15 +144,15 @@ body {
     display: none;
 }
 
-.texto_instrucciones_bambu {
+.texto_instrucciones_desierto{
     font-family: 'Century Gothic', sans-serif;
-    color: #214524 !important;
+    color: #933705 !important;
     font-size: 1.2rem;
     text-align: justify;
 }
 
 .titulo-h2 {
-    color: #214524 !important;
+    color: #A1420F !important;
     font-weight: bold;
     text-align: center;
 
@@ -195,7 +203,7 @@ body {
 
 .estrella-central {
     position: fixed;
-    background-color: #00984F;
+    background-color: #E97132;
     clip-path: polygon(50% 0%,
             61% 35%,
             98% 35%,
@@ -270,7 +278,7 @@ body {
     height: 150px;
     width: 75px;
     /* Asegúrate de tener un ancho definido */
-    background-color: #00984F;
+    background-color: #E97132;
     /* Verde */
     border: 2px solid white;
     /* Contorno blanco */
@@ -315,7 +323,7 @@ body {
     font-size: 2em;
     font-weight: bold;
     text-align: center;
-    color: #214524 !important;
+    color: #A1420F !important;
 }
 
 .img_dino_coche {
@@ -382,3 +390,37 @@ body {
     /* Verde más oscuro al pasar el ratón */
 }
 
+/* estilos descubriendo palabras y mensajes */
+.casilla-letra,
+.casilla-palabra {
+    font-family: 'Century Gothic', sans-serif !important;
+    margin-top: 2%;
+    font-size: 4rem;
+    padding: 20px;
+    width: 70px;
+    height: 70px;
+    background-color: #e3e8ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+}
+
+.casilla-letra {
+    background-color: rgb(240,204,178);
+    color: #8A500A;
+    cursor: move;
+}
+
+.casilla-palabra {
+    background-color: #ef7532;
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid white;
+    position: relative;
+}
+
+.color_barra_coche{
+    background-color: #ef7532;
+}

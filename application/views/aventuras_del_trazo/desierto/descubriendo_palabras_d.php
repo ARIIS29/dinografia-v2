@@ -1,22 +1,22 @@
 <section class="mt-10">
     <div class="container-fluid d-flex justify-content-center" style="position: relative;">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_bambu" id="areaJuego">
+            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo-d texto_instrucciones_desierto" id="areaJuego">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="d-flex align-items-center">
-                        <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
+                        <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
 
                         <p class="mb-0">¡Es hora de comenzar la aventura! <br></p>
                     </div>
                     <p>
-                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
-                       <b>Para jugar, tienes que arrastrar las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b>  <br>
+                        Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra '<b>d</b>'!<br>
+                       <b>Para jugar, tienes que arrastrar las letras a los cuadros naranjas para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b>  <br>
                     </p>
 
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
-                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(221, 247, 216, 0.8); justify-content:center; align-items:center; z-index:1000;">
+                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
                                 <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
@@ -29,11 +29,11 @@
                     </div>
 
                     <p>
-                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        ¡Diviértete aprendiendo mientras exploramos juntos el misterioso desierto! <br>
                         Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
-                            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-iniciar.png') ?>" alt="" class="img-fluid" width="20%">
+                            <img src="<?php echo base_url('almacenamiento/img/desierto/btn_iniciar.png') ?>" alt="Botón de inciar actividad" class="img-fluid" width="20%">
                         </a>
                     </div>
 
@@ -51,7 +51,7 @@
                         <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid img_dino_coche">
                     </div>
                     <div class="progress" style="height: 30px;">
-                        <div id="progress" class="progress-bar bg-success" style="width: 0;"></div>
+                        <div id="progress" class="progress-bar color_barra_coche" style="width: 0;"></div>
                     </div>
                     <!-- Imagen del coche -->
 
@@ -232,25 +232,25 @@
         }
 
         const palabras = [{
-                palabra: "bambú",
-                emoji: "<?php echo base_url('almacenamiento/img/bosque_bambu/bambu_img.png'); ?>"
+                palabra: "dinosaurio",
+                emoji: "<?php echo base_url('almacenamiento/img/desierto/dinosaurio.png'); ?>"
             },
             {
-                palabra: "bosque",
-                emoji: "<?php echo base_url('almacenamiento/img/bosque_bambu/bosque.png'); ?>"
+                palabra: "duraznos",
+                emoji: "<?php echo base_url('almacenamiento/img/desierto/duraznos.png'); ?>"
 
             },
             {
-                palabra: "botella",
-                emoji: "<?php echo base_url('almacenamiento/img/bosque_bambu/botella.png'); ?>"
+                palabra: "dados",
+                emoji: "<?php echo base_url('almacenamiento/img/desierto/dados.png'); ?>"
             },
             {
-                palabra: "brújula",
-                emoji: "<?php echo base_url('almacenamiento/img/bosque_bambu/brujula.png'); ?>"
+                palabra: "desierto",
+                emoji: "<?php echo base_url('almacenamiento/img/desierto/desierto-img.png'); ?>"
             },
             {
-                palabra: "binoculares",
-                emoji: "<?php echo base_url('almacenamiento/img/bosque_bambu/binoculares.png'); ?>"
+                palabra: "diario",
+                emoji: "<?php echo base_url('almacenamiento/img/desierto/diario.png'); ?>"
             },
         ];
         let palabrasRestantes = [...palabras];
