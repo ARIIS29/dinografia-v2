@@ -240,7 +240,7 @@
             },
             {
                 emoji: '🦖 ',
-                palabra: 'dino'
+                palabra: 'dinosaurio'
             },
             {
                 emoji: '🐿️',
@@ -255,8 +255,8 @@
                 palabra: 'cerdo'
             },
             {
-                emoji: '🐪',
-                palabra: 'dromedario'
+                emoji: '🐊',
+                palabra: 'cocodrilo'
             },
             {
                 emoji: '🐆',
