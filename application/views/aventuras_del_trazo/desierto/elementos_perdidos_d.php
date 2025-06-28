@@ -17,7 +17,7 @@
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_elementos_perdidos.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
-                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(221, 247, 216, 0.8); justify-content:center; align-items:center; z-index:1000;">
+                    <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
                                 <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/tutorial_elementos_perdidos_b.mp4'); ?>" type="video/mp4">

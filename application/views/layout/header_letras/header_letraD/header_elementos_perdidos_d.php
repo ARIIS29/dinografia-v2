@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-css/bootstrap.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_desierto.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_general.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos_juegos/mystyle_elementos_perdidos_b.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos_juegos/mystyle_elementos_perdidos_d.css') ?>">
     <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dinografia/dinografia-dino-lapiz.png') ?>" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

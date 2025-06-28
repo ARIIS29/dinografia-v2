@@ -429,26 +429,3 @@ body {
     background-color: #ef7532;
 }
 
-/* elementos perdidos */
-.emoji {
-    font-size: 36px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FD7B36;
-
-    border-color: #933705;
-    color: #0A2363;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.emoji:hover {
-    background-color: #cc4b06;
-
-    transform: scale(1.1);
-}

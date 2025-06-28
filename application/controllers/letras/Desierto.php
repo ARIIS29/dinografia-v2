@@ -890,10 +890,10 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function dino_dice_b()
+	public function dino_dice_d()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_dino_dice_b');
-		$this->load->view('aventuras_del_trazo/desierto/dino_dice_b');
+		$this->load->view('layout/header_letras/header_letraD/header_dino_dice_d');
+		$this->load->view('aventuras_del_trazo/desierto/dino_dice_d');
 		$this->load->view('layout/footer');
 	}
 	public function enviarEvaluacionDinoDiceB()

@@ -1,0 +1,102 @@
+#contenedorJuego {
+    display: none;
+}
+
+#instruccion {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: #214524 !important;
+
+}
+
+.contenedor-figuras {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.figura {
+    font-size: 4rem;
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    /* line-height: 60px; */
+    align-items: center;
+    justify-content: center;
+    /* margin: 10px; */
+    background-color: #FD7B36;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Efecto cuando el cursor pasa por encima de la figura */
+.figura:hover {
+    background-color: #cc4b06;
+
+    transform: scale(1.1);
+}
+
+/* Para selección correcta */
+.figura.correcto {
+    background-color: #2ecc71 !important;
+    /* Verde */
+    animation: correctFlash 0.5s;
+}
+
+/* Para selección incorrecta */
+.figura.incorrecto {
+    background-color: #e74c3c !important;
+    /* Rojo */
+    animation: incorrectFlash 0.5s;
+}
+
+/* Animación de destello para la selección correcta */
+@keyframes correctFlash {
+    0% {
+        background-color: #2ecc71;
+    }
+
+    50% {
+        background-color: #27ae60;
+    }
+
+    100% {
+        background-color: #2ecc71;
+    }
+}
+
+/* Animación de destello para la selección incorrecta */
+@keyframes incorrectFlash {
+    0% {
+        background-color: #e74c3c;
+    }
+
+    50% {
+        background-color: #c0392b;
+    }
+
+    100% {
+        background-color: #e74c3c;
+    }
+}
+
+/* Efecto de clic en la figura */
+.figura:active {
+    transform: scale(0.95);
+}
+
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.color-fondo {
+    background-color: #cceee288;
+}
