@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalInstruccionesLabel">
-                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
+                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
                     <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_letrab.mp3') ?>" preload="auto"></audio>
 
                     <b>¡Hola Explorador!</b>
@@ -13,11 +13,11 @@
             </div>
             <div class="modal-body">
                 <p class="mb-3">
-                    En esta aventura aprenderemos a trazar la letra "b". Mira este video para aprender cómo utilizar la pizarra.
+                    En esta aventura aprenderemos a trazar la letra "d". Mira este video para aprender cómo utilizar la pizarra.
                 </p>
                 <div class="ratio ratio-16x9">
                     <video id="tutorialVideo" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_letrab.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_letrab.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                 </div>
@@ -42,25 +42,25 @@
     </style>
     <div class="container">
         <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
-            <h1 class="titulo-h1-bambu-movil">LETRA - B</h1>
-            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-5" width="15%">
-            <span class="texto_indicaciones_bambu ms-2" id="estrellas">0</span>
+            <h1 class="titulo-h1-desierto-movil">LETRA - D</h1>
+            <img src="<?php echo base_url('almacenamiento/img/desierto/estrella.png') ?>" alt="" class="img-fluid ms-5" width="15%">
+            <span class="texto_indicaciones_desierto ms-2" id="estrellas">0</span>
 
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <!-- Imagen -->
-            <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
+            <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
             <!-- Texto -->
             <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
             <div class="d-none d-md-block">
-                <p class="texto_indicaciones_bambu mb-0">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "b" en la pizarra! </p>
+                <p class="texto_indicaciones_desierto mb-0">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "d" en la pizarra! </p>
             </div>
             <div class="d-block d-md-none">
-                <p class="texto_indicaciones_bambu mb-0 mt-5">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "b" en la pizarra! </p>
+                <p class="texto_indicaciones_desierto mb-0 mt-5">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "d" en la pizarra! </p>
             </div>
             <div class="col-1 d-none d-sm-block">
                 <a href="<?php echo base_url('galeria/galeriab') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriab.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn-galeriab.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
                 </a>
             </div>
 
@@ -70,13 +70,13 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <!-- Elemento de video con controles -->
                 <video id="video" controls>
-                    <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/letrab-escritura.mp4'); ?>" type="video/mp4">
+                    <source src="<?php echo base_url('almacenamiento/img/desierto/letrad-escritura.mp4'); ?>" type="video/mp4">
                 </video>
             </div>
             <!-- Columna para la imagen de fondo y el canvas -->
             <div class="col-lg-6 col-md-6 col-12" style="position: relative;">
                 <!-- Imagen de fondo -->
-                <img id="fondo-letra" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letra-b.png'); ?>" alt="Background Image" style="display: block;" class="img-fluid">
+                <img id="fondo-letra" src="<?php echo base_url('almacenamiento/img/desierto/letra-d.png'); ?>" alt="Background Image" style="display: block;" class="img-fluid">
                 <!-- Canvas para dibujar -->
                 <canvas id="canvas"></canvas>
                 <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
@@ -86,7 +86,7 @@
                     <i class="fas fa-palette"></i>
                 </button>
                 <!-- Input de color oculto -->
-                <input type="color" id="color" value="#007300" style="display: none;" title="Cambiar color del lápiz">
+                <input type="color" id="color" value="#A1420F" style="display: none;" title="Cambiar color del lápiz">
                 <!-- Botón para usar el lápiz -->
                 <button id="lapiz" type="button" class="btn btn-lapiz-inactive" title="Usar lapiz para dibujar"><i class="fas fa-pencil-alt"></i> Usar Lápiz</button>
                 <!-- Botón para limpiar el canvas -->
@@ -308,7 +308,7 @@
                 mostrarEstrellasCentrales();
 
 
-                fetch(baseUrl + 'letras/bosque_bambu/guardarImagen', {
+                fetch(baseUrl + 'letras/desierto/guardarImagen', {
                         method: 'POST',
                         body: formData // Enviando el FormData
                     })
@@ -392,17 +392,17 @@
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `¡Increíble trabajo,  <?php echo $this->session->userdata('usuario'); ?>!🎉<br>
-            Tu trazo se ha guardado con éxito en la galería B.<br>
+            Tu trazo se ha guardado con éxito en la galería D.<br>
             ¡Sigue explorando! 🦖<br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas 🌟`;
-            mensaje.style.color = '#214524';
+            mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#E0F3B8';
-            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.backgroundColor = '#F1CCB0';
+            mensaje.style.border = '5px solid #E97132';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
@@ -435,7 +435,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/desierto'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje

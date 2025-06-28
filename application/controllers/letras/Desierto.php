@@ -187,17 +187,17 @@ class Desierto extends CI_Controller
 
 	// incio de lecciones
 
-	public function trazando_aventuras_b()
+	public function trazando_aventuras_d()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_trazando_aventuras_b');
-		$this->load->view('aventuras_del_trazo/desierto/trazando_aventuras_b.php');
+		$this->load->view('layout/header_letras/header_letraD/header_trazando_aventuras_d');
+		$this->load->view('aventuras_del_trazo/desierto/trazando_aventuras_d.php');
 		$this->load->view('layout/footer');
 	}
 
-	public function letrab()
+	public function letrad()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_letrab');
-		$this->load->view('aventuras_del_trazo/desierto/letrab.php');
+		$this->load->view('layout/header_letras/header_letraD/header_letrad');
+		$this->load->view('aventuras_del_trazo/desierto/letrad.php');
 		$this->load->view('layout/footer');
 	}
 
@@ -258,10 +258,10 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function trazos_en_arena_b()
+	public function trazos_desierto()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_trazos_en_arena_b');
-		$this->load->view('aventuras_del_trazo/desierto/trazos_en_arena_b.php');
+		$this->load->view('layout/header_letras/header_letraD/header_trazos_desierto');
+		$this->load->view('aventuras_del_trazo/desierto/trazos_desierto.php');
 		$this->load->view('layout/footer');
 	}
 
@@ -322,10 +322,10 @@ class Desierto extends CI_Controller
 	}
 
 
-	public function grafismo_b()
+	public function grafismo_d()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_grafismo_b');
-		$this->load->view('aventuras_del_trazo/desierto/grafismo_b.php');
+		$this->load->view('layout/header_letras/header_letraD/header_grafismo_d');
+		$this->load->view('aventuras_del_trazo/desierto/grafismo_d.php');
 		$this->load->view('layout/footer');
 	}
 

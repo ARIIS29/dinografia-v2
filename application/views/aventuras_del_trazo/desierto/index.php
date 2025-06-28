@@ -13,7 +13,7 @@
         <div class="row justify-content-center text-center">
             <!-- Botón 1 -->
             <div class="col-lg-3 col-md-3 col-6 btn-transicion d-none d-sm-block">
-                <a href="<?php echo base_url('letras/desierto/trazando_aventuras_b') ?>">
+                <a href="<?php echo base_url('letras/desierto/trazando_aventuras_d') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn_trazando_aventuras.png') ?>" alt="Botón trazando aventuras d" class=" img-fluid animated-button">
                 </a>
             </div>
@@ -35,7 +35,7 @@
             </div>
             <!-- Botón 2 -->
             <div class="col-lg-3 col-md-3 col-sm-2 btn-transicion">
-                <a href="<?php echo base_url('letras/desierto//explora_y_descubre_b') ?>">
+                <a href="<?php echo base_url('letras/desierto/explora_y_descubre_d') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn_explora_descubre.png') ?>" alt="" class="img-fluid">
                 </a>
             </div>

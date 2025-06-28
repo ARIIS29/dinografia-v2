@@ -487,12 +487,14 @@ h2 {
 .btn-color-desact {
     background: conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8a2be2, #ff0000);
     color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 }
 
 #botonColor.btn-color-inactive {
     background: conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8a2be2, #ff0000);
     color: white !important;
     font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 }
 
 #botonColor.btn-color-inactive:hover {
@@ -502,6 +504,7 @@ h2 {
 .btn-lapiz-desact {
     background-color: #0D6EFD;
     color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 }
 
 #lapiz.btn-lapiz-inactive {
@@ -509,12 +512,15 @@ h2 {
     color: white !important;
     animation: pulsoLapiz 1.5s infinite;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 
 }
 
 #lapiz.btn-lapiz-inactive:hover {
     background-color: #0B5ED7;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
+
 
 }
 
@@ -523,6 +529,7 @@ h2 {
     color: white !important;
     animation: none;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 
 }
 
@@ -534,6 +541,7 @@ h2 {
     background-color: rgb(248, 62, 62);
     color: white !important;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 
 }
 
@@ -541,6 +549,7 @@ h2 {
     background-color: rgb(243, 88, 88);
     color: white !important;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 
 }
 
@@ -548,24 +557,28 @@ h2 {
     background-color: rgb(248, 62, 62);
     color: white !important;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 }
 
 .btn-guardar-desact {
     background-color: orange;
     color: white !important;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 }
 
 #guardar.btn-guardar-inactive {
     background-color: orange;
     color: white !important;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
     /* animation: glow 1.5s infinite; */
 }
 
 #guardar.btn-guardar-inactive:hover {
     background-color: rgb(240, 160, 12);
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 
 }
 
@@ -573,11 +586,13 @@ h2 {
     background-color: rgb(117, 237, 36);
     color: white;
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 }
 
 #toggleLetraB.btn-toggle-active:hover {
     background-color: rgb(98, 217, 19);
     font-family: 'Century Gothic', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.505);
 }
 
 
