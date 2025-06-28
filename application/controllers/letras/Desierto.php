@@ -538,10 +538,10 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function descubriendo_mensajes_secretos_b()
+	public function descubriendo_mensajes_secretos_d()
 	{
-		$this->load->view('layout/header_letras/header_letraB/header_descubriendo_mensajes_secretos_b');
-		$this->load->view('aventuras_del_trazo/desierto/descubriendo_mensajes_secretos_b');
+		$this->load->view('layout/header_letras/header_letraD/header_descubriendo_mensajes_secretos_d');
+		$this->load->view('aventuras_del_trazo/desierto/descubriendo_mensajes_secretos_d');
 		$this->load->view('layout/footer');
 	}
 

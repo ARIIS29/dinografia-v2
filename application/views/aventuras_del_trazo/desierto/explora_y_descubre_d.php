@@ -17,7 +17,7 @@
                 </a>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 btn-transicion">
-                <a href="<?php echo base_url('letras/bosque_desierto/descubriendo_mensajes_secretos_d') ?>">
+                <a href="<?php echo base_url('letras/desierto/descubriendo_mensajes_secretos_d') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn_mensajes_secretos.png') ?>" alt="Botón mensajes_secretos_d" class=" img-fluid animated-button">
                 </a>
             </div>

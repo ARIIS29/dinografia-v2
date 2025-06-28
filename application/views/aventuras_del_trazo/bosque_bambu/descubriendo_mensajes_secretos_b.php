@@ -10,7 +10,7 @@
                     </div>
                     <p>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a formar los mensajes secretos que se encuentran en el bosque de bambú! <br>
-                       <b>Para comenzar con la misión tienes que arrastrar las palabras a los cuadros verdes para formar el mensaje correcto, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b>  <br>
+                        <b>Para comenzar con la misión tienes que arrastrar las palabras a los cuadros verdes para formar el mensaje correcto, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b> <br>
 
                     </p>
 
@@ -485,6 +485,8 @@
 
                 // Verificar si se completaron todas las palabras
                 if (palabrasRestantes.length === 0) {
+                    clearInterval(timer);
+
                     // Crear el mensaje inicial
                     setTimeout(() => {
                         mostrarConfeti();
