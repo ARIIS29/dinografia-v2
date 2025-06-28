@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trazando en la Arena - b</title>
+    <title>Trazando en la Arena - d</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-css/bootstrap.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_bosque_bambu.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_desierto.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mystyle_general.css') ?>">
     <link rel="shortcut icon" href="<?php echo base_url('almacenamiento/img/dinografia/dinografia-dino-lapiz.png') ?>" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -19,14 +19,14 @@
             <div class="container-fluid">
 
                 <div class="col-lg-3 col-md-3 justify-aling-center tipografia">
-                    <a href="<?php echo site_url('letras/bosque_bambu/trazando_aventuras_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
+                    <a href="<?php echo site_url('letras/desierto/trazando_aventuras_d') ?>" class="btn boton-regresar-desierto float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center">
-                    <h1 class="titulo-h1-bambu">TRAZOS EN LA ARENA</h1>
+                    <h1 class="titulo-h1-desierto">TRAZOS EN EL DESIERTO</h1>
                 </div>
                 <div class="col-lg-3 col-md-3  justify-content-end">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-5" width="15%">
-                    <span class="texto_indicaciones_bambu ms-2" id="contadorEstrellas">0</span>
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/estrella.png') ?>" alt="" class="img-fluid ms-5" width="15%">
+                    <span class="texto_indicaciones_desierto ms-2" id="contadorEstrellas">0</span>
                 </div>
 
             </div>
@@ -35,7 +35,7 @@
         <nav class="navbar navbar-color navbar-expand-lg navbar-light fixed-top d-block d-sm-none">
             <div class="container-fluid">
 
-                <a href="<?php echo site_url('letras/bosque_bambu/trazando_aventuras_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
+                <a href="<?php echo site_url('letras/desierto/trazando_aventuras_b') ?>" class="btn boton-regresar-desierto float-start"> <i class="fas fa-arrow-left"></i></a>
                 <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

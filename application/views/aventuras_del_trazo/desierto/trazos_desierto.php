@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalInstruccionesLabel">
-                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
+                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
                     <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
 
                     <b>¡Hola Explorador!</b>
@@ -13,11 +13,11 @@
             </div>
             <div class="modal-body">
                 <p class="mb-3">
-                    En esta aventura sensorial, aprenderemos a sentir y trazar la letra "b" con tu dedo. Mira este video para descubrir cómo trazar en la arena y empezar tu exploración.
+                    En esta aventura sensorial, aprenderemos a sentir y trazar la letra "d" con tu dedo. Mira este video para descubrir cómo trazar en la arena y empezar tu exploración.
                 </p>
                 <div class="ratio ratio-16x9">
                     <video id="tutorialVideo" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_trazos_arena.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_trazos_arena.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                 </div>
@@ -32,15 +32,15 @@
 <section class="d-flex justify-content-center align-items-center mt-8">
     <div class="container text-center">
         <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
-            <h1 class="titulo-h1-bambu-movil">TRAZOS EN LA ARENA</h1>
+            <h1 class="titulo-h1-desierto-movil">TRAZOS EN EL DESIERTO</h1>
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
-            <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
+            <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
             <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
-            <p class="texto_indicaciones_bambu mb-0">Usa tu dedo para trazar la letra "b" en la arena. ¡Diviértete practicando!</p>
+            <p class="texto_indicaciones_desierto mb-0">Usa tu dedo para trazar la letra "d" en la arena del desierto. ¡Diviértete practicando!</p>
             <div class="col-1 d-none d-sm-block">
                 <a href="<?php echo base_url('galeria/galeriat') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriat.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn-galeriat.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
                 </a>
             </div>
         </div>
@@ -49,7 +49,7 @@
             <div class="col-lg-8 col-md-8 col-12 text-center">
                 <button id="limpiar" class="btn btn-limpiar-inactive" title="Limpiar toda la arena"><i class="fas fa-trash-alt"></i> Limpiar Arena</button>
                 <button id="guardar" class="btn btn-guardar-inactive" title="Guardar mi trazo"><i class="fas fa-camera"></i> Guardar Trazo</button>
-                <button id="toggleLetraB" class="btn btn-toggle-active" title="Mostrar/ocultar Letra B"><i class="fas fa-image"></i> Mostrar/ocultar Letra B</button>
+                <button id="toggleLetraB" class="btn btn-toggle-active" title="Mostrar/ocultar Letra D"><i class="fas fa-image"></i> Mostrar/ocultar Letra D</button>
                 <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
                 <div class="col-12 d-none d-sm-block">
                     <canvas id="lienzo" width="700" height="350"></canvas>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 d-flex align-items-center">
-                <img id="letraBImg" src="<?php echo base_url('almacenamiento/img/bosque_bambu/letra.gif') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="display: none;" width="80%">
+                <img id="letraBImg" src="<?php echo base_url('almacenamiento/img/desierto/letra.gif') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" style="display: none;" width="80%">
             </div>
         </div>
 
@@ -255,7 +255,7 @@
             mostrarEstrellasCentrales();
 
             // Enviar la imagen al servidor usando AJAX
-            fetch(baseUrl + 'letras/bosque_bambu/guardarImagenTrazosArena', {
+            fetch(baseUrl + 'letras/desierto/guardarImagenTrazosArena', {
                     method: 'POST',
                     body: formData // Enviando el FormData
                 })
@@ -333,15 +333,15 @@
             mensaje.innerHTML = `¡Increíble trabajo, <?php echo $this->session->userdata('usuario'); ?>!🎉<br>
             Tu trazo se ha guardado con éxito en la <br> Galería Trazos en la Arena.<br>
             ¡Sigue explorando! 🦖<br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas 🌟`;
-            mensaje.style.color = '#214524';
+            mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#E0F3B8';
-            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.border = '5px solid #E97132';
+            mensaje.style.padding = '10px';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
@@ -374,7 +374,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/desierto'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje
