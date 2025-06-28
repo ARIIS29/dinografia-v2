@@ -10,7 +10,7 @@
                     </div>
                     <p>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra b!<br>
-                       <b>Para jugar, tienes que arrastrar las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b>  <br>
+                        <b>Para jugar, tienes que arrastrar las letras a los cuadros verdes para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b> <br>
                     </p>
 
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
@@ -508,7 +508,8 @@
 
                 // Verificar si se completaron todas las palabras
                 if (palabrasRestantes.length === 0) {
-                    // Crear el mensaje inicial
+                    clearInterval(timer); // Detener el cronómetro anterior
+
                     setTimeout(() => {
                         mostrarConfeti();
 

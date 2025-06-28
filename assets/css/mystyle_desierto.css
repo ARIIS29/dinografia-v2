@@ -70,7 +70,7 @@ body {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    color: #8A500A !important;
+    color: #704004 !important;
 }
 .texto_indicaciones_modal {
     font-family: 'Century Gothic', sans-serif;
@@ -354,7 +354,7 @@ body {
 
 .galeria-trazos-arena {
     background-color: #D7B468;
-    color: #8A500A;
+    color: #704004;
     font-family: 'Century Gothic', sans-serif;
 
 
@@ -363,7 +363,7 @@ body {
 
 .galeria-trazos-arena:hover {
     background-color: #dfb457;
-    color: #8A500A;
+    color: #704004;
     font-weight: bold;
     font-family: 'Century Gothic', sans-serif;
 
@@ -409,7 +409,7 @@ body {
 
 .casilla-letra {
     background-color: rgb(240,204,178);
-    color: #8A500A;
+    color: #704004;
     cursor: move;
 }
 

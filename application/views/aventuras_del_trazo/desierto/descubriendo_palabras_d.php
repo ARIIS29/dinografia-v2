@@ -10,7 +10,7 @@
                     </div>
                     <p>
                         Prepárate para una emocionante misión: ¡Ayuda al Dino a descubrir las palabras secretas que se forman con la letra '<b>d</b>'!<br>
-                       <b>Para jugar, tienes que arrastrar las letras a los cuadros naranjas para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b>  <br>
+                        <b>Para jugar, tienes que arrastrar las letras a los cuadros naranjas para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b> <br>
                     </p>
 
                     <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
@@ -508,6 +508,8 @@
 
                 // Verificar si se completaron todas las palabras
                 if (palabrasRestantes.length === 0) {
+                    clearInterval(timer); // Detener el cronómetro anterior
+
                     // Crear el mensaje inicial
                     setTimeout(() => {
                         mostrarConfeti();
@@ -634,15 +636,15 @@
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
-            mensaje.style.color = '#214524';
+            mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#E0F3B8';
-            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.backgroundColor = '#F1CCB0';
+            mensaje.style.border = '5px solid #E97132';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
@@ -697,15 +699,15 @@
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
-            mensaje.style.color = '#214524';
+            mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#E0F3B8';
-            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.backgroundColor = '#F1CCB0';
+            mensaje.style.border = '5px solid #E97132';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
@@ -760,15 +762,15 @@
             ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
-            mensaje.style.color = '#214524';
+            mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#E0F3B8';
-            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.backgroundColor = '#F1CCB0';
+            mensaje.style.border = '5px solid #E97132';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
