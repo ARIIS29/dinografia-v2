@@ -670,11 +670,11 @@ class Desierto extends CI_Controller
 
 
 
-	public function explorador_hojas_b()
+	public function explorador_hojas_d()
 	{
 
-		$this->load->view('layout/header_letras/header_letraB/header_explorador_hojas_b');
-		$this->load->view('aventuras_del_trazo/desierto/explorador_hojas_b');
+		$this->load->view('layout/header_letras/header_letraD/header_explorador_hojas_d');
+		$this->load->view('aventuras_del_trazo/desierto/explorador_hojas_d');
 		$this->load->view('layout/footer');
 	}
 

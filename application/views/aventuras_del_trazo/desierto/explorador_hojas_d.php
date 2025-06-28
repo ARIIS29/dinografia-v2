@@ -1,15 +1,15 @@
 <section class="mt-10">
     <div class="container-fluid d-flex justify-content-center" style="position: relative;">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_bambu" id="areaJuego">
+            <div class="col-lg-8 col-md-8 col-8 justify-content-center color-fondo texto_instrucciones_desierto" id="areaJuego">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="d-flex align-items-center">
-                        <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
+                        <img id="dinoIndicaciones1" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
 
                         <p class="mb-0">¡Comencemos la exploración!<br></p>
                     </div>
                     <p>
-                        Prepárate para esta emocionante misión: ¡Atrapa todas las hojas que aparezcan en la pantalla del bosque de bambú! <br>
+                        Prepárate para esta emocionante misión: ¡Atrapa todas las hojas que aparezcan en la pantalla del desierto! <br>
                         <b> Cuando veas una hoja aparecer, presiona sobre ella rápidamente para atraparla.</b>
                         </button> <br>
                     </p>
@@ -20,7 +20,7 @@
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(221, 247, 216, 0.8); justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
-                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_explorador_hojas.mp4'); ?>" type="video/mp4">
+                                <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_explorador_hojas.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
                             </video>
                             <!-- <button id="cerrarTutorial" >Cerrar</button> -->
@@ -29,11 +29,11 @@
 
                     </div>
                     <p>
-                        ¡Exploremos juntos esta misión en el mágico bosque de bambú!<br>
+                        ¡Exploremos juntos esta misión en el misterioso desierto!<br>
                         Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
-                            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-iniciar.png') ?>" alt="" class="img-fluid" width="20%">
+                            <img src="<?php echo base_url('almacenamiento/img/desierto/btn_iniciar.png') ?>" alt="" class="img-fluid" width="20%">
                         </a>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         <img id="car" src="<?php echo base_url('almacenamiento/img/dinografia/dino-coche.png') ?>" alt="Dino Coche" class="img-fluid img_dino_coche">
                     </div>
                     <div class="progress" style="height: 30px;">
-                        <div id="progress" class="progress-bar bg-success" style="width: 0;"></div>
+                        <div id="progress" class="progress-bar color_barra_coche" style="width: 0;"></div>
                     </div>
                     <!-- Imagen del coche -->
 
@@ -61,7 +61,7 @@
                 <audio id="audioTractor" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
 
                 <div id="area" class="col-lg-8 col-md-8 col-8 justify-content-center area d-none">
-                    <img id="hoja" src="<?php echo base_url('almacenamiento/img/bosque_bambu/hojab.png') ?>" alt="HojaB" class="hoja-img" width="5%" style="cursor: pointer;">
+                    <img id="hoja" src="<?php echo base_url('almacenamiento/img/desierto/hojad.png') ?>" alt="HojaB" class="hoja-img" width="5%" style="cursor: pointer;">
                 </div>
                 <div id="botonesContenedor" class="d-flex justify-content-center d-none">
 
@@ -320,7 +320,7 @@
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
-            mensaje.style.color = '#214524';
+            mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
@@ -328,8 +328,8 @@
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
             mensaje.style.backgroundColor = '#E0F3B8';
-            mensaje.style.border = '5px solid #00984f';
-            mensaje.style.padding = '10px';
+            mensaje.style.backgroundColor = '#F1CCB0';
+            mensaje.style.border = '5px solid #E97132';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
             audioEstrellas.play().catch(error => {
@@ -357,7 +357,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/desierto'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje
@@ -383,15 +383,15 @@
             ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
-            mensaje.style.color = '#214524';
+            mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#E0F3B8';
-            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.backgroundColor = '#F1CCB0';
+            mensaje.style.border = '5px solid #E97132';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
@@ -420,7 +420,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/desierto'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje
@@ -594,7 +594,7 @@
         function enviarEvaluacionExploradorHojasB() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
             $.ajax({
-                url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionExploradorHojasB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/enviarEvaluacionExploradorHojasB'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
                     letra: 'b',
@@ -618,7 +618,7 @@
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
 
             $.ajax({
-                url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroEvaluacionExploradorHojasB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/guardarRegistroEvaluacionExploradorHojasB'); ?>', // URL de tu controlador
                 // URL de tu controlador
                 type: 'POST',
                 data: {
