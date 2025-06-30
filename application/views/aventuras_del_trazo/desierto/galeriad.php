@@ -5,7 +5,7 @@
             <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(221, 247, 216, 0.8); justify-content:center; align-items:center; z-index:1000;">
                 <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                     <video id="tutorialVideo" width="100%" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_galeriab.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_galeriab.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                     <button id="cerrarTutorial" type="button" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Cerrar</button>
@@ -16,12 +16,12 @@
                 <!-- Imagen -->
                 <img src="<?php echo base_url('almacenamiento/img/dinografia/dino-galeria-b.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="5%">
                 <!-- Texto -->
-                <p class="texto_tabla_bambu"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>, es hora de evaluar tu trazo de la <b>Letra b!</b> 📝</b> <br></p>
+                <p class="texto_tabla_desierto"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>, es hora de evaluar tu trazo de la <b>Letra b!</b> 📝</b> <br></p>
 
             </div>
-            <div class="col-12 indicaciones">
+            <div class="col-12 texto_indicaciones_desierto_galeria">
                 <p>
-                    Aquí puedes ver los trazos que hiciste de la <b>"Letra b."</b> <br>
+                    Aquí puedes ver los trazos que hiciste de la <b>"Letra d."</b> <br>
                     Observa con atención cada trazo y elige la opción que mejor describe tu trabajo.
                     <a id="abrirTutorial" class="btn  galeria-letrab me-2"><i class="fas fa-clipboard-check"></i> Guía para evaluar mi trazo</a>
                 </p>
@@ -40,7 +40,7 @@
 
                 </div>
             </div>
-            <?php foreach ($galeriasb_lista as $key => $galeria) : ?>
+            <?php foreach ($galeriasd_lista as $key => $galeria) : ?>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div id="card1" class="card me-5">
                         <div id="cara1" class="cara cara1 d-block">

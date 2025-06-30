@@ -15,7 +15,7 @@
                 <a href="<?php echo base_url('letras/desierto/letrad') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn_traza_letra_d.png') ?>" alt="Botón traza_letra_d" class=" img-fluid animated-button" width="65%">
                 </a>
-                <a href="<?php echo site_url('galeria/galeriab') ?>" class="btn galeria-letrab me-2"> <i class="fas fa-image"></i> Ver Galería</a>
+                <a href="<?php echo site_url('galeria/galeriad') ?>" class="btn galeria-letrab me-2"> <i class="fas fa-image"></i> Ver Galería</a>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">
                 <a href="<?php echo base_url('letras/desierto/trazos_desierto') ?>">

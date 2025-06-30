@@ -77,7 +77,7 @@ class Galeria extends CI_Controller
 		$galeriasg_lista = $this->galeria_model->obtener_imagen_usuario($this->session->userdata('identificador'), 'gd')->result();
 		$data['galeriasd_lista'] = $galeriasg_lista;
 
-		$this->load->view('layout/header_letras/header_letraB/header_galeria_g');
+		$this->load->view('layout/header_letras/header_letraD/header_galeria_gd');
 		$this->load->view('aventuras_del_trazo/desierto/galeria_gd.php', $data);
 		$this->load->view('layout/footer');
 	}

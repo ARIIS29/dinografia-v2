@@ -74,6 +74,13 @@ body {
     color: #8f3200 !important;
 
 }
+.texto_indicaciones_desierto_galeria {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #8f3200 !important;
+
+}
 
 .texto_indicaciones_modal {
     font-family: 'Century Gothic', sans-serif;
@@ -82,13 +89,13 @@ body {
     color: #A1420F !important;
 }
 
-.texto_tabla_bambu {
+.texto_tabla_desierto {
     font-family: 'Century Gothic', sans-serif;
     font-size: 22px;
     color: #A1420F !important;
 }
 
-.texto-modal-bambu {
+.texto-modal-desierto {
     font-family: 'Century Gothic', sans-serif;
     font-size: 18px;
     text-align: justify;

@@ -54,7 +54,7 @@ class Desierto extends CI_Controller
 			$evaluacion = '';
 
 			// Actividad: letra
-			if ($value->galeria_letra == 'b') {
+			if ($value->galeria_letra == 'd') {
 				if ($value->evaluacion == 'bueno') {
 					$evaluacion = '<b>Traza la letra</b> 📝<br>
                     ¡Super asombroso! 🎉<br>
@@ -76,7 +76,7 @@ class Desierto extends CI_Controller
 			}
 
 			// Actividad: trazos_arena
-			elseif ($value->galeria_letra  == 't') {
+			elseif ($value->galeria_letra  == 'td') {
 				if ($value->evaluacion == 'bueno') {
 					$evaluacion = '<b>Trazos en la arena</b> 🏖️<br>
                     ¡Super asombroso! 🎉<br>
@@ -97,7 +97,7 @@ class Desierto extends CI_Controller
 			}
 
 			// Actividad: grafismo
-			elseif ($value->galeria_letra == 'g') {
+			elseif ($value->galeria_letra == 'gd') {
 				if ($value->evaluacion == 'bueno') {
 					$evaluacion = '<b>Grafismo</b> ✏️<br>
                     ¡Super asombroso! 🎉<br>
@@ -217,7 +217,7 @@ class Desierto extends CI_Controller
 				}
 
 				$nombre_archivo = time() . '.jpg';
-				$ruta_guardado = 'almacenamiento/galeria/galeria-letrab/';
+				$ruta_guardado = 'almacenamiento/galeria/galeria_letrad/';
 				$identificador_usuario = $this->session->userdata('identificador');
 
 				// Verificar que el directorio existe
@@ -234,8 +234,8 @@ class Desierto extends CI_Controller
 				$data = array(
 					'identificador' => $identificador_1,
 					'identificador_usuario' => $identificador_usuario,
-					'nombre' => 'Letra b',
-					'galeria_letra' => 'b',
+					'nombre' => 'Letra d',
+					'galeria_letra' => 'd',
 					'url_imagen' => $ruta_completa,
 					'tipo' => 'leccion',
 					'estrellas' => $estrellas,
