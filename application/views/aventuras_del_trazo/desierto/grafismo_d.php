@@ -54,15 +54,15 @@
     </style>
     <div class="container text-center">
         <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
-            <h1 class="titulo-h1-desierto-movil">GRAFISMO</h1>
+            <h1 class="titulo-h1-desierto-movil">GRAFISMO D</h1>
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
             <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
             <p class="texto_indicaciones_desierto mb-0">Usa tu dedo para trazar la letra "b" en la arena. ¡Diviértete practicando!</p>
             <div class="col-1 d-none d-sm-block">
-                <a href="<?php echo base_url('galeria/galeriag') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn-galeriag.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+                <a href="<?php echo base_url('galeria/galeriagd') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn-galeria_grafismo.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
                 </a>
             </div>
             <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>

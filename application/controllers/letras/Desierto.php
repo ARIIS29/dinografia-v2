@@ -78,18 +78,18 @@ class Desierto extends CI_Controller
 			// Actividad: trazos_arena
 			elseif ($value->galeria_letra  == 'td') {
 				if ($value->evaluacion == 'bueno') {
-					$evaluacion = '<b>Trazos en la arena</b> 🏖️<br>
+					$evaluacion = '<b>Trazos en el desierto</b> 🏖️<br>
                     ¡Super asombroso! 🎉<br>
                     Usaste tu dedo con mucha precisión.<br>
                     El trazo fue fluido y claro.<br>
                     ¡Excelente explorador de arena!';
 				} elseif ($value->evaluacion == 'regular') {
-					$evaluacion = '<b>Trazos en la arena</b> 🏖️<br>
+					$evaluacion = '<b>Trazos en el desierto</b> 🏖️<br>
                     ¡Casi logrado! 🌟<br>
                     Buen intento. Solo falta un poco más de control.<br>
                     ¡Sigue practicando con tu dedo!';
 				} elseif ($value->evaluacion == 'malo') {
-					$evaluacion = '<b>Trazos en la arena</b> 🏖️<br>
+					$evaluacion = '<b>Trazos en el desierto</b> 🏖️<br>
                     ¡A seguir practicando! 💪<br>
                     El trazo necesita más forma y dirección.<br>
                     ¡Sigue intentando, vas muy bien!';
@@ -282,7 +282,7 @@ class Desierto extends CI_Controller
 				}
 
 				$nombre_archivo = time() . '.jpg';
-				$ruta_guardado = 'almacenamiento/galeria/galeria_trazos_arena_b/';
+				$ruta_guardado = 'almacenamiento/galeria/galeria_trazos_desierto/';
 				$identificador_usuario = $this->session->userdata('identificador');
 
 				// Verificar que el directorio existe
@@ -298,8 +298,8 @@ class Desierto extends CI_Controller
 				$data = array(
 					'identificador' => $identificador_1,
 					'identificador_usuario' => $identificador_usuario,
-					'nombre' => 'Trazos en la Arena - b',
-					'galeria_letra' => 't',
+					'nombre' => 'Trazos en el desierto - d',
+					'galeria_letra' => 'td',
 					'url_imagen' => $ruta_completa,
 					'tipo' => 'leccion',
 					'estrellas' => $estrellas,
@@ -346,7 +346,7 @@ class Desierto extends CI_Controller
 				}
 
 				$nombre_archivo = time() . '.jpg';
-				$ruta_guardado = 'almacenamiento/galeria/galeria_grafismo_b/';
+				$ruta_guardado = 'almacenamiento/galeria/galerias_grafismo_d/';
 				$identificador_usuario = $this->session->userdata('identificador');
 
 				// Verificar que el directorio existe
@@ -362,8 +362,8 @@ class Desierto extends CI_Controller
 				$data = array(
 					'identificador' => $identificador_1,
 					'identificador_usuario' => $identificador_usuario,
-					'nombre' => 'Grafismo - b',
-					'galeria_letra' => 'g',
+					'nombre' => 'Grafismo - d',
+					'galeria_letra' => 'gd',
 					'url_imagen' => $ruta_completa,
 					'tipo' => 'leccion',
 					'estrellas' => $estrellas,

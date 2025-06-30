@@ -74,7 +74,7 @@
 
 .container .card .cara.cara1 {
     position: relative;
-    background: #81D57D;
+    /* background: #81D57D; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,7 +83,7 @@
 }
 
 .container .card:hover .cara.cara1 {
-    background: #81D57D;
+    /* background: #81D57D; */
     transform: translateY(0);
 }
 

@@ -22,7 +22,7 @@
                     <a href="<?php echo site_url('letras/bosque_bambu/trazando_aventuras_b') ?>" class="btn boton-regresar-bambu float-start"> <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="col-lg-6 col-md-6 justify-aling-center text-center">
-                    <h1 class="titulo-h1-bambu">GRAFISMO</h1>
+                    <h1 class="titulo-h1-bambu">GRAFÍSMO</h1>
                 </div>
                 <div class="col-lg-3 col-md-3  justify-content-end">
                     <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/estrella.png') ?>" alt="" class="img-fluid ms-5" width="15%">

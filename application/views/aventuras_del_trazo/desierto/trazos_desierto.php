@@ -39,8 +39,8 @@
             <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
             <p class="texto_indicaciones_desierto mb-0">Usa tu dedo para trazar la letra "d" en la arena del desierto. ¡Diviértete practicando!</p>
             <div class="col-1 d-none d-sm-block">
-                <a href="<?php echo base_url('galeria/galeriat') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn-galeriat.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+                <a href="<?php echo base_url('galeria/galeriatd') ?>">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn_galeria_trazos_desierto.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
                 </a>
             </div>
         </div>

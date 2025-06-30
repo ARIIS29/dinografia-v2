@@ -21,14 +21,14 @@
                 <a href="<?php echo base_url('letras/desierto/trazos_desierto') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn_trazos_desierto.png') ?>" alt="Botón trazos_desierto" class=" img-fluid animated-button" width="65%">
                 </a>
-                <a href="<?php echo site_url('galeria/galeriat') ?>" class="btn galeria-trazos-arena me-2"> <i class="fas fa-image"></i> Ver Galería</a>
+                <a href="<?php echo site_url('galeria/galeriatd') ?>" class="btn galeria-trazos-arena me-2"> <i class="fas fa-image"></i> Ver Galería</a>
 
             </div>
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">
                 <a href="<?php echo base_url('letras/desierto/grafismo_d') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn_grafismo_d.png') ?>" alt="Botón grafismo_d" class=" img-fluid animated-button" width="65%">
                 </a>
-                <a href="<?php echo site_url('galeria/galeriag') ?>" class="btn galeria-grafismo me-2"> <i class="fas fa-image"></i> Ver Galería</a>
+                <a href="<?php echo site_url('galeria/galeriagd') ?>" class="btn galeria-grafismo me-2"> <i class="fas fa-image"></i> Ver Galería</a>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-4 col-6 btn-transicion text-center mt-3">
                 <a href="<?php echo base_url('letras/desierto/mi_avance_trazando_aventuras_b') ?>">
