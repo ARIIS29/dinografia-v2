@@ -331,7 +331,7 @@
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `¡Increíble trabajo, <?php echo $this->session->userdata('usuario'); ?>!🎉<br>
-            Tu trazo se ha guardado con éxito en la <br> Galería Trazos en la Arena.<br>
+            Tu trazo se ha guardado con éxito en la <br> Galería trazos en el desierto.<br>
             ¡Sigue explorando! 🦖<br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas 🌟`;
             mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
@@ -340,8 +340,8 @@
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
+            mensaje.style.backgroundColor = '#F1CCB0';
             mensaje.style.border = '5px solid #E97132';
-            mensaje.style.padding = '10px';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
