@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalInstruccionesLabel">
-                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
+                    <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
                     <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_letrab.mp3') ?>" preload="auto"></audio>
 
                     <b>¡Hola Explorador!</b>
@@ -18,7 +18,7 @@
                 </p>
                 <div class="ratio ratio-16x9">
                     <video id="tutorialVideo" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_letrab.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_letrab.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                 </div>
@@ -35,9 +35,10 @@
         #canvas-grafismo {
             width: 800px;
             height: 400px;
-            border: 1px solid #000;
+            border: 2px solid #E97132;
             display: block;
             margin: auto;
+            background-color: white;
         }
 
         .imagen-previa {
@@ -53,15 +54,15 @@
     </style>
     <div class="container text-center">
         <div class="col-lg-6 col-md-6 justify-aling-center text-center titulo-con-luz d-block d-sm-none mt-5">
-            <h1 class="titulo-h1-bambu-movil">GRAFISMO</h1>
+            <h1 class="titulo-h1-desierto-movil">GRAFISMO</h1>
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
-            <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
+            <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
             <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
-            <p class="texto_indicaciones_bambu mb-0">Usa tu dedo para trazar la letra "b" en la arena. ¡Diviértete practicando!</p>
+            <p class="texto_indicaciones_desierto mb-0">Usa tu dedo para trazar la letra "b" en la arena. ¡Diviértete practicando!</p>
             <div class="col-1 d-none d-sm-block">
                 <a href="<?php echo base_url('galeria/galeriag') ?>">
-                    <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/btn-galeriag.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
+                    <img src="<?php echo base_url('almacenamiento/img/desierto/btn-galeriag.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
                 </a>
             </div>
             <audio id="audioEstrellas" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
@@ -69,7 +70,7 @@
 
 
         <div class="col-lg-8 text-center">
-            <input type="color" id="color" value="#00A249" title="Gama de colores">
+            <input type="color" id="color" value="#A1420F" title="Gama de colores">
             <input type="range" id="grosor" min="5" max="15" value="1" title="Grosor de la línea">
             <!-- <button id="lapiz" type="button">Lápiz</button>
         <button id="limpiar">Limpiar</button>
@@ -86,23 +87,23 @@
             <div id="imagenContainer" class="col-lg-2">
                 <div class="row">
                     <div class="col-lg-8">
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/repasemos_ala_letra_b_actividad.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/repasemos_ala_letra_b_actividad.png'); ?>">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/act_letra_d.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_letra_d.png'); ?>">
                     </div>
                     <div class="col-lg-8">
 
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/entre_curvas.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/entre_curvas.png'); ?>">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/act_entre_curvas.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_entre_curvas.png'); ?>">
                     </div>
                     <div class="col-lg-8">
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/imagen1.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/imagen1.png'); ?>">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/act_que_tiene_el_dino.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_que_tiene_el_dino.png'); ?>">
 
                     </div>
                     <div class="col-lg-8">
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/que_letra_falta.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/que_letra_falta.png'); ?>">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/act_que_letra_falta.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_que_letra_falta.png'); ?>">
 
                     </div>
                     <div class="col-lg-8">
 
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/recuerdas_animal_actividad.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/recuerdas_animal_actividad.png'); ?>">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/act_recuerda_el_animal.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_recuerda_el_animal.png'); ?>">
                     </div>
 
 
@@ -364,7 +365,7 @@
             estrellaSalta();
             mostrarEstrellasCentrales();
 
-            fetch(baseUrl + 'letras/bosque_bambu/guardarImagenGrafismoB', {
+            fetch(baseUrl + 'letras/desierto/guardarImagenGrafismoB', {
                     method: 'POST',
                     body: formData // Enviando el FormData
                 })
@@ -442,17 +443,17 @@
             const mensaje = document.createElement('div');
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `¡Increíble trabajo, <?php echo $this->session->userdata('usuario'); ?>!🎉<br>
-            Tu trazo se ha guardado con éxito en la Galería Grafismo.<br>
+            Tu trazo se ha guardado con éxito en la Galería Grafismo d.<br>
             ¡Sigue explorando! 🦖<br> Recompensa acumulada: <strong>${estrellas}</strong> estrellas 🌟`;
-            mensaje.style.color = '#214524';
+            mensaje.style.color = '#704004';
             mensaje.style.fontFamily = '"Century Gothic", sans-serif';
             mensaje.style.fontWeight = 'bold';
             mensaje.style.position = 'absolute';
             mensaje.style.top = '50px'; // Posición en la pantalla
             mensaje.style.left = '50%'; // Centrar horizontalmente
             mensaje.style.transform = 'translateX(-50%)'; // Centrar correctamente
-            mensaje.style.backgroundColor = '#E0F3B8';
-            mensaje.style.border = '5px solid #00984f';
+            mensaje.style.backgroundColor = '#F1CCB0';
+            mensaje.style.border = '5px solid #E97132';
             mensaje.style.padding = '10px';
             mensaje.style.borderRadius = '5px';
             mensaje.style.zIndex = '9999'; // Asegurar que el mensaje esté encima del canvas
@@ -486,7 +487,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/desierto'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje

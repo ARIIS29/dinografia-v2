@@ -35,9 +35,10 @@
         #canvas-grafismo {
             width: 800px;
             height: 400px;
-            border: 1px solid #000;
+            border: 2px solid #00984F;;
             display: block;
             margin: auto;
+            background-color: white;
         }
 
         .imagen-previa {

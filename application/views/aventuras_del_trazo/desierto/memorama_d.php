@@ -247,10 +247,6 @@
                 palabra: 'ardilla'
             },
             {
-                emoji: '🦔',
-                palabra: 'armadillo'
-            },
-            {
                 emoji: '🐷',
                 palabra: 'cerdo'
             },
