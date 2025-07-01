@@ -150,7 +150,7 @@
                 });
 
                 audioIndicacionesDos();
-                enviarInicioEvaluacionDescubriendoMensajesSecretosB();
+                enviarInicioEvaluacionDescubriendoMensajesSecretosD();
                 startAnimation();
                 // Inicia el cronómetro si lo tienes aquí
             });
@@ -480,7 +480,7 @@
                     mostrarEstrellasCentrales();
                 }
                 document.getElementById("verificarPalabraBtn").disabled = true;
-                enviarEvaluacionDescubriendoMensajesSecretosB();
+                enviarEvaluacionDescubriendoMensajesSecretosD();
                 palabraIncorrecta = '';
 
                 // Verificar si se completaron todas las palabras
@@ -518,7 +518,7 @@
                         block: "end"
                     });
 
-                    enviarEvaluacionDescubriendoMensajesSecretosB();
+                    enviarEvaluacionDescubriendoMensajesSecretosD();
                     return;
                 }
 
@@ -598,7 +598,7 @@
                     document.getElementById("saltarPalabraBtn").disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
 
-                    enviarEvaluacionDescubriendoMensajesSecretosB();
+                    enviarEvaluacionDescubriendoMensajesSecretosD();
                 }
             }
         }
@@ -824,7 +824,7 @@
             document.getElementById("saltarPalabraBtn").disabled = true;
             document.getElementById("reiniciarJuegoBtn").disabled = true;
             document.getElementById("finalizarJuegoBtn").disabled = true;
-            enviarEvaluacionDescubriendoMensajesSecretosB();
+            enviarEvaluacionDescubriendoMensajesSecretosD();
         }
 
         function reiniciarJuego() {
@@ -1021,14 +1021,14 @@
         }
 
         // Función para enviar el tiempo final por AJAX
-        function enviarEvaluacionDescubriendoMensajesSecretosB() {
+        function enviarEvaluacionDescubriendoMensajesSecretosD() {
             var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
 
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/enviarEvaluacionDescubriendoMensajesSecretosB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/enviarEvaluacionDescubriendoMensajesSecretosD'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     palabrasCorrectas: contadorBuenas,
                     palabrasIncorrectascont: contadorIncorrectas,
@@ -1045,14 +1045,14 @@
 
         }
 
-        function enviarInicioEvaluacionDescubriendoMensajesSecretosB() {
+        function enviarInicioEvaluacionDescubriendoMensajesSecretosD() {
             var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
 
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/guardarRegistroDescubriendoMensajesSecretosB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/guardarRegistroDescubriendoMensajesSecretosD'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     palabrasCorrectas: contadorBuenas,
                     palabrasIncorrectascont: contadorIncorrectas,
