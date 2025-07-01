@@ -61,7 +61,7 @@
                 <audio id="audioTractor" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
 
                 <div id="area" class="col-lg-8 col-md-8 col-8 justify-content-center area d-none">
-                    <img id="hoja" src="<?php echo base_url('almacenamiento/img/desierto/hojad.png') ?>" alt="HojaB" class="hoja-img" width="5%" style="cursor: pointer;">
+                    <img id="hoja" src="<?php echo base_url('almacenamiento/img/desierto/hojad.png') ?>" alt="HojaB" class="hoja-img" width="8%" style="cursor: pointer;">
                 </div>
                 <div id="botonesContenedor" class="d-flex justify-content-center d-none">
 
@@ -290,7 +290,7 @@
             console.log('puntajes real: ', puntaje);
             hojasNoAtrapadas = metaPuntos - puntaje;
             console.log('hojasNoAtrapadas: ', hojasNoAtrapadas);
-            enviarEvaluacionExploradorHojasB();
+            enviarEvaluacionExploradorHojasD();
 
 
         });
@@ -457,7 +457,7 @@
             document.getElementById("finalizarBtn").disabled = true;
             document.getElementById("reiniciarBtn").disabled = true;
 
-            enviarEvaluacionExploradorHojasB();
+            enviarEvaluacionExploradorHojasD();
         }
 
 
@@ -591,13 +591,13 @@
 
 
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
-        function enviarEvaluacionExploradorHojasB() {
+        function enviarEvaluacionExploradorHojasD() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/enviarEvaluacionExploradorHojasB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/enviarEvaluacionExploradorHojasD'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     hojasAtrapadas: puntaje,
                     hojasIncorrectas: hojasNoAtrapadas,
@@ -618,11 +618,11 @@
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
 
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/guardarRegistroEvaluacionExploradorHojasB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/guardarRegistroEvaluacionExploradorHojasD'); ?>', // URL de tu controlador
                 // URL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     hojasAtrapadas: puntaje,
                     hojasIncorrectas: hojasNoAtrapadas,

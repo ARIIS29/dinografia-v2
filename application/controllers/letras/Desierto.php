@@ -678,7 +678,7 @@ class Desierto extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
-	public function enviarEvaluacionExploradorHojasB()
+	public function enviarEvaluacionExploradorHojasD()
 	{
 
 		$fecha_registro = date("Y-m-d H:i:s");
@@ -733,7 +733,7 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function guardarRegistroEvaluacionExploradorHojasB()
+	public function guardarRegistroEvaluacionExploradorHojasD()
 	{
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));

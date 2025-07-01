@@ -61,7 +61,7 @@
                 <audio id="audioTractor" src="<?php echo base_url('almacenamiento/audios/efecto_sonido_estrella.mp3') ?>" preload="auto"></audio>
 
                 <div id="area" class="col-lg-8 col-md-8 col-8 justify-content-center area d-none">
-                    <img id="hoja" src="<?php echo base_url('almacenamiento/img/bosque_bambu/hojab.png') ?>" alt="HojaB" class="hoja-img" width="5%" style="cursor: pointer;">
+                    <img id="hoja" src="<?php echo base_url('almacenamiento/img/bosque_bambu/hojab.png') ?>" alt="HojaB" class="hoja-img" width="8%" style="cursor: pointer;">
                 </div>
                 <div id="botonesContenedor" class="d-flex justify-content-center d-none">
 
