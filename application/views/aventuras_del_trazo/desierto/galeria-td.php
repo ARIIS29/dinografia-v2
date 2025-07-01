@@ -60,7 +60,7 @@
                                         <ul>
                                             <li class="bueno"><a class="texto-verde" title="El trazo en la arena se ve muy claro. La curva y la línea están en su lugar perfecto." href="<?php echo base_url('galeria/guardar_bueno/' . $galeria->identificador); ?>" id="bueno">🎉 ¡Super asombroso!</a></li>
                                             <li class="regular"> <a class="texto-amarillo" title="El trazo está muy bien formado en la arena, pero la curva o la línea necesitan un pequeño ajuste." href="<?php echo base_url('galeria/guardar_regular/' . $galeria->identificador); ?>" id="regular">🌟 ¡Casi logrado!</a></li>
-                                            <li class="malo"><a class="texto-naranja" title="El trazo en la arena aún no se parece a la letra ‘b’.La curva o la línea necesitan más definición." href="<?php echo base_url('galeria/guardar_malo/' . $galeria->identificador); ?>" id="malo">💪 ¡A seguir practicando!</a></li>
+                                            <li class="malo"><a class="texto-naranja" title="El trazo en la arena aún no se parece a la letra ‘d’.La curva o la línea necesitan más definición." href="<?php echo base_url('galeria/guardar_malo/' . $galeria->identificador); ?>" id="malo">💪 ¡A seguir practicando!</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -45,8 +45,9 @@ class Bosque_bambu extends CI_Controller
 		$start = $this->input->post('start');
 		$length = $this->input->post('length');
 		$order = $this->input->post('order');
+		$letras = ['b', 't', 'g'];
+		$prgreso_list = $this->galeria_model->obtener_imagenes_usuario_por_letras($this->session->userdata('identificador'), $letras);
 
-		$prgreso_list = $this->galeria_model->obtener_imagenes_usuario($this->session->userdata('identificador'));
 
 		$data = [];
 

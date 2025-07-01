@@ -46,7 +46,8 @@ class Desierto extends CI_Controller
 		$length = $this->input->post('length');
 		$order = $this->input->post('order');
 
-		$prgreso_list = $this->galeria_model->obtener_imagenes_usuario($this->session->userdata('identificador'));
+		$letras = ['d', 'td', 'gd'];
+		$prgreso_list = $this->galeria_model->obtener_imagenes_usuario_por_letras($this->session->userdata('identificador'), $letras);
 
 		$data = [];
 
@@ -117,13 +118,13 @@ class Desierto extends CI_Controller
 			}
 
 			// Imagen del trazo
-			$trazob = '<img src="' . base_url('') . $value->url_imagen . '" alt="Img-Dino" class="img-fluid">';
+			$trazod = '<img src="' . base_url('') . $value->url_imagen . '" alt="Img-Dino" class="img-fluid">';
 
 			// Construcción del arreglo para DataTables
 			$data[] = array(
 				'id' => $key + 1,
 				'nombre' => $value->nombre,
-				'imagen' => $trazob,
+				'imagen' => $trazod,
 				'fecha' => $value->fecha_registro,
 				'estrellas' => $value->estrellas,
 				'evaluacion' => $evaluacion,
@@ -386,14 +387,13 @@ class Desierto extends CI_Controller
 	}
 
 
-	public function mi_avance_trazando_aventuras_b()
+	public function mi_avance_trazando_aventuras_d()
 	{
 
-		$this->load->view('layout/header_letras/header_letraB/header_mi_avance_trazando_aventuras_b');
-		$this->load->view('aventuras_del_trazo/desierto/mi_avance_trazando_aventuras_b');
+		$this->load->view('layout/header_letras/header_letraD/header_mi_avance_trazando_aventuras_d');
+		$this->load->view('aventuras_del_trazo/desierto/mi_avance_trazando_aventuras_d');
 		$this->load->view('layout/footer');
 	}
-
 
 
 

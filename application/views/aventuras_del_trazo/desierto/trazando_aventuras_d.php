@@ -31,7 +31,7 @@
                 <a href="<?php echo site_url('galeria/galeriagd') ?>" class="btn galeria-grafismo me-2"> <i class="fas fa-image"></i> Ver Galería</a>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-4 col-6 btn-transicion text-center mt-3">
-                <a href="<?php echo base_url('letras/desierto/mi_avance_trazando_aventuras_b') ?>">
+                <a href="<?php echo base_url('letras/desierto/mi_avance_trazando_aventuras_d') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn_mi_avance_lapiz.png') ?>" alt="Botón mi_avance_lapiz" class=" img-fluid animated-button" width="20%">
                 </a>
             </div>

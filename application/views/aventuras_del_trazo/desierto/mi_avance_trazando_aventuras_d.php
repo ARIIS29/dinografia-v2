@@ -7,7 +7,7 @@
 
     /* Encabezado personalizado */
     .table-estilos thead {
-        background-color: #00984F !important;
+         background-color: #E97132 !important;
         color: white !important;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -32,9 +32,9 @@
     <div class="row">
         <div class="col-lg-12 col-md-12 d-flex align-items-center mt-10">
             <!-- Imagen -->
-            <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/dino-lapiz-avance.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="5%">
+            <img src="<?php echo base_url('almacenamiento/img/desierto/dino_nubes.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="5%">
             <!-- Texto -->
-            <p class="texto_tabla_bambu"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>!</b></p>
+            <p class="texto_tabla_desierto"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>!</b></p>
         </div>
         <div style="overflow-x:auto;">
             <table class="table-estilos table display nowrap table-striped table-bordered scroll-horizontal table-hover" name="table" id="table">
@@ -54,4 +54,4 @@
     </div>
 </section>
 <!-- <?php print_r($prgreso_list) ?> -->
-<script src="<?php echo base_url('assets/js/evaluacion_lecciones/index.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/evaluacion_lecciones_d/index.js') ?>"></script>

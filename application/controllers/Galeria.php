@@ -133,7 +133,20 @@ class Galeria extends CI_Controller
 		$this->galeria_model->insertar_evaluacion($data, $imagen_identificador);
 		redirect('galeria/galeria' . $letra->galeria_letra);
 	}
+
+	public function obtener_imagenes_usuario_por_letras($usuario_identificador, $letras = [])
+	{
+		$this->db->where('identificador_usuario', $usuario_identificador);
+		$this->db->where_in('galeria_letra', $letras); // <-- Aquí se filtran varias letras
+		$this->db->select('t1.*');
+		$this->db->from('galeria t1');
+		$this->db->order_by('t1.evaluado', 'ASC');
+		$this->db->order_by('t1.id', 'DESC');
+
+		return $this->db->get();
+	}
 }
+
 
 
 

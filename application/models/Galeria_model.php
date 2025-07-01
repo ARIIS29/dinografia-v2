@@ -49,7 +49,7 @@ class Galeria_model extends CI_Model
             ->select('t1.*')
             ->from('galeria t1')
             ->order_by('t1.evaluado', 'ASC')
-               ->order_by('t1.id', 'DESC')
+            ->order_by('t1.id', 'DESC')
             ->get();
 
         return $query;
@@ -111,5 +111,17 @@ class Galeria_model extends CI_Model
             ->from('galeria t1')
             ->get();
         return $query;
+    }
+
+    public function obtener_imagenes_usuario_por_letras($usuario_identificador, $letras = [])
+    {
+        $this->db->where('identificador_usuario', $usuario_identificador);
+        $this->db->where_in('galeria_letra', $letras); // <- aquí va el arreglo de letras
+        $this->db->select('t1.*');
+        $this->db->from('galeria t1');
+        $this->db->order_by('t1.evaluado', 'ASC');
+        $this->db->order_by('t1.id', 'ASC');
+
+        return $this->db->get();
     }
 }
