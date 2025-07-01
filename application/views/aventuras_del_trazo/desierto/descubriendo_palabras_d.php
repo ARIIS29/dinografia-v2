@@ -19,7 +19,7 @@
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
-                                <source src="<?php echo base_url('almacenamiento/img/bosque_bambu/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
+                                <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_descubriendo_palabras.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
                             </video>
                             <!-- <button id="cerrarTutorial" >Cerrar</button> -->
@@ -159,7 +159,7 @@
 
                 audioIndicacionesDos();
 
-                enviarInicioEvaluacionDescubriendoPalabrasB();
+                enviarInicioEvaluacionDescubriendoPalabrasD();
 
                 startAnimation();
                 // Inicia el cronómetro si lo tienes aquí
@@ -497,7 +497,7 @@
                     mostrarEstrellasCentrales();
                 }
                 document.getElementById("verificarPalabraBtn").disabled = true;
-                enviarEvaluacionDescubriendoPalabrasB();
+                enviarEvaluacionDescubriendoPalabrasD();
                 palabraIncorrecta = '';
 
                 // Hacer scroll al mensaje
@@ -540,7 +540,7 @@
                         behavior: "smooth",
                         block: "end"
                     });
-                    enviarEvaluacionDescubriendoPalabrasB();
+                    enviarEvaluacionDescubriendoPalabrasD();
                     return;
                 }
 
@@ -618,7 +618,7 @@
                     document.getElementById("saltarPalabraBtn").disabled = true;
                     document.getElementById('reiniciarJuegoBtn').disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
-                    enviarEvaluacionDescubriendoPalabrasB();
+                    enviarEvaluacionDescubriendoPalabrasD();
 
                 }
             }
@@ -673,7 +673,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/desierto'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje
@@ -736,7 +736,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/desierto'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje
@@ -799,7 +799,7 @@
 
             // Acción al hacer clic en "No, ir al menú principal"
             botonNoSeguir.addEventListener('click', () => {
-                window.location.href = '<?php echo base_url('letras/bosque_bambu'); ?>'; // Cambiar la URL del menú principal
+                window.location.href = '<?php echo base_url('letras/desierto'); ?>'; // Cambiar la URL del menú principal
             });
 
             // Añadir los botones al mensaje
@@ -1004,7 +1004,7 @@
             document.getElementById('reiniciarJuegoBtn').disabled = true;
             document.getElementById("saltarPalabraBtn").disabled = true;
             document.getElementById("finalizarJuegoBtn").disabled = true;
-            enviarEvaluacionDescubriendoPalabrasB();
+            enviarEvaluacionDescubriendoPalabrasD();
 
 
         }
@@ -1049,14 +1049,14 @@
 
 
         // Función para enviar el tiempo final por AJAX
-        function enviarEvaluacionDescubriendoPalabrasB() {
+        function enviarEvaluacionDescubriendoPalabrasD() {
             var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
 
             $.ajax({
-                url: '<?php echo base_url('letras/bosque_bambu/enviarEvaluacionDescubriendoPalabrasB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/enviarEvaluacionDescubriendoPalabrasD'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     palabrasCorrectas: contadorBuenas,
                     palabrasIncorrectascont: contadorIncorrectas,
@@ -1073,14 +1073,14 @@
 
         }
 
-        function enviarInicioEvaluacionDescubriendoPalabrasB() {
+        function enviarInicioEvaluacionDescubriendoPalabrasD() {
             var tiempo = `${formatTime(minutes)}:${formatTime(seconds)}`;
 
             $.ajax({
-                url: '<?php echo base_url('letras/bosque_bambu/guardarRegistroDescubriendoPalbrasB'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/guardarRegistroDescubriendoPalbrasD'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     palabrasCorrectas: contadorBuenas,
                     palabrasIncorrectascont: contadorIncorrectas,

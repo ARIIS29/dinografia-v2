@@ -7,7 +7,7 @@
 
     /* Encabezado personalizado */
     .table-estilos thead {
-        background-color: #00984F !important;
+        background-color: #E97132 !important;
         color: white !important;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -51,4 +51,4 @@
     </div>
 </section>
 <!-- <?php print_r($prgreso_list) ?> -->
-<script src="<?php echo base_url('assets/js/evaluacion_ejercicios/index.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/evaluacion_ejercicios_d/index.js') ?>"></script>

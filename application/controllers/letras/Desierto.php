@@ -145,7 +145,7 @@ class Desierto extends CI_Controller
 		exit();
 	}
 
-	public function obtener_tabla_evaluacion_ejercicios_por_usuario()
+	public function obtener_tabla_evaluacion_ejercicios_por_usuario_d()
 	{
 		$draw = $this->input->post('draw');
 		$start = $this->input->post('start');
@@ -415,7 +415,7 @@ class Desierto extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
-	public function enviarEvaluacionDescubriendoPalabrasB()
+	public function enviarEvaluacionDescubriendoPalabrasD()
 	{
 
 		$fecha_registro = date("Y-m-d H:i:s");
@@ -429,18 +429,18 @@ class Desierto extends CI_Controller
 		$estrellas = $this->input->post('totalEstrellas');
 		$array_palabras = json_decode($this->input->post('arrayPalabras'));
 
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'b')->row();
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'd')->row();
 
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Observa con más detalle la imagen de referencia e intenta organizar<br>las letras de otra forma, a veces mover una o dos letras puede hacer que la palabra encaje.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra d🔍</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Observa con más detalle la imagen de referencia e intenta organizar<br>las letras de otra forma, a veces mover una o dos letras puede hacer que la palabra encaje.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		} else if ($estrellas > 200 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Observa bien la imagen de referencia y prueba reorganizar las letras con calma.<br> A veces, pequeños ajustes en el orden pueden hacer que la palabra encaje mejor.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra d🔍</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Observa bien la imagen de referencia y prueba reorganizar las letras con calma.<br> A veces, pequeños ajustes en el orden pueden hacer que la palabra encaje mejor.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Super asombroso explorador!🎉<br>Lograste descubrir todas las palabras. <br> Tu habilidad para descurbir es impresionante. ¡Sigue así explorador! <br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra d🔍</b><br>¡Super asombroso explorador!🎉<br>Lograste descubrir todas las palabras. <br> Tu habilidad para descurbir es impresionante. ¡Sigue así explorador! <br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		}
 
 		foreach ($array_palabras as $key => $value) {
@@ -453,7 +453,7 @@ class Desierto extends CI_Controller
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b>Nombre :</b> Descubriendo Palabras - Letra b.' . "<br>" . '<b>Objetivo :</b> Descubrir las 5 palabras que se forman con la letra b.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por palabra descubierta.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'nombre' => '<b>Nombre :</b> Descubriendo Palabras - Letra d.' . "<br>" . '<b>Objetivo :</b> Descubrir las 5 palabras que se forman con la letra d.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por palabra descubierta.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
 			'cronometro' => $tiempo,
 			'correctas' => $correctas,
 			'incorrectas' => $incorrectas,
@@ -482,7 +482,7 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function guardarRegistroDescubriendoPalbrasB()
+	public function guardarRegistroDescubriendoPalbrasD()
 	{
 
 		$fecha_registro = date("Y-m-d H:i:s");
@@ -498,13 +498,13 @@ class Desierto extends CI_Controller
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Observa con más detalle la imagen de referencia e intenta organizar<br>las letras de otra forma, a veces mover una o dos letras puede hacer que la palabra encaje.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra d🔍</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Observa con más detalle la imagen de referencia e intenta organizar<br>las letras de otra forma, a veces mover una o dos letras puede hacer que la palabra encaje.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		} else if ($estrellas > 200 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Observa bien la imagen de referencia y prueba reorganizar las letras con calma.<br> A veces, pequeños ajustes en el orden pueden hacer que la palabra encaje mejor.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra d🔍</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Observa bien la imagen de referencia y prueba reorganizar las letras con calma.<br> A veces, pequeños ajustes en el orden pueden hacer que la palabra encaje mejor.</i><br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Descubriendo Palabras - letra b🔍</b><br>¡Super asombroso explorador!🎉<br>Lograste descubrir todas las palabras. <br> Tu habilidad para descurbir es impresionante. ¡Sigue así explorador! <br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
+			$observacion = "<b>Descubriendo Palabras - letra d🔍</b><br>¡Super asombroso explorador!🎉<br>Lograste descubrir todas las palabras. <br> Tu habilidad para descurbir es impresionante. ¡Sigue así explorador! <br> Palabras descubiertas: $correctas de 5 palabras <br> Intentos  utilizados: $incorrectas<br>";
 		}
 
 		foreach ($array_palabras as $key => $value) {
@@ -517,7 +517,7 @@ class Desierto extends CI_Controller
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b>Nombre :</b> Descubriendo Palabras - Letra b.' . "<br>" . '<b>Objetivo :</b> Descubrir las 5 palabras que se forman con la letra b.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por palabra descubierta.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'nombre' => '<b>Nombre :</b> Descubriendo Palabras - Letra d.' . "<br>" . '<b>Objetivo :</b> Descubrir las 5 palabras que se forman con la letra d.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas.' . "<br>" . '<b>Recompensa de estrellas :</b> 200 estrellas por palabra descubierta.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
 			'cronometro' => $tiempo,
 			'correctas' => $correctas,
 			'incorrectas' => $incorrectas,
@@ -1123,13 +1123,13 @@ class Desierto extends CI_Controller
 	}
 
 
-	public function mi_avance_b()
+	public function mi_avance_d()
 	{
 		$prgreso_list = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d($this->session->userdata('identificador'))->result();
 		$data['prgreso_list'] = $prgreso_list;
 
-		$this->load->view('layout/header_letras/header_letraB/header_mi_avance_b');
-		$this->load->view('aventuras_del_trazo/desierto/mi_avance_b', $data);
+		$this->load->view('layout/header_letras/header_letraD/header_mi_avance_d');
+		$this->load->view('aventuras_del_trazo/desierto/mi_avance_d', $data);
 		$this->load->view('layout/footer');
 	}
 }
