@@ -559,18 +559,18 @@ class Desierto extends CI_Controller
 		$estrellas = $this->input->post('totalEstrellas');
 		$array_palabras = json_decode($this->input->post('arrayPalabras'));
 
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'b')->row();
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'd')->row();
 
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra d con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra d con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Intentos usados: $incorrectas<br>";
 		} else if ($estrellas > 200 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra d.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra d.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Intentos usados: $incorrectas<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra d. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra d. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Intentos usados: $incorrectas<br>";
 		}
 
 		foreach ($array_palabras as $key => $value) {
@@ -628,13 +628,13 @@ class Desierto extends CI_Controller
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra d con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra d con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Intentos usados: $incorrectas<br>";
 		} else if ($estrellas > 200 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra d.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra d.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Intentos usados: $incorrectas<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra d. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra d📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra d. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Intentos usados: $incorrectas<br>";
 		}
 
 		foreach ($array_palabras as $key => $value) {
@@ -691,7 +691,7 @@ class Desierto extends CI_Controller
 		$hojasNoAtrapadas = $this->input->post('hojasIncorrectas');
 		$estrellas = $this->input->post('totalEstrellas');
 
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'b')->row();
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'd')->row();
 
 		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
@@ -781,7 +781,7 @@ class Desierto extends CI_Controller
 		$this->load->view('aventuras_del_trazo/desierto/elementos_perdidos_d');
 		$this->load->view('layout/footer');
 	}
-	public function enviarEvaluacionElementosPerdidosB()
+	public function enviarEvaluacionElementosPerdidosD()
 	{
 
 		$fecha_registro = date("Y-m-d H:i:s");
@@ -795,17 +795,17 @@ class Desierto extends CI_Controller
 		$estrellas = $this->input->post('totalEstrellas');
 		$arrayObjetosIncorrectos = json_decode($this->input->post('arrayObjetosIncorrectos'), true);
 
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'b')->row();
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'd')->row();
 
 		if ($estrellas <= 50) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		} else if ($estrellas > 50 && $estrellas <= 950) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		}
 
 		foreach ($arrayObjetosIncorrectos as $key => $value) {
@@ -816,7 +816,7 @@ class Desierto extends CI_Controller
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b> Nombre :</b> Elementos perdidos - Letra d' . "<br>" . '<b>Objetivo :</b> Encontrar todos los elementos perdidos en el bosque de bambú.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas .' . "<br>" . '<b>Recompensa de estrellas :</b> 50 estrellas por elementos encontrado.' . "<br>" . '<b>Total de elementos a encontrar :</b> 20 elementos perdidios.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'nombre' => '<b> Nombre :</b> Elementos perdidos - Letra d' . "<br>" . '<b>Objetivo :</b> Encontrar todos los elementos perdidos en el desierto.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas .' . "<br>" . '<b>Recompensa de estrellas :</b> 50 estrellas por elementos encontrado.' . "<br>" . '<b>Total de elementos a encontrar :</b> 20 elementos perdidios.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
 			'cronometro' => $tiempo,
 			'correctas' => $objetosCorrectos,
 			'incorrectas' => $objetosIncorrectos,
@@ -842,7 +842,7 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function guardarRegistroElementosPerdidos()
+	public function guardarRegistroElementosPerdidosD()
 	{
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
@@ -857,13 +857,13 @@ class Desierto extends CI_Controller
 
 		if ($estrellas <= 50) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		} else if ($estrellas > 50 && $estrellas <= 950) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra d👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		}
 
 		foreach ($arrayObjetosIncorrectos as $key => $value) {
@@ -874,7 +874,7 @@ class Desierto extends CI_Controller
 			'identificador' => $identificador_1,
 			'letra' => $letra,
 			'identificador_usuario' => $identificador_usuario,
-			'nombre' => '<b> Nombre :</b> Elementos perdidos - Letra d' . "<br>" . '<b>Objetivo :</b> Encontrar todos los elementos perdidos en el bosque de bambú.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas .' . "<br>" . '<b>Recompensa de estrellas :</b> 50 estrellas por elementos encontrado.' . "<br>" . '<b>Total de elementos a encontrar :</b> 20 elementos perdidios.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
+			'nombre' => '<b> Nombre :</b> Elementos perdidos - Letra d' . "<br>" . '<b>Objetivo :</b> Encontrar todos los elementos perdidos en el desierto.' . "<br>" . '<b>Estrellas a ganar :</b> 1000 estrellas .' . "<br>" . '<b>Recompensa de estrellas :</b> 50 estrellas por elementos encontrado.' . "<br>" . '<b>Total de elementos a encontrar :</b> 20 elementos perdidios.' . "<br>" . '<b>Intentos disponibles :</b> 3 intentos.',
 			'cronometro' => $tiempo,
 			'correctas' => $objetosCorrectos,
 			'incorrectas' => $objetosIncorrectos,
@@ -896,7 +896,7 @@ class Desierto extends CI_Controller
 		$this->load->view('aventuras_del_trazo/desierto/dino_dice_d');
 		$this->load->view('layout/footer');
 	}
-	public function enviarEvaluacionDinoDiceB()
+	public function enviarEvaluacionDinoDiceD()
 	{
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
@@ -910,18 +910,18 @@ class Desierto extends CI_Controller
 		$arrayObjetosIncorrectos = json_decode($this->input->post('arrayObjetosIncorrectos'), true);
 
 		// $arrayObjetosIncorrectos = json_decode($this->input->post('objetosIncorrectos'));
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'b')->row();
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'd')->row();
 
 
 		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas > 100 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		}
 
 		foreach ($arrayObjetosIncorrectos as $key => $value) {
@@ -961,7 +961,7 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function guardarRegistroEvaluacionDinoDiceB()
+	public function guardarRegistroEvaluacionDinoDiceD()
 	{
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
@@ -979,13 +979,13 @@ class Desierto extends CI_Controller
 
 		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas > 100 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra d🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		}
 
 		foreach ($arrayObjetosIncorrectos as $key => $value) {
@@ -1019,7 +1019,7 @@ class Desierto extends CI_Controller
 		$this->load->view('aventuras_del_trazo/desierto/memorama_d');
 		$this->load->view('layout/footer');
 	}
-	public function enviarEvaluacionMemorama()
+	public function enviarEvaluacionMemoramaD()
 	{
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
@@ -1032,18 +1032,18 @@ class Desierto extends CI_Controller
 		$estrellas = $this->input->post('totalEstrellas');
 
 		// $arrayObjetosIncorrectos = json_decode($this->input->post('objetosIncorrectos'));
-		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'b')->row();
+		$prueba = $this->ejercicios_model->obtener_evaluacion_ejercicios_por_usuario_d_actualizado($this->session->userdata('identificador'), 'd')->row();
 
 
 		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para observar bien cada emoji y leer con atención las palabras.<br> Busca detalles que te ayuden a relacionar el emoji con la palabra que más se le parezca.</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para observar bien cada emoji y leer con atención las palabras.<br> Busca detalles que te ayuden a relacionar el emoji con la palabra que más se le parezca.</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas > 100 && $estrellas <= 1100) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Fíjate bien en el emoji. ¿Qué palabra lo describe mejor? No te apresures, tómate tu tiempo y observa con atención. ¡Tú puedes!</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Fíjate bien en el emoji. ¿Qué palabra lo describe mejor? No te apresures, tómate tu tiempo y observa con atención. ¡Tú puedes!</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas == 1200) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todas las parejas. ¡Sigue así explorador! <br> Tu capacidad para encontrar y tu atención a los detalles para descubrir son impresionantes.<br>Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todas las parejas. ¡Sigue así explorador! <br> Tu capacidad para encontrar y tu atención a los detalles para descubrir son impresionantes.<br>Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
 		}
 
 
@@ -1079,7 +1079,7 @@ class Desierto extends CI_Controller
 		}
 	}
 
-	public function guardarRegistroMemorama()
+	public function guardarRegistroMemoramaD()
 	{
 		$fecha_registro = date("Y-m-d H:i:s");
 		$key_1 = "progreso-" . date("Y-m-d-H-i-s", strtotime($fecha_registro));
@@ -1096,7 +1096,8 @@ class Desierto extends CI_Controller
 			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para observar bien cada emoji y leer con atención las palabras.<br> Busca detalles que te ayuden a relacionar el emoji con la palabra que más se le parezca.</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas > 100 && $estrellas <= 1100) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Fíjate bien en el emoji. ¿Qué palabra lo describe mejor? No te apresures, tómate tu tiempo y observa con atención. ¡Tú puedes!</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Fíjate bien en el emoji. ¿Qué palabra lo describe mejor?<br>
+			No te apresures, tómate tu tiempo y observa con atención. ¡Tú puedes!</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas == 1200) {
 			$evaluacion = '¡Super asombroso!';
 			$observacion = "<b>¡Encuentra y Descubre! - letra d🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todas las parejas. ¡Sigue así explorador! <br> Tu capacidad para encontrar y tu atención a los detalles para descubrir son impresionantes.<br>Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";

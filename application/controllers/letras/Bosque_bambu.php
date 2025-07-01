@@ -565,13 +565,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra b con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra b con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Intentos usados: $incorrectas<br>";
 		} else if ($estrellas > 200 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra b.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra b.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Intentos usados: $incorrectas<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra b. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra b. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Intentos usados: $incorrectas<br>";
 		}
 
 		foreach ($array_palabras as $key => $value) {
@@ -629,13 +629,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 200) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra b con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡A seguir practicando explorador!💪<br><i><b>Sugerencia:</b> Tómate tu tiempo para reorganizar las palabras con calma.<br> Recuerda visitar más seguido el portal de <b>Exploremos</b>, ¡te ayudará a descubrir los mensajes secretos de la letra b con facilidad!</i><br>Palabras descubiertas: $correctas de 5 mensajes secretos <br> Intentos usados: $incorrectas<br>";
 		} else if ($estrellas > 200 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra b.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Casi lo logras explorador!🌟<br><i><b>Sugerencia:</b> Sigue reorganizando las palabras con calma y piensa en las características de la letra b.<br>No olvides usar el portal de <b>Exploremos</b> con más frecuencia, ¡te ayudará a descubrir los secretos más rápido!</i><br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Intentos usados: $incorrectas<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra b. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Errores cometidos: $incorrectas<br>";
+			$observacion = "<b>Mensajes Secretos - letra b📜</b><br>¡Super asombroso explorador!🎉<br>Lograste descifrar todos los mensajes secretos.<br>Tu habilidad para descubrir los mensajes secretos de la letra b. ¡Sigue así explorador!<br>Palabras descubiertas: $correctas de 5 mensajes secreto <br> Intentos usados: $incorrectas<br>";
 		}
 
 		foreach ($array_palabras as $key => $value) {
@@ -800,13 +800,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 50) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		} else if ($estrellas > 50 && $estrellas <= 950) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		}
 
 		foreach ($arrayObjetosIncorrectos as $key => $value) {
@@ -858,13 +858,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 50) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Mira bien las características del elemento a buscar.<br> Algunos detalles pueden ser pequeños, pero te ayudarán a encontrar los más parecidos.</i><br> Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		} else if ($estrellas > 50 && $estrellas <= 950) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia: Estás cerca. Revisa más detenidamente los elementos y asegúrate de comparar todos los detalles.</i><br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Errores cometidos: $objetosIncorrectos<br>";
+			$observacion = "<b>Elementos perdidos - letra b👀</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los elementos.¡Sigue así explorador!<br> Tienes buena habilidad para distinguir y tu atención a los detalles son impresionantes.<br>Elementos encontrados: $objetosCorrectos de 20 elementos perdidos <br> Intentos usados: $objetosIncorrectos<br>";
 		}
 
 		foreach ($arrayObjetosIncorrectos as $key => $value) {
@@ -916,13 +916,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas > 100 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		}
 
 		foreach ($arrayObjetosIncorrectos as $key => $value) {
@@ -980,13 +980,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para leer bien las instrucciones.<br> Observa cada objeto con detalle y compáralo cuidadosamente con lo que se te pide antes de seleccionarlo.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas > 100 && $estrellas <= 900) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Asegúrate de leer bien las instrucciones y observar cada objeto con más detalle.<br> Intenta comparar los objetos con calma antes de seleccionarlos.</i><br> Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas == 1000) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Errores cometidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Hazle caso al Dino! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todos los objetos sin cometer ningún error. ¡Sigue así explorador! <br> Tu capacidad para seguir instrucciones y tu atención a los detalles son impresionantes.<br>Objetos recolectados: $contadorCorrectos de 10 objetos <br> Intentos usados: $contadorIncorrectas <br>";
 		}
 
 		foreach ($arrayObjetosIncorrectos as $key => $value) {
@@ -1038,13 +1038,13 @@ class Bosque_bambu extends CI_Controller
 
 		if ($estrellas <= 100) {
 			$evaluacion = '¡A seguir practicando!';
-			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para observar bien cada emoji y leer con atención las palabras.<br> Busca detalles que te ayuden a relacionar el emoji con la palabra que más se le parezca.</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡A seguir practicando explorador!💪<br><i>Sugerencia: Tómate tu tiempo para observar bien cada emoji y leer con atención las palabras.<br> Busca detalles que te ayuden a relacionar el emoji con la palabra que más se le parezca.</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas > 100 && $estrellas <= 1100) {
 			$evaluacion = '¡Casi lo logras!';
-			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Fíjate bien en el emoji. ¿Qué palabra lo describe mejor? No te apresures, tómate tu tiempo y observa con atención. ¡Tú puedes!</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡Casi lo logras explorador!🌟<br><i>Sugerencia:  Fíjate bien en el emoji. ¿Qué palabra lo describe mejor? No te apresures, tómate tu tiempo y observa con atención. ¡Tú puedes!</i><br> Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
 		} else if ($estrellas == 1200) {
 			$evaluacion = '¡Super asombroso!';
-			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todas las parejas. ¡Sigue así explorador! <br> Tu capacidad para encontrar y tu atención a los detalles para descubrir son impresionantes.<br>Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos fallidos: $contadorIncorrectas <br>";
+			$observacion = "<b>¡Encuentra y Descubre! - letra b🦖</b><br>¡Super asombroso explorador!🎉<br>Encontraste todas las parejas. ¡Sigue así explorador! <br> Tu capacidad para encontrar y tu atención a los detalles para descubrir son impresionantes.<br>Parejas encontradas: $paresTotalesEncontrados de 12 parejas <br> Intentos usados: $contadorIncorrectas <br>";
 		}
 
 

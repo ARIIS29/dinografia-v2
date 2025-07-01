@@ -65,14 +65,14 @@ $(document).ready(function () {
 
             // Validación basada en emojis
             if (cellContent.includes("💪")) {
-                $(row).find('td:eq(0)').css('background-color', 'rgb(255,128,0)');
-                $(row).find('td:eq(1)').css('background-color', 'rgb(255,128,0)');
-                $(row).find('td:eq(2)').css('background-color', 'rgb(255,128,0)');
-                $(row).find('td:eq(3)').css('background-color', 'rgb(255,128,0)');
-                $(row).find('td:eq(4)').css('background-color', 'rgb(255,128,0)');
-                $(row).find('td:eq(5)').css('background-color', 'rgb(255,128,0)');
-                $(row).find('td:eq(6)').css('background-color', 'rgb(255,128,0)');
-                $(row).find('td:eq(7)').css('background-color', 'rgb(255,128,0)');
+                $(row).find('td:eq(0)').css('background-color', 'rgb(247, 159, 59)');
+                $(row).find('td:eq(1)').css('background-color', 'rgb(247, 159, 59)');
+                $(row).find('td:eq(2)').css('background-color', 'rgb(247, 159, 59)');
+                $(row).find('td:eq(3)').css('background-color', 'rgb(247, 159, 59)');
+                $(row).find('td:eq(4)').css('background-color', 'rgb(247, 159, 59)');
+                $(row).find('td:eq(5)').css('background-color', 'rgb(247, 159, 59)');
+                $(row).find('td:eq(6)').css('background-color', 'rgb(247, 159, 59)');
+                $(row).find('td:eq(7)').css('background-color', 'rgb(247, 159, 59)');
             } else if (cellContent.includes("🌟")) {
                 $(row).find('td:eq(0)').css('background-color', 'rgb(255, 255, 0)');
                 $(row).find('td:eq(1)').css('background-color', 'rgb(255, 255, 0)');

@@ -147,7 +147,7 @@
                     console.log("Error al reproducir audio automáticamente:", error);
                 });
                 audioIndicacionesDos();
-                enviarInicioEvaluacionDinoDiceB();
+                enviarInicioEvaluacionDinoDiceD();
                 startAnimation();
 
             });
@@ -209,13 +209,13 @@
         }
 
 
-        const emojis = ['🎲', '📓', '🏜️', '🍩', '🍑', '💿', '🦖', '🍬', '🐉', '🁴', '🗡️'];
+        const emojis = ['🎲', '📓', '🏜️', '🍩', '🦷', '💿', '🦖', '🍬', '🐉', '🁴', '🗡️'];
         const nombresEmojis = {
             '🎲': 'dado',
             '📓': 'diario',
             '🏜️': 'desierto',
             '🍩': 'dona',
-            '🍑': 'durazno',
+            '🍑': 'diente',
             '💿': 'disco',
             '🦖': 'dino',
             '🍬': 'dulce',
@@ -264,7 +264,7 @@
                 div.textContent = emoji;
                 div.addEventListener('click', () => verificarFigura(emoji));
                 contenedor.appendChild(div);
-                enviarEvaluacionDinoDiceB();
+                enviarEvaluacionDinoDiceD();
 
             });
         }
@@ -368,7 +368,7 @@
                     document.getElementById("omitirBtn").disabled = true;
                     document.getElementById("reiniciarBtn").disabled = true; // Habilitar el botón de reiniciar
                     document.getElementById("finalizarBtn").disabled = true;
-                    enviarEvaluacionDinoDiceB();
+                    enviarEvaluacionDinoDiceD();
                 }
             }
         }
@@ -766,7 +766,7 @@
             document.getElementById("finalizarBtn").disabled = true;
 
             clearInterval(temporizador);
-            enviarEvaluacionDinoDiceB();
+            enviarEvaluacionDinoDiceD();
         }
         // Inicia el cronómetro
         function iniciarTemporizador() {
@@ -832,18 +832,18 @@
             document.getElementById("reiniciarBtn").disabled = true; // Habilitar el botón de reiniciar
             document.getElementById("omitirBtn").disabled = true;
             document.getElementById("finalizarBtn").disabled = true;
-            enviarEvaluacionDinoDiceB();
+            enviarEvaluacionDinoDiceD();
 
         }
 
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
-        function enviarEvaluacionDinoDiceB() {
+        function enviarEvaluacionDinoDiceD() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/enviarEvaluacionDinoDiceB'); ?>', // URfL de tu controlador
+                url: '<?php echo base_url('letras/desierto/enviarEvaluacionDinoDiceD'); ?>', // URfL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     objetosCorrectos: contadorCorrectos,
                     intentosInocrrectos: contadorIncorrectas,
@@ -860,13 +860,13 @@
             });
         }
 
-        function enviarInicioEvaluacionDinoDiceB() {
+        function enviarInicioEvaluacionDinoDiceD() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/guardarRegistroEvaluacionDinoDiceB'); ?>', // URfL de tu controlador
+                url: '<?php echo base_url('letras/desierto/guardarRegistroEvaluacionDinoDiceD'); ?>', // URfL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     objetosCorrectos: contadorCorrectos,
                     intentosInocrrectos: contadorIncorrectas,

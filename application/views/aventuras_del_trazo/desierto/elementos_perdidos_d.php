@@ -143,7 +143,7 @@
                     console.log("Error al reproducir audio automáticamente:", error);
                 });
                 audioIndicacionesDos();
-                enviarInicioEvaluacionElementosPerdidosB();
+                enviarInicioEvaluacionElementosPerdidosD();
 
                 startAnimation();
 
@@ -235,8 +235,8 @@
 
 
         const frutasDisponibles = [{
-                emoji: "🍑",
-                nombre: "durazno"
+                emoji: "🪢",
+                nombre: "cuerda"
             },
             {
                 emoji: "💎",
@@ -263,12 +263,12 @@
                 nombre: "daga"
             },
             {
-                emoji: "🐿️",
-                nombre: "ardilla"
+                emoji: "🦷",
+                nombre: "diente"
             },
             {
-                emoji: "🦔",
-                nombre: "armadillo"
+                emoji: "🎲",
+                nombre: "dado"
             },
             {
                 emoji: "🍉",
@@ -354,7 +354,7 @@
 
 
         function obtenerEmojiAleatorio() {
-            const emojis = ['🍑', '💎', '📓', '🍬', '🍩', '🁴', '🗡️', '🐿️', '🦔', '🍉', '🍦', '💿'];
+            const emojis = ['🪢', '💎', '📓', '🍬', '🍩', '🁴', '🗡️', '🦷', '🎲', '🍉', '🍦', '💿'];
 
             return emojis[Math.floor(Math.random() * emojis.length)];
         }
@@ -390,7 +390,7 @@
                     setTimeout(pasarNivel, 4000);
 
                 }
-                enviarEvaluacionElementosPerdidosB();
+                enviarEvaluacionElementosPerdidosD();
 
                 noencotrado = 20 - frutasRecolectadas;
                 console.log('No encontrado', noencotrado);
@@ -447,7 +447,7 @@
                     document.getElementById("pasarNivelBtn").disabled = true;
                     document.getElementById("reiniciarJuegoBtn").disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
-                    enviarEvaluacionElementosPerdidosB();
+                    enviarEvaluacionElementosPerdidosD();
 
                 }
             }
@@ -483,7 +483,7 @@
                 }, 1500);
 
                 mostrarEstrellasCentrales();
-                enviarEvaluacionElementosPerdidosB();
+                enviarEvaluacionElementosPerdidosD();
 
             }
         }
@@ -856,7 +856,7 @@
                 block: "end"
             });
             mostrarMensajeExitoFinalizar();
-            enviarEvaluacionElementosPerdidosB();
+            enviarEvaluacionElementosPerdidosD();
         }
 
         function mostrarConfeti() {
@@ -899,14 +899,14 @@
 
 
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
-        function enviarEvaluacionElementosPerdidosB() {
+        function enviarEvaluacionElementosPerdidosD() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
 
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/enviarEvaluacionElementosPerdidosB'); ?>', // URfL de tu controlador
+                url: '<?php echo base_url('letras/desierto/enviarEvaluacionElementosPerdidosD'); ?>', // URfL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     objetosCorrectos: frutasRecolectadas,
                     objetosIncorrectos: contadorIncorrectas,
@@ -924,14 +924,14 @@
         }
 
 
-        function enviarInicioEvaluacionElementosPerdidosB() {
+        function enviarInicioEvaluacionElementosPerdidosD() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
 
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/guardarRegistroElementosPerdidos'); ?>', // URL de tu controlador
+                url: '<?php echo base_url('letras/desierto/guardarRegistroElementosPerdidosD'); ?>', // URL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     objetosCorrectos: frutasRecolectadas,
                     objetosIncorrectos: contadorIncorrectas,

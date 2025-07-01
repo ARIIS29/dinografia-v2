@@ -148,7 +148,7 @@
                 });
 
                 audioIndicacionesDos();
-                enviarInicioEvaluacionMemorama();
+                enviarInicioEvaluacionMemoramaD();
                 startAnimation();
 
             });
@@ -429,7 +429,7 @@
                         mostrarLapizRoto();
 
                     }, 1500);
-                    enviarEvaluacionMemorama();
+                    enviarEvaluacionMemoramaD();
 
                     document.getElementById('reiniciarJuegoBtn').disabled = true;
                     document.getElementById("finalizarJuegoBtn").disabled = true;
@@ -439,7 +439,7 @@
                         tarjeta.parentNode.replaceChild(tarjetaClon, tarjeta);
                     });
                 }
-                enviarEvaluacionMemorama();
+                enviarEvaluacionMemoramaD();
 
 
 
@@ -494,7 +494,7 @@
                         // mensaje.textContent = `🎉 ¡Felicidades! Has encontrado todos los pares y completado la misión.`;
                         // mensaje.className = "mensaje-final";
                         mostrarEstrellasCentrales();
-                        enviarEvaluacionMemorama();
+                        enviarEvaluacionMemoramaD();
                         document.getElementById('reiniciarJuegoBtn').disabled = true;
                         document.getElementById("finalizarJuegoBtn").disabled = true;
 
@@ -871,20 +871,20 @@
             });
             document.getElementById('reiniciarJuegoBtn').disabled = true;
             document.getElementById("finalizarJuegoBtn").disabled = true;
-            enviarEvaluacionMemorama();
+            enviarEvaluacionMemoramaD();
             // Opcional: deshabilitar las cartas restantes
             // const tarjetas = document.querySelectorAll('.tarjeta');
             // tarjetas.forEach(tarjeta => tarjeta.removeEventListener('click', voltearTarjeta));
         }
 
         // Función para enviar el tiempo final por AJAX, datos a enviar al controlador (backend)
-        function enviarEvaluacionMemorama() {
+        function enviarEvaluacionMemoramaD() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/enviarEvaluacionMemorama'); ?>', // URfL de tu controlador
+                url: '<?php echo base_url('letras/desierto/enviarEvaluacionMemoramaD'); ?>', // URfL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     paresCorrectos: paresTotalesEncontrados,
                     intentosInocrrectos: contadorIncorrectas,
@@ -900,13 +900,13 @@
             });
         }
 
-        function enviarInicioEvaluacionMemorama() {
+        function enviarInicioEvaluacionMemoramaD() {
             var tiempo = `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
             $.ajax({
-                url: '<?php echo base_url('letras/desierto/guardarRegistroMemorama'); ?>', // URfL de tu controlador
+                url: '<?php echo base_url('letras/desierto/guardarRegistroMemoramaD'); ?>', // URfL de tu controlador
                 type: 'POST',
                 data: {
-                    letra: 'b',
+                    letra: 'd',
                     tiempoFinal: tiempo,
                     paresCorrectos: paresTotalesEncontrados,
                     intentosInocrrectos: contadorIncorrectas,

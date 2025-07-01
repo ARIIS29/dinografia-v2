@@ -11,7 +11,9 @@ body {
 }
 
 .navbar-color-d {
-    background: rgb(230, 221, 221);
+    background-color: #FFE0CC;
+    border-bottom: 1px solid #E97132;
+
 
 
 }
@@ -74,6 +76,7 @@ body {
     color: #8f3200 !important;
 
 }
+
 .texto_indicaciones_desierto_galeria {
     font-family: 'Century Gothic', sans-serif;
     font-size: 20px;
@@ -436,4 +439,3 @@ body {
 .color_barra_coche {
     background-color: #ef7532;
 }
-

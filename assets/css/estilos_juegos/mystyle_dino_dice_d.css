@@ -7,7 +7,7 @@
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    color: #214524 !important;
+    color: #8f3200 !important;
 
 }
 
@@ -27,17 +27,22 @@
     align-items: center;
     justify-content: center;
     /* margin: 10px; */
-    background-color: #FD7B36;
+    background-color: #FD7B36;;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+    /* Sombra del recuadro */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
 }
 
 /* Efecto cuando el cursor pasa por encima de la figura */
 .figura:hover {
-    background-color: #cc4b06;
-
+    background-color: #ea6016;
     transform: scale(1.1);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.35);
+
 }
 
 /* Para selección correcta */
