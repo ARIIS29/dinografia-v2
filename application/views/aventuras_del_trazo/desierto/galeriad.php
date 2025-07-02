@@ -5,7 +5,7 @@
             <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(221, 247, 216, 0.8); justify-content:center; align-items:center; z-index:1000;">
                 <div style="position:relative; background:#fff; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                     <video id="tutorialVideo" width="100%" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_galeriab.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_d/d_tutorial_galeria.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                     <button id="cerrarTutorial" type="button" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Cerrar</button>
@@ -16,7 +16,7 @@
                 <!-- Imagen -->
                 <img src="<?php echo base_url('almacenamiento/img/dinografia/dino-galeria-b.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-4 d-none d-sm-block" id="dino" width="5%">
                 <!-- Texto -->
-                <p class="texto_tabla_desierto"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>, es hora de evaluar tu trazo de la <b>Letra b!</b> 📝</b> <br></p>
+                <p class="texto_tabla_desierto"> <b>¡Hola <?php echo $this->session->userdata('usuario') ?>, es hora de evaluar tu trazo de la <b>Letra d!</b> 📝</b> <br></p>
 
             </div>
             <div class="col-12 texto_indicaciones_desierto_galeria">

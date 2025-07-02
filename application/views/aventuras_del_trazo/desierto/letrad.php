@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="modalInstruccionesLabel">
                     <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
-                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_letrab.mp3') ?>" preload="auto"></audio>
+                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_d/d_letrad.mp3') ?>" preload="auto"></audio>
 
                     <b>¡Hola Explorador!</b>
                 </h5>
@@ -17,7 +17,7 @@
                 </p>
                 <div class="ratio ratio-16x9">
                     <video id="tutorialVideo" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_letrab.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_d/d_tutorial_letrad.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                 </div>
@@ -51,7 +51,7 @@
             <!-- Imagen -->
             <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
             <!-- Texto -->
-            <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/audio_traza_letrab_indicaciones.mp3') ?>" preload="auto"></audio>
+            <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audios_d/audio_traza_letrad_indicaciones.mp3') ?>" preload="auto"></audio>
             <div class="d-none d-md-block">
                 <p class="texto_indicaciones_desierto mb-0">¡Da clic en el botón del lápiz, sigue mis instrucciones y traza la letra "d" en la pizarra! </p>
             </div>
@@ -115,7 +115,7 @@
         const fondo = document.getElementById('fondo-letra'); // Imagen de fondo
         const botonColor = document.getElementById('botonColor'); // Botón de color
         const inputColor = document.getElementById('color'); // Input de color oculto
-        const grosorFijo = 15;
+        const grosorFijo = 20;
         botonGuardar.style.display = "none";
         const modalEl = document.getElementById('modalInstrucciones');
         const video = document.getElementById('tutorialVideo');
