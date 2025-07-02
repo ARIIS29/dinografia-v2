@@ -632,7 +632,7 @@
             Puedes seguir mejorando en tu próxima exploración 💪<br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
             📝 Palabras encontradas: <strong>${contadorBuenas}</strong><br>
-            ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong>.  <br>
+            ⏰ Tiempo: <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
@@ -695,7 +695,7 @@
             En tu recorrido diste un gran paso, ¡cada intento te hace mejor! 💪<br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
             📝 Palabras encontradas: <strong>${contadorBuenas}</strong><br>
-            ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> <br>
+            ⏰ Tiempo: <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
@@ -758,7 +758,7 @@
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             🌟 Estrellas ganadas: <strong>${estrellas}</strong> <br> 
             📝 Palabras encontradas: <strong>${contadorBuenas}</strong> <br>
-            ⏰ Tiempo <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong><br>
+            ⏰ Tiempo: <strong>${formatTime(minutes)}:${formatTime(seconds)}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
