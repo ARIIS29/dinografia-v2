@@ -14,7 +14,7 @@
 
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_mensajes_secretos.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_d/d_mensajes_secretos.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
@@ -111,9 +111,9 @@
             document.getElementById('header-inicial').classList.add('d-none');
         });
 
-        if (!sessionStorage.getItem('audio1Reproducido_descubriendoMensajesSecretosB')) {
+        if (!sessionStorage.getItem('audio1Reproducido_descubriendoMensajesSecretosD')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_descubriendoMensajesSecretosB', 'true');
+                sessionStorage.setItem('audio1Reproducido_descubriendoMensajesSecretosD', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });

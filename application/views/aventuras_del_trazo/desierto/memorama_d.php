@@ -10,12 +10,12 @@
                     </div>
                     <p>
 
-                        Prepárate para una emocionante misión: ¡Ayuda al Dino a encontrar y descubrir las parejas, pero ten cuidado... ¡no son iguales!, debes encontrar el animal y la palabra que lo representa. ¡Tu atención y memoria te ayudarán en esta gran aventura!<br>
-                        <b>Para explorar, da clic o selecciona las tarjetas para darles la vuelta y encontrar las parejas correctas.</b>
+                        Prepárate para una emocionante misión: ¡Ayuda al Dino a encontrar y descubrir las parejas en el desierto, pero ten cuidado... ¡no son iguales!, debes encontrar el animal y la palabra que lo representa. ¡Tu atención y memoria te ayudarán en esta gran aventura!
+                        <b>Para explorar, da clic o selecciona las tarjetas de color naranja para darles la vuelta y encontrar las parejas correctas.</b>
                         <br>
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_encuentra_descubre.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_d/d_encuentra_descubre.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8);; justify-content:center; align-items:center; z-index:1000;">
@@ -31,7 +31,7 @@
                     </div>
 
                     <p>
-                        ¡Diviértete descubriendo y aprendiendo mientras exploramos juntos el bosque de bambú! <br>
+                        ¡Diviértete descubriendo y aprendiendo mientras exploramos juntos el misterioso desierto! <br>
                         Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
@@ -110,9 +110,9 @@
             document.getElementById('header-inicial').classList.add('d-none');
         });
 
-        if (!sessionStorage.getItem('audio1Reproducido_memorama')) {
+        if (!sessionStorage.getItem('audio1Reproducido_memoramaD')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_memorama', 'true');
+                sessionStorage.setItem('audio1Reproducido_memoramaD', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });

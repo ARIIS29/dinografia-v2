@@ -14,7 +14,7 @@
                         <b>Para cumplir con la misión debes seleccionar o dar clic en el elemento que se te pide.</b>
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_dino_dice.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_d/d_dino_dice.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
@@ -30,7 +30,7 @@
                     </div>
 
                     <p>
-                        ¡Diviértete aprendiendo mientras exploramos juntos el mágico bosque de bambú! <br>
+                        ¡Diviértete aprendiendo mientras exploramos juntos el misterioso desierto! <br>
                         Haz clic en el botón de <b>Iniciar</b> para comenzar la exploración.</p>
                     <div class="col-lg-12 col-md-12 col-12 text-center animated-button">
                         <a id="play-btn">
@@ -110,9 +110,9 @@
         //     console.log("Error al reproducir audioVista1:", error);
         // });
 
-        if (!sessionStorage.getItem('audio1Reproducido_dinodiceB')) {
+        if (!sessionStorage.getItem('audio1Reproducido_dinodiceD')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_dinodiceB', 'true');
+                sessionStorage.setItem('audio1Reproducido_dinodiceD', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });

@@ -13,7 +13,7 @@
                         <b>Para jugar, tienes que arrastrar las letras a los cuadros naranjas para formar la palabra, cuando termines haz clic en el botón verde ✅ para verificar tu respuesta.</b> <br>
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_d/d_descubriendo_palabras.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
@@ -119,9 +119,9 @@
         // audio1.play().catch(error => {
         //     console.log("Error al reproducir audioVista1:", error);
         // });
-        if (!sessionStorage.getItem('audio1Reproducido_descubriendoPalabrasB')) {
+        if (!sessionStorage.getItem('audio1Reproducido_descubriendoPalabrasD')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_descubriendoPalabrasB', 'true');
+                sessionStorage.setItem('audio1Reproducido_descubriendoPalabrasD', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });

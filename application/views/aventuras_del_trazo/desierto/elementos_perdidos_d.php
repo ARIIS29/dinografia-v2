@@ -14,7 +14,7 @@
 
                     </p>
 
-                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_b/b_elementos_perdidos.mp3') ?>" preload="auto"></audio>
+                    <audio id="audioVista1" src="<?php echo base_url('almacenamiento/audios/audios_d/d_elementos_perdidos.mp3') ?>" preload="auto"></audio>
 
                     <!-- Modal del tutorial -->
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
@@ -106,9 +106,9 @@
         // audio1.play().catch(error => {
         //     console.log("Error al reproducir audioVista1:", error);
         // });
-        if (!sessionStorage.getItem('audio1Reproducido_elementosPerdidosB')) {
+        if (!sessionStorage.getItem('audio1Reproducido_elementosPerdidosD')) {
             audio1.play().then(() => {
-                sessionStorage.setItem('audio1Reproducido_elementosPerdidosB', 'true');
+                sessionStorage.setItem('audio1Reproducido_elementosPerdidosD', 'true');
             }).catch(error => {
                 console.log("Error al reproducir audioVista1:", error);
             });
