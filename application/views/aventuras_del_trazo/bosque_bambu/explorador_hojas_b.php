@@ -317,7 +317,7 @@
             En tu exploración diste un gran paso, ¡cada intento te hace mejor! 💪<br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
             🍃 Hojas atrapadas: <strong>${puntaje}</strong><br>
-            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
+            ⏰ Tiempo: <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
@@ -380,7 +380,7 @@
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             🌟 Estrellas ganadas: <strong>${estrellas}</strong> <br> 
             🍃 Hojas atrapadas: <strong>${puntaje}</strong> <br>
-            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
+            ⏰ Tiempo: <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';

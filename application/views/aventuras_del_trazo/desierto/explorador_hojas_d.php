@@ -20,7 +20,7 @@
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
-                                <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_explorador_hojas.mp4'); ?>" type="video/mp4">
+                                <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_d/d_tutorial_explorador_hojas.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
                             </video>
                             <!-- <button id="cerrarTutorial" >Cerrar</button> -->
@@ -317,7 +317,7 @@
             En tu exploración diste un gran paso, ¡cada intento te hace mejor! 💪<br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
             🍃 Hojas atrapadas: <strong>${puntaje}</strong><br>
-            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
+            ⏰ Tiempo: <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#704004';
@@ -380,7 +380,7 @@
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             🌟 Estrellas ganadas: <strong>${estrellas}</strong> <br> 
             🍃 Hojas atrapadas: <strong>${puntaje}</strong> <br>
-            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
+            ⏰ Tiempo: <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong><br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#704004';
@@ -499,7 +499,7 @@
         }
 
         function movimientosSalta() {
-            const estrella = document.querySelector('img[src*="hojab.png"]');
+            const estrella = document.querySelector('img[src*="hojad.png"]');
 
             // Reiniciar animación si ya tiene la clase
             estrella.classList.remove('saltarE');

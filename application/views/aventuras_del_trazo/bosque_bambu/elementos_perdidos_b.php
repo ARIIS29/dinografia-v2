@@ -496,8 +496,8 @@
             ¡Muy cerca, <?php echo $this->session->userdata('usuario'); ?>, usaste tus 3 intentos! ✏️ <br>
             Puedes seguir mejorando en tu próxima exploración 💪<br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            🔍 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
-            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong>.  <br>
+            🔍 Elementos encontrados: <strong>${frutasRecolectadas}</strong><br>
+            ⏰ Tiempo: <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong>.  <br>
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
@@ -557,10 +557,10 @@
             mensaje.textContent = `Recomepensa acumulada ${estrellas}`;
             mensaje.innerHTML = `<b>¡Fin de la misión! 🦖</b> <br> 
             ¡Haz finalizado la exploración, <?php echo $this->session->userdata('usuario'); ?>! ✏️ <br>
-            En tu recorrido diste un gran paso encontrando elementos, ¡cada intento te hace mejor! 💪<br>
+            En tu recorrido diste un gran paso encontrando elementos, <br> ¡cada intento te hace mejor! 💪<br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            🔍 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
-            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>  
+            🔍 Elementos: encontrados <strong>${frutasRecolectadas}</strong><br>
+            ⏰ Tiempo: <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>  
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍 <br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
@@ -622,8 +622,8 @@
             En esta misión encontrastes <b>todos los elementos</b>. <br>
             ¡Sigue así, lo estas haciendo genial!🎁¡Toma tu recompensa! <br>
             🌟 Estrellas obtenidas: <strong>${estrellas}</strong><br> 
-            🔍 Elementos encontrados <strong>${frutasRecolectadas}</strong><br>
-            ⏰ Tiempo <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>  
+            🔍 Elementos encontrados: <strong>${frutasRecolectadas}</strong><br>
+            ⏰ Tiempo: <strong>${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}</strong> <br>  
             Cada exploración te llevará a buen resultado. ¡Sigue explorando! 🔍<br>
             ¿Quieres seguir explorando esta misión o ir al menú principal?`;
             mensaje.style.color = '#214524';
