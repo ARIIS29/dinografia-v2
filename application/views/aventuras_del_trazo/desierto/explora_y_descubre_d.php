@@ -66,9 +66,9 @@
     }
 
     window.addEventListener('DOMContentLoaded', function() {
-        if (!sessionStorage.getItem('audioDinoReproducido_exploraDescubre')) {
+        if (!sessionStorage.getItem('audioDinoReproducido_exploraDescubreD')) {
             iniciarDino();
-            sessionStorage.setItem('audioDinoReproducido_exploraDescubre', 'true');
+            sessionStorage.setItem('audioDinoReproducido_exploraDescubreD', 'true');
         }
     });
 

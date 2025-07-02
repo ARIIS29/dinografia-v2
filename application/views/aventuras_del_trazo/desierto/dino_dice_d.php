@@ -20,7 +20,7 @@
                     <div id="tutorialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(244, 244, 244, 0.8); justify-content:center; align-items:center; z-index:1000;">
                         <div style="position:relative; padding:10px; border-radius:10px; max-width:90%; width:600px;">
                             <video id="tutorialVideo" width="100%" controls>
-                                <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_dino_dice_b.mp4'); ?>" type="video/mp4">
+                                <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_d/d_tutorial_dino_dice.mp4'); ?>" type="video/mp4">
                                 Tu navegador no soporta el video.
                             </video>
                             <!-- <button id="cerrarTutorial" >Cerrar</button> -->
@@ -215,7 +215,7 @@
             '📓': 'diario',
             '🏜️': 'desierto',
             '🍩': 'dona',
-            '🍑': 'diente',
+            '🦷': 'diente',
             '💿': 'disco',
             '🦖': 'dino',
             '🍬': 'dulce',
