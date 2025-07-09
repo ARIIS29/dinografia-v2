@@ -6,7 +6,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="modalInstruccionesLabel">
                     <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
-                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_letrab.mp3') ?>" preload="auto"></audio>
+                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_d/d_grafismo.mp3') ?>" preload="auto"></audio>
 
                     <b>¡Hola Explorador!</b>
                 </h5>
@@ -14,11 +14,11 @@
             </div>
             <div class="modal-body">
                 <p class="mb-3">
-                    En esta aventura aprenderemos a trazar la letra "b". Mira este video para aprender cómo utilizar la pizarra.
+                    En esta aventura realizaremos diferentes ejercicios con la letra "d". Mira este video para aprender como realizar los ejercicios.
                 </p>
                 <div class="ratio ratio-16x9">
                     <video id="tutorialVideo" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_letrab.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_d/d_tutorial_grafismo.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                 </div>
@@ -58,8 +58,8 @@
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
-            <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
-            <p class="texto_indicaciones_desierto mb-0">Usa tu dedo para trazar la letra "b" en la arena. ¡Diviértete practicando!</p>
+            <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/grafismo.mp3') ?>" preload="auto"></audio>
+            <p class="texto_indicaciones_desierto mb-0">¡Lee con atención las instrucciones de cada ejercicio!</p>
             <div class="col-1 d-none d-sm-block">
                 <a href="<?php echo base_url('galeria/galeriagd') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/desierto/btn-galeria_grafismo.png') ?>" alt="" class="img-fluid enlargable ms-3" width="80%">
@@ -87,6 +87,11 @@
             <div id="imagenContainer" class="col-lg-2">
                 <div class="row">
                     <div class="col-lg-8">
+
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/act_recuerda_el_animal.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_recuerda_el_animal.png'); ?>">
+                    </div>
+
+                    <div class="col-lg-8">
                         <img src="<?php echo base_url('almacenamiento/img/desierto/act_letra_d.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_letra_d.png'); ?>">
                     </div>
                     <div class="col-lg-8">
@@ -102,10 +107,10 @@
 
                     </div>
                     <div class="col-lg-8">
+                        <img src="<?php echo base_url('almacenamiento/img/desierto/act_letra_db.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_letra_db.png'); ?>">
 
-                        <img src="<?php echo base_url('almacenamiento/img/desierto/act_recuerda_el_animal.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/desierto/act_recuerda_el_animal.png'); ?>">
                     </div>
-
+                    
 
                 </div>
             </div>
