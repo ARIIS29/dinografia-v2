@@ -87,6 +87,9 @@
             <div id="imagenContainer" class="col-lg-2">
                 <div class="row">
                     <div class="col-lg-8">
+                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/act_bosque_bambú.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/act_bosque_bambú.png'); ?>">
+                    </div>
+                    <div class="col-lg-8">
                         <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/repasemos_ala_letra_b_actividad.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/repasemos_ala_letra_b_actividad.png'); ?>">
                     </div>
                     <div class="col-lg-8">
@@ -100,10 +103,6 @@
                     <div class="col-lg-8">
                         <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/que_letra_falta.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/que_letra_falta.png'); ?>">
 
-                    </div>
-                    <div class="col-lg-8">
-
-                        <img src="<?php echo base_url('almacenamiento/img/bosque_bambu/recuerdas_animal_actividad.png'); ?>" class="imagen-previa" data-src="<?php echo base_url('almacenamiento/img/bosque_bambu/recuerdas_animal_actividad.png'); ?>">
                     </div>
 
 

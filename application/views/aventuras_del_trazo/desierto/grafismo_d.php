@@ -71,7 +71,7 @@
 
         <div class="col-lg-8 text-center">
             <input type="color" id="color" value="#A1420F" title="Gama de colores">
-            <input type="range" id="grosor" min="5" max="15" value="1" title="Grosor de la línea">
+            <input type="range" id="grosor" min="3" max="25" value="1" title="Grosor de la línea">
             <!-- <button id="lapiz" type="button">Lápiz</button>
         <button id="limpiar">Limpiar</button>
         <button id="guardar">Guardar</button> -->

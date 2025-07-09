@@ -17,7 +17,7 @@
                 <img src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3 d-none d-sm-block" id="dino" width="7%">
                 <!-- Texto -->
                 <p class="texto_indicaciones_desierto mb-0">¡Comencemos con la exploración, haciendo clic en un botón!</p>
-                <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/audio_desierto.mp3') ?>" preload="auto"></audio>
+                <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audios_d/audio_desierto.mp3') ?>" preload="auto"></audio>
             </div>
             <div class="row justify-content-center text-center">
                 <!-- Botón 1 -->

@@ -24,17 +24,17 @@
                 </a>
             </div>
             <!-- Botón 3 -->
-            <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4">
+            <!-- <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4">
                 <a href="<?php echo base_url('ejercicios/ejercicios_letra_p/index') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/botones/btn-playa.png') ?>" alt="Explorador de Hojas" class="img-fluid enlargable" width="100%">
                 </a>
-            </div>
+            </div> -->
             <!-- Botón 4 -->
-            <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4">
+            <!-- <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4">
                 <a href="<?php echo base_url('ejercicios/ejercicios_letra_q/index') ?>">
                     <img src="<?php echo base_url('almacenamiento/img/botones/btn-quetzal.png') ?>" alt="Dino Dice" class="img-fluid enlargable" width="100%">
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -44,12 +44,19 @@
     const dino = document.getElementById('dino');
     const audio = document.getElementById('dinoAudio');
 
-    // Inicia animación y audio al cargar la página
-    window.addEventListener('DOMContentLoaded', function() {
+    // Función para iniciar animación y audio
+    function iniciarDino() {
         dino.classList.add('dino-hablando'); // Inicia la animación
         audio.play().catch(error => {
             console.log("Error al reproducir el audio automáticamente:", error);
         });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+        if (!sessionStorage.getItem('audioDinoReproducido_aventuras_del_trazo')) {
+            iniciarDino();
+            sessionStorage.setItem('audioDinoReproducido_aventuras_del_trazo', 'true');
+        }
     });
 
     // Manejo del clic en Dino

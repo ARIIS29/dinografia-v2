@@ -8,7 +8,7 @@
             <img src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid dino-hablando me-3 d-none d-sm-block" id="dino" width="6%">
             <!-- Texto -->
             <p class="texto_indicaciones_desierto mb-0"> ¡Haz clic en un botón y tracemos juntos grandes aventuras!</p>
-            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_trazando_aventuras.mp3') ?>" preload="auto"></audio>
+            <audio id="dinoAudio" src="<?php echo base_url('almacenamiento/audios/audios_d/d_trazando_aventuras.mp3') ?>" preload="auto"></audio>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 btn-transicion">

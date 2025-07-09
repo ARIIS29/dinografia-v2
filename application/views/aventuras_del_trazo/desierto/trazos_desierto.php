@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="modalInstruccionesLabel">
                     <img id="dinoModal" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3" width="8%">
-                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_b/b_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
+                    <audio id="dinoModalAudio" src="<?php echo base_url('almacenamiento/audios/audios_d/d_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
 
                     <b>¡Hola Explorador!</b>
                 </h5>
@@ -17,7 +17,7 @@
                 </p>
                 <div class="ratio ratio-16x9">
                     <video id="tutorialVideo" controls>
-                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_b/b_tutorial_trazos_arena.mp4'); ?>" type="video/mp4">
+                        <source src="<?php echo base_url('almacenamiento/img/desierto/tutorial_d/d_tutorial_trazos_arena.mp4'); ?>" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
                 </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="col-lg-12 col-md-12 d-flex align-items-center">
             <img id="dinoIndicaciones" src="<?php echo base_url('almacenamiento/img/desierto/dino-indicaciones.png') ?>" alt="Img-Dino-Indicaciones" class="img-fluid me-3 d-none d-sm-block" style="cursor: pointer;" width="6%">
-            <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audio_trazos_arena_indicaciones.mp3') ?>" preload="auto"></audio>
+            <audio id="dinoIndicacionesAudio" src="<?php echo base_url('almacenamiento/audios/audios_d/audio_trazos_arena_indicaciones_d.mp3') ?>" preload="auto"></audio>
             <p class="texto_indicaciones_desierto mb-0">Usa tu dedo para trazar la letra "d" en la arena del desierto. ¡Diviértete practicando!</p>
             <div class="col-1 d-none d-sm-block">
                 <a href="<?php echo base_url('galeria/galeriatd') ?>">
